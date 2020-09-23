@@ -6,13 +6,27 @@ A TecSUS realiza a gestão de contas de utilidades (água e energia) dos seus cl
 
 # Integrantes
 Eguimar Batista da Costa <eguimar.costa@fatec.sp.gov.br>
+
 Ruan Cesar Lima de Macedo <ruan.macedo@fatec.sp.gov.br>
+
 Tobias da Silva Lino <tobias.lino@fatec.sp.gov.br>
+
 Wallace Caetano Souza Santos <wallace.santos13@fatec.sp.gov.br>
+
 William David Antoniazzi <william.antoniazzi@fatec.sp.gov.br>
+
 
 # Sprints
 ## Sprint - 1
+### Requisitos dos sistema
+[DDC - Cadastro de conta de agua e energia.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268548/DDC.-.Cadastro.de.conta.de.agua.e.energia.pdf)
+
+[DDC - Cadastro de Usuario.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268553/DDC.-.Cadastro.de.Usuario.pdf)
+
+[DDC - Relatorio de consumo.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268554/DDC.-.Relatorio.de.consumo.pdf)
+
+[DDC - Relatorio de custos.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268555/DDC.-.Relatorio.de.custos.pdf)
+
 ## Sprint - 2
 ## Sprint - 3
 ## Sprint - 4
