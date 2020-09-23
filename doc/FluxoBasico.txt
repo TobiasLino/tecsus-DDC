@@ -2,7 +2,8 @@
 Storie Cards
 ============================================================================================
 
-Tela de Cadastro
+
+Tela de Cadastro de contas
 ============================================================================================
 	- O usuário Manager seleciona o cliente;
 	- O usuário Manager Seleciona o tipo de conta a ser cadastrada;
@@ -10,8 +11,27 @@ Tela de Cadastro
 	- O usuário Manager seleciona a opção de salvar cadastro;
 	- A conta é salva no sistema.
 
+**OBS: de início, não é necessário o cadastro de concessionárias, mas sim apenas a verificação dos dados utilizando
+	a API da receita federal.
 
-Tela de Contas
+
+Tela de cadastro de clientes
+============================================================================================
+	- O usuário Manager seleciona a opção "cadastrar cliente" na tela de contas;
+	- O usuário Manager preenche os campos com os dados do cliente;
+	- O usuário seleciona a opção "salvar";
+	- O cliente é adicionado no sistema.
+	
+	
+Tela de cadastro de usuários
+============================================================================================
+	- O usuário Manager seleciona a opção "cadastrar usuário" na tela de contas;
+	- O usuário Manager preenche os campos com os dados do novo usuário;
+	- O usuário Manager seleciona a opção "salvar";
+	- O novo usuário é adicionado no sistema.
+
+
+Tela de contas
 ============================================================================================
 	- O usuário Manager seleciona a opção "Novo cadastro";
 	- O usuário é direciona para a tela de Cadastro.
