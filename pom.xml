@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>Unknown</groupId>
-  <artifactId>hello</artifactId>
+  <artifactId>tecsus</artifactId>
   <version>Unknown</version>
   <packaging>war</packaging>
 
@@ -35,20 +35,30 @@
     </dependency>
   </dependencies>
 
+
   <build>
-    <finalName>hello</finalName>
+    <finalName>tecsus</finalName>
     <plugins>
       <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
-        <configuration>
-          <url>http://localhost:9090/manager/text</url>
-          <server>TomcatServer</server>
-          <path>/hello</path>
-        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals><goal>copy</goal></goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.heroku</groupId>
+                  <artifactId>webapp-runner</artifactId>
+                  <version>9.0.30.0</version>
+                  <destFileName>webapp-runner.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
-
     </plugins>
   </build>
 </project>
