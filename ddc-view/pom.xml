@@ -5,12 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.tecsus.ddc</groupId>
-  <artifactId>tecsus-ddc</artifactId>
+  <artifactId>ddc-view</artifactId>
   <version>v0.1</version>
   <packaging>war</packaging>
-
-  <name>tecsus-DDC</name>
-  <url>https://tecsus-ddc.herokuapp.com/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,12 +22,20 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
 
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 
   <build>
     <finalName>${project.artifactId}-${project.version}</finalName>
     <directory>${basedir}/target</directory>
+    <outputDirectory>${basedir}/target/classes</outputDirectory>
+    <testOutputDirectory>${basedir}/target/test-classes</testOutputDirectory>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
