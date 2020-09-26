@@ -18,14 +18,14 @@ William David Antoniazzi <william.antoniazzi@fatec.sp.gov.br>
 
 # Sprints
 ## Sprint - 1
-### Requisitos dos sistema
-[DDC - Cadastro de conta de agua e energia.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268548/DDC.-.Cadastro.de.conta.de.agua.e.energia.pdf)
+### Users Stories
+[Cadastro de conta de agua e energia](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC%20-%20Cadastro%20de%20conta%20de%20agua%20e%20energia.pdf)
 
-[DDC - Cadastro de Usuario.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268553/DDC.-.Cadastro.de.Usuario.pdf)
+[DUsuários e acessos](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC-Usuarios%20e%20acessos.pdf)
 
-[DDC - Relatorio de consumo.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268554/DDC.-.Relatorio.de.consumo.pdf)
+[Relatorio de consumo](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC%20-%20Relatorio%20de%20consumo.pdf)
 
-[DDC - Relatorio de custos.pdf](https://github.com/TobiasLino/tecsus-DDC/files/5268555/DDC.-.Relatorio.de.custos.pdf)
+[Relatorio de custos](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC%20-%20Relatorio%20de%20custos.pdf)
 
 ## Sprint - 2
 ## Sprint - 3
