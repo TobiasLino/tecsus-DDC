@@ -29,7 +29,7 @@ William David Antoniazzi <william.antoniazzi@fatec.sp.gov.br>
 
 [Wireframe Sistema DDC](https://github.com/TobiasLino/tecsus-DDC/blob/master/doc/DDC_TECSUS_Wireframes.pdf)
 
-Acesso pela aplicação FIGMA [Wireframe sistema DDC](https://www.figma.com/file/xwv6O3rmQvlolX2uOWqfzf/DDC_TECSUS)
+Acesso pela aplicação FIGMA [Wireframe sistema DDC](https://www.figma.com/proto/xwv6O3rmQvlolX2uOWqfzf/DDC_TECSUS?node-id=1%3A2&viewport=26%2C183%2C0.8997531533241272&scaling=scale-down)
 
 ## Sprint - 2
 ## Sprint - 3
