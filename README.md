@@ -21,7 +21,7 @@ William David Antoniazzi <william.antoniazzi@fatec.sp.gov.br>
 ### Users Stories
 [Cadastro de conta de agua e energia](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC%20-%20Cadastro%20de%20conta%20de%20agua%20e%20energia.pdf)
 
-[DUsuários e acessos](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC-Usuarios%20e%20acessos.pdf)
+[Usuários e acessos](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC-Usuarios%20e%20acessos.pdf)
 
 [Relatorio de consumo](https://github.com/TobiasLino/tecsus-DDC/blob/doc_sprint01_tobias/doc/DDC%20-%20Relatorio%20de%20consumo.pdf)
 
