@@ -1,0 +1,177 @@
+==========================================================================
+
+Estrutura de Arquivos
+==========================================================================
+
+| /src -------- /ddc-model	-> Onde iremos guardar os modelos de classes do banco de dados.
+|	\				\
+|	 \		 	 	 \-- /main
+|	  \						\
+|	   \		 		 	 \--- /java -> Classes e pacotes Java.
+|		\				 	  \-- /test -> Testes para as classes em java.
+|		 \
+|		  \----- /ddc-controller -> onde iremos fazer o controle das requisições do frontend ao backend.
+|		   \			\
+|		    \		 	 \-- /main
+|			 \					\
+|			  \	 		 	 	 \--- /java -> Classes e pacotes Java.
+|			   \			  	  \-- /test -> Testes para as classes em java.
+|			    \
+|			     \---- /ddc-view
+|							\
+|							 \-- /main
+|									\
+|									 \--- /java -> Classes e pacotes Java.
+|									  \-- /test -> Testes para as classes em java.
+|									   \
+|										\- /webapp -> frontend.
+|							 
+
+
+
+==========================================================================
+Estrutura de Pacotes
+
+com.tecsus.ddc
+ \    \		\
+  \    \	 \-- Digitação de Contas
+   \	\
+    \	 \------ Empresa tecsus
+	 \
+	  \--------- Comercial
+
+
+Todos os pacotes deverão seguir esse padrão.
+Após esse nome vem o nome do pacote em si,
+	ex: com.tecsus.ddc.ddc-controller
+		com.tecsus.ddc.environment.properties_config
+
+
+
+==========================================================================
+Estrutura do Deploy
+
+QAS -> Ambiente de qualidade de software.
+
+	O desenvolvedor faz o push com seus commits para a QAS, não para a master.
+Assim, o responsável pela qualidade realiza a revisão do código e pode fazer o
+deploy para o ambiente de testes QAS, na Heroku. Este ambiente é voltado para
+os desenvolvedores poderem testar seu código na prática antes de enviar para a
+produção.
+
+PRODUÇÂO -> Ambiente onde a solução será entregue e disponibilizada para o cliente.
+
+	O responsável pela QAS faz as devidas revisões e, se aprovadas, realiza o
+deploy no ambiente de PRODUÇÂO na Heroku, efetivando a criação/melhoria.
+
+
+
+==========================================================================
+Ambiente de Testes
+
+Localhost -> Cada desenvolvedor deverá rodar seus testes no localhost antes de
+	enviar para o QAS.
+	O teste pode ser feito da seguinte forma:
+		1 - Executando o sistema.
+			1 - Entre na pasta raíz do projeto e abra um prompt de comando (terminal).
+			2 - digite ' mvn package ' (sem as aspas) para empacotar o seu projeto.
+			3 - rode o sistema utilizando o comando:
+			
+				java -jar target\dependency\webapp-runner.jar target\*.war
+				
+				Esse comando roda o arquivo war gerado pelo empacotamento anterior utilizando
+				o webapp-runner.
+				Obs: Por padrão o webapp-runner roda na porta 8080, se for necessário alterar,
+					basta adicionar os parâmetros ' --port <porta_desejada> ' (sem as aspas) no
+					final do comando anterior.
+					
+		2 - Executando os testes sobre o sistema.
+			1 - Com o sistema funcionando no localhost, rode seus testes unitários passando a url
+				do localhost + a porta.
+				Ex: http://localhost:8080 ou http://localhost:<porta_desejada>
+			
+			Obs: É recomendável rodar seus testes utilizando o HttpClient e o Gson para converter
+				as responses em Json.
+
+
+
+==========================================================================
+Branchs e Commits
+
+Os commits deverão ser feitos para a branch QAS antes de ser enviada para a master.
+Nos commit não é necessário descrições muito detalhadas, apenas se o desenvolvedor
+achar muito necessário.
+
+O padrão para criação de branchs é:
+	
+	feature_sprint02_nome
+
+O padrão de commits é
+	<módulo>: <atividade>: <nome do commit>
+
+	Ex_1:
+		model: feature: Criando classe de Usuário.
+	Ex_2:
+		view: bug: Corrigindo bug de atalhos de tecla.
+
+
+
+
+==========================================================================
+Reportando testes (QAS)
+
+Para reportar testes basta comentar, em cima de cada método de teste, o objetivo daquele teste e
+expor isso em seu comentário no commit.
+
+Ex de commit: 
+	model: test: Teste de requisição de usuário.
+	
+	Na classe UserRequestTest foram realizados 8 testes para verificar se as responses da
+	request estão sendo feitas corretamente.
+	Todos passaram.
+	
+	Signed-off-by: TobiasLino <tobias.lino@fatec.sp.gov.br>
+
+
+
+==========================================================================
+Reportando bugs e testes complexos
+
+Para reportar testes complexos ou bugs para o QAS, basta adicionar um arquivo .txt junto com as
+classes de teste, no mesmo pacote. Esse .txt deve conter onde foi encontrado o erro e uma breve
+descrição do bug. Para testes complexos, esse arquivo deve conter uma descrição do teste e os
+resultados, junto com o nome do analista que testou.
+
+Ex de arquivo.txt: bugs:
+
+|==================================================================================|
+|																				   |
+|	Bug: view.														  			   |
+|																				   |
+|		Quando o usuário tenta cadastrar uma conta utilizando a tecla de atalho,   |
+|		o sistema abre a tela padrão e não a tela com a conta desejada.            |
+|																				   |
+|==================================================================================|
+
+
+Ex de arquivo.txt: Testes complexos:
+
+|==================================================================================|
+|																				   |
+|	ComplexTest: model												  			   |
+|																				   |
+|		Teste complexo em model, verificando a disponibilizade de todos os         |
+|		endpoint de uma vez, necessário cobrir todas as urls do sistema para	   |
+|		garantir que está 100% funcionando antes de mandar pra produção. 		   |
+|																				   |
+|		Resultados:																   |
+|		model.UserService -> Ok													   |
+|		model.CountService -> Ok												   |
+|		model.HistorycService -> Ok												   |
+|																				   |
+|	Analista: TobiasLino. QAS.													   |
+|																				   |
+|==================================================================================|
+
+
+
