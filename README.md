@@ -19,17 +19,17 @@ William David Antoniazzi <william.antoniazzi@fatec.sp.gov.br>
 # Sprints
 ## Sprint - 1
 ### Users Stories
-[Cadastro de conta de agua e energia](https://github.com/TobiasLino/tecsus-DDC/doc/DDC%20-%20Cadastro%20de%20conta%20de%20agua%20e%20energia.pdf)
+[Cadastro de conta de agua e energia](https://github.com/TobiasLino/tecsus-DDC/blob/master/doc/DDC%20-%20Cadastro%20de%20conta%20de%20agua%20e%20energia.pdf)
 
-[Usuários e acessos](https://github.com/TobiasLino/tecsus-DDC/doc/DDC-Usuarios%20e%20acessos.pdf)
+[Usuários e acessos](https://github.com/TobiasLino/tecsus-DDC/blob/master/doc/DDC-Usuarios%20e%20acessos.pdf)
 
-[Relatorio de consumo](https://github.com/TobiasLino/tecsus-DDC/doc/DDC%20-%20Relatorio%20de%20consumo.pdf)
+[Relatorio de consumo](https://github.com/TobiasLino/tecsus-DDC/blob/master/doc/DDC%20-%20Relatorio%20de%20consumo.pdf)
 
-[Relatorio de custos](https://github.com/TobiasLino/tecsus-DDC/doc/DDC%20-%20Relatorio%20de%20custos.pdf)
+[Relatorio de custos](https://github.com/TobiasLino/tecsus-DDC/blob/master/doc/DDC%20-%20Relatorio%20de%20custos.pdf)
 
 ### Wireframes
 
-[Wireframe Sistema DDC](https://github.com/TobiasLino/tecsus-DDC/doc/DDC_TECSUS_Wireframes.pdf)
+[Wireframe Sistema DDC](https://github.com/TobiasLino/tecsus-DDC/blob/master/doc/DDC_TECSUS_Wireframes.pdf)
 
 Acesso pela aplicação FIGMA [Wireframe sistema DDC](https://www.figma.com/proto/xwv6O3rmQvlolX2uOWqfzf/DDC_TECSUS?node-id=1%3A2&viewport=26%2C183%2C0.8997531533241272&scaling=scale-down)
 
