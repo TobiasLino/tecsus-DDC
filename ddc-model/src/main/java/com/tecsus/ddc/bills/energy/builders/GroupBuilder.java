@@ -14,7 +14,7 @@ public class GroupBuilder {
     private Posts posts;
 
     public Group build() {
-        return new Group(group, subGroup, classes, subClasses, modalities, posts);
+        return new Group(group, subGroup, classes, subClasses, modalities);
     }
 
     public GroupBuilder group(final Groups group) {

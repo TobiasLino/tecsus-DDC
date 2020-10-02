@@ -12,5 +12,13 @@
     <groupId>com.tecsus.ddc</groupId>
     <artifactId>ddc-view</artifactId>
 
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
 
 </project>

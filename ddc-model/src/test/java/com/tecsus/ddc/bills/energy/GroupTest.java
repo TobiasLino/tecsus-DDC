@@ -1,5 +1,6 @@
 package com.tecsus.ddc.bills.energy;
 
+import org.junit.Assert;
 import org.junit.Test;
 import com.tecsus.ddc.bills.energy.builders.GroupBuilder;
 import com.tecsus.ddc.bills.energy.enums.*;
@@ -17,5 +18,9 @@ public class GroupTest {
                 .modalities(Modalities.AZUL)
                 .build();
 
+        Assert.assertEquals(Groups.A, group.getGroups());
+        Assert.assertEquals(Subgroups.A1, group.getSubGroup());
+        Assert.assertEquals(Classes.INDUSTRIAL, group.getClasses());
+        Assert.assertEquals(Modalities.AZUL, group.getModalities());
     }
 }

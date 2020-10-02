@@ -55,7 +55,7 @@ public class Group {
                 '}';
     }
 
-    public Groups getGroup() {
+    public Groups getGroups() {
         return group;
     }
 

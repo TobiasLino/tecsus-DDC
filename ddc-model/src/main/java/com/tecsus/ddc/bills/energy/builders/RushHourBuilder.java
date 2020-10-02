@@ -18,17 +18,17 @@ public class RushHourBuilder {
         return cal;
     }
 
-    public EnergyBillRushHourBuilder  setHours(final int hours) {
+    public RushHourBuilder  setHours(final int hours) {
         this.hours = hours;
         return this;
     }
 
-    public EnergyBillRushHourBuilder  setMinutes(final int minutes) {
+    public RushHourBuilder  setMinutes(final int minutes) {
         this.minutes = minutes;
         return this;
     }
 
-    public EnergyBillRushHourBuilder  setSeconds(final int seconds) {
+    public RushHourBuilder  setSeconds(final int seconds) {
         this.seconds = seconds;
         return this;
     }
