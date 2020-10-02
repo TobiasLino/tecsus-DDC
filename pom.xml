@@ -9,6 +9,17 @@
     <packaging>pom</packaging>
     <version>v0.1</version>
 
+    <developers>
+        <developer>
+            <name>Tobias da Silva Lino</name>
+            <organization>DDC</organization>
+            <email>tobias.lino@fatec.sp.gov.br</email>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
     <modules>
         <module>ddc-model</module>
         <module>ddc-controller</module>
