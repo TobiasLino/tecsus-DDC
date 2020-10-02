@@ -9,9 +9,9 @@ Papéis
 		<william.antoniazzi@fatec.sp.gov.br>
 	Ruan - master
 		<ruan.macedo@fatec.sp.gov.br>
-	Wallace - PO
+	Wallace - DEV
 		<wallace.santos13@fatec.sp.gov.br>
-	Tobias - DEV
+	Tobias - PO
 		<tobias.lino@fatec.sp.gov.br>
 ==============================================================================================
 Links Úteis
