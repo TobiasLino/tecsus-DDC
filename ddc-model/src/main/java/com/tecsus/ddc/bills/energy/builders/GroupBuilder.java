@@ -5,13 +5,11 @@ import com.tecsus.ddc.bills.energy.enums.*;
 
 public class GroupBuilder {
 
-
     private Groups group;
     private Subgroups subGroup;
     private Classes classes;
     private SubClasses subClasses;
     private Modalities modalities;
-    private Posts posts;
 
     public Group build() {
         return new Group(group, subGroup, classes, subClasses, modalities);
@@ -39,11 +37,6 @@ public class GroupBuilder {
 
     public GroupBuilder modalities(final Modalities modalities) {
         this.modalities = modalities;
-        return this;
-    }
-
-    public GroupBuilder posts(final Posts posts) {
-        this.posts = posts;
         return this;
     }
 }
