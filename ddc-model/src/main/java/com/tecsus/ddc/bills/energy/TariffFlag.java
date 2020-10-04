@@ -4,8 +4,10 @@ import com.tecsus.ddc.bills.energy.enums.TariffFlags;
 import org.joda.time.DateTime;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
+/**
+ * @author TOBIASDASILVALINO
+ */
 public class TariffFlag {
 
     private TariffFlags flag;

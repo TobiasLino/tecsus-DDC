@@ -1,7 +1,7 @@
 package com.tecsus.ddc.bills.energy;
 
+import com.tecsus.ddc.bills.energy.builders.TariffFlagBuilder;
 import com.tecsus.ddc.bills.energy.enums.TariffFlags;
-import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,17 +15,24 @@ public class EnergyBillTest {
     @Test
     public void energyBillHasTheCorrectFlagTest() {
         EnergyBill en = new EnergyBill();
-        DateTime start = new DateTime().withDate(2020,10,1);
-        DateTime finish = new DateTime().withDate(2020,10,4);
-        TariffFlag green = new TariffFlag(TariffFlags.VERDE, start, finish);
 
-        DateTime start1 = new DateTime().withDate(2020,10,5);
-        DateTime finish1 = new DateTime().withDate(2020,10,20);
-        TariffFlag yellow = new TariffFlag(TariffFlags.AMARELA, start1, finish1);
+        TariffFlag green = new TariffFlagBuilder()
+                .flag(TariffFlags.VERDE)
+                .start(1, 10, 2020)
+                .finish(4, 10, 2020)
+                .build();
 
-        DateTime start2 = new DateTime().withDate(2020,10,21);
-        DateTime finish2 = new DateTime().withDate(2020,10,31);
-        TariffFlag yellow2 = new TariffFlag(TariffFlags.AMARELA, start2, finish2);
+        TariffFlag yellow = new TariffFlagBuilder()
+                .flag(TariffFlags.AMARELA)
+                .start(5, 10, 2020)
+                .finish(20, 10, 2020)
+                .build();
+
+        TariffFlag yellow2 = new TariffFlagBuilder()
+                .flag(TariffFlags.AMARELA)
+                .start(21, 10, 2020)
+                .finish(31, 10, 2020)
+                .build();
 
         en.addTariffFlag(green);
         en.addTariffFlag(yellow);
@@ -40,10 +47,10 @@ public class EnergyBillTest {
         Assert.assertEquals(1, l1.size());
         Assert.assertEquals(2, l2.size());
 
-        l1.stream().forEach(i -> {
+        l1.forEach(i -> {
             System.out.println(i.toString());
         });
-        l2.stream().forEach(i -> {
+        l2.forEach(i -> {
             System.out.println(i.toString());
         });
     }
