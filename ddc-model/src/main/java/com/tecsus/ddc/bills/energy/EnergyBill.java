@@ -6,21 +6,33 @@ package com.tecsus.ddc.bills.energy;
 import com.tecsus.ddc.bills.energy.enums.TariffFlags;
 import org.joda.time.DateTime;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class EnergyBill {
 
     private DateTime emission;
     private double tension;     // Volts
     private ConsumptionDescription consumptionDescription;
     private Group group;    // Grupo/subgrupo classe/subclasse
-    private Demand demand;    // apenas grupo A
     private RushHour rushHour;  // apenas para grupo A industrial
-    private TariffFlags tariffFlag;
+    private List<TariffFlag> tariffFlags = new ArrayList<>();
 
-    public TariffFlags getTariffFlag() {
-        return tariffFlag;
+    public List<TariffFlag> getTariffFlags() {
+        return tariffFlags;
     }
 
-    public void setTariffFlag(TariffFlags tariffFlag) {
-        this.tariffFlag = tariffFlag;
+    public List<TariffFlag> getTariffFlag(TariffFlags flag) {
+        if (tariffFlags.isEmpty()) {
+            return null;
+        }
+        return tariffFlags.stream()
+                .filter(f -> f.getFlag().equals(flag))
+                .collect(Collectors.toList());
+    }
+
+    public void addTariffFlag(TariffFlag tariffFlag) {
+        this.tariffFlags.add(tariffFlag);
     }
 }
