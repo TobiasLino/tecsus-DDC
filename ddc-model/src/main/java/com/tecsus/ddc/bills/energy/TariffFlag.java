@@ -17,7 +17,10 @@ public class TariffFlag {
     public TariffFlag() {
     }
 
-    public TariffFlag(TariffFlags flag, DateTime start, DateTime finish) {
+    public TariffFlag(
+            final TariffFlags flag,
+            final DateTime start,
+            final DateTime finish) {
         this.flag = flag;
         this.start = start;
         this.finish = finish;
@@ -37,7 +40,7 @@ public class TariffFlag {
         return flag;
     }
 
-    public void setFlag(TariffFlags flag) {
+    public void setFlag(final TariffFlags flag) {
         this.flag = flag;
     }
 
@@ -45,7 +48,7 @@ public class TariffFlag {
         return start;
     }
 
-    public void setStart(DateTime start) {
+    public void setStart(final DateTime start) {
         this.start = start;
     }
 
@@ -53,7 +56,7 @@ public class TariffFlag {
         return finish;
     }
 
-    public void setFinish(DateTime finish) {
+    public void setFinish(final DateTime finish) {
         this.finish = finish;
     }
 }

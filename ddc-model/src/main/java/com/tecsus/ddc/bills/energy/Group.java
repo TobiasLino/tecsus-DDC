@@ -59,7 +59,7 @@ public class Group {
         return group;
     }
 
-    public void setGroup(Groups group) {
+    public void setGroup(final Groups group) {
         this.group = group;
     }
 
@@ -67,7 +67,7 @@ public class Group {
         return subGroup;
     }
 
-    public void setSubGroup(Subgroups subGroup) {
+    public void setSubGroup(final Subgroups subGroup) {
         this.subGroup = subGroup;
     }
 
@@ -75,7 +75,7 @@ public class Group {
         return classes;
     }
 
-    public void setClasses(Classes classes) {
+    public void setClasses(final Classes classes) {
         this.classes = classes;
     }
 
@@ -83,7 +83,7 @@ public class Group {
         return subClasses;
     }
 
-    public void setSubClasses(SubClasses subClasses) {
+    public void setSubClasses(final SubClasses subClasses) {
         this.subClasses = subClasses;
     }
 
@@ -91,7 +91,7 @@ public class Group {
         return modalities;
     }
 
-    public void setModalities(Modalities modalities) {
+    public void setModalities(final Modalities modalities) {
         this.modalities = modalities;
     }
 }

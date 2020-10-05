@@ -1,6 +1,5 @@
 package com.tecsus.ddc.bills.energy;
 
-
 /*
  * @author Tobias Lino
  */
@@ -40,7 +39,7 @@ public class ConsumptionDescription {
         return meterNumber;
     }
 
-    public void setMeterNumber(long meterNumber) {
+    public void setMeterNumber(final long meterNumber) {
         this.meterNumber = meterNumber;
     }
 
@@ -48,7 +47,7 @@ public class ConsumptionDescription {
         return previousReading;
     }
 
-    public void setPreviousReading(double previousReading) {
+    public void setPreviousReading(final double previousReading) {
         this.previousReading = previousReading;
     }
 
@@ -56,7 +55,7 @@ public class ConsumptionDescription {
         return actualReading;
     }
 
-    public void setActualReading(double actualReading) {
+    public void setActualReading(final double actualReading) {
         this.actualReading = actualReading;
     }
 
@@ -64,7 +63,7 @@ public class ConsumptionDescription {
         return constMult;
     }
 
-    public void setConstMult(double constMult) {
+    public void setConstMult(final double constMult) {
         this.constMult = constMult;
     }
 
@@ -72,7 +71,7 @@ public class ConsumptionDescription {
         return kWhQuantityPerMonth;
     }
 
-    public void setkWhQuantityPerMonth(double kWhQuantityPerMonth) {
+    public void setkWhQuantityPerMonth(final double kWhQuantityPerMonth) {
         this.kWhQuantityPerMonth = kWhQuantityPerMonth;
     }
 }

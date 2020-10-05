@@ -28,7 +28,7 @@ public class RushHour {
         return start;
     }
 
-    public void setStart(Calendar start) {
+    public void setStart(final Calendar start) {
         this.start = start;
     }
 
@@ -36,7 +36,7 @@ public class RushHour {
         return finish;
     }
 
-    public void setFinish(Calendar finish) {
+    public void setFinish(final Calendar finish) {
         this.finish = finish;
     }
 }
