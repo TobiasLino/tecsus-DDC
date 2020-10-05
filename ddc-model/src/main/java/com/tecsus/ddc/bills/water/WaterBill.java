@@ -1,11 +1,13 @@
 package com.tecsus.ddc.bills.water;
 
+import com.tecsus.ddc.bills.Bill;
+
 import java.util.Objects;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class WaterBill {
+public class WaterBill extends Bill {
 
     private long cod;
     private String hydrometer;

@@ -1,5 +1,6 @@
 package com.tecsus.ddc.bills.energy;
 
+import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.enums.ProductDescription;
 import com.tecsus.ddc.bills.energy.enums.TariffFlags;
 import org.joda.time.DateTime;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * @author TOBIASDASILVALINO
  */
-public class EnergyBill {
+public class EnergyBill extends Bill {
 
     private DateTime emission;
     private double tension;     // Volts
