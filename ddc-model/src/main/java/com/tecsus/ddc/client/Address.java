@@ -1,5 +1,7 @@
 package com.tecsus.ddc.client;
 
+import com.tecsus.ddc.client.enums.State;
+
 import java.util.Objects;
 
 /**
@@ -13,7 +15,7 @@ public class Address {
     private String complement;
     private String neighborhood;
     private String city;
-    private String uf;
+    private State uf;
 
     public Address(
             final String zip,
@@ -22,7 +24,7 @@ public class Address {
             final String complement,
             final String neighborhood,
             final String city,
-            final String uf) {
+            final State uf) {
         this.zip = zip;
         this.street = street;
         this.number = number;
@@ -99,11 +101,11 @@ public class Address {
         this.city = city;
     }
 
-    public String getUf() {
+    public State getUf() {
         return uf;
     }
 
-    public void setUf(String uf) {
+    public void setUf(State uf) {
         this.uf = uf;
     }
 }

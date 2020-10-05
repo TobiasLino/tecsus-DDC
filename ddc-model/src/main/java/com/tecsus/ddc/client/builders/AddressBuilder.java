@@ -1,6 +1,7 @@
 package com.tecsus.ddc.client.builders;
 
 import com.tecsus.ddc.client.Address;
+import com.tecsus.ddc.client.enums.State;
 
 /**
  * @author TOBIASDASILVALINO
@@ -13,7 +14,7 @@ public class AddressBuilder {
     private String complement;
     private String neighborhood;
     private String city;
-    private String uf;
+    private State uf;
 
     public Address build() {
         return new Address(
@@ -56,7 +57,7 @@ public class AddressBuilder {
         return this;
     }
 
-    public AddressBuilder uf(String uf) {
+    public AddressBuilder uf(State uf) {
         this.uf = uf;
         return this;
     }
