@@ -1,10 +1,10 @@
 package com.tecsus.ddc.bills.utils;
 
-public class Propertiesimpl {
+public class PropertiesLoaderImpl {
 
     private PropertiesLoader loader;
 
-    public Propertiesimpl(String fileName) {
+    public PropertiesLoaderImpl(String fileName) {
         loader = new PropertiesLoader(fileName);
     }
 
