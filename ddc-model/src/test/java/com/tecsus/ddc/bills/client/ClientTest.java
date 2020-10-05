@@ -5,6 +5,7 @@ import com.tecsus.ddc.client.Instalation;
 import com.tecsus.ddc.client.builders.AddressBuilder;
 import com.tecsus.ddc.client.builders.ClientBuilder;
 import com.tecsus.ddc.client.Client;
+import com.tecsus.ddc.client.enums.State;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class ClientTest {
                 .number("303")
                 .neighborhood("JARDIM BOTANICO")
                 .city("RIO DE JANEIRO")
-                .uf("SP")
+                .uf(State.SP)
                 .complement("")
                 .build();
         Address panorama = new AddressBuilder()
@@ -29,7 +30,7 @@ public class ClientTest {
                 .number("1110")
                 .neighborhood("Panorama")
                 .city("RIO DE JANEIRO")
-                .uf("SP")
+                .uf(State.SP)
                 .complement("")
                 .build();
         Instalation botInst = new Instalation(112354866, botanico);
