@@ -9,16 +9,16 @@ public class ConnectorConfig {
 
     private final String PROPERTIES = "database-connection.properties";
 
-    private String host;
-    private String name;
-    private String port;
-    private String uri;
-    private String driver;
-    private String username;
-    private String passwd;
+    private final String host;
+    private final String name;
+    private final String port;
+    private final String uri;
+    private final String driver;
+    private final String username;
+    private final String passwd;
 
     public ConnectorConfig() {
-        PropertiesLoaderImpl loader = new PropertiesLoaderImpl(PROPERTIES);
+        final PropertiesLoaderImpl loader = new PropertiesLoaderImpl(PROPERTIES);
 
         this.host = loader.getProperty("database.host");
         this.name = loader.getProperty("database.name");
