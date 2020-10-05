@@ -12,6 +12,18 @@
     <groupId>com.tecsus.ddc</groupId>
     <artifactId>ddc-controller</artifactId>
 
+    <properties>
+        <ddc-model.version>v0.1</ddc-model.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.tecsus.ddc</groupId>
+            <artifactId>ddc-model</artifactId>
+            <version>${ddc-model.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>${project.artifactId}</finalName>
         <resources>
