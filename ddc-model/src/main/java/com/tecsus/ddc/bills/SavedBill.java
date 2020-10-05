@@ -1,7 +1,7 @@
 package com.tecsus.ddc.bills;
 
-import com.tecsus.ddc.Client;
-import com.tecsus.ddc.Dealership;
+import com.tecsus.ddc.client.Client;
+import com.tecsus.ddc.dealership.Dealership;
 import com.tecsus.ddc.User;
 import org.joda.time.DateTime;
 
