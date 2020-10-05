@@ -1,4 +1,4 @@
-package com.tecsus.ddc.bills.utils;
+package com.tecsus.ddc.utils;
 
 public class PropertiesLoaderImpl {
 

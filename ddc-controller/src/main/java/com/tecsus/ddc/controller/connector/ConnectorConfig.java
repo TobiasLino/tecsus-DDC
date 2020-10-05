@@ -1,6 +1,6 @@
 package com.tecsus.ddc.controller.connector;
 
-import com.tecsus.ddc.bills.utils.PropertiesLoaderImpl;
+import com.tecsus.ddc.utils.PropertiesLoaderImpl;
 
 /**
  * @author TOBIASDASILVALINO
