@@ -1,12 +1,13 @@
 package com.tecsus.ddc.bills.energy;
 
 import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.energy.enums.ProductDescription;
-import com.tecsus.ddc.bills.energy.enums.TariffFlags;
+import com.tecsus.ddc.bills.energy.enums.*;
 import org.joda.time.DateTime;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -15,30 +16,99 @@ import java.util.stream.Collectors;
 public class EnergyBill extends Bill {
 
     private DateTime emission;
-    private double tension;     // Volts
-    private double consumption;
+    // Dados do Contrato
+    private long number;
+    private BigDecimal tension;     // Volts
+    private Demand demand;      // ponta e fora ponta
     private ConsumptionDescription consumptionDescription;
-    private Group group;    // Grupo/subgrupo classe/subclasse
+    private Group group;    // Grupo/subgrupo
+    private Classe classe;  // Classe/subclasse
+    private Modalities modality;
+    private BigDecimal transformationLosses;    // %
     private RushHour rushHour;  // apenas para grupo A industrial
+    private SupplyType supplyType;
+    // Tarifas
     private final List<TariffFlag> tariffFlags = new ArrayList<>();
     private final List<Product> products = new ArrayList<>();
+    private final List<FinancialItem> financialItems = new ArrayList<>();
+    private final List<Tribute> tributes = new ArrayList<>(3);
 
     public EnergyBill() {
     }
 
     public EnergyBill(
             final DateTime emission,
-            final double tension,
-            final double consumption,
+            final long number,
+            final BigDecimal tension,
+            final Demand demand,
             final ConsumptionDescription consumptionDescription,
             final Group group,
-            final RushHour rushHour) {
+            final Classe classe,
+            final Modalities modality,
+            final BigDecimal transformationLosses,
+            final RushHour rushHour,
+            final SupplyType supplyType) {
+        this();
         this.emission = emission;
+        this.number = number;
         this.tension = tension;
-        this.consumption = consumption;
+        this.demand = demand;
         this.consumptionDescription = consumptionDescription;
         this.group = group;
+        this.classe = classe;
+        this.modality = modality;
+        this.transformationLosses = transformationLosses;
         this.rushHour = rushHour;
+        this.supplyType = supplyType;
+    }
+
+    @Override
+    public String toString() {
+        return "EnergyBill{" +
+                super.toString() +
+                "emission=" + emission +
+                ", number=" + number +
+                ", tension=" + tension +
+                ", demand=" + demand +
+                ", consumptionDescription=" + consumptionDescription +
+                ", group=" + group +
+                ", classe=" + classe +
+                ", modality=" + modality +
+                ", transformationLosses=" + transformationLosses +
+                ", rushHour=" + rushHour +
+                ", supplyType=" + supplyType +
+                ", tariffFlags=" + tariffFlags +
+                ", products=" + products +
+                ", financialItems=" + financialItems +
+                ", tributes=" + tributes +
+                '}';
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final EnergyBill that = (EnergyBill) o;
+        return number == that.number &&
+                Objects.equals(emission, that.emission) &&
+                Objects.equals(tension, that.tension) &&
+                Objects.equals(demand, that.demand) &&
+                Objects.equals(consumptionDescription, that.consumptionDescription) &&
+                Objects.equals(group, that.group) &&
+                Objects.equals(classe, that.classe) &&
+                modality == that.modality &&
+                Objects.equals(transformationLosses, that.transformationLosses) &&
+                Objects.equals(rushHour, that.rushHour) &&
+                supplyType == that.supplyType &&
+                Objects.equals(tariffFlags, that.tariffFlags) &&
+                Objects.equals(products, that.products) &&
+                Objects.equals(financialItems, that.financialItems) &&
+                Objects.equals(tributes, that.tributes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(emission, number, tension, demand, consumptionDescription, group, classe, modality, transformationLosses, rushHour, supplyType, tariffFlags, products, financialItems, tributes);
     }
 
     public DateTime getEmission() {
@@ -49,20 +119,28 @@ public class EnergyBill extends Bill {
         this.emission = emission;
     }
 
-    public double getTension() {
+    public long getNumber() {
+        return number;
+    }
+
+    public void setNumber(final long number) {
+        this.number = number;
+    }
+
+    public BigDecimal getTension() {
         return tension;
     }
 
-    public void setTension(final double tension) {
+    public void setTension(final BigDecimal tension) {
         this.tension = tension;
     }
 
-    public double getConsumption() {
-        return consumption;
+    public Demand getDemand() {
+        return demand;
     }
 
-    public void setConsumption(final double consumption) {
-        this.consumption = consumption;
+    public void setDemand(final Demand demand) {
+        this.demand = demand;
     }
 
     public ConsumptionDescription getConsumptionDescription() {
@@ -81,6 +159,30 @@ public class EnergyBill extends Bill {
         this.group = group;
     }
 
+    public Classe getClasse() {
+        return classe;
+    }
+
+    public void setClasse(final Classe classe) {
+        this.classe = classe;
+    }
+
+    public Modalities getModality() {
+        return modality;
+    }
+
+    public void setModality(final Modalities modality) {
+        this.modality = modality;
+    }
+
+    public BigDecimal getTransformationLosses() {
+        return transformationLosses;
+    }
+
+    public void setTransformationLosses(final BigDecimal transformationLosses) {
+        this.transformationLosses = transformationLosses;
+    }
+
     public RushHour getRushHour() {
         return rushHour;
     }
@@ -89,14 +191,19 @@ public class EnergyBill extends Bill {
         this.rushHour = rushHour;
     }
 
+    public SupplyType getSupplyType() {
+        return supplyType;
+    }
+
+    public void setSupplyType(final SupplyType supplyType) {
+        this.supplyType = supplyType;
+    }
+
     public List<TariffFlag> getTariffFlags() {
         return tariffFlags;
     }
 
-    public List<TariffFlag> getTariffFlag(final TariffFlags flag) throws NullPointerException {
-        if (tariffFlags.isEmpty()) {
-            throw new NullPointerException();
-        }
+    public List<TariffFlag> getTariffFlag(final TariffFlags flag){
         return tariffFlags.stream()
                 .filter(f -> f.getFlag().equals(flag))
                 .collect(Collectors.toList());
@@ -110,10 +217,7 @@ public class EnergyBill extends Bill {
         return products;
     }
 
-    public List<Product> getProduct(final ProductDescription productDescription) throws NullPointerException {
-        if (products.isEmpty()) {
-            throw new NullPointerException();
-        }
+    public List<Product> getProduct(final ProductDescription productDescription){
         return products.stream()
                 .filter(p -> p.getDescription().equals(productDescription))
                 .collect(Collectors.toList());
@@ -121,5 +225,49 @@ public class EnergyBill extends Bill {
 
     public void addProduct(final Product product) {
         this.products.add(product);
+    }
+
+    public List<FinancialItem> getFinancialItems() {
+        return financialItems;
+    }
+
+    public List<FinancialItem> getFinancialItem(ProductDescription pd) {
+        return financialItems.stream()
+                .filter(item -> item.getDescription().equals(pd))
+                .collect(Collectors.toList());
+    }
+
+
+    public void addFinancialItem(FinancialItem item) {
+        this.financialItems.add(item);
+    }
+
+    public List<Tribute> getTributes() {
+        return tributes;
+    }
+
+    public List<Tribute> getTribute(Tributes tribute) {
+        return tributes.stream()
+                .filter(t -> t.getDescription().equals(tribute))
+                .collect(Collectors.toList());
+    }
+
+    public void addTribute(Tribute tribute) {
+        this.tributes.add(tribute);
+    }
+
+    @Override
+    public BigDecimal getTotalValue() {
+        BigDecimal total = new BigDecimal("0.00");
+        for (Product p : products) {
+            total.add(p.getTotalValue());
+        }
+        for (FinancialItem fi : financialItems) {
+            total.add(fi.getValue());
+        }
+        if (!(total.compareTo(totalValue) == 0)) {
+            return total;
+        }
+        return totalValue;
     }
 }
