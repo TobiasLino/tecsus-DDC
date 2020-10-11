@@ -1,31 +1,32 @@
 package com.tecsus.ddc.bills.energy;
 
+import java.math.BigDecimal;
 /*
  *  @author Tobias Lino
  */
 public class Demand {
 
-    private double demandaPonta;
-    private double demandaForaPonta;
+    private BigDecimal demandaPonta;
+    private BigDecimal demandaForaPonta;
 
-    public Demand(final double demandaPonta, final double demandaForaPonta) {
+    public Demand(final BigDecimal demandaPonta, final BigDecimal demandaForaPonta) {
         this.demandaPonta = demandaPonta;
         this.demandaForaPonta = demandaForaPonta;
     }
 
-    public double getDemandaPonta() {
+    public BigDecimal getDemandaPonta() {
         return demandaPonta;
     }
 
-    public void setDemandaPonta(final double demandaPonta) {
+    public void setDemandaPonta(final BigDecimal demandaPonta) {
         this.demandaPonta = demandaPonta;
     }
 
-    public double getDemandaForaPonta() {
+    public BigDecimal getDemandaForaPonta() {
         return demandaForaPonta;
     }
 
-    public void setDemandaForaPonta(final double demandaForaPonta) {
+    public void setDemandaForaPonta(final BigDecimal demandaForaPonta) {
         this.demandaForaPonta = demandaForaPonta;
     }
 }

@@ -1,11 +1,15 @@
 package com.tecsus.ddc.bills.water;
 
+import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.bills.water.enums.WaterBillType;
+
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class WaterBill {
+public class WaterBill extends Bill {
 
     private long cod;
     private String hydrometer;
@@ -14,7 +18,7 @@ public class WaterBill {
     private double water;   // discriminação do faturamento
     private double sewer;   // discriminação do faturamento
     private double TRCF;   // discriminação do faturamento
-    private String type;    // Ex: água e esgoto
+    private WaterBillType type;    // Ex: água e esgoto
     private String RGI;
 
     public WaterBill(
@@ -25,7 +29,7 @@ public class WaterBill {
             double water,
             double sewer,
             double TRCF,
-            String type,
+            WaterBillType type,
             String RGI) {
         this.cod = cod;
         this.hydrometer = hydrometer;
@@ -139,10 +143,10 @@ public class WaterBill {
     }
 
     public String getType() {
-        return type;
+        return type.name();
     }
 
-    public void setType(String type) {
+    public void setType(WaterBillType type) {
         this.type = type;
     }
 
@@ -152,5 +156,10 @@ public class WaterBill {
 
     public void setRGI(String RGI) {
         this.RGI = RGI;
+    }
+
+    @Override
+    public BigDecimal getTotalValue() {
+        return null;
     }
 }

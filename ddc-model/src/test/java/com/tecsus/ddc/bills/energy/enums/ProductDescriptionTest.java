@@ -8,6 +8,6 @@ public class ProductDescriptionTest {
     @Test
     public void getDescriptionTest() {
         ProductDescription pd = ProductDescription.YELLOW_FLAG;
-        Assert.assertEquals("Adicional Bandeira Amarela", pd.get());
+        Assert.assertEquals("Adicional Bandeira Amarela", pd.getDescription());
     }
 }

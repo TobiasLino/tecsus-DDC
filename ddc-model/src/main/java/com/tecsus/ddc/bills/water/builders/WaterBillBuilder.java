@@ -1,6 +1,7 @@
 package com.tecsus.ddc.bills.water.builders;
 
 import com.tecsus.ddc.bills.water.WaterBill;
+import com.tecsus.ddc.bills.water.enums.WaterBillType;
 
 /**
  * @author TOBIASDASILVALINO
@@ -14,7 +15,7 @@ public class WaterBillBuilder {
     private double water;   // discriminação do faturamento
     private double sewer;   // discriminação do faturamento
     private double TRCF;   // discriminação do faturamento
-    private String type;    // Ex: água e esgoto
+    private WaterBillType type;    // Ex: água e esgoto
     private String RGI;
     
     public WaterBill build() {
@@ -56,7 +57,7 @@ public class WaterBillBuilder {
         return this;
     }
 
-    public WaterBillBuilder type(String type) {
+    public WaterBillBuilder type(WaterBillType type) {
         this.type = type;
         return this;
     }
