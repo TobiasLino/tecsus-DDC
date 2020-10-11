@@ -58,43 +58,4 @@ public class EnergyBillTest {
 
     @Test // TODO
     public void energyBillBuilderItsWorkingTest() {}
-    /*
-    public void energyBillProductsTest() {
-        EnergyBill en = new EnergyBill();
-
-        Product tusd = new ProductBuilder()
-                .description(ProductDescription.TUSD)
-                .kWhQuantity(303)
-                .tariff(0.24174)
-                .totalValue(104.36)
-                .build();
-        Product te = new ProductBuilder()
-                .description(ProductDescription.TE)
-                .kWhQuantity(303)
-                .tariff(0.31979)
-                .totalValue(138.05)
-                .build();
-
-        Product addYellow = new ProductBuilder()
-                .description(ProductDescription.YELLOW_FLAG)
-                .kWhQuantity(104.1563)
-                .tariff(0.015)
-                .totalValue(2.22)
-                .build();
-
-        Product addRed = new ProductBuilder()
-                .description(ProductDescription.RED_FLAG)
-                .kWhQuantity(198.8437)
-                .tariff(0.04)
-                .totalValue(11.34)
-                .build();
-
-        en.addProduct(tusd);
-        en.addProduct(te);
-        en.addProduct(addYellow);
-        en.addProduct(addRed);
-
-    }
-
-     */
 }

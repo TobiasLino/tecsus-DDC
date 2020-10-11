@@ -1,10 +1,10 @@
-package com.tecsus.ddc.bills.energy.enums;
+package com.tecsus.ddc.bills.tributes;
 
 /**
  * @author TOBIASDASILVALINO
  */
 public enum Tributes {
-    PIS,
+    PIS_PASEP,
     COFINS,
     ICMS
 }

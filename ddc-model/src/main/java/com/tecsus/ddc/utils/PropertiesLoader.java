@@ -32,6 +32,8 @@ public class PropertiesLoader {
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 

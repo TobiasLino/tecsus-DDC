@@ -1,6 +1,6 @@
 package com.tecsus.ddc.dealership;
 
-import com.tecsus.ddc.client.Client;
+import com.tecsus.ddc.client.Instalation;
 import com.tecsus.ddc.dealership.enums.Dealerships;
 
 import java.net.URL;
@@ -8,12 +8,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * @author TOBIASDASILVALINO
+ */
 public class Dealership {
 
     private final Dealerships dealership;
     private final String CNPJ;
     private final URL site;
-    private final Set<Client> clients = new HashSet<>();
+    private final Set<Instalation> instalations = new HashSet<>();
 
     public Dealership(final Dealerships dealership, final String CNPJ, final URL site) {
         this.dealership = dealership;
@@ -27,7 +30,7 @@ public class Dealership {
                 "dealership=" + dealership +
                 ", CNPJ='" + CNPJ + '\'' +
                 ", site=" + site +
-                ", clients=" + clients +
+                ", instalations=" + instalations +
                 '}';
     }
 
@@ -39,12 +42,12 @@ public class Dealership {
         return dealership == that.dealership &&
                 Objects.equals(CNPJ, that.CNPJ) &&
                 Objects.equals(site, that.site) &&
-                Objects.equals(clients, that.clients);
+                Objects.equals(instalations, that.instalations);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dealership, CNPJ, site, clients);
+        return Objects.hash(dealership, CNPJ, site, instalations);
     }
 
     public Dealerships getDealership() {
@@ -59,11 +62,11 @@ public class Dealership {
         return site;
     }
 
-    public void addClient(Client cli) {
-        this.clients.add(cli);
+    public void addInstalation(Instalation cli) {
+        this.instalations.add(cli);
     }
 
-    public Set<Client> getClients() {
-        return clients;
+    public Set<Instalation> getInstalations() {
+        return instalations;
     }
 }

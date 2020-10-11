@@ -1,13 +1,12 @@
 package com.tecsus.ddc.controller.connector;
 
+import com.tecsus.ddc.controller.config.Properties;
 import com.tecsus.ddc.utils.PropertiesLoaderImpl;
 
 /**
  * @author TOBIASDASILVALINO
  */
 public class ConnectorConfig {
-
-    private final String PROPERTIES = "database-connection.properties";
 
     private final String host;
     private final String name;
@@ -18,7 +17,7 @@ public class ConnectorConfig {
     private final String passwd;
 
     public ConnectorConfig() {
-        final PropertiesLoaderImpl loader = new PropertiesLoaderImpl(PROPERTIES);
+        final PropertiesLoaderImpl loader = new PropertiesLoaderImpl(Properties.CONNECTOR.getPropertiesFileName());
 
         this.host = loader.getProperty("database.host");
         this.name = loader.getProperty("database.name");

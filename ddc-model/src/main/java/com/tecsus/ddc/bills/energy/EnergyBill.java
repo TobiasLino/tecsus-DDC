@@ -2,6 +2,8 @@ package com.tecsus.ddc.bills.energy;
 
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.enums.*;
+import com.tecsus.ddc.bills.tributes.Tribute;
+import com.tecsus.ddc.bills.tributes.Tributes;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;

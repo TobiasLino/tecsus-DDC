@@ -1,8 +1,10 @@
 package com.tecsus.ddc.bills.energy;
 
 import com.tecsus.ddc.bills.energy.enums.ProductDescription;
+import com.tecsus.ddc.bills.tributes.Tribute;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * @author TOBIASDASILVALINO
@@ -17,12 +19,12 @@ public class Product {
     private BigDecimal calcBaseICMS;
     private BigDecimal aliqICMS;    // %
     private BigDecimal valueICMS;
-    private BigDecimal calcBasePISCOFINS;
-    private BigDecimal aliqPIS;     // %
-    private BigDecimal valuePIS;
-    private BigDecimal aliqCOFINS;  // %
-    private BigDecimal valueCOFINS;
+    private Tribute PIS;
+    private Tribute COFINS;
     private BigDecimal totalValue;
+
+    public Product() {
+    }
 
     public Product(
             final ProductDescription description,
@@ -33,11 +35,8 @@ public class Product {
             final BigDecimal calcBaseICMS,
             final BigDecimal aliqICMS,
             final BigDecimal valueICMS,
-            final BigDecimal calcBasePISCOFINS,
-            final BigDecimal aliqPIS,
-            final BigDecimal valuePIS,
-            final BigDecimal aliqCOFINS,
-            final BigDecimal valueCOFINS,
+            final Tribute pis,
+            final Tribute cofins,
             final BigDecimal totalValue) {
         this.description = description;
         this.kWhQuantity = kWhQuantity;
@@ -47,12 +46,49 @@ public class Product {
         this.calcBaseICMS = calcBaseICMS;
         this.aliqICMS = aliqICMS;
         this.valueICMS = valueICMS;
-        this.calcBasePISCOFINS = calcBasePISCOFINS;
-        this.aliqPIS = aliqPIS;
-        this.valuePIS = valuePIS;
-        this.aliqCOFINS = aliqCOFINS;
-        this.valueCOFINS = valueCOFINS;
+        this.PIS = pis;
+        this.COFINS = cofins;
         this.totalValue = totalValue;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "description=" + description +
+                ", kWhQuantity=" + kWhQuantity +
+                ", tariff=" + tariff +
+                ", fornecValue=" + fornecValue +
+                ", tariffWithTributes=" + tariffWithTributes +
+                ", calcBaseICMS=" + calcBaseICMS +
+                ", aliqICMS=" + aliqICMS +
+                ", valueICMS=" + valueICMS +
+                ", PIS=" + PIS +
+                ", COFINS=" + COFINS +
+                ", totalValue=" + totalValue +
+                '}';
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Product product = (Product) o;
+        return description == product.description &&
+                Objects.equals(kWhQuantity, product.kWhQuantity) &&
+                Objects.equals(tariff, product.tariff) &&
+                Objects.equals(fornecValue, product.fornecValue) &&
+                Objects.equals(tariffWithTributes, product.tariffWithTributes) &&
+                Objects.equals(calcBaseICMS, product.calcBaseICMS) &&
+                Objects.equals(aliqICMS, product.aliqICMS) &&
+                Objects.equals(valueICMS, product.valueICMS) &&
+                Objects.equals(PIS, product.PIS) &&
+                Objects.equals(COFINS, product.COFINS) &&
+                Objects.equals(totalValue, product.totalValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, kWhQuantity, tariff, fornecValue, tariffWithTributes, calcBaseICMS, aliqICMS, valueICMS, PIS, COFINS, totalValue);
     }
 
     public ProductDescription getDescription() {
@@ -67,103 +103,79 @@ public class Product {
         return kWhQuantity;
     }
 
-    public void setkWhQuantity(final BigDecimal kWhQuantity) {
-        this.kWhQuantity = kWhQuantity;
+    public void setkWhQuantity(final String kWhQuantity) {
+        this.kWhQuantity = new BigDecimal(kWhQuantity);
     }
 
     public BigDecimal getTariff() {
         return tariff;
     }
 
-    public void setTariff(final BigDecimal tariff) {
-        this.tariff = tariff;
+    public void setTariff(final String tariff) {
+        this.tariff = new BigDecimal(tariff);
     }
 
     public BigDecimal getFornecValue() {
         return fornecValue;
     }
 
-    public void setFornecValue(final BigDecimal fornecValue) {
-        this.fornecValue = fornecValue;
+    public void setFornecValue(final String fornecValue) {
+        this.fornecValue = new BigDecimal(fornecValue);
     }
 
     public BigDecimal getTariffWithTributes() {
         return tariffWithTributes;
     }
 
-    public void setTariffWithTributes(final BigDecimal tariffWithTributes) {
-        this.tariffWithTributes = tariffWithTributes;
+    public void setTariffWithTributes(final String tariffWithTributes) {
+        this.tariffWithTributes = new BigDecimal(tariffWithTributes);
     }
 
     public BigDecimal getCalcBaseICMS() {
         return calcBaseICMS;
     }
 
-    public void setCalcBaseICMS(final BigDecimal calcBaseICMS) {
-        this.calcBaseICMS = calcBaseICMS;
+    public void setCalcBaseICMS(final String calcBaseICMS) {
+        this.calcBaseICMS = new BigDecimal(calcBaseICMS);
     }
 
     public BigDecimal getAliqICMS() {
         return aliqICMS;
     }
 
-    public void setAliqICMS(final BigDecimal aliqICMS) {
-        this.aliqICMS = aliqICMS;
+    public void setAliqICMS(final String aliqICMS) {
+        this.aliqICMS = new BigDecimal(aliqICMS);
     }
 
     public BigDecimal getValueICMS() {
         return valueICMS;
     }
 
-    public void setValueICMS(final BigDecimal valueICMS) {
-        this.valueICMS = valueICMS;
+    public void setValueICMS(final String valueICMS) {
+        this.valueICMS = new BigDecimal(valueICMS);
     }
 
-    public BigDecimal getCalcBasePISCOFINS() {
-        return calcBasePISCOFINS;
+    public Tribute getPIS() {
+        return PIS;
     }
 
-    public void setCalcBasePISCOFINS(final BigDecimal calcBasePISCOFINS) {
-        this.calcBasePISCOFINS = calcBasePISCOFINS;
+    public void setPIS(final Tribute PIS) {
+        this.PIS = PIS;
     }
 
-    public BigDecimal getAliqPIS() {
-        return aliqPIS;
+    public Tribute getCOFINS() {
+        return COFINS;
     }
 
-    public void setAliqPIS(final BigDecimal aliqPIS) {
-        this.aliqPIS = aliqPIS;
-    }
-
-    public BigDecimal getValuePIS() {
-        return valuePIS;
-    }
-
-    public void setValuePIS(final BigDecimal valuePIS) {
-        this.valuePIS = valuePIS;
-    }
-
-    public BigDecimal getAliqCOFINS() {
-        return aliqCOFINS;
-    }
-
-    public void setAliqCOFINS(final BigDecimal aliqCOFINS) {
-        this.aliqCOFINS = aliqCOFINS;
-    }
-
-    public BigDecimal getValueCOFINS() {
-        return valueCOFINS;
-    }
-
-    public void setValueCOFINS(final BigDecimal valueCOFINS) {
-        this.valueCOFINS = valueCOFINS;
+    public void setCOFINS(final Tribute COFINS) {
+        this.COFINS = COFINS;
     }
 
     public BigDecimal getTotalValue() {
         return totalValue;
     }
 
-    public void setTotalValue(final BigDecimal totalValue) {
-        this.totalValue = totalValue;
+    public void setTotalValue(final String totalValue) {
+        this.totalValue = new BigDecimal(totalValue);
     }
 }

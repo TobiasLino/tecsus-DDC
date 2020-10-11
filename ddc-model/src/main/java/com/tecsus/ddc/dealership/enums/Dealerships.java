@@ -3,9 +3,12 @@ package com.tecsus.ddc.dealership.enums;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * @author TOBIASDASILVALINO
+ */
 public enum Dealerships {
-    EDPSP("EDP São Paulo Distribuição de Energia S.A.", "02.302.100/0001-06", "www.edponline.com.br"),
-    SABESP("SABESP Companhia de Saneamento Básico do Estado de São Paulo", "43.776.517/0001-80", "www.sabesp.com.br");
+    EDPSP("EDP São Paulo Distribuição de Energia S.A.", "02.302.100/0001-06", "https://www.edponline.com.br"),
+    SABESP("SABESP Companhia de Saneamento Básico do Estado de São Paulo", "43.776.517/0001-80", "https://www.sabesp.com.br");
 
     private String dealership;
     private String CNPJ;
@@ -19,15 +22,6 @@ public enum Dealerships {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Dealerships{" +
-                "dealership='" + dealership + '\'' +
-                ", CNPJ='" + CNPJ + '\'' +
-                ", site=" + site +
-                '}';
     }
 
     public String getDealership() {

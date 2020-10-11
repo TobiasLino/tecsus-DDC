@@ -5,24 +5,25 @@ import com.tecsus.ddc.dealership.Dealership;
 import com.tecsus.ddc.dealership.enums.Dealerships;
 
 import java.net.URL;
-import java.util.HashSet;
-import java.util.Set;
 
+/**
+ * @author TOBIASDASILVALINO
+ */
 public class DealershipBuilder {
 
-    private Dealerships dealership;
+    private Dealerships name;
     private String CNPJ;
     private URL site;
 
     public Dealership build() {
-        return new Dealership(dealership, CNPJ, site);
+        return new Dealership(name, CNPJ, site);
     }
 
-    public DealershipBuilder dealership(Dealerships name) {
+    public DealershipBuilder name(Dealerships name) {
         if (name == null) {
             throw new NullPointerException();
         }
-        this.dealership = name;
+        this.name = name;
         return this;
     }
 }

@@ -2,7 +2,7 @@ package com.tecsus.ddc.bills;
 
 import com.tecsus.ddc.client.Client;
 import com.tecsus.ddc.dealership.Dealership;
-import com.tecsus.ddc.User;
+import com.tecsus.ddc.user.User;
 import org.joda.time.DateTime;
 
 import java.text.SimpleDateFormat;
@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class SavedBill {
 
-    private long userId;
+    private String userName;
     private User user;
     private Dealership dealership;
     private Client client;
@@ -21,13 +21,13 @@ public class SavedBill {
     private DateTime register;
 
     public SavedBill(
-            final long userId,
+            final String userName,
             final User user,
             final Dealership dealership,
             final Client client,
             final Bill bill,
             final DateTime register) {
-        this.userId = userId;
+        this.userName = userName;
         this.user = user;
         this.dealership = dealership;
         this.client = client;
@@ -36,13 +36,26 @@ public class SavedBill {
     }
 
     @Override
+    public String toString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YY HH:mm");
+        return "SavedBill{" +
+                "userName='" + userName + '\'' +
+                ", user=" + user.toString() +
+                ", dealership=" + dealership.toString() +
+                ", client=" + client.toString() +
+                ", bill=" + bill.toString() +
+                ", register=" + formatter.format(register.toDate()) +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SimpleDateFormat formater = new SimpleDateFormat("dd/mm/YYYY");
+        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/YYYY");
         SavedBill savedBill = (SavedBill) o;
 
-        return userId == savedBill.userId &&
+        return userName == savedBill.userName &&
                 Objects.equals(user, savedBill.user) &&
                 Objects.equals(dealership, savedBill.dealership) &&
                 Objects.equals(client, savedBill.client) &&
@@ -54,15 +67,15 @@ public class SavedBill {
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, user, dealership, client, bill, register);
+        return Objects.hash(userName, user, dealership, client, bill, register);
     }
 
-    public long getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public User getUser() {
