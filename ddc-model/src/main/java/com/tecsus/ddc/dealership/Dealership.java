@@ -1,7 +1,7 @@
 package com.tecsus.ddc.dealership;
 
 import com.tecsus.ddc.client.Instalation;
-import com.tecsus.ddc.dealership.enums.Dealerships;
+import com.tecsus.ddc.dealership.enums.EnergyDealerships;
 
 import java.net.URL;
 import java.util.HashSet;
