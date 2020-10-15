@@ -1,6 +1,6 @@
 package com.tecsus.ddc.bills.energy;
 
-import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.AbstractClassBill;
 import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.bills.tributes.Tribute;
 import com.tecsus.ddc.bills.tributes.Tributes;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 public class EnergyBill {
 
-    private Bill bill;
+    private AbstractClassBill bill;
 
     private DateTime emission;
     // Dados do Contrato

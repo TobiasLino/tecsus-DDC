@@ -1,5 +1,6 @@
 package com.tecsus.ddc.bills.water;
 
+import com.tecsus.ddc.AbstractClassBill;
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.water.enums.WaterBillType;
 
@@ -9,8 +10,9 @@ import java.util.Objects;
 /**
  * @author TOBIASDASILVALINO
  */
-public class WaterBill extends Bill {
+public class WaterBill {
 
+    private AbstractClassBill bill;
     private long cod;
     private String hydrometer;
     private double residentialTotal;    // VI Água + VI Esgoto
@@ -158,8 +160,11 @@ public class WaterBill extends Bill {
         this.RGI = RGI;
     }
 
-    @Override
-    public BigDecimal getTotalValue() {
-        return null;
+    public AbstractClassBill getBill() {
+        return bill;
+    }
+
+    public void setBill(final AbstractClassBill bill) {
+        this.bill = bill;
     }
 }
