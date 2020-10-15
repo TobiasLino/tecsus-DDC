@@ -1,5 +1,7 @@
-package com.tecsus.ddc;
+package com.tecsus.ddc.bills;
 import org.joda.time.DateTime;
+
+import java.math.BigDecimal;
 
 /*
 Classe abstrata da conta, são valore que as contas de água e luz possuem iguais
@@ -9,7 +11,7 @@ Classe abstrata da conta, são valore que as contas de água e luz possuem iguai
 public class AbstractClassBill {
 
     //Atributos
-    private double valor;
+    private BigDecimal valor;
     private DateTime vencimento;
     private DateTime mesReferencia;
     private String numConta;
@@ -19,7 +21,7 @@ public class AbstractClassBill {
     private DateTime leituraAnterior;
 
     //Construtor
-    public AbstractClassBill (double valor, DateTime vencimento, DateTime mesReferencia, String numConta, int periodoConsumo,
+    public AbstractClassBill (BigDecimal valor, DateTime vencimento, DateTime mesReferencia, String numConta, int periodoConsumo,
                               DateTime leituraProxima, DateTime leituraAtual, DateTime leituraAnterior) {
         this.valor = valor;
         this.vencimento = vencimento;
@@ -32,15 +34,15 @@ public class AbstractClassBill {
 
     }
     //Métodos Getters e Setters
-    public double getValor(){
+    public BigDecimal getValor(){
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
-    public String getVencimento() {
+    public DateTime getVencimento() {
         return vencimento;
     }
 
@@ -48,7 +50,7 @@ public class AbstractClassBill {
         this.vencimento = vencimento;
     }
 
-    public String getMesReferencia() {
+    public DateTime getMesReferencia() {
         return mesReferencia;
     }
 
@@ -64,7 +66,7 @@ public class AbstractClassBill {
         this.numConta = numConta;
     }
 
-    public String getPeriodoConsumo() {
+    public int getPeriodoConsumo() {
         return periodoConsumo;
     }
 
@@ -72,7 +74,7 @@ public class AbstractClassBill {
         this.periodoConsumo = periodoConsumo;
     }
 
-    public String getLeituraProxima() {
+    public DateTime getLeituraProxima() {
         return leituraProxima;
     }
 
@@ -80,7 +82,7 @@ public class AbstractClassBill {
         this.leituraProxima = leituraProxima;
     }
 
-    public String getLeituraAtual() {
+    public DateTime getLeituraAtual() {
         return leituraAtual;
     }
 
@@ -88,7 +90,7 @@ public class AbstractClassBill {
         this.leituraAtual = leituraAtual;
     }
 
-    public String getLeituraAnterior() {
+    public DateTime getLeituraAnterior() {
         return leituraAnterior;
     }
 
