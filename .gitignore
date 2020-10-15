@@ -6,6 +6,8 @@ target/
 out/
 lib/
 doc/class
+doc/tariff
+doc/query
 
 ### STS ###
 .apt_generated
