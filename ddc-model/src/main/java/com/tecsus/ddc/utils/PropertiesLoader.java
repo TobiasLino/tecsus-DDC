@@ -1,5 +1,6 @@
 package com.tecsus.ddc.utils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -26,8 +27,11 @@ public class PropertiesLoader {
 
     private void load() {
         log.info("Loading properties from file " + propertiesName);
-        InputStream in = this.getClass().getResourceAsStream(propertiesName);
         try {
+            InputStream in = getClass().getClassLoader().getResourceAsStream(propertiesName);
+            if (in == null) {
+                throw new FileNotFoundException(propertiesName);
+            }
             properties.load(in);
             in.close();
         } catch (IOException e) {

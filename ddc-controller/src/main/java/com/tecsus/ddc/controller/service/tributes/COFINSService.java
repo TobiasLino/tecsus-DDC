@@ -1,16 +1,15 @@
 package com.tecsus.ddc.controller.service.tributes;
 
 import com.tecsus.ddc.bills.tributes.Tribute;
+import com.tecsus.ddc.bills.tributes.Tributes;
+import com.tecsus.ddc.controller.config.TributesConfig;
 import org.joda.time.DateTime;
 
 public class COFINSService extends TributeService {
 
-    private TributesConfig config;
-
-
     private COFINSService(Tribute cofins) {
-        // this.config = new TributesConfig(Tributes.COFINS);
         super(cofins, 7, 4);
+        this.config = new TributesConfig(Tributes.COFINS);
     }
 
     public static COFINSService createForActualMonth(Tribute cofins) {

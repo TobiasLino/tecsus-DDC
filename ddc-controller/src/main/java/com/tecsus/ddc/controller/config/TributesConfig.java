@@ -1,7 +1,6 @@
-package com.tecsus.ddc.controller.service.tributes;
+package com.tecsus.ddc.controller.config;
 
 import com.tecsus.ddc.bills.tributes.Tributes;
-import com.tecsus.ddc.controller.config.Properties;
 import com.tecsus.ddc.utils.PropertiesLoaderImpl;
 
 /**
