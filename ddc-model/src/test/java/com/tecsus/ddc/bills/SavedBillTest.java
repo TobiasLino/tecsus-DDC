@@ -32,7 +32,7 @@ public class SavedBillTest {
         final Client client = new ClientTest().buildClient();
 
         final Dealership dealership = new DealershipBuilder()
-                .name(EnergyDealerships.EDPSP)
+                .name(EnergyDealerships.EDP_SP)
                 .build();
 
         final WaterBill bill = new WaterBillBuilder()

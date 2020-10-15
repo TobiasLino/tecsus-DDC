@@ -1,12 +1,15 @@
 package com.tecsus.ddc.controller.service.tributes;
 
 import com.tecsus.ddc.bills.tributes.Tribute;
+import com.tecsus.ddc.bills.tributes.Tributes;
+import com.tecsus.ddc.controller.config.TributesConfig;
 import org.joda.time.DateTime;
 
 public class PISPASEPService extends TributeService {
     
     private PISPASEPService(final Tribute tribute) {
         super(tribute, 1, 4);
+        this.config = new TributesConfig(Tributes.PIS_PASEP);
     }
 
 

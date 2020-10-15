@@ -12,15 +12,32 @@ import java.math.BigDecimal;
  */
 public class ResidentialSupplyTariff {
 
-    private int supplyTariffIdentification;
-    private GrantNames grantName;
+    private int ideTarifaFornecimento;
+    private String nomConcessao;
     private EnergyDealerships dealership;
-    private BigDecimal TUSD;
-    private BigDecimal TE;
-    private BigDecimal totalTRF;
-    private BigDecimal tipWhiteTariff;
-    private BigDecimal intermediateWhiteTariff;
-    private BigDecimal outTipWhiteTariff;
-    private DateTime start;
-    private DateTime processing;
+    private String sigDistribuidora;
+    private String sigRegiao;
+    private String sigUF;
+    private String vlrTUSDConvencional;
+    private String vlrTEConvencional;
+    private String vlrTotaTRFConvencional;
+    private String vlrTRFBrancaPonta;
+    private String vlrTRFBrancaIntermediaria;
+    private String vlrTRFBrancaForaPonta;
+    private DateTime dthInicioVigencia;
+    private String numResolucao;
+    private DateTime dthProcessamento;
+
+
+    public ResidentialSupplyTariff() {
+    }
+
+
+    public EnergyDealerships getDealership() {
+        return dealership;
+    }
+
+    public void setDealership(final EnergyDealerships dealership) {
+        this.dealership = dealership;
+    }
 }
