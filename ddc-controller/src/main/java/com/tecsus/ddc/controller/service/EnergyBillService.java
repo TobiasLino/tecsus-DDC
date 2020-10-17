@@ -82,6 +82,7 @@ public class EnergyBillService implements BillService {
                     .build();
                 EnergyBill bill = EnergyBillBuilder.anEnergyBill()
                         .bill(absBill)
+                        .meterNumber(rs.getString("meter_number"))
                         .consumption(rs.getBigDecimal("consum_kwh"))
                         .tension(rs.getInt("tension"))
                         .group(

@@ -14,13 +14,12 @@ import java.math.BigDecimal;
 public final class EnergyBillBuilder {
     private Bill bill;
     private DateTime emission;
+    private String meterNumber;
     // Dados do Contrato
     private BigDecimal consumption;
     private int tension;     // Volts
     private Group group;    // Grupo/subgrupo
     private Classe classe;  // Classe/subclasse
-    private Modalities modality;
-    private RushHour rushHour;  // apenas para grupo A industrial
     private SupplyType supplyType;
 
     private EnergyBillBuilder() {
@@ -32,6 +31,11 @@ public final class EnergyBillBuilder {
 
     public EnergyBillBuilder bill(Bill bill) {
         this.bill = bill;
+        return this;
+    }
+
+    public EnergyBillBuilder meterNumber(final String meterNumber) {
+        this.meterNumber = meterNumber;
         return this;
     }
 
@@ -60,16 +64,6 @@ public final class EnergyBillBuilder {
         return this;
     }
 
-    public EnergyBillBuilder modality(Modalities modality) {
-        this.modality = modality;
-        return this;
-    }
-
-    public EnergyBillBuilder rushHour(RushHour rushHour) {
-        this.rushHour = rushHour;
-        return this;
-    }
-
     public EnergyBillBuilder supplyType(SupplyType supplyType) {
         this.supplyType = supplyType;
         return this;
@@ -78,13 +72,12 @@ public final class EnergyBillBuilder {
     public EnergyBill build() {
         EnergyBill energyBill = new EnergyBill();
         energyBill.setBill(bill);
+        energyBill.setMeterNumber(meterNumber);
         energyBill.setEmission(emission);
         energyBill.setConsumption(consumption);
         energyBill.setTension(tension);
         energyBill.setGroup(group);
         energyBill.setClasse(classe);
-        energyBill.setModality(modality);
-        energyBill.setRushHour(rushHour);
         energyBill.setSupplyType(supplyType);
         return energyBill;
     }

@@ -21,13 +21,12 @@ public class EnergyBill {
     private Bill bill;
 
     private DateTime emission;
+    private String meterNumber;
     // Dados do Contrato
     private BigDecimal consumption;
     private int tension;     // Volts
     private Group group;    // Grupo/subgrupo
     private Classe classe;  // Classe/subclasse
-    private Modalities modality;
-    private RushHour rushHour;  // apenas para grupo A industrial
     private SupplyType supplyType;
     // Tarifas
     private final List<TariffFlag> tariffFlags;
@@ -42,25 +41,6 @@ public class EnergyBill {
         tributes = new ArrayList<>();
     }
 
-    public EnergyBill(
-            final DateTime emission,
-            final int tension,
-            final ConsumptionDescription consumptionDescription,
-            final Group group,
-            final Classe classe,
-            final Modalities modality,
-            final RushHour rushHour,
-            final SupplyType supplyType) {
-        this();
-        this.emission = emission;
-        this.tension = tension;
-        this.group = group;
-        this.classe = classe;
-        this.modality = modality;
-        this.rushHour = rushHour;
-        this.supplyType = supplyType;
-    }
-
     @Override
     public String toString() {
         return "EnergyBill{" +
@@ -69,8 +49,6 @@ public class EnergyBill {
                 ", tension=" + tension +
                 ", group=" + group +
                 ", classe=" + classe +
-                ", modality=" + modality +
-                ", rushHour=" + rushHour +
                 ", supplyType=" + supplyType +
                 ", tariffFlags=" + tariffFlags +
                 ", products=" + products +
@@ -88,8 +66,6 @@ public class EnergyBill {
                 Objects.equals(tension, that.tension) &&
                 Objects.equals(group, that.group) &&
                 Objects.equals(classe, that.classe) &&
-                modality == that.modality &&
-                Objects.equals(rushHour, that.rushHour) &&
                 supplyType == that.supplyType &&
                 Objects.equals(tariffFlags, that.tariffFlags) &&
                 Objects.equals(products, that.products) &&
@@ -99,7 +75,7 @@ public class EnergyBill {
 
     @Override
     public int hashCode() {
-        return Objects.hash(emission, tension, group, classe, modality, rushHour, supplyType, tariffFlags, products, financialItems, tributes);
+        return Objects.hash(emission, tension, group, classe, supplyType, tariffFlags, products, financialItems, tributes);
     }
 
     public DateTime getEmission() {
@@ -132,22 +108,6 @@ public class EnergyBill {
 
     public void setClasse(final Classe classe) {
         this.classe = classe;
-    }
-
-    public Modalities getModality() {
-        return modality;
-    }
-
-    public void setModality(final Modalities modality) {
-        this.modality = modality;
-    }
-
-    public RushHour getRushHour() {
-        return rushHour;
-    }
-
-    public void setRushHour(final RushHour rushHour) {
-        this.rushHour = rushHour;
     }
 
     public SupplyType getSupplyType() {
@@ -262,5 +222,13 @@ public class EnergyBill {
 
     public void setConsumption(final BigDecimal consumption) {
         this.consumption = consumption;
+    }
+
+    public String getMeterNumber() {
+        return meterNumber;
+    }
+
+    public void setMeterNumber(final String meterNumber) {
+        this.meterNumber = meterNumber;
     }
 }
