@@ -260,7 +260,7 @@ public class EnergyBill {
         return consumption;
     }
 
-    public void setConsumption(final String consumption) {
-        this.consumption = new BigDecimal(consumption);
+    public void setConsumption(final BigDecimal consumption) {
+        this.consumption = consumption;
     }
 }
