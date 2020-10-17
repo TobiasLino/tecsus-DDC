@@ -158,8 +158,4 @@ public class WaterBill extends Bill {
         this.RGI = RGI;
     }
 
-    @Override
-    public BigDecimal getTotalValue() {
-        return null;
-    }
 }
