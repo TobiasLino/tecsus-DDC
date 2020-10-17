@@ -1,7 +1,8 @@
-package com.tecsus.ddc.controller.connector;
+package com.tecsus.ddc.controller.config;
 
-import com.tecsus.ddc.controller.config.Properties;
 import com.tecsus.ddc.utils.PropertiesLoaderImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author TOBIASDASILVALINO
@@ -16,7 +17,10 @@ public class ConnectorConfig {
     private final String username;
     private final String passwd;
 
+    private static final Logger log = LoggerFactory.getLogger(ConnectorConfig.class);
+
     public ConnectorConfig() {
+        log.info("Loading configurations");
         final PropertiesLoaderImpl loader = new PropertiesLoaderImpl(Properties.CONNECTOR.getPropertiesFileName());
 
         this.host = loader.getProperty("database.host");
@@ -26,6 +30,7 @@ public class ConnectorConfig {
         this.driver = loader.getProperty("database.driver");
         this.username = loader.getProperty("database.user.username");
         this.passwd = loader.getProperty("database.user.password");
+        log.info("Configurations loaded");
     }
 
     public String getHost() {

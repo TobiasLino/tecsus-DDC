@@ -8,7 +8,7 @@ import com.tecsus.ddc.client.Client;
 import com.tecsus.ddc.dealership.Dealership;
 import com.tecsus.ddc.user.User;
 import com.tecsus.ddc.dealership.builders.DealershipBuilder;
-import com.tecsus.ddc.dealership.enums.Dealerships;
+import com.tecsus.ddc.dealership.enums.EnergyDealerships;
 import com.tecsus.ddc.user.builders.UserBuilder;
 import com.tecsus.ddc.user.enums.Role;
 import org.joda.time.DateTime;
@@ -32,7 +32,7 @@ public class SavedBillTest {
         final Client client = new ClientTest().buildClient();
 
         final Dealership dealership = new DealershipBuilder()
-                .name(Dealerships.EDPSP)
+                .name(EnergyDealerships.EDP_SP)
                 .build();
 
         final WaterBill bill = new WaterBillBuilder()

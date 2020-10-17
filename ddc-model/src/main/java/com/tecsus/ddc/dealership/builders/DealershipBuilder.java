@@ -1,8 +1,7 @@
 package com.tecsus.ddc.dealership.builders;
 
-import com.tecsus.ddc.client.Client;
 import com.tecsus.ddc.dealership.Dealership;
-import com.tecsus.ddc.dealership.enums.Dealerships;
+import com.tecsus.ddc.dealership.enums.EnergyDealerships;
 
 import java.net.URL;
 
@@ -11,7 +10,7 @@ import java.net.URL;
  */
 public class DealershipBuilder {
 
-    private Dealerships name;
+    private EnergyDealerships name;
     private String CNPJ;
     private URL site;
 
@@ -19,7 +18,7 @@ public class DealershipBuilder {
         return new Dealership(name, CNPJ, site);
     }
 
-    public DealershipBuilder name(Dealerships name) {
+    public DealershipBuilder name(EnergyDealerships name) {
         if (name == null) {
             throw new NullPointerException();
         }

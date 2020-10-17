@@ -11,13 +11,13 @@ import java.util.Objects;
 /**
  * @author TOBIASDASILVALINO
  */
-public class SavedBill {
+public class SavedBill<BillType> {
 
     private String userName;
     private User user;
     private Dealership dealership;
     private Client client;
-    private Bill bill;
+    private BillType bill;
     private DateTime register;
 
     public SavedBill(
@@ -25,7 +25,7 @@ public class SavedBill {
             final User user,
             final Dealership dealership,
             final Client client,
-            final Bill bill,
+            final BillType bill,
             final DateTime register) {
         this.userName = userName;
         this.user = user;
@@ -102,11 +102,11 @@ public class SavedBill {
         this.client = client;
     }
 
-    public Bill getBill() {
+    public BillType getBill() {
         return bill;
     }
 
-    public void setBill(Bill bill) {
+    public void setBill(BillType bill) {
         this.bill = bill;
     }
 

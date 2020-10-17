@@ -1,6 +1,6 @@
 package com.tecsus.ddc.bills.energy;
 
-import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.AbstractClassBill;
 import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.bills.tributes.Tribute;
 import com.tecsus.ddc.bills.tributes.Tributes;
@@ -10,23 +10,25 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class EnergyBill extends Bill {
+public class EnergyBill {
+
+    private AbstractClassBill bill;
 
     private DateTime emission;
     // Dados do Contrato
-    private long number;
+    private BigDecimal consumption;
+    private String number;
     private BigDecimal tension;     // Volts
-    private Demand demand;      // ponta e fora ponta
     private ConsumptionDescription consumptionDescription;
     private Group group;    // Grupo/subgrupo
     private Classe classe;  // Classe/subclasse
     private Modalities modality;
-    private BigDecimal transformationLosses;    // %
     private RushHour rushHour;  // apenas para grupo A industrial
     private SupplyType supplyType;
     // Tarifas
@@ -40,7 +42,7 @@ public class EnergyBill extends Bill {
 
     public EnergyBill(
             final DateTime emission,
-            final long number,
+            final String number,
             final BigDecimal tension,
             final Demand demand,
             final ConsumptionDescription consumptionDescription,
@@ -54,12 +56,10 @@ public class EnergyBill extends Bill {
         this.emission = emission;
         this.number = number;
         this.tension = tension;
-        this.demand = demand;
         this.consumptionDescription = consumptionDescription;
         this.group = group;
         this.classe = classe;
         this.modality = modality;
-        this.transformationLosses = transformationLosses;
         this.rushHour = rushHour;
         this.supplyType = supplyType;
     }
@@ -248,17 +248,35 @@ public class EnergyBill extends Bill {
         return tributes;
     }
 
-    public List<Tribute> getTribute(Tributes tribute) {
+    public Optional<Tribute> getTribute(Tributes tribute) {
         return tributes.stream()
                 .filter(t -> t.getDescription().equals(tribute))
-                .collect(Collectors.toList());
+                .findFirst();
     }
 
     public void addTribute(Tribute tribute) {
         this.tributes.add(tribute);
     }
 
-    @Override
+    public BigDecimal getTributesTotal() {
+        BigDecimal res = new BigDecimal("0.0");
+        if (!tributes.isEmpty())
+            for (Tribute t : tributes) {
+                res.add(t.getValue());
+            }
+        return res;
+    }
+
+    public BigDecimal getFinancialItemsTotal() {
+        BigDecimal res = new BigDecimal("0.0");
+        if (!financialItems.isEmpty()) {
+            for (FinancialItem fi : financialItems) {
+                res.add(fi.getValue());
+            }
+        }
+        return res;
+    }
+
     public BigDecimal getTotalValue() {
         BigDecimal total = new BigDecimal("0.00");
         for (Product p : products) {
@@ -267,9 +285,29 @@ public class EnergyBill extends Bill {
         for (FinancialItem fi : financialItems) {
             total.add(fi.getValue());
         }
-        if (!(total.compareTo(totalValue) == 0)) {
+        if (!(total.compareTo(bill.getTotalValue()) == 0)) {
             return total;
         }
-        return totalValue;
+        return bill.getTotalValue();
+    }
+
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(final Bill bill) {
+        this.bill = bill;
+    }
+
+    public BigDecimal getConsumption() {
+        return consumption;
+    }
+
+    public void setConsumption(final String consumption) {
+        this.consumption = new BigDecimal(consumption);
+    }
+
+    public void setNumber(final String number) {
+        this.number = number;
     }
 }

@@ -2,7 +2,6 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.controller.BillController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +10,7 @@ import java.util.List;
 /**
  * @author TOBIASDASILVALINO
  */
-public class EnergyBillService implements BillController {
+public class EnergyBillService implements BillService {
 
     private static final Logger log = LoggerFactory.getLogger(EnergyBillService.class);
 
