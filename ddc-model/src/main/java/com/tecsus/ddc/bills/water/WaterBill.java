@@ -1,6 +1,5 @@
 package com.tecsus.ddc.bills.water;
 
-import com.tecsus.ddc.AbstractClassBill;
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.water.enums.BillingType;
 import com.tecsus.ddc.bills.water.enums.ConnectionType;
@@ -13,7 +12,6 @@ import java.util.Objects;
  */
 public class WaterBill {
 
-<<<<<<< HEAD
     private int id;
     private Bill bill;
     private ConnectionType conType;
@@ -23,39 +21,6 @@ public class WaterBill {
     private BigDecimal sewer;
     private BigDecimal trcf;
     private BigDecimal tributes;
-=======
-    private AbstractClassBill bill;
-    private long cod;
-    private String hydrometer;
-    private double residentialTotal;    // VI Água + VI Esgoto
-    private int consumption;    // m3
-    private double water;   // discriminação do faturamento
-    private double sewer;   // discriminação do faturamento
-    private double TRCF;   // discriminação do faturamento
-    private WaterBillType type;    // Ex: água e esgoto
-    private String RGI;
-
-    public WaterBill(
-            long cod,
-            String hydrometer,
-            double residentialTotal,
-            int consumption,
-            double water,
-            double sewer,
-            double TRCF,
-            WaterBillType type,
-            String RGI) {
-        this.cod = cod;
-        this.hydrometer = hydrometer;
-        this.residentialTotal = residentialTotal;
-        this.consumption = consumption;
-        this.water = water;
-        this.sewer = sewer;
-        this.TRCF = TRCF;
-        this.type = type;
-        this.RGI = RGI;
-    }
->>>>>>> 3ca56936d9fc574b408c809c8595c6db50fa2cae
 
     public WaterBill() {
     }
@@ -164,16 +129,7 @@ public class WaterBill {
         return tributes;
     }
 
-<<<<<<< HEAD
     public void setTributes(final BigDecimal tributes) {
         this.tributes = tributes;
-=======
-    public AbstractClassBill getBill() {
-        return bill;
-    }
-
-    public void setBill(final AbstractClassBill bill) {
-        this.bill = bill;
->>>>>>> 3ca56936d9fc574b408c809c8595c6db50fa2cae
     }
 }

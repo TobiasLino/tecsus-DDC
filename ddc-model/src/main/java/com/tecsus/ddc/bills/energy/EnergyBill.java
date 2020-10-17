@@ -1,6 +1,6 @@
 package com.tecsus.ddc.bills.energy;
 
-import com.tecsus.ddc.AbstractClassBill;
+import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.bills.tributes.Tribute;
 import com.tecsus.ddc.bills.tributes.Tributes;
@@ -18,12 +18,8 @@ import java.util.stream.Collectors;
  */
 public class EnergyBill {
 
-<<<<<<< HEAD
     private int id;
     private Bill bill;
-=======
-    private AbstractClassBill bill;
->>>>>>> 3ca56936d9fc574b408c809c8595c6db50fa2cae
 
     private DateTime emission;
     private String meterNumber;
