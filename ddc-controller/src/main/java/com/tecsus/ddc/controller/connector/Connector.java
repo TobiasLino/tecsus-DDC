@@ -51,4 +51,8 @@ public class Connector {
             log.info("Could not disconnect the database");
         }
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }
