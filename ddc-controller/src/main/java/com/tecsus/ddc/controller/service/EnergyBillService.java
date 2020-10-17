@@ -59,7 +59,6 @@ public class EnergyBillService implements BillService {
             log.info("Error when executing Query");
         }
         List<T> list = responseToList(rs);
-        connector.close();
         closeStatement(statement);
         return list;
     }
