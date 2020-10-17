@@ -1,14 +1,15 @@
 package com.tecsus.ddc.controller.service;
 
-import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.builders.BillBuilder;
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.bills.water.builders.WaterBillBuilder;
+import com.tecsus.ddc.bills.water.enums.BillingType;
+import com.tecsus.ddc.bills.water.enums.ConnectionType;
 import com.tecsus.ddc.controller.connector.Connector;
+import com.tecsus.ddc.controller.repository.BillRepository;
+import com.tecsus.ddc.controller.repository.WaterBillRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,7 +20,7 @@ import java.util.Optional;
 /**
  * @author TOBIASDASILVALINO
  */
-public class WaterBillService implements BillService{
+public class WaterBillService implements WaterBillRepository {
 
     private static final Logger log = LoggerFactory.getLogger(WaterBillService.class);
 
@@ -33,18 +34,23 @@ public class WaterBillService implements BillService{
     }
 
     @Override
-    public Optional<Object> findById(final String idBill) {
+    public void insert(final WaterBill bill) {
+
+    }
+
+    @Override
+    public Optional<WaterBill> findById(final String idBill) {
         return Optional.empty();
     }
 
     @Override
-    public <T> List<T> findAll() {
+    public List<WaterBill> findAll() {
         String query = "SELECT * FROM bill, water_bill WHERE bill.bill_num = water_bill.abs_bill";
         return executeSelect(query);
     }
 
     @Override
-    public <T> List<T> executeSelect(final String query) {
+    public List<WaterBill> executeSelect(final String query) {
         Statement statement = null;
         ResultSet rs = null;
         try {
@@ -53,13 +59,13 @@ public class WaterBillService implements BillService{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        List<T> list = responseToList(rs);
+        List<WaterBill> list = responseToList(rs);
         closeStatement(statement);
         return list;
     }
 
     @Override
-    public <T> List<T> responseToList(final ResultSet rs) {
+    public List<WaterBill> responseToList(final ResultSet rs) {
         List<WaterBill> list = new ArrayList<>();
         try {
             while (rs.next()) {
@@ -69,12 +75,20 @@ public class WaterBillService implements BillService{
             e.printStackTrace();
         }
         closeResultSet(rs);
-        return (List<T>)list;
+        return list;
     }
 
     private WaterBill constructBillFromResultSet(ResultSet rs) throws SQLException {
-        return new WaterBillBuilder()
-                .bill(abstractBillService.constructBillFromResultSet(rs))
+        return WaterBillBuilder.aWaterBill()
+                .bill(new AbstractBillService(connector).constructBillFromResultSet(rs))
+                .id(rs.getInt("id_water_type"))
+                .conType(ConnectionType.valueOf(rs.getString("con_type")))
+                .billingType(BillingType.valueOf(rs.getString("billing_type")))
+                .consum(rs.getBigDecimal("consum_m3"))
+                .water(rs.getBigDecimal("water_val"))
+                .sewer(rs.getBigDecimal("sewer_val"))
+                .trcf(rs.getBigDecimal("trcf_val"))
+                .tributes(rs.getBigDecimal("tributes"))
                 .build();
     }
 

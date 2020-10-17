@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
  */
 public class EnergyBill {
 
+    private int id;
     private Bill bill;
 
     private DateTime emission;
@@ -28,16 +29,15 @@ public class EnergyBill {
     private Group group;    // Grupo/subgrupo
     private Classe classe;  // Classe/subclasse
     private SupplyType supplyType;
+    private BigDecimal financialItems;
     // Tarifas
     private final List<TariffFlag> tariffFlags;
     private final List<Product> products;
-    private final List<FinancialItem> financialItems;
     private final List<Tribute> tributes;
 
     public EnergyBill() {
         tariffFlags = new ArrayList<>();
         products = new ArrayList<>();
-        financialItems = new ArrayList<>();
         tributes = new ArrayList<>();
     }
 
@@ -76,6 +76,14 @@ public class EnergyBill {
     @Override
     public int hashCode() {
         return Objects.hash(emission, tension, group, classe, supplyType, tariffFlags, products, financialItems, tributes);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(final int id) {
+        this.id = id;
     }
 
     public DateTime getEmission() {
@@ -118,6 +126,14 @@ public class EnergyBill {
         this.supplyType = supplyType;
     }
 
+    public BigDecimal getFinancialItems() {
+        return financialItems;
+    }
+
+    public void setFinancialItems(final BigDecimal financialItems) {
+        this.financialItems = financialItems;
+    }
+
     public List<TariffFlag> getTariffFlags() {
         return tariffFlags;
     }
@@ -146,21 +162,6 @@ public class EnergyBill {
         this.products.add(product);
     }
 
-    public List<FinancialItem> getFinancialItems() {
-        return financialItems;
-    }
-
-    public List<FinancialItem> getFinancialItem(ProductDescription pd) {
-        return financialItems.stream()
-                .filter(item -> item.getDescription().equals(pd))
-                .collect(Collectors.toList());
-    }
-
-
-    public void addFinancialItem(FinancialItem item) {
-        this.financialItems.add(item);
-    }
-
     public List<Tribute> getTributes() {
         return tributes;
     }
@@ -184,23 +185,10 @@ public class EnergyBill {
         return res;
     }
 
-    public BigDecimal getFinancialItemsTotal() {
-        BigDecimal res = new BigDecimal("0.0");
-        if (!financialItems.isEmpty()) {
-            for (FinancialItem fi : financialItems) {
-                res.add(fi.getValue());
-            }
-        }
-        return res;
-    }
-
     public BigDecimal getTotalValue() {
         BigDecimal total = new BigDecimal("0.00");
         for (Product p : products) {
             total.add(p.getTotalValue());
-        }
-        for (FinancialItem fi : financialItems) {
-            total.add(fi.getValue());
         }
         if (!(total.compareTo(bill.getValor()) == 0)) {
             return total;

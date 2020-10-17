@@ -1,6 +1,7 @@
 package com.tecsus.ddc.bills.builders;
 
 import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.instalation.Instalation;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
@@ -20,7 +21,12 @@ public class BillBuilder {
         return bill;
     }
 
-    public BillBuilder instalation(final String instalation) {
+    public BillBuilder numMedidor(final String numMedidor) {
+        this.bill.setNumMedidor(numMedidor);
+        return this;
+    }
+
+    public BillBuilder instalation(final Instalation instalation) {
         this.bill.setInstalation(instalation);
         return this;
     }
@@ -62,6 +68,16 @@ public class BillBuilder {
 
     public BillBuilder leituraAnterior(final DateTime leituraAnterior) {
         this.bill.setLeituraAnterior(leituraAnterior);
+        return this;
+    }
+
+    public BillBuilder valorleituraAnterior(final BigDecimal valor) {
+        this.bill.setValorLeituraAnterior(valor);
+        return this;
+    }
+
+    public BillBuilder valorleituraAtual(final BigDecimal valor) {
+        this.bill.setValorLeituraAtual(valor);
         return this;
     }
 }

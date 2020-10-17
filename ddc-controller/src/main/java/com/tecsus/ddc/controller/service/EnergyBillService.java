@@ -8,6 +8,7 @@ import com.tecsus.ddc.bills.energy.builders.EnergyBillBuilder;
 import com.tecsus.ddc.bills.energy.builders.GroupBuilder;
 import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.controller.connector.Connector;
+import com.tecsus.ddc.controller.repository.EnergyBillRepository;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ import java.util.Optional;
 /**
  * @author TOBIASDASILVALINO
  */
-public class EnergyBillService implements BillService {
+public class EnergyBillService implements EnergyBillRepository {
 
     private static final Logger log = LoggerFactory.getLogger(EnergyBillService.class);
 
@@ -35,18 +36,23 @@ public class EnergyBillService implements BillService {
     }
 
     @Override
-    public Optional<Object> findById(final String idBill) {
+    public void insert(final EnergyBill bill) {
+        String query = "";
+    }
+
+    @Override
+    public Optional<EnergyBill> findById(final String idBill) {
         return Optional.empty();
     }
 
     @Override
-    public <T> List<T> findAll() {
+    public List<EnergyBill> findAll() {
         String query = "SELECT * FROM bill, energy_bill WHERE bill.bill_num = energy_bill.abs_bill";
         return executeSelect(query);
     }
 
     @Override
-    public <T> List<T> executeSelect(final String query) {
+    public List<EnergyBill> executeSelect(final String query) {
         Connection con = null;
         Statement statement = null;
         ResultSet rs = null;
@@ -58,29 +64,18 @@ public class EnergyBillService implements BillService {
             e.printStackTrace();
             log.info("Error when executing Query");
         }
-        List<T> list = responseToList(rs);
+        List<EnergyBill> list = responseToList(rs);
         closeStatement(statement);
         return list;
     }
 
     @Override
-    public <T> List<T> responseToList(ResultSet rs) {
+    public List<EnergyBill> responseToList(ResultSet rs) {
         List<EnergyBill> list = new ArrayList<>();
         try {
             while (rs.next()) {
-                Bill absBill = new BillBuilder()
-                    .instalation(rs.getString("id_instalation"))
-                    .numConta(rs.getString("bill_num"))
-                    .valor(rs.getBigDecimal("total_value"))
-                    .vencimento(new DateTime(rs.getDate("due_date")))
-                    .mesReferencia(new DateTime(rs.getDate("ref_month")))
-                    .periodoConsumo(rs.getInt("consum_period"))
-                    .leituraAnterior(new DateTime(rs.getDate("previous_read")))
-                    .leituraAtual(new DateTime(rs.getDate("actual_read")))
-                    .leituraProxima(new DateTime(rs.getDate("next_read")))
-                    .build();
                 EnergyBill bill = EnergyBillBuilder.anEnergyBill()
-                        .bill(absBill)
+                        .bill(new AbstractBillService(connector).constructBillFromResultSet(rs))
                         .meterNumber(rs.getString("meter_number"))
                         .consumption(rs.getBigDecimal("consum_kwh"))
                         .tension(rs.getInt("tension"))
@@ -105,7 +100,7 @@ public class EnergyBillService implements BillService {
             e.printStackTrace();
         }
         closeResultSet(rs);
-        return (List<T>) list;
+        return list;
     }
 
     private void closeStatement(Statement statement) {

@@ -1,8 +1,5 @@
 package com.tecsus.ddc.dealership;
 
-import com.tecsus.ddc.client.Instalation;
-
-import java.net.URL;
 import java.util.*;
 
 /**
@@ -14,10 +11,8 @@ public class Dealership {
     private String initials;
     private String CNPJ;
     private String site;
-    private List<Instalation> instalations;
 
     public Dealership() {
-        this.instalations = new ArrayList<>();
     }
 
     @Override
@@ -27,7 +22,6 @@ public class Dealership {
                 ", initials='" + initials + '\'' +
                 ", CNPJ='" + CNPJ + '\'' +
                 ", site='" + site + '\'' +
-                ", instalations=" + instalations +
                 '}';
     }
 
@@ -39,13 +33,12 @@ public class Dealership {
         return id == that.id &&
                 Objects.equals(initials, that.initials) &&
                 Objects.equals(CNPJ, that.CNPJ) &&
-                Objects.equals(site, that.site) &&
-                Objects.equals(instalations, that.instalations);
+                Objects.equals(site, that.site);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, initials, CNPJ, site, instalations);
+        return Objects.hash(id, initials, CNPJ, site);
     }
 
     public int getId() {
@@ -78,13 +71,5 @@ public class Dealership {
 
     public void setSite(final String site) {
         this.site = site;
-    }
-
-    public List<Instalation> getInstalations() {
-        return instalations;
-    }
-
-    public void addInstalations(Instalation instalation) {
-        this.instalations.add(instalation);
     }
 }

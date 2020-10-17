@@ -4,81 +4,73 @@ import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.Classe;
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.Group;
-import com.tecsus.ddc.bills.energy.RushHour;
-import com.tecsus.ddc.bills.energy.enums.Modalities;
 import com.tecsus.ddc.bills.energy.enums.SupplyType;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
 
 public final class EnergyBillBuilder {
-    private Bill bill;
-    private DateTime emission;
-    private String meterNumber;
-    // Dados do Contrato
-    private BigDecimal consumption;
-    private int tension;     // Volts
-    private Group group;    // Grupo/subgrupo
-    private Classe classe;  // Classe/subclasse
-    private SupplyType supplyType;
+    private EnergyBill energyBill;
 
     private EnergyBillBuilder() {
+        energyBill = new EnergyBill();
     }
 
     public static EnergyBillBuilder anEnergyBill() {
         return new EnergyBillBuilder();
     }
 
-    public EnergyBillBuilder bill(Bill bill) {
-        this.bill = bill;
+    public EnergyBillBuilder id(final int id) {
+        energyBill.setId(id);
         return this;
     }
 
-    public EnergyBillBuilder meterNumber(final String meterNumber) {
-        this.meterNumber = meterNumber;
+    public EnergyBillBuilder bill(Bill bill) {
+        energyBill.setBill(bill);
         return this;
     }
 
     public EnergyBillBuilder emission(DateTime emission) {
-        this.emission = emission;
+        energyBill.setEmission(emission);
+        return this;
+    }
+
+    public EnergyBillBuilder meterNumber(String meterNumber) {
+        energyBill.setMeterNumber(meterNumber);
         return this;
     }
 
     public EnergyBillBuilder consumption(BigDecimal consumption) {
-        this.consumption = consumption;
+        energyBill.setConsumption(consumption);
         return this;
     }
 
     public EnergyBillBuilder tension(int tension) {
-        this.tension = tension;
+        energyBill.setTension(tension);
         return this;
     }
 
     public EnergyBillBuilder group(Group group) {
-        this.group = group;
+        energyBill.setGroup(group);
         return this;
     }
 
     public EnergyBillBuilder classe(Classe classe) {
-        this.classe = classe;
+        energyBill.setClasse(classe);
         return this;
     }
 
     public EnergyBillBuilder supplyType(SupplyType supplyType) {
-        this.supplyType = supplyType;
+        energyBill.setSupplyType(supplyType);
+        return this;
+    }
+
+    public EnergyBillBuilder financialItems(BigDecimal financialItems) {
+        energyBill.setFinancialItems(financialItems);
         return this;
     }
 
     public EnergyBill build() {
-        EnergyBill energyBill = new EnergyBill();
-        energyBill.setBill(bill);
-        energyBill.setMeterNumber(meterNumber);
-        energyBill.setEmission(emission);
-        energyBill.setConsumption(consumption);
-        energyBill.setTension(tension);
-        energyBill.setGroup(group);
-        energyBill.setClasse(classe);
-        energyBill.setSupplyType(supplyType);
         return energyBill;
     }
 }

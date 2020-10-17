@@ -1,10 +1,6 @@
 package com.tecsus.ddc.tariffs;
 
-import com.tecsus.ddc.dealership.enums.EnergyDealerships;
-import com.tecsus.ddc.tariffs.enums.GrantNames;
 import org.joda.time.DateTime;
-
-import java.math.BigDecimal;
 
 /**
  * Representa as tarifas divulgadas pela ANEEL para contas de energia
@@ -14,7 +10,6 @@ public class ResidentialSupplyTariff {
 
     private int ideTarifaFornecimento;
     private String nomConcessao;
-    private EnergyDealerships dealership;
     private String sigDistribuidora;
     private String sigRegiao;
     private String sigUF;
@@ -33,11 +28,4 @@ public class ResidentialSupplyTariff {
     }
 
 
-    public EnergyDealerships getDealership() {
-        return dealership;
-    }
-
-    public void setDealership(final EnergyDealerships dealership) {
-        this.dealership = dealership;
-    }
 }

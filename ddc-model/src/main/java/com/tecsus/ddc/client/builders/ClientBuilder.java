@@ -1,36 +1,32 @@
 package com.tecsus.ddc.client.builders;
 
 import com.tecsus.ddc.client.Client;
-import com.tecsus.ddc.client.Instalation;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * @author TOBIASDASILVALINO 
+ * @author TOBIASDASILVALINO
  */
-public class ClientBuilder {
-    
-    private String CNPJ;
-    private String companyName;
-    private List<Instalation> instalations = new ArrayList<>();
-    
-    public Client build() {
-        return new Client(CNPJ, companyName, instalations);
+public final class ClientBuilder {
+    private Client client;
+
+    private ClientBuilder() {
+        client = new Client();
+    }
+
+    public static ClientBuilder aClient() {
+        return new ClientBuilder();
     }
 
     public ClientBuilder CNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+        client.setCNPJ(CNPJ);
         return this;
     }
 
-    public ClientBuilder companyName(String companyName) {
-        this.companyName = companyName;
+    public ClientBuilder name(String name) {
+        client.setName(name);
         return this;
     }
 
-    public ClientBuilder addInstalations(Instalation instalation) {
-        this.instalations.add(instalation);
-        return this;
+    public Client build() {
+        return client;
     }
 }
