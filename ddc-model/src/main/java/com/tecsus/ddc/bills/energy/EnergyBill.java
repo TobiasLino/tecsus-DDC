@@ -23,40 +23,37 @@ public class EnergyBill {
     private DateTime emission;
     // Dados do Contrato
     private BigDecimal consumption;
-    private String number;
-    private BigDecimal tension;     // Volts
-    private ConsumptionDescription consumptionDescription;
+    private int tension;     // Volts
     private Group group;    // Grupo/subgrupo
     private Classe classe;  // Classe/subclasse
     private Modalities modality;
     private RushHour rushHour;  // apenas para grupo A industrial
     private SupplyType supplyType;
     // Tarifas
-    private final List<TariffFlag> tariffFlags = new ArrayList<>();
-    private final List<Product> products = new ArrayList<>();
-    private final List<FinancialItem> financialItems = new ArrayList<>();
-    private final List<Tribute> tributes = new ArrayList<>(3);
+    private final List<TariffFlag> tariffFlags;
+    private final List<Product> products;
+    private final List<FinancialItem> financialItems;
+    private final List<Tribute> tributes;
 
     public EnergyBill() {
+        tariffFlags = new ArrayList<>();
+        products = new ArrayList<>();
+        financialItems = new ArrayList<>();
+        tributes = new ArrayList<>();
     }
 
     public EnergyBill(
             final DateTime emission,
-            final String number,
-            final BigDecimal tension,
-            final Demand demand,
+            final int tension,
             final ConsumptionDescription consumptionDescription,
             final Group group,
             final Classe classe,
             final Modalities modality,
-            final BigDecimal transformationLosses,
             final RushHour rushHour,
             final SupplyType supplyType) {
         this();
         this.emission = emission;
-        this.number = number;
         this.tension = tension;
-        this.consumptionDescription = consumptionDescription;
         this.group = group;
         this.classe = classe;
         this.modality = modality;
@@ -69,14 +66,10 @@ public class EnergyBill {
         return "EnergyBill{" +
                 super.toString() +
                 "emission=" + emission +
-                ", number=" + number +
                 ", tension=" + tension +
-                ", demand=" + demand +
-                ", consumptionDescription=" + consumptionDescription +
                 ", group=" + group +
                 ", classe=" + classe +
                 ", modality=" + modality +
-                ", transformationLosses=" + transformationLosses +
                 ", rushHour=" + rushHour +
                 ", supplyType=" + supplyType +
                 ", tariffFlags=" + tariffFlags +
@@ -91,15 +84,11 @@ public class EnergyBill {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final EnergyBill that = (EnergyBill) o;
-        return number == that.number &&
-                Objects.equals(emission, that.emission) &&
+        return  Objects.equals(emission, that.emission) &&
                 Objects.equals(tension, that.tension) &&
-                Objects.equals(demand, that.demand) &&
-                Objects.equals(consumptionDescription, that.consumptionDescription) &&
                 Objects.equals(group, that.group) &&
                 Objects.equals(classe, that.classe) &&
                 modality == that.modality &&
-                Objects.equals(transformationLosses, that.transformationLosses) &&
                 Objects.equals(rushHour, that.rushHour) &&
                 supplyType == that.supplyType &&
                 Objects.equals(tariffFlags, that.tariffFlags) &&
@@ -110,7 +99,7 @@ public class EnergyBill {
 
     @Override
     public int hashCode() {
-        return Objects.hash(emission, number, tension, demand, consumptionDescription, group, classe, modality, transformationLosses, rushHour, supplyType, tariffFlags, products, financialItems, tributes);
+        return Objects.hash(emission, tension, group, classe, modality, rushHour, supplyType, tariffFlags, products, financialItems, tributes);
     }
 
     public DateTime getEmission() {
@@ -121,36 +110,12 @@ public class EnergyBill {
         this.emission = emission;
     }
 
-    public long getNumber() {
-        return number;
-    }
-
-    public void setNumber(final long number) {
-        this.number = number;
-    }
-
-    public BigDecimal getTension() {
+    public int getTension() {
         return tension;
     }
 
-    public void setTension(final BigDecimal tension) {
+    public void setTension(final int tension) {
         this.tension = tension;
-    }
-
-    public Demand getDemand() {
-        return demand;
-    }
-
-    public void setDemand(final Demand demand) {
-        this.demand = demand;
-    }
-
-    public ConsumptionDescription getConsumptionDescription() {
-        return consumptionDescription;
-    }
-
-    public void setConsumptionDescription(final ConsumptionDescription consumptionDescription) {
-        this.consumptionDescription = consumptionDescription;
     }
 
     public Group getGroup() {
@@ -175,14 +140,6 @@ public class EnergyBill {
 
     public void setModality(final Modalities modality) {
         this.modality = modality;
-    }
-
-    public BigDecimal getTransformationLosses() {
-        return transformationLosses;
-    }
-
-    public void setTransformationLosses(final BigDecimal transformationLosses) {
-        this.transformationLosses = transformationLosses;
     }
 
     public RushHour getRushHour() {
@@ -285,10 +242,10 @@ public class EnergyBill {
         for (FinancialItem fi : financialItems) {
             total.add(fi.getValue());
         }
-        if (!(total.compareTo(bill.getTotalValue()) == 0)) {
+        if (!(total.compareTo(bill.getValor()) == 0)) {
             return total;
         }
-        return bill.getTotalValue();
+        return bill.getValor();
     }
 
     public Bill getBill() {
@@ -305,9 +262,5 @@ public class EnergyBill {
 
     public void setConsumption(final String consumption) {
         this.consumption = new BigDecimal(consumption);
-    }
-
-    public void setNumber(final String number) {
-        this.number = number;
     }
 }
