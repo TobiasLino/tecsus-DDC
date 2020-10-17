@@ -71,6 +71,7 @@ public class AbstractBillService implements BillRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        closeResultSet(rs);
         closeStatement(statement);
         return Optional.ofNullable(res);
     }

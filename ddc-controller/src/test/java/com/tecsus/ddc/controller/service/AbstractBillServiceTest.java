@@ -28,8 +28,13 @@ public class AbstractBillServiceTest {
     }
 
     @Test
-    public void insertTest() {
-        Bill bill = new BillBuilder()
+    public void inserTest() {
+        AbstractBillService service = new AbstractBillService(new Connector());
+        service.insert(constructBill());
+    }
+
+    public Bill constructBill() {
+        return new BillBuilder()
                 .instalation(
                         InstalationBuilder.anInstalation()
                                 .numInst("0874489555")
@@ -70,7 +75,5 @@ public class AbstractBillServiceTest {
                 .valorleituraAnterior(new BigDecimal("355"))
                 .valorleituraAtual(new BigDecimal("338"))
                 .build();
-        AbstractBillService service = new AbstractBillService(new Connector());
-        service.insert(bill);
     }
 }

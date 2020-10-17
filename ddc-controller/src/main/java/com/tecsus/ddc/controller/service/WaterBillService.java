@@ -4,9 +4,10 @@ import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.bills.water.builders.WaterBillBuilder;
 import com.tecsus.ddc.bills.water.enums.BillingType;
 import com.tecsus.ddc.bills.water.enums.ConnectionType;
+import com.tecsus.ddc.client.enums.State;
 import com.tecsus.ddc.controller.connector.Connector;
-import com.tecsus.ddc.controller.repository.BillRepository;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
+import com.tecsus.ddc.utils.WaterBillQueryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,18 +36,46 @@ public class WaterBillService implements WaterBillRepository {
 
     @Override
     public void insert(final WaterBill bill) {
+        executeInsert(WaterBillQueryBuilder.getInsertQuery(bill));
+    }
 
+    private void executeInsert(String query) {
+        Statement statement = null;
+        try {
+            statement = connector.getConnection().createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeStatement(statement);
     }
 
     @Override
     public Optional<WaterBill> findById(final String idBill) {
-        return Optional.empty();
+        return executeUniqueSelect(WaterBillQueryBuilder.getSelectUniqueQuery(idBill));
+    }
+
+    private Optional<WaterBill> executeUniqueSelect(String query) {
+        Statement statement = null;
+        ResultSet rs = null;
+        WaterBill res = null;
+        try {
+            statement = connector.getConnection().createStatement();
+            rs = statement.executeQuery(query);
+            if (rs.next()) {
+                res = constructBillFromResultSet(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeResultSet(rs);
+        closeStatement(statement);
+        return Optional.ofNullable(res);
     }
 
     @Override
     public List<WaterBill> findAll() {
-        String query = "SELECT * FROM bill, water_bill WHERE bill.bill_num = water_bill.abs_bill";
-        return executeSelect(query);
+        return executeSelect(WaterBillQueryBuilder.getSelectQuery());
     }
 
     @Override
