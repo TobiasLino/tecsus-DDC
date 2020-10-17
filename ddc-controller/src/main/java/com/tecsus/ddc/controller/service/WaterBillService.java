@@ -5,34 +5,34 @@ import com.tecsus.ddc.bills.water.WaterBill;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.ResultSet;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class WaterBillService implements BillService {
+public class WaterBillService implements BillService{
 
     private static final Logger log = LoggerFactory.getLogger(WaterBillService.class);
 
-    public List<Bill> select(String whereStatement, String whereValue) {
+    @Override
+    public Optional<Object> findById(final String idBill) {
+        return Optional.empty();
+    }
+
+    @Override
+    public <T> List<T> findAll() {
         return null;
     }
 
-    public void insert(Bill bill) {
-        if (bill == null) {
-            throw new NullPointerException();
-        }
-        if (!(bill instanceof WaterBill)) {
-            throw new IllegalArgumentException("Tipo de conta está errado");
-        }
-        WaterBill wb = (WaterBill)bill;
+    @Override
+    public <T> List<T> executeSelect(final String query) {
+        return null;
     }
 
-    public void update(long billId, Bill bill) {
-
-    }
-
-    public void delete(long billId) {
-
+    @Override
+    public <T> List<T> responseToList(final ResultSet rs) {
+        return null;
     }
 }
