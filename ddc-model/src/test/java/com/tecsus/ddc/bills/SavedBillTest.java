@@ -52,7 +52,7 @@ public class SavedBillTest {
                 user,
                 dealership,
                 client,
-                bill,
+                bill.getBill(),
                 new DateTime());
 
         System.out.println(sb.toString());

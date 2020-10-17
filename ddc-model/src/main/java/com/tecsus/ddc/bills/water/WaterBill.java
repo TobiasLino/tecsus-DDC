@@ -9,8 +9,9 @@ import java.util.Objects;
 /**
  * @author TOBIASDASILVALINO
  */
-public class WaterBill extends Bill {
+public class WaterBill {
 
+    private Bill bill;
     private long cod;
     private String hydrometer;
     private double residentialTotal;    // VI Água + VI Esgoto
@@ -79,6 +80,14 @@ public class WaterBill extends Bill {
                 hydrometer.equals(waterBill.hydrometer) &&
                 type.equals(waterBill.type) &&
                 RGI.equals(waterBill.RGI);
+    }
+
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(final Bill bill) {
+        this.bill = bill;
     }
 
     @Override

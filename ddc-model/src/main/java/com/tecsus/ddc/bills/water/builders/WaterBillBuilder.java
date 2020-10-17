@@ -1,5 +1,6 @@
 package com.tecsus.ddc.bills.water.builders;
 
+import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.bills.water.enums.WaterBillType;
 
@@ -8,6 +9,7 @@ import com.tecsus.ddc.bills.water.enums.WaterBillType;
  */
 public class WaterBillBuilder {
 
+    private Bill bill;
     private long cod;
     private String hydrometer;
     private double residentialTotal;    // VI Água + VI Esgoto
@@ -20,6 +22,11 @@ public class WaterBillBuilder {
     
     public WaterBill build() {
         return new WaterBill(cod, hydrometer, residentialTotal, consumption, water, sewer, TRCF, type, RGI);
+    }
+
+    public WaterBillBuilder bill(final Bill bill) {
+        this.bill = bill;
+        return this;
     }
 
     public WaterBillBuilder cod(long cod) {
