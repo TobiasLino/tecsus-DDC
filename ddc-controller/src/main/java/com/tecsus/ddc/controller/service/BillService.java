@@ -8,5 +8,7 @@ public interface BillService {
 
     Optional<Object> findById(String idBill);
     <T> List<T> findAll();
+
+    <T> List<T> executeSelect(String query);
     <T> List<T> responseToList(ResultSet rs);
 }
