@@ -7,8 +7,10 @@ import com.tecsus.ddc.bills.energy.builders.ClasseBuilder;
 import com.tecsus.ddc.bills.energy.builders.EnergyBillBuilder;
 import com.tecsus.ddc.bills.energy.builders.GroupBuilder;
 import com.tecsus.ddc.bills.energy.enums.*;
+import com.tecsus.ddc.client.enums.State;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.EnergyBillRepository;
+import com.tecsus.ddc.utils.EnergyBillQueryBuilder;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,28 +39,54 @@ public class EnergyBillService implements EnergyBillRepository {
 
     @Override
     public void insert(final EnergyBill bill) {
-        String query = "";
+        executeInsert(EnergyBillQueryBuilder.getInsertQuery(bill));
+    }
+
+    private void executeInsert(final String query) {
+        Statement statement = null;
+        try {
+            statement = connector.getConnection().createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeStatement(statement);
     }
 
     @Override
     public Optional<EnergyBill> findById(final String idBill) {
-        return Optional.empty();
+        return executeUniqueSelect(EnergyBillQueryBuilder.getSelectUniqueQuery(idBill));
+    }
+
+    private Optional<EnergyBill> executeUniqueSelect(final String query) {
+        Statement statement = null;
+        ResultSet rs = null;
+        EnergyBill res = null;
+        try {
+            statement = connector.getConnection().createStatement();
+            rs = statement.executeQuery(query);
+            if (rs.next()) {
+                res = constructEnergyBillFromResultSet(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeResultSet(rs);
+        closeStatement(statement);
+        return Optional.ofNullable(res);
     }
 
     @Override
     public List<EnergyBill> findAll() {
-        String query = "SELECT * FROM bill, energy_bill WHERE bill.bill_num = energy_bill.abs_bill";
-        return executeSelect(query);
+        return executeSelect(EnergyBillQueryBuilder.getSelectQuery());
     }
 
     @Override
     public List<EnergyBill> executeSelect(final String query) {
-        Connection con = null;
         Statement statement = null;
         ResultSet rs = null;
         try {
-            con = connector.getConnection();
-            statement = con.createStatement();
+            statement = connector.getConnection().createStatement();
             rs = statement.executeQuery(query);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,27 +102,7 @@ public class EnergyBillService implements EnergyBillRepository {
         List<EnergyBill> list = new ArrayList<>();
         try {
             while (rs.next()) {
-                EnergyBill bill = EnergyBillBuilder.anEnergyBill()
-                        .bill(new AbstractBillService(connector).constructBillFromResultSet(rs))
-                        .meterNumber(rs.getString("meter_number"))
-                        .consumption(rs.getBigDecimal("consum_kwh"))
-                        .tension(rs.getInt("tension"))
-                        .group(
-                                new GroupBuilder()
-                                .group(Groups.valueOf(rs.getString("en_group")))
-                                .subGroup(Subgroups.valueOf(rs.getString("en_sub_group")))
-                                .build()
-                        )
-                        .classe(
-                                new ClasseBuilder()
-                                .classe(Classes.valueOf(rs.getString("en_class")))
-                                .subClasse(SubClasses.valueOf(rs.getString("en_sub_class")))
-                                .build()
-                        )
-                        .supplyType(SupplyType.valueOf(rs.getString("supply")))
-                        .emission(new DateTime(rs.getDate("emission")))
-                        .build();
-                list.add(bill);
+                list.add(constructEnergyBillFromResultSet(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -103,9 +111,17 @@ public class EnergyBillService implements EnergyBillRepository {
         return list;
     }
 
+    private EnergyBill constructEnergyBillFromResultSet(final ResultSet rs) throws SQLException {
+        return EnergyBillBuilder.anEnergyBill()
+                .consumption(rs.getBigDecimal("consum_kwh"))
+                .tension(rs.getInt("tension"))
+                .emission(new DateTime(rs.getDate("emission")))
+
+    }
+
     private void closeStatement(Statement statement) {
         try {
-            if (statement != null) {
+            if (statement != null && !statement.isClosed()) {
                 statement.close();
             }
         } catch (SQLException e) {
@@ -115,7 +131,7 @@ public class EnergyBillService implements EnergyBillRepository {
 
     private void closeResultSet(ResultSet set) {
         try {
-            if (set != null) {
+            if (set != null && !set.isClosed()) {
                 set.close();
             }
         } catch (SQLException e) {
