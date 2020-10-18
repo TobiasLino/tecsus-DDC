@@ -22,7 +22,6 @@ public class EnergyBill {
     private Bill bill;
 
     private DateTime emission;
-    private String meterNumber;
     // Dados do Contrato
     private BigDecimal consumption;
     private int tension;     // Volts
@@ -30,52 +29,16 @@ public class EnergyBill {
     private Classe classe;  // Classe/subclasse
     private SupplyType supplyType;
     private BigDecimal financialItems;
+    private Modalities modalitie;
+    private BigDecimal tributes;
+    private BigDecimal icms;
     // Tarifas
     private final List<TariffFlag> tariffFlags;
     private final List<Product> products;
-    private final List<Tribute> tributes;
 
     public EnergyBill() {
         tariffFlags = new ArrayList<>();
         products = new ArrayList<>();
-        tributes = new ArrayList<>();
-    }
-
-    @Override
-    public String toString() {
-        return "EnergyBill{" +
-                super.toString() +
-                "emission=" + emission +
-                ", tension=" + tension +
-                ", group=" + group +
-                ", classe=" + classe +
-                ", supplyType=" + supplyType +
-                ", tariffFlags=" + tariffFlags +
-                ", products=" + products +
-                ", financialItems=" + financialItems +
-                ", tributes=" + tributes +
-                '}';
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        final EnergyBill that = (EnergyBill) o;
-        return  Objects.equals(emission, that.emission) &&
-                Objects.equals(tension, that.tension) &&
-                Objects.equals(group, that.group) &&
-                Objects.equals(classe, that.classe) &&
-                supplyType == that.supplyType &&
-                Objects.equals(tariffFlags, that.tariffFlags) &&
-                Objects.equals(products, that.products) &&
-                Objects.equals(financialItems, that.financialItems) &&
-                Objects.equals(tributes, that.tributes);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(emission, tension, group, classe, supplyType, tariffFlags, products, financialItems, tributes);
     }
 
     public int getId() {
@@ -86,12 +49,28 @@ public class EnergyBill {
         this.id = id;
     }
 
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(final Bill bill) {
+        this.bill = bill;
+    }
+
     public DateTime getEmission() {
         return emission;
     }
 
     public void setEmission(final DateTime emission) {
         this.emission = emission;
+    }
+
+    public BigDecimal getConsumption() {
+        return consumption;
+    }
+
+    public void setConsumption(final BigDecimal consumption) {
+        this.consumption = consumption;
     }
 
     public int getTension() {
@@ -134,89 +113,43 @@ public class EnergyBill {
         this.financialItems = financialItems;
     }
 
+    public Modalities getModalitie() {
+        return modalitie;
+    }
+
+    public void setModalitie(final Modalities modalitie) {
+        this.modalitie = modalitie;
+    }
+
+    public BigDecimal getTributes() {
+        return tributes;
+    }
+
+    public void setTributes(final BigDecimal tributes) {
+        this.tributes = tributes;
+    }
+
+    public BigDecimal getIcms() {
+        return icms;
+    }
+
+    public void setIcms(final BigDecimal icms) {
+        this.icms = icms;
+    }
+
     public List<TariffFlag> getTariffFlags() {
         return tariffFlags;
-    }
-
-    public List<TariffFlag> getTariffFlag(final TariffFlags flag){
-        return tariffFlags.stream()
-                .filter(f -> f.getFlag().equals(flag))
-                .collect(Collectors.toList());
-    }
-
-    public void addTariffFlag(final TariffFlag tariffFlag) {
-        this.tariffFlags.add(tariffFlag);
     }
 
     public List<Product> getProducts() {
         return products;
     }
 
-    public List<Product> getProduct(final ProductDescription productDescription){
-        return products.stream()
-                .filter(p -> p.getDescription().equals(productDescription))
-                .collect(Collectors.toList());
+    public void addProduct(Product product) {
+        products.add(product);
     }
 
-    public void addProduct(final Product product) {
-        this.products.add(product);
-    }
-
-    public List<Tribute> getTributes() {
-        return tributes;
-    }
-
-    public Optional<Tribute> getTribute(Tributes tribute) {
-        return tributes.stream()
-                .filter(t -> t.getDescription().equals(tribute))
-                .findFirst();
-    }
-
-    public void addTribute(Tribute tribute) {
-        this.tributes.add(tribute);
-    }
-
-    public BigDecimal getTributesTotal() {
-        BigDecimal res = new BigDecimal("0.0");
-        if (!tributes.isEmpty())
-            for (Tribute t : tributes) {
-                res.add(t.getValue());
-            }
-        return res;
-    }
-
-    public BigDecimal getTotalValue() {
-        BigDecimal total = new BigDecimal("0.00");
-        for (Product p : products) {
-            total.add(p.getTotalValue());
-        }
-        if (!(total.compareTo(bill.getValor()) == 0)) {
-            return total;
-        }
-        return bill.getValor();
-    }
-
-    public Bill getBill() {
-        return bill;
-    }
-
-    public void setBill(final Bill bill) {
-        this.bill = bill;
-    }
-
-    public BigDecimal getConsumption() {
-        return consumption;
-    }
-
-    public void setConsumption(final BigDecimal consumption) {
-        this.consumption = consumption;
-    }
-
-    public String getMeterNumber() {
-        return meterNumber;
-    }
-
-    public void setMeterNumber(final String meterNumber) {
-        this.meterNumber = meterNumber;
+    public void addTariffFlag(TariffFlag tariffFlag) {
+        this.tariffFlags.add(tariffFlag);
     }
 }
