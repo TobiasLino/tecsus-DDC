@@ -19,13 +19,7 @@ public class EnergyBillService implements BillService {
     }
 
     public void insert(Bill bill) {
-        if (bill == null) {
-            throw new NullPointerException();
-        }
-        if (!(bill instanceof EnergyBill)) {
-            throw new IllegalArgumentException("Tipo de conta está errado");
-        }
-        EnergyBill wb = (EnergyBill)bill;
+
 
     }
 

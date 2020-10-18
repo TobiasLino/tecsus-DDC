@@ -19,13 +19,7 @@ public class WaterBillService implements BillService {
     }
 
     public void insert(Bill bill) {
-        if (bill == null) {
-            throw new NullPointerException();
-        }
-        if (!(bill instanceof WaterBill)) {
-            throw new IllegalArgumentException("Tipo de conta está errado");
-        }
-        WaterBill wb = (WaterBill)bill;
+
     }
 
     public void update(long billId, Bill bill) {

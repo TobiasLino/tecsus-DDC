@@ -25,6 +25,7 @@
         <module>ddc-model</module>
         <module>ddc-controller</module>
         <module>ddc-view</module>
+        <module>ddc-view</module>
     </modules>
 
     <properties>
@@ -54,6 +55,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>16-ea+2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -64,8 +70,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
             </plugin>
         </plugins>
+
     </build>
+
 
 </project>

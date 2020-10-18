@@ -1,7 +1,10 @@
 package com.tecsus.ddc.bills.energy;
 
-import com.tecsus.ddc.AbstractClassBill;
-import com.tecsus.ddc.bills.energy.enums.*;
+import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.bills.energy.enums.Modalities;
+import com.tecsus.ddc.bills.energy.enums.ProductDescription;
+import com.tecsus.ddc.bills.energy.enums.SupplyType;
+import com.tecsus.ddc.bills.energy.enums.TariffFlags;
 import com.tecsus.ddc.bills.tributes.Tribute;
 import com.tecsus.ddc.bills.tributes.Tributes;
 import org.joda.time.DateTime;
@@ -18,7 +21,7 @@ import java.util.stream.Collectors;
  */
 public class EnergyBill {
 
-    private AbstractClassBill bill;
+    private Bill bill;
 
     private DateTime emission;
     // Dados do Contrato
@@ -71,12 +74,10 @@ public class EnergyBill {
                 "emission=" + emission +
                 ", number=" + number +
                 ", tension=" + tension +
-                ", demand=" + demand +
                 ", consumptionDescription=" + consumptionDescription +
                 ", group=" + group +
                 ", classe=" + classe +
                 ", modality=" + modality +
-                ", transformationLosses=" + transformationLosses +
                 ", rushHour=" + rushHour +
                 ", supplyType=" + supplyType +
                 ", tariffFlags=" + tariffFlags +
@@ -94,12 +95,10 @@ public class EnergyBill {
         return number == that.number &&
                 Objects.equals(emission, that.emission) &&
                 Objects.equals(tension, that.tension) &&
-                Objects.equals(demand, that.demand) &&
                 Objects.equals(consumptionDescription, that.consumptionDescription) &&
                 Objects.equals(group, that.group) &&
                 Objects.equals(classe, that.classe) &&
                 modality == that.modality &&
-                Objects.equals(transformationLosses, that.transformationLosses) &&
                 Objects.equals(rushHour, that.rushHour) &&
                 supplyType == that.supplyType &&
                 Objects.equals(tariffFlags, that.tariffFlags) &&
@@ -110,7 +109,7 @@ public class EnergyBill {
 
     @Override
     public int hashCode() {
-        return Objects.hash(emission, number, tension, demand, consumptionDescription, group, classe, modality, transformationLosses, rushHour, supplyType, tariffFlags, products, financialItems, tributes);
+        return Objects.hash(emission, number, tension, consumptionDescription, group, classe, modality, rushHour, supplyType, tariffFlags, products, financialItems, tributes);
     }
 
     public DateTime getEmission() {
@@ -121,28 +120,12 @@ public class EnergyBill {
         this.emission = emission;
     }
 
-    public long getNumber() {
-        return number;
-    }
-
-    public void setNumber(final long number) {
-        this.number = number;
-    }
-
     public BigDecimal getTension() {
         return tension;
     }
 
     public void setTension(final BigDecimal tension) {
         this.tension = tension;
-    }
-
-    public Demand getDemand() {
-        return demand;
-    }
-
-    public void setDemand(final Demand demand) {
-        this.demand = demand;
     }
 
     public ConsumptionDescription getConsumptionDescription() {
@@ -175,14 +158,6 @@ public class EnergyBill {
 
     public void setModality(final Modalities modality) {
         this.modality = modality;
-    }
-
-    public BigDecimal getTransformationLosses() {
-        return transformationLosses;
-    }
-
-    public void setTransformationLosses(final BigDecimal transformationLosses) {
-        this.transformationLosses = transformationLosses;
     }
 
     public RushHour getRushHour() {
@@ -285,10 +260,10 @@ public class EnergyBill {
         for (FinancialItem fi : financialItems) {
             total.add(fi.getValue());
         }
-        if (!(total.compareTo(bill.getTotalValue()) == 0)) {
+        if (!(total.compareTo(bill.getValor()) == 0)) {
             return total;
         }
-        return bill.getTotalValue();
+        return bill.getValor();
     }
 
     public Bill getBill() {

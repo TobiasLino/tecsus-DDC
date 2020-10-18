@@ -39,17 +39,11 @@
             <version>${postgresql.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId></groupId>
-            <artifactId>athenaJDBC41</artifactId>
-            <version>${athena.version}</version>
-        </dependency>
-
 
         <dependency>
-            <groupId>com.tecsus.ddc</groupId>
+            <groupId>com.tecsus</groupId>
             <artifactId>ddc-model</artifactId>
-            <version>${ddc-model.version}</version>
+            <version>v0.1</version>
         </dependency>
     </dependencies>
 
