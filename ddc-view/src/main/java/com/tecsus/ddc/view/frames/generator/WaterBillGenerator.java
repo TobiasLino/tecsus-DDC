@@ -45,10 +45,11 @@ public class WaterBillGenerator {
                             .leituraProxima(new DateTime(format.parse(fields.getTxtLProxima().getText())))
                             .valorleituraAnterior(new BigDecimal(fields.getTxtAnterior().getText()))
                             .valorleituraAtual(new BigDecimal(fields.getTxtAtual().getText()))
+                            .numMedidor(fields.getTxtMedidor().getText())
                             .build())
                     .conType(ConnectionType.valueOf(fields.getTxtConexao().getText()))
                     .billingType(BillingType.valueOf("COMUM"))
-                    .consum(new BigDecimal(fields.getTxtConsumo().getText()))
+                    .consum(new BigDecimal(fields.getTxtBCalculo().getText())) // TODO fix this funcking shit now
                     .water(new BigDecimal(fields.getTxtAgua().getText()))
                     .sewer(new BigDecimal(fields.getTxtEsgoto().getText()))
                     .trcf(new BigDecimal(fields.getTxtTrcf().getText()))

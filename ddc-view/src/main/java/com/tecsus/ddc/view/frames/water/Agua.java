@@ -392,11 +392,11 @@ public class Agua extends javax.swing.JInternalFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("PIS/PASEP e COFINS"));
 
-        jLabel20.setText("Al�quota(%):");
+        jLabel20.setText("Alíquota(%):");
 
-        jLabel21.setText("Base de c�lculo (R$):");
+        jLabel21.setText("Consumo:");
 
-        jLabel22.setText("Valor tirbuto (R$):");
+        jLabel22.setText("Valor tributo (R$):");
 
         jLabel23.setText("Total R$:");
 
