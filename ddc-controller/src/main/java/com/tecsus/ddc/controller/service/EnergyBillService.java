@@ -116,7 +116,7 @@ public class EnergyBillService implements EnergyBillRepository {
                 .consumption(rs.getBigDecimal("consum_kwh"))
                 .tension(rs.getInt("tension"))
                 .emission(new DateTime(rs.getDate("emission")))
-
+                .build();
     }
 
     private void closeStatement(Statement statement) {

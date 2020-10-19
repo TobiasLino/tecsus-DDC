@@ -35,11 +35,6 @@ public final class EnergyBillBuilder {
         return this;
     }
 
-    public EnergyBillBuilder meterNumber(String meterNumber) {
-        energyBill.setMeterNumber(meterNumber);
-        return this;
-    }
-
     public EnergyBillBuilder consumption(BigDecimal consumption) {
         energyBill.setConsumption(consumption);
         return this;
