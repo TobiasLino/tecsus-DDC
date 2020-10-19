@@ -9,48 +9,32 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tecsus.ddc</groupId>
-    <artifactId>ddc-view</artifactId>
-
     <properties>
-        <ddc-model.version>v0.1</ddc-model.version>
+        <model.version>v0.1</model.version>
+        <controller.version>v0.1</controller.version>
 
-        <javafx.version>16-ea+2</javafx.version>
-        <!-- plugins -->
-        <javafx-plugin.version>0.0.4</javafx-plugin.version>
+        <openjfx.version>16-ea+2</openjfx.version>
     </properties>
 
+    <artifactId>ddc-view</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
+            <version>${openjfx.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tecsus</groupId>
+            <artifactId>ddc-model</artifactId>
+            <version>${model.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.tecsus.ddc</groupId>
-            <artifactId>ddc-model</artifactId>
-            <version>${ddc-model.version}</version>
+            <artifactId>ddc-controller</artifactId>
+            <version>${controller.version}</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <finalName>${project.artifactId}</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>${javafx-plugin.version}</version>
-                <configuration>
-                    <mainClass>com.tecsus.ddc.view.Main</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
