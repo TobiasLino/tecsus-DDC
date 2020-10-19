@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tecsus.ddc.view.frames;
+package com.tecsus.ddc.view.frames.home;
 
 import com.tecsus.ddc.view.frames.water.Agua;
 

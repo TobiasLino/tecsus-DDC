@@ -1,4 +1,4 @@
-package com.tecsus.ddc.view;
+package com.tecsus.ddc.view.frames.energy;
 
 import javax.swing.*;
 
