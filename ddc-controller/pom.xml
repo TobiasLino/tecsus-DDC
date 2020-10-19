@@ -46,7 +46,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.tecsus.ddc</groupId>
+            <groupId>com.tecsus</groupId>
             <artifactId>ddc-model</artifactId>
             <version>${ddc-model.version}</version>
         </dependency>

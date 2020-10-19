@@ -26,11 +26,9 @@ public class WaterBillService implements WaterBillRepository {
     private static final Logger log = LoggerFactory.getLogger(WaterBillService.class);
 
     private final Connector connector;
-    private final AbstractBillService abstractBillService;
 
     public WaterBillService(final Connector connector) {
         this.connector = connector;
-        this.abstractBillService = new AbstractBillService(connector);
         this.connector.connect();
     }
 
