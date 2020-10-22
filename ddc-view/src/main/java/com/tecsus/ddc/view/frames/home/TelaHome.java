@@ -6,6 +6,7 @@
 package com.tecsus.ddc.view.frames.home;
 
 import com.tecsus.ddc.view.frames.water.Agua;
+import com.tecsus.ddc.view.frames.energy.vw_conta_energia;
 
 import java.awt.event.KeyEvent;
 
@@ -69,7 +70,7 @@ public class TelaHome extends javax.swing.JFrame {
         menuBar.add(fileMenu);
 
         editMenu.setMnemonic('e');
-        editMenu.setText("�gua");
+        editMenu.setText("Água");
         editMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editMenuActionPerformed(evt);
@@ -82,7 +83,7 @@ public class TelaHome extends javax.swing.JFrame {
         });
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
-        jMenuItem1.setText("�gua");
+        jMenuItem1.setText("Água");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -125,7 +126,12 @@ public class TelaHome extends javax.swing.JFrame {
         Agua tela = new Agua();
         jDesktop.add(tela);
         tela.setVisible(true);
-        
+    }
+
+    private void openEnergyBillRegistryForm() {
+        vw_conta_energia tela = new vw_conta_energia();
+        jDesktop.add(tela);
+        tela.setVisible(true);
     }
     
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
@@ -145,6 +151,12 @@ public class TelaHome extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         abrirAgua();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void energyMenuKeyPressed(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == javafx.scene.input.KeyEvent.VK_F6) {
+            openEnergyBillRegistryForm();
+        }
+    }
 
     /**
      * @param args the command line arguments

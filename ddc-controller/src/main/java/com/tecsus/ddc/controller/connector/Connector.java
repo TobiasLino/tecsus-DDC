@@ -20,18 +20,19 @@ public class Connector {
 
     public Connector() {
         log.info("Configuring the connection");
-        this.config = new ConnectorConfig();
+        this.config = ConnectorConfig.getConfig();
     }
 
     public Connector connect() {
-        log.info("Connecting to the database");
+        log.info("Connecting to the database..");
         try {
             Class.forName(config.getDriver());
+            log.info("Loading connection..");
             connection = DriverManager.getConnection(
                     config.getUri(),
                     config.getUsername(),
                     config.getPasswd());
-            log.info("Connection Established");
+            log.info("Connection Established!");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             log.info("Could not connect to the database");

@@ -5,7 +5,6 @@
  */
 package com.tecsus.ddc.view.frames.water;
 
-import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.controller.WaterBillController;
 import com.tecsus.ddc.view.frames.generator.WaterBillGenerator;
 
@@ -92,13 +91,13 @@ public class Agua extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel4.setText("Endere�o:");
+        jLabel4.setText("Endereço:");
 
         jLabel3.setText("Cliente:");
 
         jLabel2.setText("RGI:");
 
-        jLabel5.setText("N�:");
+        jLabel5.setText("Número:");
 
         jLabel6.setText("Cidade:");
 
@@ -110,7 +109,7 @@ public class Agua extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Numero da conta:");
 
-        jLabel31.setText("Tipo de conex�o:");
+        jLabel31.setText("Tipo de conexao:");
 
         jLabel30.setText("Tipo de faturamento:");
 
@@ -213,13 +212,13 @@ public class Agua extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel9.setText("M�s referencia:");
+        jLabel9.setText("Mes referencia:");
 
         jLabel24.setText("Data de vencimento:");
 
-        jLabel25.setText("Per�odo de consumo:");
+        jLabel25.setText("Periodo de consumo:");
 
-        jLabel29.setText("N�mero do medidor:");
+        jLabel29.setText("Número do medidor:");
 
         jLabel26.setText("Leitura anterior:");
 
@@ -231,7 +230,7 @@ public class Agua extends javax.swing.JInternalFrame {
 
         jLabel27.setText("Leitura Atual:");
 
-        jLabel28.setText("Pr�xima Leitura:");
+        jLabel28.setText("Próxima Leitura:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -299,7 +298,7 @@ public class Agua extends javax.swing.JInternalFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel14.setText("�gua R$:");
+        jLabel14.setText("Água R$:");
 
         jLabel15.setText("Esgoto R$:");
 
@@ -313,7 +312,7 @@ public class Agua extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel11.setText("Media M�: ");
+        jLabel11.setText("Media m3: ");
 
         jLabel16.setText("Multa R$:");
 
@@ -499,6 +498,7 @@ public class Agua extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(ActionEvent evt) {
         controller.pushBill(WaterBillGenerator.generate(fields));
+        System.out.println(String.format("[%s] Conta de Água salva com sucesso.", Agua.class));
     }
 
 

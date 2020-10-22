@@ -10,9 +10,13 @@ public class ResidentialSupplyTariffConfig {
     private final PropertiesLoaderImpl loader;
     private final String url;
 
-    public ResidentialSupplyTariffConfig() {
+    private ResidentialSupplyTariffConfig() {
         this.loader = new PropertiesLoaderImpl("./tariffs.properties");
         this.url = constructUrl();
+    }
+
+    public static ResidentialSupplyTariffConfig getInstance() {
+        return new ResidentialSupplyTariffConfig();
     }
 
     private String constructUrl() {

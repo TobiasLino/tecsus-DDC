@@ -7,32 +7,33 @@ import java.text.SimpleDateFormat;
 /**
  * @author TOBIASDASILVALINO
  */
-public class AbstractBillQueryBuilder {
+public class AbstractBillQueryFactory {
 
     private Bill bill;
 
-    private AbstractBillQueryBuilder(final Bill bill) {
+    private AbstractBillQueryFactory(final Bill bill) {
         this.bill = bill;
     }
 
-    private AbstractBillQueryBuilder() {
+    private AbstractBillQueryFactory() {
     }
 
     public static String getInsertQuery(final Bill bill) {
-        return new AbstractBillQueryBuilder(bill).constructInsert();
+        return new AbstractBillQueryFactory(bill).constructInsert();
     }
 
     public static String getSelectQuery() {
-        return new AbstractBillQueryBuilder().constructSelect();
+        return new AbstractBillQueryFactory().constructSelect();
     }
 
     public static String getSelectUniqueQuery(final String billNum) {
-        return new AbstractBillQueryBuilder().constructUniqueSelect(billNum);
+        return new AbstractBillQueryFactory().constructUniqueSelect(billNum);
     }
 
     private String constructInsert() {
         SimpleDateFormat refMonth = new SimpleDateFormat("yyyy/MM");
         SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+        // TODO verificar os nulos
         return "INSERT INTO bill" +
                 "(id_instalation, bill_num, total_value, ref_month, due_date, consum_period, previous_read," +
                 "actual_read, next_read, meter_number, previous_read_val, actual_read_val)" +
@@ -53,19 +54,19 @@ public class AbstractBillQueryBuilder {
     }
 
     private String constructSelect() {
-        return "select * from bill, instalation, instalation_address, client, dealership" +
-                "where bill.id_instalation = instalation.num_inst " +
-                "and instalation.address = instalation_address.zip " +
-                "and instalation.client_cnpj = client.client_cnpj " +
-                "and instalation.id_dealer = dealership.id_dealership";
+        return "SELECT * FROM bill, instalation, instalation_address, client, dealership" +
+                "WHERE bill.id_instalation = instalation.num_inst " +
+                "AND instalation.address = instalation_address.zip " +
+                "AND instalation.client_cnpj = client.client_cnpj " +
+                "AND instalation.id_dealer = dealership.id_dealership";
     }
 
     private String constructUniqueSelect(final String billNum) {
-        return "select * from bill, instalation, instalation_address, client, dealership " +
-                "where bill.bill_num = '" + billNum + "' " +
-                "and bill.id_instalation = instalation.num_inst " +
-                "and instalation.address = instalation_address.zip " +
-                "and instalation.client_cnpj = client.client_cnpj " +
-                "and instalation.id_dealer = dealership.id_dealership";
+        return "SELECT * FROM bill, instalation, instalation_address, client, dealership " +
+                "WHERE bill.bill_num = '" + billNum + "' " +
+                "AND bill.id_instalation = instalation.num_inst " +
+                "AND instalation.address = instalation_address.zip " +
+                "AND instalation.client_cnpj = client.client_cnpj " +
+                "AND instalation.id_dealer = dealership.id_dealership";
     }
 }

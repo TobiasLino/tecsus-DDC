@@ -1,21 +1,14 @@
 package com.tecsus.ddc.controller.service;
 
-import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.builders.BillBuilder;
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.bills.energy.builders.ClasseBuilder;
 import com.tecsus.ddc.bills.energy.builders.EnergyBillBuilder;
-import com.tecsus.ddc.bills.energy.builders.GroupBuilder;
-import com.tecsus.ddc.bills.energy.enums.*;
-import com.tecsus.ddc.client.enums.State;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.EnergyBillRepository;
-import com.tecsus.ddc.utils.EnergyBillQueryBuilder;
+import com.tecsus.ddc.utils.EnergyBillQueryFactory;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,7 +32,7 @@ public class EnergyBillService implements EnergyBillRepository {
 
     @Override
     public void insert(final EnergyBill bill) {
-        executeInsert(EnergyBillQueryBuilder.getInsertQuery(bill));
+        executeInsert(EnergyBillQueryFactory.getInsertQuery(bill));
     }
 
     private void executeInsert(final String query) {
@@ -55,7 +48,7 @@ public class EnergyBillService implements EnergyBillRepository {
 
     @Override
     public Optional<EnergyBill> findById(final String idBill) {
-        return executeUniqueSelect(EnergyBillQueryBuilder.getSelectUniqueQuery(idBill));
+        return executeUniqueSelect(EnergyBillQueryFactory.getSelectUniqueQuery(idBill));
     }
 
     private Optional<EnergyBill> executeUniqueSelect(final String query) {
@@ -78,7 +71,7 @@ public class EnergyBillService implements EnergyBillRepository {
 
     @Override
     public List<EnergyBill> findAll() {
-        return executeSelect(EnergyBillQueryBuilder.getSelectQuery());
+        return executeSelect(EnergyBillQueryFactory.getSelectQuery());
     }
 
     @Override

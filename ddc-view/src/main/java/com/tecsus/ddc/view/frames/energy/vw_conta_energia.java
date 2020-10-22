@@ -2,6 +2,9 @@ package com.tecsus.ddc.view.frames.energy;
 
 import javax.swing.*;
 
+/**
+ * @author Ruan Macedo
+ */
 public class vw_conta_energia extends JInternalFrame{
     private JPanel panel1;
     private JTextField txtCnpj;

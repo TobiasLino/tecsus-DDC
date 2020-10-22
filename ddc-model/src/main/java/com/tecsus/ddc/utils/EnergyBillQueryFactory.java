@@ -1,33 +1,32 @@
 package com.tecsus.ddc.utils;
 
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.bills.tributes.Tributes;
 
 import java.text.SimpleDateFormat;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class EnergyBillQueryBuilder {
+public class EnergyBillQueryFactory {
 
     private EnergyBill bill;
 
-    private EnergyBillQueryBuilder(final EnergyBill bill) {
+    private EnergyBillQueryFactory(final EnergyBill bill) {
         this.bill = bill;
     }
 
-    private EnergyBillQueryBuilder() {}
+    private EnergyBillQueryFactory() {}
 
     public static String getInsertQuery(final EnergyBill bill) {
-        return new EnergyBillQueryBuilder(bill).constructInsert();
+        return new EnergyBillQueryFactory(bill).constructInsert();
     }
 
     public static String getSelectQuery() {
-        return new EnergyBillQueryBuilder().constructSelect();
+        return new EnergyBillQueryFactory().constructSelect();
     }
 
     public static String getSelectUniqueQuery(final String billNum) {
-        return new EnergyBillQueryBuilder().constructUniqueSelect(billNum);
+        return new EnergyBillQueryFactory().constructUniqueSelect(billNum);
     }
 
     private String constructInsert() {
