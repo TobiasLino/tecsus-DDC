@@ -1,7 +1,8 @@
 package com.tecsus.ddc.bills.water;
 
 import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.water.enums.WaterBillType;
+import com.tecsus.ddc.bills.water.enums.BillingType;
+import com.tecsus.ddc.bills.water.enums.ConnectionType;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -11,153 +12,124 @@ import java.util.Objects;
  */
 public class WaterBill {
 
+    private int id;
     private Bill bill;
-    private long cod;
-    private String hydrometer;
-    private double residentialTotal;    // VI Água + VI Esgoto
-    private int consumption;    // m3
-    private double water;   // discriminação do faturamento
-    private double sewer;   // discriminação do faturamento
-    private double TRCF;   // discriminação do faturamento
-    private WaterBillType type;    // Ex: água e esgoto
-    private String RGI;
+    private ConnectionType conType;
+    private BillingType billingType;
+    private BigDecimal consum;  // m3
+    private BigDecimal water;
+    private BigDecimal sewer;
+    private BigDecimal trcf;
+    private BigDecimal tributes;
 
-    public WaterBill(
-            long cod,
-            String hydrometer,
-            double residentialTotal,
-            int consumption,
-            double water,
-            double sewer,
-            double TRCF,
-            WaterBillType type,
-            String RGI) {
-        this.cod = cod;
-        this.hydrometer = hydrometer;
-        this.residentialTotal = residentialTotal;
-        this.consumption = consumption;
-        this.water = water;
-        this.sewer = sewer;
-        this.TRCF = TRCF;
-        this.type = type;
-        this.RGI = RGI;
-    }
-
-    // Just for test
     public WaterBill() {
     }
 
     @Override
     public String toString() {
         return "WaterBill{" +
-                "cod=" + cod +
-                ", hydrometer='" + hydrometer + '\'' +
-                ", residentialTotal=" + residentialTotal +
-                ", consumption=" + consumption +
+                "id=" + id +
+                ", bill=" + bill +
+                ", conType=" + conType +
+                ", billingType=" + billingType +
+                ", consum=" + consum +
                 ", water=" + water +
                 ", sewer=" + sewer +
-                ", TRCF=" + TRCF +
-                ", type='" + type + '\'' +
-                ", RGI='" + RGI + '\'' +
+                ", trcf=" + trcf +
+                ", tributes=" + tributes +
                 '}';
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        WaterBill waterBill = (WaterBill) o;
-        return cod == waterBill.cod &&
-                Double.compare(waterBill.residentialTotal, residentialTotal) == 0 &&
-                consumption == waterBill.consumption &&
-                Double.compare(waterBill.water, water) == 0 &&
-                Double.compare(waterBill.sewer, sewer) == 0 &&
-                Double.compare(waterBill.TRCF, TRCF) == 0 &&
-                hydrometer.equals(waterBill.hydrometer) &&
-                type.equals(waterBill.type) &&
-                RGI.equals(waterBill.RGI);
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final WaterBill bill1 = (WaterBill) o;
+        return id == bill1.id &&
+                Objects.equals(bill, bill1.bill) &&
+                conType == bill1.conType &&
+                billingType == bill1.billingType &&
+                Objects.equals(consum, bill1.consum) &&
+                Objects.equals(water, bill1.water) &&
+                Objects.equals(sewer, bill1.sewer) &&
+                Objects.equals(trcf, bill1.trcf) &&
+                Objects.equals(tributes, bill1.tributes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cod, hydrometer, residentialTotal, consumption, water, sewer, TRCF, type, RGI);
+        return Objects.hash(id, bill, conType, billingType, consum, water, sewer, trcf, tributes);
     }
 
-    public long getCod() {
-        return cod;
+    public int getId() {
+        return id;
     }
 
-    public void setCod(long cod) {
-        this.cod = cod;
+    public void setId(final int id) {
+        this.id = id;
     }
 
-    public String getHydrometer() {
-        return hydrometer;
+    public Bill getBill() {
+        return bill;
     }
 
-    public void setHydrometer(String hydrometer) {
-        this.hydrometer = hydrometer;
+    public void setBill(final Bill bill) {
+        this.bill = bill;
     }
 
-    public double getResidentialTotal() {
-        return residentialTotal;
+    public ConnectionType getConType() {
+        return conType;
     }
 
-    public void setResidentialTotal(double residentialTotal) {
-        this.residentialTotal = residentialTotal;
+    public void setConType(final ConnectionType conType) {
+        this.conType = conType;
     }
 
-    public int getConsumption() {
-        return consumption;
+    public BillingType getBillingType() {
+        return billingType;
     }
 
-    public void setConsumption(int consumption) {
-        this.consumption = consumption;
+    public void setBillingType(final BillingType billingType) {
+        this.billingType = billingType;
     }
 
-    public double getWater() {
+    public BigDecimal getConsum() {
+        return consum;
+    }
+
+    public void setConsum(final BigDecimal consum) {
+        this.consum = consum;
+    }
+
+    public BigDecimal getWater() {
         return water;
     }
 
-    public void setWater(double water) {
+    public void setWater(final BigDecimal water) {
         this.water = water;
     }
 
-    public double getSewer() {
+    public BigDecimal getSewer() {
         return sewer;
     }
 
-    public void setSewer(double sewer) {
+    public void setSewer(final BigDecimal sewer) {
         this.sewer = sewer;
     }
 
-    public double getTRCF() {
-        return TRCF;
+    public BigDecimal getTrcf() {
+        return trcf;
     }
 
-    public void setTRCF(double TRCF) {
-        this.TRCF = TRCF;
+    public void setTrcf(final BigDecimal trcf) {
+        this.trcf = trcf;
     }
 
-    public String getType() {
-        return type.name();
+    public BigDecimal getTributes() {
+        return tributes;
     }
 
-    public void setType(WaterBillType type) {
-        this.type = type;
+    public void setTributes(final BigDecimal tributes) {
+        this.tributes = tributes;
     }
-
-    public String getRGI() {
-        return RGI;
-    }
-
-    public void setRGI(String RGI) {
-        this.RGI = RGI;
-    }
-
-
 }

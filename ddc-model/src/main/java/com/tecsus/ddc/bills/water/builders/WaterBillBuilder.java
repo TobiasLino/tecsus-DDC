@@ -1,69 +1,69 @@
 package com.tecsus.ddc.bills.water.builders;
 
+import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.bills.water.enums.WaterBillType;
+import com.tecsus.ddc.bills.water.enums.BillingType;
+import com.tecsus.ddc.bills.water.enums.ConnectionType;
 
-/**
- * @author TOBIASDASILVALINO
- */
-public class WaterBillBuilder {
+import java.math.BigDecimal;
 
-    private long cod;
-    private String hydrometer;
-    private double residentialTotal;    // VI Água + VI Esgoto
-    private int consumption;    // m3
-    private double water;   // discriminação do faturamento
-    private double sewer;   // discriminação do faturamento
-    private double TRCF;   // discriminação do faturamento
-    private WaterBillType type;    // Ex: água e esgoto
-    private String RGI;
-    
+public final class WaterBillBuilder {
+    private WaterBill waterBill;
+
+    private WaterBillBuilder() {
+        waterBill = new WaterBill();
+    }
+
+    public static WaterBillBuilder aWaterBill() {
+        return new WaterBillBuilder();
+    }
+
+    public WaterBillBuilder id(int id) {
+        waterBill.setId(id);
+        return this;
+    }
+
+    public WaterBillBuilder bill(Bill bill) {
+        waterBill.setBill(bill);
+        return this;
+    }
+
+    public WaterBillBuilder conType(ConnectionType conType) {
+        waterBill.setConType(conType);
+        return this;
+    }
+
+    public WaterBillBuilder billingType(BillingType billingType) {
+        waterBill.setBillingType(billingType);
+        return this;
+    }
+
+    public WaterBillBuilder consum(BigDecimal consum) {
+        waterBill.setConsum(consum);
+        return this;
+    }
+
+    public WaterBillBuilder water(BigDecimal water) {
+        waterBill.setWater(water);
+        return this;
+    }
+
+    public WaterBillBuilder sewer(BigDecimal sewer) {
+        waterBill.setSewer(sewer);
+        return this;
+    }
+
+    public WaterBillBuilder trcf(BigDecimal trcf) {
+        waterBill.setTrcf(trcf);
+        return this;
+    }
+
+    public WaterBillBuilder tributes(BigDecimal tributes) {
+        waterBill.setTributes(tributes);
+        return this;
+    }
+
     public WaterBill build() {
-        return new WaterBill(cod, hydrometer, residentialTotal, consumption, water, sewer, TRCF, type, RGI);
-    }
-
-    public WaterBillBuilder cod(long cod) {
-        this.cod = cod;
-        return this;
-    }
-
-    public WaterBillBuilder hydrometer(String hydrometer) {
-        this.hydrometer = hydrometer;
-        return this;
-    }
-
-    public WaterBillBuilder residentialTotal(double residentialTotal) {
-        this.residentialTotal = residentialTotal;
-        return this;
-    }
-
-    public WaterBillBuilder consumption(int consumption) {
-        this.consumption = consumption;
-        return this;
-    }
-
-    public WaterBillBuilder water(double water) {
-        this.water = water;
-        return this;
-    }
-
-    public WaterBillBuilder sewer(double sewer) {
-        this.sewer = sewer;
-        return this;
-    }
-
-    public WaterBillBuilder TRCF(double TRCF) {
-        this.TRCF = TRCF;
-        return this;
-    }
-
-    public WaterBillBuilder type(WaterBillType type) {
-        this.type = type;
-        return this;
-    }
-
-    public WaterBillBuilder RGI(String RGI) {
-        this.RGI = RGI;
-        return this;
+        return waterBill;
     }
 }

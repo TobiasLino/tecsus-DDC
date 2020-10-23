@@ -3,7 +3,6 @@ package com.tecsus.ddc.controller.service.tariffs;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tecsus.ddc.controller.config.ResidentialSupplyTariffConfig;
-import com.tecsus.ddc.dealership.enums.EnergyDealerships;
 import com.tecsus.ddc.tariffs.ResidentialSupplyTariff;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
@@ -24,12 +23,10 @@ public class ResidentialSupllyTariffService {
 
     private ResidentialSupplyTariffConfig config;
     private ArrayList<ResidentialSupplyTariff> list = new ArrayList<ResidentialSupplyTariff>();
-    private EnergyDealerships target;
 
     private static final Logger log = LoggerFactory.getLogger(ResidentialSupllyTariffService.class);
 
-    public ResidentialSupllyTariffService(final EnergyDealerships target) {
-        this.target = target;
+    public ResidentialSupllyTariffService() {
         this.config = new ResidentialSupplyTariffConfig();
     }
 
@@ -54,9 +51,4 @@ public class ResidentialSupllyTariffService {
         return this;
     }
 
-    public Optional<ResidentialSupplyTariff> create() {
-        return list.stream()
-                .filter(rst -> rst.getDealership().name().equals(target.name()))
-                .findFirst();
-    }
 }

@@ -1,28 +1,39 @@
 package com.tecsus.ddc.dealership.builders;
 
 import com.tecsus.ddc.dealership.Dealership;
-import com.tecsus.ddc.dealership.enums.EnergyDealerships;
 
-import java.net.URL;
+public final class DealershipBuilder {
+    private Dealership dealership;
 
-/**
- * @author TOBIASDASILVALINO
- */
-public class DealershipBuilder {
-
-    private EnergyDealerships name;
-    private String CNPJ;
-    private URL site;
-
-    public Dealership build() {
-        return new Dealership(name, CNPJ, site);
+    private DealershipBuilder() {
+        dealership = new Dealership();
     }
 
-    public DealershipBuilder name(EnergyDealerships name) {
-        if (name == null) {
-            throw new NullPointerException();
-        }
-        this.name = name;
+    public static DealershipBuilder aDealership() {
+        return new DealershipBuilder();
+    }
+
+    public DealershipBuilder id(int id) {
+        dealership.setId(id);
         return this;
+    }
+
+    public DealershipBuilder initials(String initials) {
+        dealership.setInitials(initials);
+        return this;
+    }
+
+    public DealershipBuilder CNPJ(String CNPJ) {
+        dealership.setCNPJ(CNPJ);
+        return this;
+    }
+
+    public DealershipBuilder site(String site) {
+        dealership.setSite(site);
+        return this;
+    }
+
+    public Dealership build() {
+        return dealership;
     }
 }

@@ -1,71 +1,75 @@
 package com.tecsus.ddc.dealership;
 
-import com.tecsus.ddc.client.Instalation;
-
-import java.net.URL;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author TOBIASDASILVALINO
  */
 public class Dealership {
 
-    private final Dealerships dealership;
-    private final String CNPJ;
-    private final URL site;
-    private final Set<Instalation> instalations = new HashSet<>();
+    private int id;
+    private String initials;
+    private String CNPJ;
+    private String site;
 
-    public Dealership(final Dealerships dealership, final String CNPJ, final URL site) {
-        this.dealership = dealership;
-        this.CNPJ = dealership.getCNPJ();
-        this.site = dealership.getSite();
+    public Dealership() {
     }
 
     @Override
     public String toString() {
         return "Dealership{" +
-                "dealership=" + dealership +
+                "id=" + id +
+                ", initials='" + initials + '\'' +
                 ", CNPJ='" + CNPJ + '\'' +
-                ", site=" + site +
-                ", instalations=" + instalations +
+                ", site='" + site + '\'' +
                 '}';
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Dealership that = (Dealership) o;
-        return dealership == that.dealership &&
+        final Dealership that = (Dealership) o;
+        return id == that.id &&
+                Objects.equals(initials, that.initials) &&
                 Objects.equals(CNPJ, that.CNPJ) &&
-                Objects.equals(site, that.site) &&
-                Objects.equals(instalations, that.instalations);
+                Objects.equals(site, that.site);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dealership, CNPJ, site, instalations);
+        return Objects.hash(id, initials, CNPJ, site);
     }
 
-    public Dealerships getDealership() {
-        return dealership;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(final int id) {
+        this.id = id;
+    }
+
+    public String getInitials() {
+        return initials;
+    }
+
+    public void setInitials(final String initials) {
+        this.initials = initials;
     }
 
     public String getCNPJ() {
         return CNPJ;
     }
 
-    public URL getSite() {
+    public void setCNPJ(final String CNPJ) {
+        this.CNPJ = CNPJ;
+    }
+
+    public String getSite() {
         return site;
     }
 
-    public void addInstalation(Instalation cli) {
-        this.instalations.add(cli);
-    }
-
-    public Set<Instalation> getInstalations() {
-        return instalations;
+    public void setSite(final String site) {
+        this.site = site;
     }
 }

@@ -1,6 +1,5 @@
 package com.tecsus.ddc.client;
 
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -9,66 +8,46 @@ import java.util.Objects;
 public class Client {
 
     private String CNPJ;
-    private String companyName;
-    private List<Instalation> instalations;
+    private String name;
 
-    public Client(
-            final String CNPJ,
-            final String companyName,
-            final List<Instalation> instalations) {
-        this.CNPJ = CNPJ;
-        this.companyName = companyName;
-        this.instalations = instalations;
+    public Client() {
     }
 
     @Override
     public String toString() {
         return "Client{" +
                 "CNPJ='" + CNPJ + '\'' +
-                ", companyName='" + companyName + '\'' +
-                ", instalations=[" + instalations +
+                ", name='" + name + '\'' +
                 '}';
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
+        final Client client = (Client) o;
         return Objects.equals(CNPJ, client.CNPJ) &&
-                Objects.equals(companyName, client.companyName) &&
-                Objects.equals(instalations, client.instalations);
+                Objects.equals(name, client.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(CNPJ, companyName, instalations);
+        return Objects.hash(CNPJ, name);
     }
 
     public String getCNPJ() {
         return CNPJ;
     }
 
-    public void setCNPJ(String CNPJ) {
+    public void setCNPJ(final String CNPJ) {
         this.CNPJ = CNPJ;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getName() {
+        return name;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public List<Instalation> getInstalations() {
-        return instalations;
-    }
-
-    public void addInstalation(Instalation instalation) {
-        if (instalation == null) {
-            throw new NullPointerException();
-        }
-        this.instalations.add(instalation);
+    public void setName(final String name) {
+        this.name = name;
     }
 }

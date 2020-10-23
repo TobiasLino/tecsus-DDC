@@ -28,11 +28,10 @@ public class Connector {
         try {
             Class.forName(config.getDriver());
             connection = DriverManager.getConnection(
-                    config.getHost(),
+                    config.getUri(),
                     config.getUsername(),
                     config.getPasswd());
-
-
+            log.info("Connection Established");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             log.info("Could not connect to the database");
@@ -46,9 +45,14 @@ public class Connector {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
+            log.info("Connection closed");
         } catch (SQLException e) {
             e.printStackTrace();
             log.info("Could not disconnect the database");
         }
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 }
