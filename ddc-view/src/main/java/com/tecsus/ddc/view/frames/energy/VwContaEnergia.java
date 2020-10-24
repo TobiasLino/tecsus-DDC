@@ -1,4 +1,8 @@
+<<<<<<< HEAD:ddc-view/src/main/java/com/tecsus/ddc/view/frames/VwContaEnergia.java
 package com.tecsus.ddc.view.frames;
+=======
+package com.tecsus.ddc.view.frames.energy;
+>>>>>>> c805176ee828f70f0ccc2557744ce77cdfb4b0da:ddc-view/src/main/java/com/tecsus/ddc/view/frames/energy/vw_conta_energia.java
 
 import javax.swing.*;
 

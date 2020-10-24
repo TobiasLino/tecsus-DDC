@@ -14,8 +14,8 @@ public class AbstractBillQueryBuilder {
     private AbstractBillQueryBuilder(final Bill bill) {
         this.bill = bill;
     }
-    private AbstractBillQueryBuilder() {
 
+    private AbstractBillQueryBuilder() {
     }
 
     public static String getInsertQuery(final Bill bill) {
@@ -60,7 +60,7 @@ public class AbstractBillQueryBuilder {
                 "and instalation.id_dealer = dealership.id_dealership";
     }
 
-    private String constructUniqueSelect(String billNum) {
+    private String constructUniqueSelect(final String billNum) {
         return "select * from bill, instalation, instalation_address, client, dealership " +
                 "where bill.bill_num = '" + billNum + "' " +
                 "and bill.id_instalation = instalation.num_inst " +
