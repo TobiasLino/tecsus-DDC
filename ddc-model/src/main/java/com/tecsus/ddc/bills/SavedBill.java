@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class SavedBill {
 
-    private String userName;
+    private java.lang.String userName;
     private User user;
     private Dealership dealership;
     private Client client;
@@ -21,7 +21,7 @@ public class SavedBill {
     private DateTime register;
 
     public SavedBill(
-            final String userName,
+            final java.lang.String userName,
             final User user,
             final Dealership dealership,
             final Client client,
@@ -36,7 +36,7 @@ public class SavedBill {
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YY HH:mm");
         return "SavedBill{" +
                 "userName='" + userName + '\'' +
@@ -70,11 +70,11 @@ public class SavedBill {
         return Objects.hash(userName, user, dealership, client, bill, register);
     }
 
-    public String getUserName() {
+    public java.lang.String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUserName(java.lang.String userName) {
         this.userName = userName;
     }
 

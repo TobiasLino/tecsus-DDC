@@ -8,8 +8,10 @@ import com.tecsus.ddc.dealership.builders.DealershipBuilder;
 import com.tecsus.ddc.instalation.builders.AddressBuilder;
 import com.tecsus.ddc.instalation.builders.InstalationBuilder;
 import org.joda.time.DateTime;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+import javax.ejb.ObjectNotFoundException;
 import java.math.BigDecimal;
 import java.util.Optional;
 
@@ -18,19 +20,15 @@ import java.util.Optional;
  */
 public class AbstractBillServiceTest {
 
-    @Test
-    public void selectTest() {
-        AbstractBillService service = new AbstractBillService(new Connector());
-        Optional<Bill> bill = service.findById("1487087448951");
-        if (bill.isPresent()) {
-            System.out.println(bill.get());
-        }
-    }
+    final static String NUM_CONTA = "1487087448951";
+
 
     @Test
-    public void inserTest() {
+    public void checkIfInsertedBillIsTheSameAsTheSelected() throws ObjectNotFoundException {
         AbstractBillService service = new AbstractBillService(new Connector());
         service.insert(constructBill());
+        Bill bill = service.findById(NUM_CONTA).orElseThrow(ObjectNotFoundException::new);
+        assertEquals(bill.getNumConta(), NUM_CONTA);
     }
 
     public Bill constructBill() {
@@ -64,7 +62,7 @@ public class AbstractBillServiceTest {
                                                 .build()
                                 )
                                 .build())
-                .numConta("1487087448951")
+                .numConta(NUM_CONTA)
                 .valor(new BigDecimal("93.35"))
                 .vencimento(new DateTime().withDate(2020,7,3))
                 .mesReferencia(new DateTime().withDate(2020,7,1))

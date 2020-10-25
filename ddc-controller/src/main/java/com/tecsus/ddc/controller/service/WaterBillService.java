@@ -2,13 +2,10 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.bills.water.WaterBillFactory;
-import com.tecsus.ddc.bills.water.builders.WaterBillBuilder;
-import com.tecsus.ddc.bills.water.enums.BillingType;
-import com.tecsus.ddc.bills.water.enums.ConnectionType;
-import com.tecsus.ddc.client.enums.State;
+import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
-import com.tecsus.ddc.utils.WaterBillQueryBuilder;
+import com.tecsus.ddc.bills.water.WaterBillQueryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,11 +24,10 @@ public class WaterBillService implements WaterBillRepository {
 
     private static final Logger log = LoggerFactory.getLogger(WaterBillService.class);
 
-    private final Connector connector;
+    private final ConnectionImpl connection;
 
     public WaterBillService(final Connector connector) {
-        this.connector = connector;
-        this.connector.connect();
+        this.connection = connector.getConnection();
     }
 
     @Override
@@ -42,15 +38,15 @@ public class WaterBillService implements WaterBillRepository {
     private void executeInsert(String query) {
         Statement statement = null;
         try {
-            log.info("Executing insert: " + query);
-            statement = connector.getConnection().createStatement();
+            log.debug(query);
+            statement = connection.createStatement();
             statement.executeUpdate(query);
             log.info("Inserted.");
         } catch (SQLException e) {
-            log.info("Insert failed");
+            log.error("Insert failed");
             e.printStackTrace();
         }
-        closeStatement(statement);
+        ConnectionImpl.closeStatement(statement);
     }
 
     @Override
@@ -63,19 +59,19 @@ public class WaterBillService implements WaterBillRepository {
         ResultSet rs = null;
         WaterBill res = null;
         try {
-            log.info("Executing select: " + query);
-            statement = connector.getConnection().createStatement();
+            log.debug(query);
+            statement = connection.createStatement();
             rs = statement.executeQuery(query);
-            if (rs.next()) {
+            if (rs != null && rs.next()) {
                 res = WaterBillFactory.constructBillFromResultSet(rs);
             }
             log.info("Select success.");
         } catch (SQLException | ObjectNotFoundException e) {
-            log.info("Select Failed.");
+            log.error("Select Failed.");
             e.printStackTrace();
         }
-        closeResultSet(rs);
-        closeStatement(statement);
+        ConnectionImpl.closeResultSet(rs);
+        ConnectionImpl.closeStatement(statement);
         return Optional.ofNullable(res);
     }
 
@@ -89,55 +85,32 @@ public class WaterBillService implements WaterBillRepository {
         Statement statement = null;
         ResultSet rs = null;
         try {
-            log.info("Executing select..\n" + query);
-            statement = connector.getConnection().createStatement();
+            log.debug(query);
+            statement = connection.createStatement();
             rs = statement.executeQuery(query);
             log.info("Select success.");
         } catch (SQLException e) {
-            log.info("Select Failed.");
+            log.error("Select Failed.");
             e.printStackTrace();
         }
-        List<WaterBill> list = responseToList(rs);
-        closeStatement(statement);
-        return list;
+        List<WaterBill> waterBills = responseToList(rs);
+        ConnectionImpl.closeStatement(statement);
+        ConnectionImpl.closeResultSet(rs);
+        return waterBills;
     }
 
     @Override
     public List<WaterBill> responseToList(final ResultSet rs) {
-        List<WaterBill> list = new ArrayList<>();
+        List<WaterBill> waterBills = new ArrayList<>();
         try {
-            log.info("Trying to parse response to a list..");
+            log.info("Trying to parse response to list..");
             while (rs.next()) {
-                list.add(WaterBillFactory.constructBillFromResultSet(rs));
+                waterBills.add(WaterBillFactory.constructBillFromResultSet(rs));
             }
         } catch (SQLException | ObjectNotFoundException e) {
-            log.info("Response to list Failed.");
+            log.error("Response to list Failed.");
             e.printStackTrace();
         }
-        closeResultSet(rs);
-        return list;
-    }
-
-
-
-    // TODO remover isso daqui e colocar em uma especialização se possível
-    private void closeResultSet(ResultSet set) {
-        try {
-            if (set != null && !set.isClosed()) {
-                set.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void closeStatement(Statement statement) {
-        try {
-            if (statement != null && !statement.isClosed()) {
-                statement.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return waterBills;
     }
 }

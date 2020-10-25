@@ -1,6 +1,4 @@
-package com.tecsus.ddc.utils;
-
-import com.tecsus.ddc.bills.energy.EnergyBill;
+package com.tecsus.ddc.bills.energy;
 
 import java.text.SimpleDateFormat;
 

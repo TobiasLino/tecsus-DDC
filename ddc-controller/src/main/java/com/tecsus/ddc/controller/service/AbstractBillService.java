@@ -2,9 +2,10 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.BillFactory;
+import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.BillRepository;
-import com.tecsus.ddc.utils.AbstractBillQueryFactory;
+import com.tecsus.ddc.bills.AbstractBillQueryFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,13 +17,12 @@ import java.util.Optional;
 
 public class AbstractBillService implements BillRepository {
 
-    private final Connector connector;
+    private final ConnectionImpl connection;
 
     private static Logger log = LoggerFactory.getLogger(AbstractBillService.class);
 
     public AbstractBillService(final Connector connector) {
-        this.connector = connector;
-        this.connector.connect();
+        this.connection = connector.getConnection();
     }
 
     @Override
@@ -34,15 +34,14 @@ public class AbstractBillService implements BillRepository {
     private void executeInsert(final String query) {
         Statement statement = null;
         try {
-            log.debug("Executing insert: " + query);
-            statement = connector.getConnection().createStatement();
+            log.debug(query);
+            statement = connection.createStatement();
             statement.executeUpdate(query);
-            log.info("Inserted.");
         } catch (SQLException e) {
             e.printStackTrace();
-            log.info("Insert failed");
+            log.error("Insert failed");
         } finally {
-            closeStatement(statement);
+            ConnectionImpl.closeStatement(statement);
         }
     }
 
@@ -57,42 +56,18 @@ public class AbstractBillService implements BillRepository {
         Bill res = null;
         try {
             log.debug("Executing select: " + query);
-            statement = connector.getConnection().createStatement();
+            statement = connection.createStatement();
             rs = statement.executeQuery(query);
             if (rs.next()) {
                 res = BillFactory.constructBillFromResultSet(rs);
             }
             log.info("Select success.");
         } catch (SQLException | ObjectNotFoundException e) {
-            log.info("Select Failed.");
+            log.error("Select Failed.");
             e.printStackTrace();
         }
-        closeResultSet(rs);
-        closeStatement(statement);
+        ConnectionImpl.closeResultSet(rs);
+        ConnectionImpl.closeStatement(statement);
         return Optional.ofNullable(res);
-    }
-
-    private void closeStatement(Statement statement) {
-        log.info("Closing statement");
-        try {
-            if (statement != null && !statement.isClosed()) {
-                statement.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            log.info("Statement close failed");
-        }
-    }
-
-    private void closeResultSet(ResultSet rs) {
-        log.info("Closing ResultSet");
-        try {
-            if (rs != null && !rs.isClosed()) {
-                rs.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            log.info("ResultSet close failed");
-        }
     }
 }

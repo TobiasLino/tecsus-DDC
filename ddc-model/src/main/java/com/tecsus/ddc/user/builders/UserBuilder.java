@@ -14,12 +14,12 @@ public final class UserBuilder {
         return new UserBuilder();
     }
 
-    public UserBuilder name(String name) {
+    public UserBuilder name(java.lang.String name) {
         user.setName(name);
         return this;
     }
 
-    public UserBuilder username(String username) {
+    public UserBuilder username(java.lang.String username) {
         user.setUsername(username);
         return this;
     }

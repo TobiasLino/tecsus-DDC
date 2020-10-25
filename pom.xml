@@ -25,7 +25,6 @@
         <module>ddc-model</module>
         <module>ddc-controller</module>
         <module>ddc-view</module>
-        <module>ddc-view</module>
     </modules>
 
     <properties>

@@ -1,6 +1,4 @@
-package com.tecsus.ddc.utils;
-
-import com.tecsus.ddc.bills.Bill;
+package com.tecsus.ddc.bills;
 
 import java.text.SimpleDateFormat;
 

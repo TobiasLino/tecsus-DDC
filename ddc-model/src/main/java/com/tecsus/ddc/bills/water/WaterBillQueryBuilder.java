@@ -1,6 +1,4 @@
-package com.tecsus.ddc.utils;
-
-import com.tecsus.ddc.bills.water.WaterBill;
+package com.tecsus.ddc.bills.water;
 
 /**
  * @author TOBIASDASILVALINO 

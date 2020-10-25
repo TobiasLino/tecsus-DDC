@@ -9,15 +9,15 @@ import java.util.Objects;
  */
 public class User {
 
-    private String name;
-    private String username;
+    private java.lang.String name;
+    private java.lang.String username;
     private Role role;
 
     public User() {
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", username='" + username + '\'' +
@@ -40,19 +40,19 @@ public class User {
         return Objects.hash(name, username, role);
     }
 
-    public String getName() {
+    public java.lang.String getName() {
         return name;
     }
 
-    public void setName(final String name) {
+    public void setName(final java.lang.String name) {
         this.name = name;
     }
 
-    public String getUsername() {
+    public java.lang.String getUsername() {
         return username;
     }
 
-    public void setUsername(final String username) {
+    public void setUsername(final java.lang.String username) {
         this.username = username;
     }
 

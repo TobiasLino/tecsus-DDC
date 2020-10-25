@@ -4,7 +4,6 @@ import com.tecsus.ddc.controller.config.ConnectorConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -13,13 +12,12 @@ import java.sql.SQLException;
  */
 public class Connector {
 
-    private ConnectorConfig config;
-    private Connection connection;
+    private final ConnectorConfig config;
+    private ConnectionImpl connection;
 
     private static final Logger log = LoggerFactory.getLogger(Connector.class);
 
     public Connector() {
-        log.info("Configuring the connection");
         this.config = ConnectorConfig.getConfig();
     }
 
@@ -28,10 +26,13 @@ public class Connector {
         try {
             Class.forName(config.getDriver());
             log.info("Loading connection..");
-            connection = DriverManager.getConnection(
-                    config.getUri(),
-                    config.getUsername(),
-                    config.getPasswd());
+            connection = new ConnectionImpl(
+                    DriverManager.getConnection(
+                        config.getUri(),
+                        config.getUsername(),
+                        config.getPasswd()
+                    )
+            );
             log.info("Connection Established!");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -41,19 +42,9 @@ public class Connector {
     }
 
     public void close() {
-        log.info("Desconnecting to the database");
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-            log.info("Connection closed");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            log.info("Could not disconnect the database");
-        }
     }
 
-    public Connection getConnection() {
+    public ConnectionImpl getConnection() {
         return connection;
     }
 }

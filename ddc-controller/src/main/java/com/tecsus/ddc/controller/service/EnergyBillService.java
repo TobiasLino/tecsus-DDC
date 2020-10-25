@@ -1,11 +1,11 @@
 package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.bills.energy.builders.EnergyBillBuilder;
+import com.tecsus.ddc.bills.energy.EnergyBillFactory;
+import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.EnergyBillRepository;
-import com.tecsus.ddc.utils.EnergyBillQueryFactory;
-import org.joda.time.DateTime;
+import com.tecsus.ddc.bills.energy.EnergyBillQueryFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,11 +23,10 @@ public class EnergyBillService implements EnergyBillRepository {
 
     private static final Logger log = LoggerFactory.getLogger(EnergyBillService.class);
 
-    private Connector connector;
+    private ConnectionImpl connection;
 
     public EnergyBillService(final Connector connector) {
-        this.connector = connector;
-        connector.connect();
+        this.connection = connector.getConnection();
     }
 
     @Override
@@ -38,12 +37,12 @@ public class EnergyBillService implements EnergyBillRepository {
     private void executeInsert(final String query) {
         Statement statement = null;
         try {
-            statement = connector.getConnection().createStatement();
+            statement = connection.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        closeStatement(statement);
+        ConnectionImpl.closeStatement(statement);
     }
 
     @Override
@@ -56,16 +55,16 @@ public class EnergyBillService implements EnergyBillRepository {
         ResultSet rs = null;
         EnergyBill res = null;
         try {
-            statement = connector.getConnection().createStatement();
+            statement = connection.createStatement();
             rs = statement.executeQuery(query);
             if (rs.next()) {
-                res = constructEnergyBillFromResultSet(rs);
+                res = EnergyBillFactory.constructEnergyBillFromResultSet(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        closeResultSet(rs);
-        closeStatement(statement);
+        ConnectionImpl.closeResultSet(rs);
+        ConnectionImpl.closeStatement(statement);
         return Optional.ofNullable(res);
     }
 
@@ -79,56 +78,28 @@ public class EnergyBillService implements EnergyBillRepository {
         Statement statement = null;
         ResultSet rs = null;
         try {
-            statement = connector.getConnection().createStatement();
+            statement = connection.createStatement();
             rs = statement.executeQuery(query);
         } catch (SQLException e) {
             e.printStackTrace();
             log.info("Error when executing Query");
         }
-        List<EnergyBill> list = responseToList(rs);
-        closeStatement(statement);
-        return list;
+        List<EnergyBill> energyBills = responseToList(rs);
+        ConnectionImpl.closeStatement(statement);
+        ConnectionImpl.closeResultSet(rs);
+        return energyBills;
     }
 
     @Override
     public List<EnergyBill> responseToList(ResultSet rs) {
-        List<EnergyBill> list = new ArrayList<>();
+        List<EnergyBill> energyBills = new ArrayList<>();
         try {
             while (rs.next()) {
-                list.add(constructEnergyBillFromResultSet(rs));
+                energyBills.add(EnergyBillFactory.constructEnergyBillFromResultSet(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        closeResultSet(rs);
-        return list;
-    }
-
-    private EnergyBill constructEnergyBillFromResultSet(final ResultSet rs) throws SQLException {
-        return EnergyBillBuilder.anEnergyBill()
-                .consumption(rs.getBigDecimal("consum_kwh"))
-                .tension(rs.getInt("tension"))
-                .emission(new DateTime(rs.getDate("emission")))
-                .build();
-    }
-
-    private void closeStatement(Statement statement) {
-        try {
-            if (statement != null && !statement.isClosed()) {
-                statement.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void closeResultSet(ResultSet set) {
-        try {
-            if (set != null && !set.isClosed()) {
-                set.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return energyBills;
     }
 }
