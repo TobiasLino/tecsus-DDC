@@ -16,15 +16,12 @@ public class AbstractBillQueryFactory implements QueryFactory {
         this.bill = bill;
     }
 
-    private AbstractBillQueryFactory() {
+    public AbstractBillQueryFactory() {
     }
 
     @Override
-    public Optional<String> createInsertQuery(final Object object) {
-        if (object instanceof Bill) {
-            return Optional.ofNullable(new AbstractBillQueryFactory((Bill) object).constructInsert());
-        }
-        return Optional.empty();
+    public String createInsertQuery(final Object object) {
+        return new AbstractBillQueryFactory((Bill) object).constructInsert();
     }
 
     @Override

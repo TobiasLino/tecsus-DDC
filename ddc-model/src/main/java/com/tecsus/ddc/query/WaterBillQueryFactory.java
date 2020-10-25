@@ -19,11 +19,8 @@ public class WaterBillQueryFactory implements QueryFactory {
     }
 
     @Override
-    public Optional<String> createInsertQuery(final Object object) {
-        if (object instanceof WaterBill) {
-            return Optional.ofNullable(new WaterBillQueryFactory((WaterBill) object).constructInsert(bill));
-        }
-        return Optional.empty();
+    public String createInsertQuery(final Object object) {
+        return new WaterBillQueryFactory((WaterBill) object).constructInsert(bill);
     }
 
     @Override

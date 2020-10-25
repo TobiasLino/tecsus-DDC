@@ -10,11 +10,8 @@ import java.util.Optional;
  * @author TOBIASDASILVALINO
  */
 public interface WaterBillRepository {
-    void insert(WaterBill bill);
 
+    void insert(WaterBill bill);
     Optional<WaterBill> findById(String idBill);
     List<WaterBill> findAll();
-
-    List<WaterBill> executeSelect(String query);
-    List<WaterBill> responseToList(ResultSet rs);
 }

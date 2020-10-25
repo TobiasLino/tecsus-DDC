@@ -19,11 +19,8 @@ public class EnergyBillQueryFactory implements QueryFactory {
     private EnergyBillQueryFactory() {}
 
     @Override
-    public Optional<String> createInsertQuery(final Object object) {
-        if (object instanceof EnergyBill) {
-            return Optional.ofNullable(new EnergyBillQueryFactory((EnergyBill) object).constructInsert());
-        }
-        return Optional.empty();
+    public String createInsertQuery(final Object object) {
+        return new EnergyBillQueryFactory((EnergyBill) object).constructInsert();
     }
 
     @Override

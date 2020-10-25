@@ -3,104 +3,71 @@ package com.tecsus.ddc.controller.service;
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.bills.water.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
-import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
-import com.tecsus.ddc.query.WaterBillQueryFactory;
+import com.tecsus.ddc.query.QueryFactory;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO
  */
+@AllArgsConstructor
 public class WaterBillService implements WaterBillRepository {
 
     private static final Logger log = LoggerFactory.getLogger(WaterBillService.class);
 
     private final ConnectionImpl connection;
-
-    public WaterBillService(final Connector connector) {
-        this.connection = connector.getConnection();
-    }
+    private final QueryFactory queryFactory;
 
     @Override
     public void insert(final WaterBill bill) {
-        executeInsert(WaterBillQueryFactory.getInsertQuery(bill));
-    }
-
-    private void executeInsert(String query) {
-        Statement statement = null;
-        try {
-            log.debug(query);
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-            log.info("Inserted.");
-        } catch (SQLException e) {
-            log.error("Insert failed");
-            e.printStackTrace();
-        }
-        ConnectionImpl.closeStatement(statement);
+        connection.executeInsert(queryFactory.createInsertQuery(bill));
     }
 
     @Override
     public Optional<WaterBill> findById(final String idBill) {
-        return executeUniqueSelect(WaterBillQueryFactory.getSelectUniqueQuery(idBill));
-    }
-
-    private Optional<WaterBill> executeUniqueSelect(String query) {
-        Statement statement = null;
-        ResultSet rs = null;
-        WaterBill res = null;
+        ResultSet resultSet = null;
         try {
-            log.debug(query);
-            statement = connection.createStatement();
-            rs = statement.executeQuery(query);
-            if (rs != null && rs.next()) {
-                res = WaterBillFactory.constructBillFromResultSet(rs);
-            }
-            log.info("Select success.");
-        } catch (SQLException | ObjectNotFoundException e) {
-            log.error("Select Failed.");
+            resultSet = connection
+                    .executeSelect(queryFactory.createSelectUniqueQuery(idBill))
+                    .orElseThrow(ObjectNotFoundException::new);
+            WaterBill waterBill = WaterBillFactory.constructBillFromResultSet(resultSet);
+            ConnectionImpl.closeResultSet(resultSet);
+            return Optional.ofNullable(waterBill);
+        } catch (ObjectNotFoundException | SQLException e) {
             e.printStackTrace();
+        } finally {
+            ConnectionImpl.closeResultSet(resultSet);
         }
-        ConnectionImpl.closeResultSet(rs);
-        ConnectionImpl.closeStatement(statement);
-        return Optional.ofNullable(res);
+        return Optional.empty();
     }
 
     @Override
     public List<WaterBill> findAll() {
-        return executeSelect(WaterBillQueryFactory.getSelectQuery());
-    }
-
-    @Override
-    public List<WaterBill> executeSelect(final String query) {
-        Statement statement = null;
-        ResultSet rs = null;
+        ResultSet resultSet = null;
         try {
-            log.debug(query);
-            statement = connection.createStatement();
-            rs = statement.executeQuery(query);
-            log.info("Select success.");
-        } catch (SQLException e) {
-            log.error("Select Failed.");
-            e.printStackTrace();
+            resultSet = connection
+                    .executeSelect(queryFactory.createSelectQuery())
+                    .orElseThrow(OutOfMemoryError::new);
+            return responseToList(resultSet);
+        } catch (OutOfMemoryError outOfMemoryError) {
+            outOfMemoryError.printStackTrace();
+        } finally {
+            ConnectionImpl.closeResultSet(resultSet);
         }
-        List<WaterBill> waterBills = responseToList(rs);
-        ConnectionImpl.closeStatement(statement);
-        ConnectionImpl.closeResultSet(rs);
-        return waterBills;
+        return Collections.emptyList();
     }
 
-    @Override
-    public List<WaterBill> responseToList(final ResultSet rs) {
+    private List<WaterBill> responseToList(final ResultSet rs) {
         List<WaterBill> waterBills = new ArrayList<>();
         try {
             log.info("Trying to parse response to list..");

@@ -2,102 +2,83 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.EnergyBillFactory;
+import com.tecsus.ddc.bills.water.WaterBill;
+import com.tecsus.ddc.bills.water.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.EnergyBillRepository;
 import com.tecsus.ddc.query.EnergyBillQueryFactory;
+import com.tecsus.ddc.query.QueryFactory;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO
  */
+@AllArgsConstructor
 public class EnergyBillService implements EnergyBillRepository {
 
     private static final Logger log = LoggerFactory.getLogger(EnergyBillService.class);
 
-    private ConnectionImpl connection;
-
-    public EnergyBillService(final Connector connector) {
-        this.connection = connector.getConnection();
-    }
+    private final ConnectionImpl connection;
+    private final QueryFactory queryFactory;
 
     @Override
     public void insert(final EnergyBill bill) {
-        executeInsert(EnergyBillQueryFactory.getInsertQuery(bill));
-    }
-
-    private void executeInsert(final String query) {
-        Statement statement = null;
-        try {
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        ConnectionImpl.closeStatement(statement);
+        connection.executeInsert(queryFactory.createInsertQuery(bill));
     }
 
     @Override
     public Optional<EnergyBill> findById(final String idBill) {
-        return executeUniqueSelect(EnergyBillQueryFactory.getSelectUniqueQuery(idBill));
-    }
-
-    private Optional<EnergyBill> executeUniqueSelect(final String query) {
-        Statement statement = null;
-        ResultSet rs = null;
-        EnergyBill res = null;
+        ResultSet resultSet = null;
         try {
-            statement = connection.createStatement();
-            rs = statement.executeQuery(query);
-            if (rs.next()) {
-                res = EnergyBillFactory.constructEnergyBillFromResultSet(rs);
-            }
-        } catch (SQLException e) {
+            resultSet = connection
+                    .executeSelect(queryFactory.createSelectUniqueQuery(idBill))
+                    .orElseThrow(ObjectNotFoundException::new);
+            EnergyBill energyBill = EnergyBillFactory.constructBillFromResultSet(resultSet);
+            ConnectionImpl.closeResultSet(resultSet);
+            return Optional.ofNullable(energyBill);
+        } catch (ObjectNotFoundException | SQLException e) {
             e.printStackTrace();
+        } finally {
+            ConnectionImpl.closeResultSet(resultSet);
         }
-        ConnectionImpl.closeResultSet(rs);
-        ConnectionImpl.closeStatement(statement);
-        return Optional.ofNullable(res);
+        return Optional.empty();
     }
 
     @Override
     public List<EnergyBill> findAll() {
-        return executeSelect(EnergyBillQueryFactory.getSelectQuery());
-    }
-
-    @Override
-    public List<EnergyBill> executeSelect(final String query) {
-        Statement statement = null;
-        ResultSet rs = null;
+        ResultSet resultSet = null;
         try {
-            statement = connection.createStatement();
-            rs = statement.executeQuery(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            log.info("Error when executing Query");
+            resultSet = connection
+                    .executeSelect(queryFactory.createSelectQuery())
+                    .orElseThrow(OutOfMemoryError::new);
+            return responseToList(resultSet);
+        } catch (OutOfMemoryError outOfMemoryError) {
+            outOfMemoryError.printStackTrace();
+        } finally {
+            ConnectionImpl.closeResultSet(resultSet);
         }
-        List<EnergyBill> energyBills = responseToList(rs);
-        ConnectionImpl.closeStatement(statement);
-        ConnectionImpl.closeResultSet(rs);
-        return energyBills;
+        return Collections.emptyList();
     }
 
-    @Override
-    public List<EnergyBill> responseToList(ResultSet rs) {
+    private List<EnergyBill> responseToList(ResultSet rs) {
         List<EnergyBill> energyBills = new ArrayList<>();
         try {
             while (rs.next()) {
-                energyBills.add(EnergyBillFactory.constructEnergyBillFromResultSet(rs));
+                energyBills.add(EnergyBillFactory.constructBillFromResultSet(rs));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ObjectNotFoundException e) {
             e.printStackTrace();
         }
         return energyBills;

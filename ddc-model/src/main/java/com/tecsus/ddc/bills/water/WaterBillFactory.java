@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class WaterBillFactory {
 
-    public static WaterBill constructBillFromResultSet(ResultSet rs) throws SQLException, ObjectNotFoundException {
+    public static WaterBill constructBillFromResultSet(ResultSet rs) throws ObjectNotFoundException, SQLException {
         if (rs == null) {
             throw new ObjectNotFoundException("ResultSet is null");
         }

@@ -10,24 +10,24 @@ import java.sql.SQLException;
 
 public class BillFactory {
 
-    public static Bill constructBillFromResultSet(final ResultSet rs) throws SQLException, ObjectNotFoundException {
+    public static Bill constructBillFromResultSet(final ResultSet rs) throws ObjectNotFoundException, SQLException {
         if (rs == null) {
             throw new ObjectNotFoundException("ResultSet is null");
         }
         return Bill.builder()
                 .instalation(
-                        Instalation.builder()
-                                .numInst(rs.getString("num_inst"))
-                                .address(Address.builder()
-                                    .zip(rs.getString("zip"))
-                                    .street(rs.getString("street"))
-                                    .num(rs.getString("num"))
-                                    .complement(rs.getString("complement"))
-                                    .neighborhood(rs.getString("neighborhood"))
-                                    .city(rs.getString("city"))
-                                    .uf(rs.getString("uf"))
-                                    .build())
-                                .build())
+                    Instalation.builder()
+                        .numInst(rs.getString("num_inst"))
+                        .address(Address.builder()
+                            .zip(rs.getString("zip"))
+                            .street(rs.getString("street"))
+                            .num(rs.getString("num"))
+                            .complement(rs.getString("complement"))
+                            .neighborhood(rs.getString("neighborhood"))
+                            .city(rs.getString("city"))
+                            .uf(rs.getString("uf"))
+                            .build())
+                    .build())
                 .numConta(rs.getString("bill_num"))
                 .valor(rs.getBigDecimal("total_value"))
                 .vencimento(new DateTime(rs.getDate("due_date")))

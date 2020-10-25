@@ -2,10 +2,14 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.BillFactory;
+import com.tecsus.ddc.bills.water.WaterBill;
+import com.tecsus.ddc.bills.water.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.BillRepository;
 import com.tecsus.ddc.query.AbstractBillQueryFactory;
+import com.tecsus.ddc.query.QueryFactory;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,59 +19,29 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
 
+@AllArgsConstructor
 public class AbstractBillService implements BillRepository {
 
     private final ConnectionImpl connection;
-
-    private static Logger log = LoggerFactory.getLogger(AbstractBillService.class);
-
-    public AbstractBillService(final Connector connector) {
-        this.connection = connector.getConnection();
-    }
+    private final QueryFactory queryFactory;
 
     @Override
     public void insert(final Bill bill) {
-        executeInsert(AbstractBillQueryFactory.getInsertQuery(bill));
-    }
-
-
-    private void executeInsert(final String query) {
-        Statement statement = null;
-        try {
-            log.debug(query);
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            log.error("Insert failed");
-        } finally {
-            ConnectionImpl.closeStatement(statement);
-        }
+        connection.executeInsert(queryFactory.createInsertQuery(bill));
     }
 
     @Override
     public Optional<Bill> findById(final String idBill) {
-        return executeUniqueSelect(AbstractBillQueryFactory.getSelectUniqueQuery(idBill));
-    }
-
-    private Optional<Bill> executeUniqueSelect(String query) {
-        Statement statement = null;
-        ResultSet rs = null;
-        Bill res = null;
         try {
-            log.debug("Executing select: " + query);
-            statement = connection.createStatement();
-            rs = statement.executeQuery(query);
-            if (rs.next()) {
-                res = BillFactory.constructBillFromResultSet(rs);
-            }
-            log.info("Select success.");
-        } catch (SQLException | ObjectNotFoundException e) {
-            log.error("Select Failed.");
+            final ResultSet resultSet = connection
+                    .executeSelect(queryFactory.createSelectUniqueQuery(idBill))
+                    .orElseThrow(ObjectNotFoundException::new);
+            Bill waterBill = BillFactory.constructBillFromResultSet(resultSet);
+            ConnectionImpl.closeResultSet(resultSet);
+            return Optional.ofNullable(waterBill);
+        } catch (ObjectNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        ConnectionImpl.closeResultSet(rs);
-        ConnectionImpl.closeStatement(statement);
-        return Optional.ofNullable(res);
+        return Optional.empty();
     }
 }
