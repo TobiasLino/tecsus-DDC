@@ -5,7 +5,7 @@ import com.tecsus.ddc.bills.energy.EnergyBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.EnergyBillRepository;
-import com.tecsus.ddc.bills.energy.EnergyBillQueryFactory;
+import com.tecsus.ddc.query.EnergyBillQueryFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

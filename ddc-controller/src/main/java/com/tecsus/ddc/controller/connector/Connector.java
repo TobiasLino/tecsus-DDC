@@ -26,7 +26,7 @@ public class Connector {
         try {
             Class.forName(config.getDriver());
             log.info("Loading connection..");
-            connection = new ConnectionImpl(
+            connection = ConnectionImpl.create(
                     DriverManager.getConnection(
                         config.getUri(),
                         config.getUsername(),
@@ -42,6 +42,7 @@ public class Connector {
     }
 
     public void close() {
+        connection.close();
     }
 
     public ConnectionImpl getConnection() {

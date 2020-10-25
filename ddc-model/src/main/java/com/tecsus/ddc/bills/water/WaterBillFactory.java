@@ -1,7 +1,6 @@
 package com.tecsus.ddc.bills.water;
 
 import com.tecsus.ddc.bills.BillFactory;
-import com.tecsus.ddc.bills.water.builders.WaterBillBuilder;
 import com.tecsus.ddc.bills.water.enums.BillingType;
 import com.tecsus.ddc.bills.water.enums.ConnectionType;
 
@@ -15,7 +14,7 @@ public class WaterBillFactory {
         if (rs == null) {
             throw new ObjectNotFoundException("ResultSet is null");
         }
-        return WaterBillBuilder.aWaterBill()
+        return WaterBill.builder()
                 .bill(BillFactory.constructBillFromResultSet(rs))
                 .id(rs.getInt("id_water_type"))
                 .conType(ConnectionType.valueOf(rs.getString("con_type")))

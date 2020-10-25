@@ -5,7 +5,7 @@ import com.tecsus.ddc.bills.BillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.BillRepository;
-import com.tecsus.ddc.bills.AbstractBillQueryFactory;
+import com.tecsus.ddc.query.AbstractBillQueryFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

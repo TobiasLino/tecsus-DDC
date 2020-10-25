@@ -1,7 +1,6 @@
 package com.tecsus.ddc.controller;
 
 import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.service.AbstractBillService;
 import com.tecsus.ddc.controller.service.WaterBillService;
 
@@ -10,17 +9,22 @@ import com.tecsus.ddc.controller.service.WaterBillService;
  */
 public class WaterBillController {
 
-    private WaterBillService waterBillService;
-    private AbstractBillService abstractBillService;
+    private final WaterBillService waterBillService;
+    private final AbstractBillService abstractBillService;
 
-    public WaterBillController() {
-        Connector connector = new Connector();
-        waterBillService = new WaterBillService(connector);
-        abstractBillService = new AbstractBillService(connector);
+    public WaterBillController(
+            final WaterBillService waterBillService,
+            final AbstractBillService abstractBillService) {
+        this.waterBillService = waterBillService;
+        this.abstractBillService = abstractBillService;
     }
 
     public void pushBill(WaterBill bill) {
         abstractBillService.insert(bill.getBill());
         waterBillService.insert(bill);
+    }
+
+    public void deleteBill(final String billNum) {
+        // TODO
     }
 }

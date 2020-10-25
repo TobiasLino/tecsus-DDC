@@ -5,7 +5,7 @@ import com.tecsus.ddc.bills.water.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
-import com.tecsus.ddc.bills.water.WaterBillQueryBuilder;
+import com.tecsus.ddc.query.WaterBillQueryFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +32,7 @@ public class WaterBillService implements WaterBillRepository {
 
     @Override
     public void insert(final WaterBill bill) {
-        executeInsert(WaterBillQueryBuilder.getInsertQuery(bill));
+        executeInsert(WaterBillQueryFactory.getInsertQuery(bill));
     }
 
     private void executeInsert(String query) {
@@ -51,7 +51,7 @@ public class WaterBillService implements WaterBillRepository {
 
     @Override
     public Optional<WaterBill> findById(final String idBill) {
-        return executeUniqueSelect(WaterBillQueryBuilder.getSelectUniqueQuery(idBill));
+        return executeUniqueSelect(WaterBillQueryFactory.getSelectUniqueQuery(idBill));
     }
 
     private Optional<WaterBill> executeUniqueSelect(String query) {
@@ -77,7 +77,7 @@ public class WaterBillService implements WaterBillRepository {
 
     @Override
     public List<WaterBill> findAll() {
-        return executeSelect(WaterBillQueryBuilder.getSelectQuery());
+        return executeSelect(WaterBillQueryFactory.getSelectQuery());
     }
 
     @Override

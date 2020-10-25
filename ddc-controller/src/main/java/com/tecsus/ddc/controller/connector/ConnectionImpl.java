@@ -17,6 +17,10 @@ public class ConnectionImpl{
         this.connection = connection;
     }
 
+    public static ConnectionImpl create(final Connection connection) {
+        return new ConnectionImpl(connection);
+    }
+
     public Connection get() {
         return connection;
     }
