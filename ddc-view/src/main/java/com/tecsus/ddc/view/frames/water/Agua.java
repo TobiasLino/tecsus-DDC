@@ -24,9 +24,9 @@ public class Agua extends javax.swing.JInternalFrame {
     /**
      * Creates new form Agua
      */
-    public Agua() {
+    public Agua(final WaterBillController controller) {
         fields = new WaterBillFormTextFields();
-        controller = new WaterBillController();
+        this.controller = controller;
         initComponents();
     }
 

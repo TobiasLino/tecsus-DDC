@@ -7,7 +7,7 @@ import com.tecsus.ddc.controller.service.WaterBillService;
 /**
  * @author TOBIASDASILVALINO
  */
-public class WaterBillController {
+public class WaterBillController implements Controller {
 
     private final WaterBillService waterBillService;
     private final AbstractBillService abstractBillService;
@@ -19,9 +19,11 @@ public class WaterBillController {
         this.abstractBillService = abstractBillService;
     }
 
-    public void pushBill(WaterBill bill) {
-        abstractBillService.insert(bill.getBill());
-        waterBillService.insert(bill);
+    @Override
+    public void pushBill(Object bill) {
+        WaterBill waterBill = (WaterBill) bill;
+        abstractBillService.insert(waterBill.getBill());
+        waterBillService.insert(waterBill);
     }
 
     public void deleteBill(final String billNum) {

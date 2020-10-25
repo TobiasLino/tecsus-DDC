@@ -19,6 +19,7 @@ public class Connector {
 
     public Connector() {
         this.config = ConnectorConfig.getConfig();
+        connect();
     }
 
     public Connector connect() {

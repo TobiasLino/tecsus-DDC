@@ -5,6 +5,14 @@
  */
 package com.tecsus.ddc.view.frames.home;
 
+import com.tecsus.ddc.controller.Controller;
+import com.tecsus.ddc.controller.WaterBillController;
+import com.tecsus.ddc.controller.connector.ConnectionImpl;
+import com.tecsus.ddc.controller.connector.Connector;
+import com.tecsus.ddc.controller.service.AbstractBillService;
+import com.tecsus.ddc.controller.service.WaterBillService;
+import com.tecsus.ddc.query.AbstractBillQueryFactory;
+import com.tecsus.ddc.query.WaterBillQueryFactory;
 import com.tecsus.ddc.view.frames.water.Agua;
 import com.tecsus.ddc.view.frames.energy.vw_conta_energia;
 
@@ -19,7 +27,8 @@ public class TelaHome extends javax.swing.JFrame {
     /**
      * Creates new form TelaHome
      */
-    public TelaHome() {
+    public TelaHome(final Connector connector) {
+        this.connector = connector;
         initComponents();
     }
 
@@ -122,8 +131,17 @@ public class TelaHome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void abrirAgua(){
-        Agua tela = new Agua();
+    private void abrirAgua() {
+        final ConnectionImpl connection = connector.getConnection();
+
+        final WaterBillQueryFactory waterBillQueryFactory = new WaterBillQueryFactory();
+        final AbstractBillQueryFactory abstractBillQueryFactory = new AbstractBillQueryFactory();
+
+        final AbstractBillService abstractBillService = new AbstractBillService(connection, abstractBillQueryFactory);
+        final WaterBillService waterBillService = new WaterBillService(connection, waterBillQueryFactory);
+
+        WaterBillController controller = new WaterBillController(waterBillService, abstractBillService);
+        Agua tela = new Agua(controller);
         jDesktop.add(tela);
         tela.setVisible(true);
     }
@@ -153,7 +171,7 @@ public class TelaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void energyMenuKeyPressed(java.awt.event.KeyEvent evt) {
-        if (evt.getKeyCode() == javafx.scene.input.KeyEvent.VK_F6) {
+        if (evt.getKeyCode() == KeyEvent.VK_F6) {
             openEnergyBillRegistryForm();
         }
     }
@@ -185,10 +203,12 @@ public class TelaHome extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        // Create the controller
+        Connector connector = new Connector();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaHome().setVisible(true);
+                new TelaHome(connector).setVisible(true);
             }
         });
     }
@@ -205,4 +225,5 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 
+    private Connector connector;
 }
