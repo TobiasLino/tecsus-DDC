@@ -1,11 +1,14 @@
-package com.tecsus.ddc.bills.energy;
+package com.tecsus.ddc.query;
+
+import com.tecsus.ddc.bills.energy.EnergyBill;
 
 import java.text.SimpleDateFormat;
+import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class EnergyBillQueryFactory {
+public class EnergyBillQueryFactory implements QueryFactory {
 
     private EnergyBill bill;
 
@@ -15,15 +18,21 @@ public class EnergyBillQueryFactory {
 
     private EnergyBillQueryFactory() {}
 
-    public static String getInsertQuery(final EnergyBill bill) {
-        return new EnergyBillQueryFactory(bill).constructInsert();
+    @Override
+    public Optional<String> createInsertQuery(final Object object) {
+        if (object instanceof EnergyBill) {
+            return Optional.ofNullable(new EnergyBillQueryFactory((EnergyBill) object).constructInsert());
+        }
+        return Optional.empty();
     }
 
-    public static String getSelectQuery() {
+    @Override
+    public String createSelectQuery() {
         return new EnergyBillQueryFactory().constructSelect();
     }
 
-    public static String getSelectUniqueQuery(final String billNum) {
+    @Override
+    public String createSelectUniqueQuery(final String billNum) {
         return new EnergyBillQueryFactory().constructUniqueSelect(billNum);
     }
 

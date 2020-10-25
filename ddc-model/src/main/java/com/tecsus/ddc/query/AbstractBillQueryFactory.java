@@ -1,11 +1,14 @@
-package com.tecsus.ddc.bills;
+package com.tecsus.ddc.query;
+
+import com.tecsus.ddc.bills.Bill;
 
 import java.text.SimpleDateFormat;
+import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class AbstractBillQueryFactory {
+public class AbstractBillQueryFactory implements QueryFactory {
 
     private Bill bill;
 
@@ -16,16 +19,21 @@ public class AbstractBillQueryFactory {
     private AbstractBillQueryFactory() {
     }
 
-    public static String getInsertQuery(final Bill bill) {
-        return new AbstractBillQueryFactory(bill).constructInsert();
+    @Override
+    public Optional<String> createInsertQuery(final Object object) {
+        if (object instanceof Bill) {
+            return Optional.ofNullable(new AbstractBillQueryFactory((Bill) object).constructInsert());
+        }
+        return Optional.empty();
     }
 
-    public static String getSelectQuery() {
+    @Override
+    public String createSelectQuery() {
         return new AbstractBillQueryFactory().constructSelect();
     }
 
-    public static String getSelectUniqueQuery(final String billNum) {
-        return new AbstractBillQueryFactory().constructUniqueSelect(billNum);
+    public String createSelectUniqueQuery(final String id) {
+        return new AbstractBillQueryFactory().constructUniqueSelect(id);
     }
 
     private String constructInsert() {

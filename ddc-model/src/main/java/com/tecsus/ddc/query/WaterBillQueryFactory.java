@@ -1,29 +1,39 @@
-package com.tecsus.ddc.bills.water;
+package com.tecsus.ddc.query;
+
+import com.tecsus.ddc.bills.water.WaterBill;
+
+import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO 
  */
-public class WaterBillQueryBuilder {
+public class WaterBillQueryFactory implements QueryFactory {
     
     private WaterBill bill;
 
-    private WaterBillQueryBuilder(final WaterBill bill) {
+    private WaterBillQueryFactory(final WaterBill bill) {
         this.bill = bill;
     }
-    private WaterBillQueryBuilder() {
+    private WaterBillQueryFactory() {
 
     }
 
-    public static String getInsertQuery(final WaterBill bill) {
-        return new WaterBillQueryBuilder(bill).constructInsert(bill);
+    @Override
+    public Optional<String> createInsertQuery(final Object object) {
+        if (object instanceof WaterBill) {
+            return Optional.ofNullable(new WaterBillQueryFactory((WaterBill) object).constructInsert(bill));
+        }
+        return Optional.empty();
     }
 
-    public static String getSelectQuery() {
-        return new WaterBillQueryBuilder().constructSelect();
+    @Override
+    public String createSelectQuery() {
+        return new WaterBillQueryFactory().constructSelect();
     }
 
-    public static String getSelectUniqueQuery(final String billNum) {
-        return new WaterBillQueryBuilder().constructUniqueSelect(billNum);
+    @Override
+    public String createSelectUniqueQuery(final String billNum) {
+        return new WaterBillQueryFactory().constructUniqueSelect(billNum);
     }
 
 
