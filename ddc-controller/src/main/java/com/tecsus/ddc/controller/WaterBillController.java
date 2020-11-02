@@ -27,6 +27,5 @@ public class WaterBillController implements Controller {
     }
 
     public void deleteBill(final String billNum) {
-        // TODO
     }
 }
