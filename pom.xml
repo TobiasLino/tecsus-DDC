@@ -7,7 +7,7 @@
     <groupId>com.tecsus</groupId>
     <artifactId>ddc</artifactId>
     <packaging>pom</packaging>
-    <version>v0.1</version>
+    <version>v1.2</version>
 
     <developers>
         <developer>
