@@ -1,6 +1,7 @@
 package com.tecsus.ddc.query;
 
 import com.tecsus.ddc.bills.energy.EnergyBill;
+import lombok.NoArgsConstructor;
 
 import java.text.SimpleDateFormat;
 import java.util.Optional;
@@ -16,7 +17,7 @@ public class EnergyBillQueryFactory implements QueryFactory {
         this.bill = bill;
     }
 
-    private EnergyBillQueryFactory() {}
+    public EnergyBillQueryFactory() {}
 
     @Override
     public String createInsertQuery(final Object object) {
@@ -52,12 +53,11 @@ public class EnergyBillQueryFactory implements QueryFactory {
     }
 
     private String constructUniqueSelect(final String billNum) {
-        return "select * from bill, energy_bill, instalation, instalation_address, client, dealership " +
-                "where bill.bill_num = '" + billNum + "' " +
-                "and bill.bill_num = energy_bill.abs_bill " +
-                "and bill.id_instalation = instalation.num_inst " +
-                "and instalation.address = instalation_address.zip " +
-                "and instalation.client_cnpj = client.client_cnpj " +
-                "and instalation.id_dealer = dealership.id_dealership";
+        return "SELECT d.*,i.*, cl.*,b.*, eb.* " +
+                "FROM dealership d inner join instalation i on d.id_dealership = i.id_dealer " +
+                "INNER JOIN client cl on i.client_cnpj = cl.client_cnpj " +
+                "INNER JOIN bill b on i.num_inst = b.id_instalation " +
+                "INNER JOIN energy_bill eb on b.bill_num = eb.abs_bill " +
+                "WHERE eb.id_energy_type = " + billNum;
     }
 }
