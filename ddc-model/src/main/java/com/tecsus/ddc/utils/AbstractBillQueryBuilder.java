@@ -53,11 +53,11 @@ public class AbstractBillQueryBuilder {
     }
 
     private String constructSelect() {
-        return "select * from bill, instalation, instalation_address, client, dealership" +
-                "where bill.id_instalation = instalation.num_inst " +
-                "and instalation.address = instalation_address.zip " +
-                "and instalation.client_cnpj = client.client_cnpj " +
-                "and instalation.id_dealer = dealership.id_dealership";
+        return  "SELECT i.num_inst, cl.*, d.initials, d.site, b.bill_num, b.due_date " +
+                "FROM instalation i inner join dealership d on i.id_dealer = d.id_dealership " +
+                "INNER JOIN client cl on i.client_cnpj = cl.client_cnpj " +
+                "INNER JOIN bill b on b.id_instalation = i.num_inst ";
+
     }
 
     private String constructUniqueSelect(final String billNum) {
