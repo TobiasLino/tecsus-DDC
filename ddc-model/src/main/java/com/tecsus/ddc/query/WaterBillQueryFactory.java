@@ -27,6 +27,11 @@ public class WaterBillQueryFactory implements QueryFactory {
         return constructUniqueSelect(billNum);
     }
 
+    @Override
+    public String createSelectUniqueQuery(String id, String column) {
+        return null;
+    }
+
 
     private String constructSelect() {
         return "SELECT * FROM bill, water_bill, instalation, instalation_address, client, dealership " +

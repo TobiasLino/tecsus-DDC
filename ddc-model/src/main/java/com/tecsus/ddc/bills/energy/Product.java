@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 public class Product {
 
     private Integer id;
-    private ProductDescription description;
+    private String description;
     private BigDecimal kWhQuantity;
     private BigDecimal tariff;
     private BigDecimal fornecValue;
@@ -30,4 +30,6 @@ public class Product {
     private Tribute PIS;
     private Tribute COFINS;
     private BigDecimal totalValue;
+
+    private long billNum;
 }

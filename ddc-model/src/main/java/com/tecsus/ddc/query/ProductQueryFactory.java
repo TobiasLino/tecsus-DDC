@@ -1,14 +1,31 @@
 package com.tecsus.ddc.query;
 
+import com.tecsus.ddc.bills.energy.Product;
+
 public class ProductQueryFactory implements QueryFactory {
     @Override
     public String createInsertQuery(Object object) {
+        if (object instanceof Product) {
+            Product product = (Product) object;
+            return "INSERT INTO energy_product (kwh_quant, total_val, supply_val, prod_desc, bill_num) " +
+                    "VALUES (" +
+                    (product.getKWhQuantity() != null ? product.getKWhQuantity().toString() + ", " : "") +
+                    (product.getTotalValue() != null ? product.getTotalValue().toString() + ", " : "") +
+                    (product.getFornecValue() != null ? product.getFornecValue().toString() + ", " : "") +
+                    (product.getDescription() != null ? "'" + product.getDescription() + "', " : "") +
+                    product.getBillNum() +
+                    ")";
+        }
         return null;
     }
 
     @Override
     public String createSelectQuery() {
-        return null;
+        return "SELECT * FROM energy_product";
+    }
+
+    public String createSelectUniqueQuery(final String id, final String column) {
+        return "SELECT * FROM energy_product WHERE energy_product."+ column + " = " + id;
     }
 
     @Override

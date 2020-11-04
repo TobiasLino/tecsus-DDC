@@ -2,6 +2,8 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.EnergyBillFactory;
+import com.tecsus.ddc.bills.energy.Product;
+import com.tecsus.ddc.bills.energy.TariffFlag;
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.bills.water.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
@@ -30,9 +32,13 @@ import java.util.Optional;
 public class EnergyBillService {
 
     private final Repository<EnergyBill> energyBillRepository;
+    private final Repository<Product> productRepository;
+    private final Repository<TariffFlag> tariffFlagRepository;
 
     public void insert(final EnergyBill bill) {
         energyBillRepository.save(bill);
+        bill.getProducts().forEach(productRepository::save);
+        bill.getTariffFlags().forEach(tariffFlagRepository::save);
     }
 
     public Optional<EnergyBill> findById(final String idBill) {

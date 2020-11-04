@@ -34,9 +34,9 @@ public class EnergyBillServiceTest {
 
     @Test
     public void findById() {
-        EnergyBillService energyBillService = new EnergyBillService(energyBillRepository);
         TariffFlagService tariffFlagService = new TariffFlagService(tariffFlagRepository);
         ProductService productService = new ProductService(productRepository);
+        EnergyBillService energyBillService = new EnergyBillService(energyBillRepository, productRepository, tariffFlagRepository);
 
         Optional<EnergyBill> energyBillOptional = energyBillService.findById(ID_BILL);
         List<Product> products = productService.findAllById(ID_BILL);

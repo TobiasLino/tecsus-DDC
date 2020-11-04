@@ -33,6 +33,11 @@ public class AbstractBillQueryFactory implements QueryFactory {
         return new AbstractBillQueryFactory().constructUniqueSelect(id);
     }
 
+    @Override
+    public String createSelectUniqueQuery(String id, String column) {
+        return null;
+    }
+
     private String constructInsert() {
         SimpleDateFormat refMonth = new SimpleDateFormat("yyyy/MM");
         SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");

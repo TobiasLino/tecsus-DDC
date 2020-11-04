@@ -30,7 +30,19 @@ public class ProductRepository implements Repository<Product> {
 
     @Override
     public List<Product> findAll() {
-        return null;
+        Optional<ResultSet> resultSet = null;
+        try {
+            resultSet = connection.executeSelect(queryFactory.createSelectQuery());
+
+            if (resultSet.isPresent()) {
+                return responseToList(resultSet.get());
+            }
+        } catch (OutOfMemoryError outOfMemoryError) {
+            outOfMemoryError.printStackTrace();
+        } finally {
+            ConnectionImpl.closeResultSet(resultSet.get());
+        }
+        return Collections.emptyList();
     }
 
     public List<Product> findAllById(final String id) {
@@ -51,6 +63,16 @@ public class ProductRepository implements Repository<Product> {
 
     @Override
     public Optional<Product> findById(String id) {
+        Optional<ResultSet> resultSet = null;
+        try {
+            resultSet = connection.executeSelect(queryFactory.createSelectUniqueQuery(id, "id_product"));
+
+            if (resultSet.isPresent()) {
+                return Optional.of(ProductFactory.constructProductFromResultSet(resultSet.get()));
+            }
+        } catch (OutOfMemoryError | SQLException outOfMemoryError) {
+            outOfMemoryError.printStackTrace();
+        }
         return Optional.empty();
     }
 

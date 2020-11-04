@@ -26,8 +26,8 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public Optional<Product> findById(final String idBill) {
-        return productRepository.findById(idBill);
+    public Optional<Product> findById(final String idProduct) {
+        return productRepository.findById(idProduct);
     }
 
     public List<Product> findAll() {

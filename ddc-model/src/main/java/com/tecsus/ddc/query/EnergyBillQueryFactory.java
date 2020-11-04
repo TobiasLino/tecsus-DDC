@@ -34,6 +34,11 @@ public class EnergyBillQueryFactory implements QueryFactory {
         return new EnergyBillQueryFactory().constructUniqueSelect(billNum);
     }
 
+    @Override
+    public String createSelectUniqueQuery(String id, String column) {
+        return null;
+    }
+
     private String constructInsert() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
         return "INSERT INTO energy_bill" +

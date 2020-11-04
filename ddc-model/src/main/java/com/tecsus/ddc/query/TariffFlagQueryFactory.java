@@ -18,4 +18,9 @@ public class TariffFlagQueryFactory implements QueryFactory {
                 "ON eb.id_energy_type = efc.id_energy_bill " +
                 "WHERE eb.id_energy_type = " + id;
     }
+
+    @Override
+    public String createSelectUniqueQuery(String id, String column) {
+        return null;
+    }
 }
