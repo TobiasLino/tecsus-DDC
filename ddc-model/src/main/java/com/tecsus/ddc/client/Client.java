@@ -1,6 +1,7 @@
 package com.tecsus.ddc.client;
 
 import com.tecsus.ddc.instalation.Instalation;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import java.util.List;
  * @author TOBIASDASILVALINO
  */
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class Client {

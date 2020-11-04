@@ -1,16 +1,12 @@
 package com.tecsus.ddc.controller.connector;
 
-import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.bills.water.WaterBillFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ejb.ObjectNotFoundException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 import java.util.Optional;
 
 public class ConnectionImpl{
@@ -35,17 +31,14 @@ public class ConnectionImpl{
     }
 
     public void executeInsert(final String query) {
-        Statement statement = null;
         try {
             log.debug(query);
-            statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             statement.executeUpdate(query);
             log.info("Inserted.");
         } catch (SQLException e) {
             log.error("Insert failed");
             e.printStackTrace();
-        } finally {
-            closeStatement(statement);
         }
     }
 
@@ -62,8 +55,6 @@ public class ConnectionImpl{
         } catch (SQLException e) {
             log.error("Select Failed.");
             e.printStackTrace();
-        } finally {
-            closeStatement(statement);
         }
         return Optional.empty();
     }

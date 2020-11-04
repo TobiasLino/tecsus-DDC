@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 @Builder
 public class Product {
 
+    private Integer id;
     private ProductDescription description;
     private BigDecimal kWhQuantity;
     private BigDecimal tariff;

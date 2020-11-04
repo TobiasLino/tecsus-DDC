@@ -5,7 +5,7 @@
  */
 package com.tecsus.ddc.view.frames.water;
 
-import com.tecsus.ddc.controller.WaterBillController;
+import com.tecsus.ddc.controller.service.WaterBillService;
 import com.tecsus.ddc.view.frames.generator.WaterBillGenerator;
 
 import java.awt.event.ActionEvent;
@@ -17,16 +17,16 @@ import java.awt.event.ActionListener;
  */
 public class Agua extends javax.swing.JInternalFrame {
 
-    private WaterBillController controller;
+    private WaterBillService service;
     private WaterBillFormTextFields fields;
 
 
     /**
      * Creates new form Agua
      */
-    public Agua(final WaterBillController controller) {
+    public Agua(final WaterBillService service) {
         fields = new WaterBillFormTextFields();
-        this.controller = controller;
+        this.service = service;
         initComponents();
     }
 
@@ -497,7 +497,7 @@ public class Agua extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnSalvarActionPerformed(ActionEvent evt) {
-        controller.pushBill(WaterBillGenerator.generate(fields));
+        service.insert(WaterBillGenerator.generate(fields));
         System.out.println(String.format("[%s] Conta de Água salva com sucesso.", Agua.class));
     }
 

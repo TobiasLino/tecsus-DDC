@@ -3,6 +3,7 @@ package com.tecsus.ddc.controller.service;
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.bills.water.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
+import com.tecsus.ddc.controller.repository.Repository;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
@@ -21,63 +22,23 @@ import java.util.Optional;
  * @author TOBIASDASILVALINO
  */
 @AllArgsConstructor
-public class WaterBillService implements WaterBillRepository {
+public class WaterBillService {
 
-    private static final Logger log = LoggerFactory.getLogger(WaterBillService.class);
+    private final Repository<WaterBill> waterBillRepository;
 
-    private final ConnectionImpl connection;
-    private final QueryFactory queryFactory;
-
-    @Override
-    public void insert(final WaterBill bill) {
-        connection.executeInsert(queryFactory.createInsertQuery(bill));
+    public Optional<WaterBill> findById(final String id) {
+        return waterBillRepository.findById(id);
     }
 
-    @Override
-    public Optional<WaterBill> findById(final String idBill) {
-        ResultSet resultSet = null;
-        try {
-            resultSet = connection
-                    .executeSelect(queryFactory.createSelectUniqueQuery(idBill))
-                    .orElseThrow(ObjectNotFoundException::new);
-            WaterBill waterBill = WaterBillFactory.constructBillFromResultSet(resultSet);
-            ConnectionImpl.closeResultSet(resultSet);
-            return Optional.ofNullable(waterBill);
-        } catch (ObjectNotFoundException | SQLException e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionImpl.closeResultSet(resultSet);
-        }
-        return Optional.empty();
-    }
-
-    @Override
     public List<WaterBill> findAll() {
-        ResultSet resultSet = null;
-        try {
-            resultSet = connection
-                    .executeSelect(queryFactory.createSelectQuery())
-                    .orElseThrow(OutOfMemoryError::new);
-            return responseToList(resultSet);
-        } catch (OutOfMemoryError outOfMemoryError) {
-            outOfMemoryError.printStackTrace();
-        } finally {
-            ConnectionImpl.closeResultSet(resultSet);
-        }
-        return Collections.emptyList();
+        return waterBillRepository.findAll();
     }
 
-    private List<WaterBill> responseToList(final ResultSet rs) {
-        List<WaterBill> waterBills = new ArrayList<>();
-        try {
-            log.info("Trying to parse response to list..");
-            while (rs.next()) {
-                waterBills.add(WaterBillFactory.constructBillFromResultSet(rs));
-            }
-        } catch (SQLException | ObjectNotFoundException e) {
-            log.error("Response to list Failed.");
-            e.printStackTrace();
-        }
-        return waterBills;
+    public void insert(final WaterBill bill) {
+        waterBillRepository.save(bill);
+    }
+
+    public void insertAll(final Iterable<WaterBill> bills) {
+        waterBillRepository.saveAll(bills);
     }
 }

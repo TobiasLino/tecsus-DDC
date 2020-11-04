@@ -4,6 +4,7 @@ import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.bills.tributes.Tribute;
 import com.tecsus.ddc.bills.tributes.Tributes;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
  * @author TOBIASDASILVALINO
  */
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class EnergyBill {

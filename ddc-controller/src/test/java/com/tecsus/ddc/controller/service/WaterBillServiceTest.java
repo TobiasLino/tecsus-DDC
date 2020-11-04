@@ -1,19 +1,13 @@
 package com.tecsus.ddc.controller.service;
 
-import com.tecsus.ddc.bills.builders.BillBuilder;
 import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.bills.water.builders.WaterBillBuilder;
-import com.tecsus.ddc.bills.water.enums.BillingType;
-import com.tecsus.ddc.bills.water.enums.ConnectionType;
-import com.tecsus.ddc.client.builders.ClientBuilder;
+import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
-import com.tecsus.ddc.dealership.builders.DealershipBuilder;
-import com.tecsus.ddc.instalation.builders.AddressBuilder;
-import com.tecsus.ddc.instalation.builders.InstalationBuilder;
-import org.joda.time.DateTime;
-import org.junit.Test;
+import com.tecsus.ddc.controller.repository.WaterBillRepository;
+import com.tecsus.ddc.query.WaterBillQueryFactory;
 
-import java.math.BigDecimal;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,19 +16,30 @@ import java.util.Optional;
  */
 public class WaterBillServiceTest {
 
+    private final WaterBillRepository waterBillRepository;
+
+    public WaterBillServiceTest() {
+        Connector connector = new Connector().connect();
+        ConnectionImpl connection = connector.getConnection();
+        this.waterBillRepository = new WaterBillRepository(connection, new WaterBillQueryFactory());
+    }
+
     @Test
     public void findAllTest() {
-        WaterBillService service = new WaterBillService(new Connector());
+        WaterBillService service = new WaterBillService(waterBillRepository);
+
         List<WaterBill> list = service.findAll();
-        list.forEach(wb -> System.out.println(wb));
+        list.forEach(System.out::println);
     }
 
     @Test
     public void findByIdTest() {
-        WaterBillService service = new WaterBillService(new Connector());
-        Optional<WaterBill> bill = service.findById("1489087448951");
-        if (bill.isPresent()) {
-            System.out.println(bill.get());
+        WaterBillService service = new WaterBillService(waterBillRepository);
+
+        Optional<WaterBill> billOptional = service.findById("12345678910");
+        if (billOptional.isPresent()) {
+            WaterBill bill = billOptional.get();
+            assertEquals("12281505", bill.getBill().getInstalation().getAddress().getZip());
         }
     }
 }

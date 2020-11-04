@@ -1,5 +1,6 @@
 package com.tecsus.ddc.tariffs;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.joda.time.DateTime;
  * @author TOBIASDASILVALINO
  */
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class ResidentialSupplyTariff {
