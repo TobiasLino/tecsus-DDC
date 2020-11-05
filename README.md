@@ -34,5 +34,9 @@ William David Antoniazzi <william.antoniazzi@fatec.sp.gov.br>
 Acesso pela aplicação FIGMA [Wireframe sistema DDC](https://www.figma.com/proto/xwv6O3rmQvlolX2uOWqfzf/DDC_TECSUS?node-id=1%3A2&viewport=26%2C183%2C0.8997531533241272&scaling=scale-down)
 
 ## Sprint - 2
+[Vídeo de apresentação da entrega](https://youtu.be/JIInRIyXdkU)
+
+Será entregue o cadastro completo de uma conta de água.
+
 ## Sprint - 3
 ## Sprint - 4
