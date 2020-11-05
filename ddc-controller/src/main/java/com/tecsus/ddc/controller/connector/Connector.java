@@ -4,7 +4,6 @@ import com.tecsus.ddc.controller.config.ConnectorConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -13,25 +12,29 @@ import java.sql.SQLException;
  */
 public class Connector {
 
-    private ConnectorConfig config;
-    private Connection connection;
+    private final ConnectorConfig config;
+    private ConnectionImpl connection;
 
     private static final Logger log = LoggerFactory.getLogger(Connector.class);
 
     public Connector() {
-        log.info("Configuring the connection");
-        this.config = new ConnectorConfig();
+        this.config = ConnectorConfig.getConfig();
+        connect();
     }
 
     public Connector connect() {
-        log.info("Connecting to the database");
+        log.info("Connecting to the database..");
         try {
             Class.forName(config.getDriver());
-            connection = DriverManager.getConnection(
-                    config.getUri(),
-                    config.getUsername(),
-                    config.getPasswd());
-            log.info("Connection Established");
+            log.info("Loading connection..");
+            connection = ConnectionImpl.create(
+                    DriverManager.getConnection(
+                        config.getUri(),
+                        config.getUsername(),
+                        config.getPasswd()
+                    )
+            );
+            log.info("Connection Established!");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             log.info("Could not connect to the database");
@@ -40,19 +43,10 @@ public class Connector {
     }
 
     public void close() {
-        log.info("Desconnecting to the database");
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-            log.info("Connection closed");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            log.info("Could not disconnect the database");
-        }
+        connection.close();
     }
 
-    public Connection getConnection() {
+    public ConnectionImpl getConnection() {
         return connection;
     }
 }

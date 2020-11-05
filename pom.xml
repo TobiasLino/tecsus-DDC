@@ -7,7 +7,7 @@
     <groupId>com.tecsus</groupId>
     <artifactId>ddc</artifactId>
     <packaging>pom</packaging>
-    <version>v0.1</version>
+    <version>v1.2</version>
 
     <developers>
         <developer>
@@ -25,36 +25,49 @@
         <module>ddc-model</module>
         <module>ddc-controller</module>
         <module>ddc-view</module>
-        <module>ddc-view</module>
     </modules>
 
     <properties>
+        <lombok.version>1.18.12</lombok.version>
         <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
         <junit.version>4.13</junit.version>
         <slf4j.version>1.7.30</slf4j.version>
+        <slf4j.log4j.version>1.7.12</slf4j.log4j.version>
         <!-- plugin -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!-- JavaDoc -->
+        <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
             <version>${maven-javadoc-plugin.version}</version>
         </dependency>
-
+        <!-- Logger SLF4J -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.log4j.version}</version>
+        </dependency>
+        <!-- JUnit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- OpenJFX -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>

@@ -1,11 +1,19 @@
 package com.tecsus.ddc.tariffs;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
 
 /**
  * Representa as tarifas divulgadas pela ANEEL para contas de energia
  * @author TOBIASDASILVALINO
  */
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
 public class ResidentialSupplyTariff {
 
     private int ideTarifaFornecimento;
@@ -22,10 +30,4 @@ public class ResidentialSupplyTariff {
     private DateTime dthInicioVigencia;
     private String numResolucao;
     private DateTime dthProcessamento;
-
-
-    public ResidentialSupplyTariff() {
-    }
-
-
 }

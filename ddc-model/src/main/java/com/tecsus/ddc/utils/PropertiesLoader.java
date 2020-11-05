@@ -1,10 +1,12 @@
 package com.tecsus.ddc.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 /**
  * @author TOBIASDASILVALINO
@@ -14,10 +16,7 @@ public class PropertiesLoader {
     private final String propertiesName;
     private Properties properties;
 
-    private static Logger log;
-    static {
-        log = Logger.getLogger(PropertiesLoader.class.getName());
-    }
+    private static Logger log = LoggerFactory.getLogger(PropertiesLoader.class);
 
     public PropertiesLoader(final String propertiesName) {
         this.propertiesName = propertiesName;
