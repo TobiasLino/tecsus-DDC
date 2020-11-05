@@ -1,11 +1,9 @@
 package com.tecsus.ddc.factory;
 
 import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.factory.BillFactory;
 import com.tecsus.ddc.bills.water.enums.BillingType;
 import com.tecsus.ddc.bills.water.enums.ConnectionType;
 
-import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

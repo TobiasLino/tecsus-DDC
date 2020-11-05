@@ -1,9 +1,8 @@
 package com.tecsus.ddc.controller.repository;
 
 import com.tecsus.ddc.bills.energy.TariffFlag;
-import com.tecsus.ddc.factory.Factory;
-import com.tecsus.ddc.factory.TariffFlagFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
+import com.tecsus.ddc.factory.Factory;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
 

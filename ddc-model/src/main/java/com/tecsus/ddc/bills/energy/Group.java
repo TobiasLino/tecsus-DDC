@@ -1,6 +1,7 @@
 package com.tecsus.ddc.bills.energy;
 
-import com.tecsus.ddc.bills.energy.enums.*;
+import com.tecsus.ddc.bills.energy.enums.Groups;
+import com.tecsus.ddc.bills.energy.enums.Subgroups;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

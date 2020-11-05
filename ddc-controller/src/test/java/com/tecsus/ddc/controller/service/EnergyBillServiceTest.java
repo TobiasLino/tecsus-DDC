@@ -1,6 +1,5 @@
 package com.tecsus.ddc.controller.service;
 
-import com.tecsus.ddc.factory.*;
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.Product;
 import com.tecsus.ddc.bills.energy.TariffFlag;
@@ -9,6 +8,7 @@ import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.EnergyBillRepository;
 import com.tecsus.ddc.controller.repository.ProductRepository;
 import com.tecsus.ddc.controller.repository.TariffFlagRepository;
+import com.tecsus.ddc.factory.*;
 import com.tecsus.ddc.query.EnergyBillQueryFactory;
 import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
@@ -56,13 +56,5 @@ public class EnergyBillServiceTest {
             products.forEach(energyBill::addProduct);
             tariffFlags.forEach(energyBill::addTariffFlag);
         });
-    }
-
-    private Map<String, Factory> factories() {
-        Map<String, Factory> factoryMap = new HashMap<>();
-        factoryMap.put("instalation", new InstalationFactory());
-        factoryMap.put("bill", new BillFactory());
-        factoryMap.put("energy_bill", new EnergyBillFactory());
-        return factoryMap;
     }
 }

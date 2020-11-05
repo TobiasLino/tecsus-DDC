@@ -1,18 +1,14 @@
 package com.tecsus.ddc.controller.repository;
 
 import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.factory.BillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.factory.Factory;
-import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.query.AbstractBillQueryFactory;
 import lombok.AllArgsConstructor;
 
 import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @AllArgsConstructor

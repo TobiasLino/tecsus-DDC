@@ -1,20 +1,18 @@
 package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.energy.Product;
-import com.tecsus.ddc.bills.energy.enums.ProductDescription;
-import com.tecsus.ddc.factory.ProductFactory;
-import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.ProductRepository;
+import com.tecsus.ddc.factory.ProductFactory;
+import com.tecsus.ddc.query.ProductQueryFactory;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+
+import static org.junit.Assert.assertEquals;
 
 public class ProductServiceTest {
 
