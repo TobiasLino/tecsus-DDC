@@ -1,5 +1,6 @@
 package com.tecsus.ddc.controller.service;
 
+import com.tecsus.ddc.factory.*;
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.Product;
 import com.tecsus.ddc.bills.energy.TariffFlag;
@@ -13,7 +14,9 @@ import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class EnergyBillServiceTest {
@@ -27,9 +30,16 @@ public class EnergyBillServiceTest {
     public EnergyBillServiceTest() {
         Connector connector = new Connector().connect();
         ConnectionImpl connection = connector.getConnection();
-        this.energyBillRepository = new EnergyBillRepository(connection, new EnergyBillQueryFactory());
-        this.productRepository = new ProductRepository(connection, new ProductQueryFactory());
-        this.tariffFlagRepository = new TariffFlagRepository(connection, new TariffFlagQueryFactory());
+
+        this.energyBillRepository = new EnergyBillRepository(
+                connection,
+                new EnergyBillQueryFactory(),
+                new EnergyBillFactory(),
+                new BillFactory());
+
+        this.productRepository = new ProductRepository(connection, new ProductQueryFactory(), new ProductFactory());
+
+        this.tariffFlagRepository = new TariffFlagRepository(connection, new TariffFlagQueryFactory(), new TariffFlagFactory());
     }
 
     @Test
@@ -46,7 +56,13 @@ public class EnergyBillServiceTest {
             products.forEach(energyBill::addProduct);
             tariffFlags.forEach(energyBill::addTariffFlag);
         });
+    }
 
-        System.out.println("TEST FINISHED");
+    private Map<String, Factory> factories() {
+        Map<String, Factory> factoryMap = new HashMap<>();
+        factoryMap.put("instalation", new InstalationFactory());
+        factoryMap.put("bill", new BillFactory());
+        factoryMap.put("energy_bill", new EnergyBillFactory());
+        return factoryMap;
     }
 }

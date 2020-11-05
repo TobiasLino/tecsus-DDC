@@ -1,9 +1,8 @@
 package com.tecsus.ddc.controller.repository;
 
 import com.tecsus.ddc.bills.energy.Product;
-import com.tecsus.ddc.bills.energy.ProductFactory;
-import com.tecsus.ddc.bills.energy.TariffFlag;
-import com.tecsus.ddc.bills.energy.TariffFlagFactory;
+import com.tecsus.ddc.factory.Factory;
+import com.tecsus.ddc.factory.ProductFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
@@ -18,67 +17,38 @@ import java.util.Optional;
 @AllArgsConstructor
 public class ProductRepository implements Repository<Product> {
 
+    private final static String ID_PRODUCT = "id_product";
 
     private final ConnectionImpl connection;
-    private final QueryFactory queryFactory;
+    private final QueryFactory<Product> queryFactory;
+    private final Factory<Product> productFactory;
 
 
     @Override
     public <S extends Product> void saveAll(Iterable<S> var1) {
-
+        var1.forEach(this::save);
     }
 
     @Override
     public List<Product> findAll() {
-        Optional<ResultSet> resultSet = null;
-        try {
-            resultSet = connection.executeSelect(queryFactory.createSelectQuery());
-
-            if (resultSet.isPresent()) {
-                return responseToList(resultSet.get());
-            }
-        } catch (OutOfMemoryError outOfMemoryError) {
-            outOfMemoryError.printStackTrace();
-        } finally {
-            ConnectionImpl.closeResultSet(resultSet.get());
-        }
-        return Collections.emptyList();
+        Optional<ResultSet> resultSet = connection.executeSelect(queryFactory.createSelectQuery());
+        return resultSet.map(this::responseToList).orElse(Collections.emptyList());
     }
 
     public List<Product> findAllById(final String id) {
-        Optional<ResultSet> resultSet = null;
-        try {
-            resultSet = connection.executeSelect(queryFactory.createSelectUniqueQuery(id));
-
-            if (resultSet.isPresent()) {
-                return responseToList(resultSet.get());
-            }
-        } catch (OutOfMemoryError outOfMemoryError) {
-            outOfMemoryError.printStackTrace();
-        } finally {
-            ConnectionImpl.closeResultSet(resultSet.get());
-        }
-        return Collections.emptyList();
+        Optional<ResultSet> resultSet = connection.executeSelect(queryFactory.createSelectUniqueQuery(id));
+        return resultSet.map(this::responseToList).orElse(Collections.emptyList());
     }
 
     @Override
     public Optional<Product> findById(String id) {
-        Optional<ResultSet> resultSet = null;
-        try {
-            resultSet = connection.executeSelect(queryFactory.createSelectUniqueQuery(id, "id_product"));
-
-            if (resultSet.isPresent()) {
-                return Optional.of(ProductFactory.constructProductFromResultSet(resultSet.get()));
-            }
-        } catch (OutOfMemoryError | SQLException outOfMemoryError) {
-            outOfMemoryError.printStackTrace();
-        }
-        return Optional.empty();
+        Optional<ResultSet> resultSet = connection.executeSelect(queryFactory.createSelectUniqueQuery(id, ID_PRODUCT));
+        return resultSet.map(productFactory::constructFrom);
     }
 
     @Override
     public <S extends Product> void save(S var1) {
-
+        connection.executeInsert(queryFactory.createInsertQuery(var1));
     }
 
     @Override
@@ -89,11 +59,9 @@ public class ProductRepository implements Repository<Product> {
     private List<Product> responseToList(ResultSet rs) {
         List<Product> products = new ArrayList<>();
         try {
-            products.add(ProductFactory.constructProductFromResultSet(rs));
-
-            while (rs.next()) {
-                products.add(ProductFactory.constructProductFromResultSet(rs));
-            }
+            do {
+                products.add(productFactory.constructFrom(rs));
+            } while (rs.next());
         } catch (SQLException e) {
             e.printStackTrace();
         }

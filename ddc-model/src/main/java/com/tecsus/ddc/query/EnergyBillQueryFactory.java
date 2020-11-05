@@ -1,32 +1,27 @@
 package com.tecsus.ddc.query;
 
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import lombok.NoArgsConstructor;
 
 import java.text.SimpleDateFormat;
-import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class EnergyBillQueryFactory implements QueryFactory {
-
-    private EnergyBill bill;
-
-    private EnergyBillQueryFactory(final EnergyBill bill) {
-        this.bill = bill;
-    }
-
-    public EnergyBillQueryFactory() {}
+public class EnergyBillQueryFactory implements QueryFactory<EnergyBill> {
 
     @Override
-    public String createInsertQuery(final Object object) {
-        return new EnergyBillQueryFactory((EnergyBill) object).constructInsert();
+    public <S extends EnergyBill> String createInsertQuery(S object) {
+        return constructInsert();
+    }
+
+    @Override
+    public <S extends EnergyBill> String createInsertQuery(S object, String id) {
+        return null;
     }
 
     @Override
     public String createSelectQuery() {
-        return new EnergyBillQueryFactory().constructSelect();
+        return constructSelect();
     }
 
     @Override
@@ -44,7 +39,7 @@ public class EnergyBillQueryFactory implements QueryFactory {
         return "INSERT INTO energy_bill" +
                 "(abs_bill, consum_kwh, tension, emission, icms, tributes, financ_items) " +
             "VALUES(" + "'" +
-                
+
             ")";
     }
 

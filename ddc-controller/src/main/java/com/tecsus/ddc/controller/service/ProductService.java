@@ -2,7 +2,6 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.energy.Product;
 import com.tecsus.ddc.controller.repository.ProductRepository;
-import com.tecsus.ddc.controller.repository.Repository;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.Optional;
 public class ProductService {
 
     private final ProductRepository productRepository;
-
 
 
     public void insertAll(final Iterable<Product> products) {

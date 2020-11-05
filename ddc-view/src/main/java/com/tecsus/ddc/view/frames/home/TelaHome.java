@@ -9,6 +9,7 @@ import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
 import com.tecsus.ddc.controller.service.WaterBillService;
+import com.tecsus.ddc.factory.WaterBillFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
 import com.tecsus.ddc.view.frames.water.Agua;
 import com.tecsus.ddc.view.frames.energy.vw_conta_energia;
@@ -126,11 +127,13 @@ public class TelaHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void abrirAgua() {
-        final WaterBillRepository waterBillRepository = new WaterBillRepository(connection, new WaterBillQueryFactory());
+        final WaterBillFactory waterBillFactory = new WaterBillFactory();
+        final WaterBillQueryFactory waterBillQueryFactory = new WaterBillQueryFactory();
+        final WaterBillRepository waterBillRepository = new WaterBillRepository(connection, waterBillQueryFactory, waterBillFactory);
         final WaterBillService waterBillService = new WaterBillService(waterBillRepository);
-        Agua tela = new Agua(waterBillService);
-        jDesktop.add(tela);
-        tela.setVisible(true);
+        Agua waterScreen = new Agua(waterBillService);
+        jDesktop.add(waterScreen);
+        waterScreen.setVisible(true);
     }
 
     private void openEnergyBillRegistryForm() {

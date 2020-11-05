@@ -5,6 +5,7 @@ import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.TariffFlagRepository;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
+import com.tecsus.ddc.factory.TariffFlagFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
 import org.junit.Test;
@@ -18,7 +19,7 @@ public class TariffFlagServiceTest {
     public TariffFlagServiceTest() {
         Connector connector = new Connector().connect();
         ConnectionImpl connection = connector.getConnection();
-        this.tariffFlagRepository = new TariffFlagRepository(connection, new TariffFlagQueryFactory());
+        this.tariffFlagRepository = new TariffFlagRepository(connection, new TariffFlagQueryFactory(), new TariffFlagFactory());
     }
 
     @Test

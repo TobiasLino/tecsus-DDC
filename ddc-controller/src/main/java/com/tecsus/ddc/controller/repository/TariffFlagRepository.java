@@ -1,13 +1,9 @@
 package com.tecsus.ddc.controller.repository;
 
-import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.BillFactory;
-import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.bills.energy.EnergyBillFactory;
 import com.tecsus.ddc.bills.energy.TariffFlag;
-import com.tecsus.ddc.bills.energy.TariffFlagFactory;
+import com.tecsus.ddc.factory.Factory;
+import com.tecsus.ddc.factory.TariffFlagFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
-import com.tecsus.ddc.query.AbstractBillQueryFactory;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
 
@@ -23,11 +19,12 @@ import java.util.Optional;
 public class TariffFlagRepository implements Repository<TariffFlag> {
 
     private final ConnectionImpl connection;
-    private final QueryFactory queryFactory;
+    private final QueryFactory<TariffFlag> queryFactory;
+    private final Factory<TariffFlag> tariffFlagFactory;
 
     @Override
     public <S extends TariffFlag> void saveAll(Iterable<S> var1) {
-
+        var1.forEach(this::save);
     }
 
     @Override
@@ -69,10 +66,10 @@ public class TariffFlagRepository implements Repository<TariffFlag> {
             final ResultSet resultSet = connection
                     .executeSelect(queryFactory.createSelectUniqueQuery(id))
                     .orElseThrow(ObjectNotFoundException::new);
-            TariffFlag flag = TariffFlagFactory.constructTariffFlagFromResultSet(resultSet);
+            TariffFlag flag = tariffFlagFactory.constructFrom(resultSet);
             ConnectionImpl.closeResultSet(resultSet);
             return Optional.ofNullable(flag);
-        } catch (ObjectNotFoundException | SQLException e) {
+        } catch (ObjectNotFoundException e) {
             e.printStackTrace();
         }
         return Optional.empty();
@@ -80,7 +77,7 @@ public class TariffFlagRepository implements Repository<TariffFlag> {
 
     @Override
     public <S extends TariffFlag> void save(S var1) {
-
+        connection.executeInsert(queryFactory.createInsertQuery(var1));
     }
 
     @Override
@@ -91,11 +88,9 @@ public class TariffFlagRepository implements Repository<TariffFlag> {
     private List<TariffFlag> responseToList(ResultSet rs) {
         List<TariffFlag> tariffFlags = new ArrayList<>();
         try {
-            tariffFlags.add(TariffFlagFactory.constructTariffFlagFromResultSet(rs));
-
-            while (rs.next()) {
-                tariffFlags.add(TariffFlagFactory.constructTariffFlagFromResultSet(rs));
-            }
+            do {
+                tariffFlags.add(tariffFlagFactory.constructFrom(rs));
+            } while (rs.next());
         } catch (SQLException e) {
             e.printStackTrace();
         }

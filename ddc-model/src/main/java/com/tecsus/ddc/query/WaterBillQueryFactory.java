@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
  * @author TOBIASDASILVALINO 
  */
 @NoArgsConstructor
-public class WaterBillQueryFactory implements QueryFactory {
+public class WaterBillQueryFactory implements QueryFactory<WaterBill> {
 
     @Override
-    public String createInsertQuery(final Object object) {
-        if (object instanceof WaterBill) {
-            return constructInsert((WaterBill) object);
-        }
+    public <S extends WaterBill> String createInsertQuery(S object) {
+        return constructInsert(object);
+    }
+
+    @Override
+    public <S extends WaterBill> String createInsertQuery(S object, String id) {
         return null;
     }
 

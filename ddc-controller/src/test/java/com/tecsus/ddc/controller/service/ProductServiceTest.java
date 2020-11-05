@@ -2,6 +2,7 @@ package com.tecsus.ddc.controller.service;
 
 import com.tecsus.ddc.bills.energy.Product;
 import com.tecsus.ddc.bills.energy.enums.ProductDescription;
+import com.tecsus.ddc.factory.ProductFactory;
 import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
@@ -17,14 +18,12 @@ import java.util.Optional;
 
 public class ProductServiceTest {
 
-    private final static String BILL_NUM = "2";
-
     private final ProductRepository productRepository;
 
     public ProductServiceTest() {
         Connector connector = new Connector().connect();
         ConnectionImpl connection = connector.getConnection();
-        this.productRepository = new ProductRepository(connection, new ProductQueryFactory());
+        this.productRepository = new ProductRepository(connection, new ProductQueryFactory(), new ProductFactory());
     }
 
     @Test

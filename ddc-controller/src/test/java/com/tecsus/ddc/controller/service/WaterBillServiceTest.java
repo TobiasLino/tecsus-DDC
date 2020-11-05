@@ -4,6 +4,7 @@ import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
+import com.tecsus.ddc.factory.WaterBillFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
 
 import static org.junit.Assert.assertEquals;
@@ -21,7 +22,7 @@ public class WaterBillServiceTest {
     public WaterBillServiceTest() {
         Connector connector = new Connector().connect();
         ConnectionImpl connection = connector.getConnection();
-        this.waterBillRepository = new WaterBillRepository(connection, new WaterBillQueryFactory());
+        this.waterBillRepository = new WaterBillRepository(connection, new WaterBillQueryFactory(), new WaterBillFactory());
     }
 
     @Test

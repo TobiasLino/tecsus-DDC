@@ -1,11 +1,12 @@
 package com.tecsus.ddc.controller.repository;
 
 import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.bills.water.WaterBillFactory;
+import com.tecsus.ddc.factory.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.service.WaterBillService;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,16 +22,16 @@ import java.util.Optional;
  * @author TOBIASDASILVALINO
  */
 @AllArgsConstructor
+@Slf4j
 public class WaterBillRepository implements Repository<WaterBill> {
 
-    private static final Logger log = LoggerFactory.getLogger(WaterBillService.class);
-
     private final ConnectionImpl connection;
-    private final QueryFactory queryFactory;
+    private final QueryFactory<WaterBill> queryFactory;
+    private final WaterBillFactory waterBillFactory;
 
     @Override
     public <S extends WaterBill> void saveAll(Iterable<S> var1) {
-
+        var1.forEach(this::save);
     }
 
     @Override
@@ -51,18 +52,11 @@ public class WaterBillRepository implements Repository<WaterBill> {
 
     @Override
     public Optional<WaterBill> findById(String id) {
-        ResultSet resultSet = null;
-        try {
-            resultSet = connection
-                    .executeSelect(queryFactory.createSelectUniqueQuery(id))
-                    .orElseThrow(ObjectNotFoundException::new);
-            WaterBill waterBill = WaterBillFactory.constructBillFromResultSet(resultSet);
-            ConnectionImpl.closeResultSet(resultSet);
+        Optional<ResultSet> resultSet = connection.executeSelect(queryFactory.createSelectUniqueQuery(id));
+        if (resultSet.isPresent()) {
+            WaterBill waterBill = waterBillFactory.constructFrom(resultSet.get());
+            ConnectionImpl.closeResultSet(resultSet.get());
             return Optional.ofNullable(waterBill);
-        } catch (ObjectNotFoundException | SQLException e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionImpl.closeResultSet(resultSet);
         }
         return Optional.empty();
     }
@@ -81,11 +75,11 @@ public class WaterBillRepository implements Repository<WaterBill> {
     private List<WaterBill> responseToList(final ResultSet rs) {
         List<WaterBill> waterBills = new ArrayList<>();
         try {
-            log.info("Trying to parse response to list..");
+            log.debug("Parsing response to list.");
             while (rs.next()) {
-                waterBills.add(WaterBillFactory.constructBillFromResultSet(rs));
+                waterBills.add(waterBillFactory.constructFrom(rs));
             }
-        } catch (SQLException | ObjectNotFoundException e) {
+        } catch (SQLException e) {
             log.error("Response to list Failed.");
             e.printStackTrace();
         }

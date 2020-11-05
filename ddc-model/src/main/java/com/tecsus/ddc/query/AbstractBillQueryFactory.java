@@ -3,34 +3,29 @@ package com.tecsus.ddc.query;
 import com.tecsus.ddc.bills.Bill;
 
 import java.text.SimpleDateFormat;
-import java.util.Optional;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class AbstractBillQueryFactory implements QueryFactory {
+public class AbstractBillQueryFactory implements QueryFactory<Bill> {
 
-    private Bill bill;
-
-    private AbstractBillQueryFactory(final Bill bill) {
-        this.bill = bill;
-    }
-
-    public AbstractBillQueryFactory() {
+    @Override
+    public <S extends Bill> String createInsertQuery(S object) {
+        return constructInsert(object);
     }
 
     @Override
-    public String createInsertQuery(final Object object) {
-        return new AbstractBillQueryFactory((Bill) object).constructInsert();
+    public <S extends Bill> String createInsertQuery(S object, String id) {
+        return null;
     }
 
     @Override
     public String createSelectQuery() {
-        return new AbstractBillQueryFactory().constructSelect();
+        return constructSelect();
     }
 
     public String createSelectUniqueQuery(final String id) {
-        return new AbstractBillQueryFactory().constructUniqueSelect(id);
+        return constructUniqueSelect(id);
     }
 
     @Override
@@ -38,7 +33,7 @@ public class AbstractBillQueryFactory implements QueryFactory {
         return null;
     }
 
-    private String constructInsert() {
+    private String constructInsert(final Bill bill) {
         SimpleDateFormat refMonth = new SimpleDateFormat("yyyy/MM");
         SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
         // TODO verificar os nulos
