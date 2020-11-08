@@ -16,20 +16,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * @author TOBIASDASILVALINO
+ * @author RuanCesar
  */
-public class WaterBillGenerator {
+public class EnergyBillGenerator {
 
-    private WaterBillGenerator() {}
-    private final static Logger log = LoggerFactory.getLogger(WaterBillGenerator.class);
+    private EnergyBillGenerator() {}
+    private final static Logger log = LoggerFactory.getLogger(EnergyBillGenerator.class);
 
-    public static WaterBill generate(WaterBillFormTextFields fields) {
+    public static EnergyBill generate( EnergyBillFormTextFields fields) {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
         SimpleDateFormat refMonthFormatter = new SimpleDateFormat("MM/YYYY");
-        WaterBill res = null;
-        log.info("Generating water bill");
+        EnergyBill res = null;
+        log.info("Generating energy bill");
         try {   // Trying to parse data types
-            res =  WaterBillBuilder.aWaterBill()
+            res =  EnergyBillBuilder.aEnergyBill()
                     .bill(new BillBuilder()
                             .instalation(
                                     InstalationBuilder.anInstalation()
@@ -55,11 +55,12 @@ public class WaterBillGenerator {
                     .trcf(new BigDecimal(fields.getTxtTrcf().getText()))
                     .tributes(new BigDecimal(fields.getTxtTributo().getText()))
                     .build();
-        log.info("Water bill generated");
+            log.info("Energy bill generated");
         } catch (ParseException e) {
             e.printStackTrace();
-            log.info("Water bill generation failed");
+            log.info("Energy bill generation failed");
         }
         return res;
     }
 }
+

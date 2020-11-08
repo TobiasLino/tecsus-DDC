@@ -70,9 +70,9 @@ public class EnergyBillQueryBuilder {
     }
     public String constructFlagSelect(final Integer idEnergy){
         return "SELECT eb.abs_bill, efc.flag_color, efc.start_date, efc.finish_date " +
-                "FROM energy_bill eb INNER JOIN energy_flag_ctrl efc " +
-                "ON eb.id_energy_type = efc.id_energy_bill " +
-                "WHERE eb.id_energy_type = " + idEnergy;
+        "FROM energy_bill eb INNER JOIN energy_flag_ctrl efc " +
+        "ON eb.id_energy_type = efc.id_energy_bill " +
+        "WHERE eb.id_energy_type = " + idEnergy;
     }
     public String constructProductSelect(final Integer idEnergy){
         return "SELECT eb.id_energy_type, ep.kwh_quant, ep.total_val, ep.supply_val, ep.prod_desc, ept.cci " +

@@ -1,8 +1,6 @@
 package com.tecsus.ddc.view.frames.energy;
 
-import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
-//import javax.swing.*;
+import javax.swing.*;
 
 public class EnergiaBillFormTextFields {
     private JTextField txtEndereco;
@@ -76,9 +74,8 @@ public class EnergiaBillFormTextFields {
     private JTextField txtCofTributo;
     private JTextField txtIcmsTributo;
     private JTextField txCodBarras;
-    private JButton salvarButton;
-    private JButton limparButton;
-    private JButton voltarButton;
+    private JButton btnSalvar;
+    private JButton btnSair;
 
     public EnergiaBillFormTextFields() {
         this.txtEndereco = new JTextField();
@@ -151,6 +148,9 @@ public class EnergiaBillFormTextFields {
         this.txtCofTributo = new JTextField();
         this.txtIcmsTributo = new JTextField();
         this.txCodBarras = new JTextField();
+        this.btnSair = new JButton();
+        this.btnSalvar = new JButton();
+
     }
 
     public JTextField getTxtEndereco(){return txtEndereco;}

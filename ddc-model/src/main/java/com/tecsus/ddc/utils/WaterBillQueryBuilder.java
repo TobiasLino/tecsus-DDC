@@ -38,14 +38,20 @@ public class WaterBillQueryBuilder {
                 "and instalation.id_dealer = dealership.id_dealership";
     }
 
-    private String constructUniqueSelect(String billNum) {
-        return "select * from bill, water_bill, instalation, instalation_address, client, dealership " +
-                "where bill.bill_num = '" + billNum + "' " +
-                "and bill.bill_num = water_bill.abs_bill " +
-                "and bill.id_instalation = instalation.num_inst " +
-                "and instalation.address = instalation_address.zip " +
-                "and instalation.client_cnpj = client.client_cnpj " +
-                "and instalation.id_dealer = dealership.id_dealership";
+    private String constructUniqueSelect(final String billNum) {
+        return "SELECT d.*, i.*,ia.* ,cl.*, b.*, w.*" +
+                "FROM dealership d INNER JOIN instalation i" +
+                "ON d.id_dealership = i.id_dealer" +
+                "INNER JOIN client cl"+
+                "ON i.client_cnpj = cl.client_cnpj " +
+                "INNER JOIN instalation_address ia " +
+                "ON i.address = ia.zip " +
+                "INNER JOIN bill b" +
+                "ON b.id_instalation = i.num_inst" +
+                "INNER JOIN water_bill w " +
+                "ON b.bill_num  = w.abs_bill" +
+                "WHERE b.bill_num = " + billNum;
+
     }
 
     private String constructInsert(final WaterBill bill) {
