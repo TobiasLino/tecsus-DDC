@@ -1,4 +1,4 @@
-package com.tecsus.ddc.view.frames.generator;
+package frames.generator;
 
 import com.tecsus.ddc.bills.builders.BillBuilder;
 import com.tecsus.ddc.bills.water.WaterBill;
@@ -7,6 +7,7 @@ import com.tecsus.ddc.bills.water.enums.BillingType;
 import com.tecsus.ddc.bills.water.enums.ConnectionType;
 import com.tecsus.ddc.instalation.builders.InstalationBuilder;
 import com.tecsus.ddc.view.frames.water.WaterBillFormTextFields;
+import org.jetbrains.annotations.NotNull;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public class WaterBillGenerator {
     private WaterBillGenerator() {}
     private final static Logger log = LoggerFactory.getLogger(WaterBillGenerator.class);
 
-    public static WaterBill generate(WaterBillFormTextFields fields) {
+    public static WaterBill generate(@NotNull WaterBillFormTextFields fields) {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
         SimpleDateFormat refMonthFormatter = new SimpleDateFormat("MM/YYYY");
         WaterBill res = null;

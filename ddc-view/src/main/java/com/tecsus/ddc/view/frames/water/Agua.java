@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tecsus.ddc.view.frames.water;
-
+import com.tecsus.ddc.view.frames.water;
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.controller.WaterBillController;
 import com.tecsus.ddc.view.frames.generator.WaterBillGenerator;
