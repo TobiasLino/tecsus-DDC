@@ -1,21 +1,13 @@
 package com.tecsus.ddc.controller.service;
 
-import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.builders.BillBuilder;
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.bills.energy.builders.ClasseBuilder;
 import com.tecsus.ddc.bills.energy.builders.EnergyBillBuilder;
-import com.tecsus.ddc.bills.energy.builders.GroupBuilder;
-import com.tecsus.ddc.bills.energy.enums.*;
-import com.tecsus.ddc.client.enums.State;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.EnergyBillRepository;
-import com.tecsus.ddc.utils.EnergyBillQueryBuilder;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
