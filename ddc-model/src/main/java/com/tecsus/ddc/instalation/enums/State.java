@@ -1,4 +1,4 @@
-package com.tecsus.ddc.client.enums;
+package com.tecsus.ddc.instalation.enums;
 
 public enum State {
 

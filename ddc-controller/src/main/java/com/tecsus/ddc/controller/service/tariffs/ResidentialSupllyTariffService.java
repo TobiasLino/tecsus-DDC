@@ -27,7 +27,7 @@ public class ResidentialSupllyTariffService {
     private static final Logger log = LoggerFactory.getLogger(ResidentialSupllyTariffService.class);
 
     public ResidentialSupllyTariffService() {
-        this.config = new ResidentialSupplyTariffConfig();
+        this.config = ResidentialSupplyTariffConfig.getInstance();
     }
 
     public ResidentialSupllyTariffService construct() {

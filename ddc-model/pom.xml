@@ -13,12 +13,22 @@
     <artifactId>ddc-model</artifactId>
     <version>v0.1</version>
     <packaging>jar</packaging>
+    <properties>
+        <joda-time.version>2.10.6</joda-time.version>
+        <javax.ejb.version>3.2.2</javax.ejb.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.10.6</version>
+            <version>${joda-time.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.ejb</groupId>
+            <artifactId>javax.ejb-api</artifactId>
+            <version>${javax.ejb.version}</version>
         </dependency>
     </dependencies>
 
