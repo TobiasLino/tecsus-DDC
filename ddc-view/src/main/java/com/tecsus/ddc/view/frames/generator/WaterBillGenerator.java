@@ -1,11 +1,10 @@
 package com.tecsus.ddc.view.frames.generator;
 
-import com.tecsus.ddc.bills.builders.BillBuilder;
+import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.bills.water.builders.WaterBillBuilder;
 import com.tecsus.ddc.bills.water.enums.BillingType;
 import com.tecsus.ddc.bills.water.enums.ConnectionType;
-import com.tecsus.ddc.instalation.builders.InstalationBuilder;
+import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.view.frames.water.WaterBillFormTextFields;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
@@ -29,10 +28,10 @@ public class WaterBillGenerator {
         WaterBill res = null;
         log.info("Generating water bill");
         try {   // Trying to parse data types
-            res =  WaterBillBuilder.aWaterBill()
-                    .bill(new BillBuilder()
+            res =  WaterBill.builder()
+                    .bill(Bill.builder()
                             .instalation(
-                                    InstalationBuilder.anInstalation()
+                                    Instalation.builder()
                                             .numInst(fields.getTxtRgi().getText())
                                             .build())
                             .numConta(fields.getTxtNConta().getText())
@@ -43,8 +42,8 @@ public class WaterBillGenerator {
                             .leituraAnterior(new DateTime(format.parse(fields.getTxtLAnterior().getText())))
                             .leituraAtual(new DateTime(format.parse(fields.getTxtLAtual().getText())))
                             .leituraProxima(new DateTime(format.parse(fields.getTxtLProxima().getText())))
-                            .valorleituraAnterior(new BigDecimal(fields.getTxtAnterior().getText()))
-                            .valorleituraAtual(new BigDecimal(fields.getTxtAtual().getText()))
+//                            .valorleituraAnterior(new BigDecimal(fields.getTxtAnterior().getText()))
+//                            .valorleituraAtual(new BigDecimal(fields.getTxtAtual().getText()))
                             .numMedidor(fields.getTxtMedidor().getText())
                             .build())
                     .conType(ConnectionType.valueOf(fields.getTxtConexao().getText()))

@@ -28,7 +28,6 @@
     </modules>
 
     <properties>
-        <lombok.version>1.18.12</lombok.version>
         <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
         <junit.version>4.13</junit.version>
         <slf4j.version>1.7.30</slf4j.version>
@@ -41,7 +40,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <version>1.18.12</version>
         </dependency>
         <!-- JavaDoc -->
         <dependency>
