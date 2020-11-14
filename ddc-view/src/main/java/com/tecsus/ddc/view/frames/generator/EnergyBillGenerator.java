@@ -6,6 +6,7 @@ import com.tecsus.ddc.bills.water.builders.WaterBillBuilder;
 import com.tecsus.ddc.bills.water.enums.BillingType;
 import com.tecsus.ddc.bills.water.enums.ConnectionType;
 import com.tecsus.ddc.instalation.builders.InstalationBuilder;
+import com.tecsus.ddc.view.frames.energy.EnergiaBillFormTextFields;
 import com.tecsus.ddc.view.frames.water.WaterBillFormTextFields;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class EnergyBillGenerator {
     private EnergyBillGenerator() {}
     private final static Logger log = LoggerFactory.getLogger(EnergyBillGenerator.class);
 
-    public static EnergyBill generate( EnergyBillFormTextFields fields) {
+    public static EnergyBill generate(EnergiaBillFormTextFields fields) {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
         SimpleDateFormat refMonthFormatter = new SimpleDateFormat("MM/YYYY");
         EnergyBill res = null;
@@ -33,7 +34,7 @@ public class EnergyBillGenerator {
                     .bill(new BillBuilder()
                             .instalation(
                                     InstalationBuilder.anInstalation()
-                                            .numInst(fields.getTxtRgi().getText())
+                                            .numInst(fields.getCodIdent().getText())
                                             .build())
                             .numConta(fields.getTxtNConta().getText())
                             .valor(new BigDecimal(fields.getTxtTotal().getText()))
