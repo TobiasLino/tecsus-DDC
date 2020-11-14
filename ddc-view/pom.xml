@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ddc</artifactId>
         <groupId>com.tecsus</groupId>
-        <version>v0.1</version>
+        <version>v1.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
