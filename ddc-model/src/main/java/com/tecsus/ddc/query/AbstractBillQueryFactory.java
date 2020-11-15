@@ -7,27 +7,27 @@ import java.text.SimpleDateFormat;
 /**
  * @author TOBIASDASILVALINO
  */
-public class AbstractBillQueryBuilder {
+public class AbstractBillQueryFactory {
 
     private Bill bill;
 
-    private AbstractBillQueryBuilder(final Bill bill) {
+    private AbstractBillQueryFactory(final Bill bill) {
         this.bill = bill;
     }
 
-    private AbstractBillQueryBuilder() {
+    private AbstractBillQueryFactory() {
     }
 
     public static String getInsertQuery(final Bill bill) {
-        return new AbstractBillQueryBuilder(bill).constructInsert();
+        return new AbstractBillQueryFactory(bill).constructInsert();
     }
 
     public static String getSelectQuery() {
-        return new AbstractBillQueryBuilder().constructSelect();
+        return new AbstractBillQueryFactory().constructSelect();
     }
 
     public static String getSelectUniqueQuery(final String billNum) {
-        return new AbstractBillQueryBuilder().constructUniqueSelect(billNum);
+        return new AbstractBillQueryFactory().constructUniqueSelect(billNum);
     }
 
     private String constructInsert() {

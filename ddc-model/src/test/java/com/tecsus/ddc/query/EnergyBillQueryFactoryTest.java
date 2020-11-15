@@ -1,9 +1,7 @@
 package com.tecsus.ddc.query;
 
 import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.builders.BillBuilder;
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.bills.energy.builders.EnergyBillBuilder;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
@@ -23,8 +21,8 @@ public class EnergyBillQueryFactoryTest {
     }
 
     private EnergyBill simpleEnergyBill() {
-        return EnergyBillBuilder.anEnergyBill()
-                .bill(new BillBuilder().numConta("465798546").build())
+        return EnergyBill.builder()
+                .bill(Bill.builder().numConta("465798546").build())
                 .consumption(new BigDecimal("50.03"))
                 .tension(220)
                 .emission(new DateTime().withDate(2020,02,02))

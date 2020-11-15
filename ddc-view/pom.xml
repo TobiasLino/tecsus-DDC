@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ddc</artifactId>
         <groupId>com.tecsus</groupId>
-        <version>v1.2</version>
+        <version>v1.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -34,16 +34,6 @@
             <groupId>com.tecsus.ddc</groupId>
             <artifactId>ddc-controller</artifactId>
             <version>${controller.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tecsus</groupId>
-            <artifactId>ddc-model</artifactId>
-            <version>v0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tecsus.ddc</groupId>
-            <artifactId>ddc-controller</artifactId>
-            <version>v0.1</version>
         </dependency>
     </dependencies>
 

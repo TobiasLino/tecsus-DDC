@@ -15,7 +15,6 @@ import com.tecsus.ddc.query.EnergyBillQueryFactory;
 import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
-import com.tecsus.ddc.view.frames.energy.EnergyBillFrame;
 import com.tecsus.ddc.view.frames.water.Agua;
 
 import javax.swing.*;
@@ -188,9 +187,9 @@ public class TelaHome extends javax.swing.JFrame {
 
         final EnergyBillService energyBillService = new EnergyBillService(energyBillRepository, productRepository, tariffFlagRepository);
 
-        final EnergyBillFrame energyBillFrame = new EnergyBillFrame(energyBillService);
-        jDesktop.add(energyBillFrame);
-        energyBillFrame.setVisible(true);
+//        final EnergyBillFrame energyBillFrame = new EnergyBillFrame(energyBillService);
+//        jDesktop.add(energyBillFrame);
+//        energyBillFrame.setVisible(true);
     }
     
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
