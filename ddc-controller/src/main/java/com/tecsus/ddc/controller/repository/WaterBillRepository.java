@@ -1,16 +1,12 @@
 package com.tecsus.ddc.controller.repository;
 
 import com.tecsus.ddc.bills.water.WaterBill;
-import com.tecsus.ddc.factory.WaterBillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
-import com.tecsus.ddc.controller.service.WaterBillService;
+import com.tecsus.ddc.factory.WaterBillFactory;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

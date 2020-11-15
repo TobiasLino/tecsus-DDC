@@ -6,9 +6,9 @@ import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.WaterBillRepository;
 import com.tecsus.ddc.factory.WaterBillFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
-
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 import java.util.Optional;
 

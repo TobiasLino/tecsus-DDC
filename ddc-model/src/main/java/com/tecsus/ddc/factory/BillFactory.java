@@ -1,11 +1,8 @@
 package com.tecsus.ddc.factory;
 
 import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.instalation.Address;
-import com.tecsus.ddc.instalation.Instalation;
 import org.joda.time.DateTime;
 
-import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

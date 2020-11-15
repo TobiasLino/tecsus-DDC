@@ -1,6 +1,5 @@
 package com.tecsus.ddc.controller.config;
 
-import com.tecsus.ddc.utils.PropertiesLoader;
 /**
  * @author TOBIASDASILVALINO
  */

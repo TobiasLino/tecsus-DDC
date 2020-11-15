@@ -1,25 +1,22 @@
 package com.tecsus.ddc.controller.repository;
 
 import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.factory.BillFactory;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.factory.Factory;
-import com.tecsus.ddc.instalation.Instalation;
-import com.tecsus.ddc.query.AbstractBillQueryFactory;
+import com.tecsus.ddc.query.QueryFactory;
+import com.tecsus.ddc.utils.AbstractBillQueryFactory;
 import lombok.AllArgsConstructor;
 
 import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @AllArgsConstructor
 public class BillRepository implements Repository<Bill> {
 
     private final ConnectionImpl connection;
-    private final AbstractBillQueryFactory queryFactory;
+    private final QueryFactory<Bill> queryFactory;
     private final Factory<Bill> billFactory;
 
     @Override
@@ -35,17 +32,11 @@ public class BillRepository implements Repository<Bill> {
 
     @Override
     public Optional<Bill> findById(final String id) {
-        try {
-            final ResultSet resultSet = connection
-                    .executeSelect(queryFactory.createSelectUniqueQuery(id))
-                    .orElseThrow(ObjectNotFoundException::new);
-            Bill bill = billFactory.constructFrom(resultSet);
-
-            ConnectionImpl.closeResultSet(resultSet);
-
+        final Optional<ResultSet> resultSet = connection.executeSelect(queryFactory.createSelectUniqueQuery(id));
+        if (resultSet.isPresent()) {
+            Bill bill = billFactory.constructFrom(resultSet.get());
+            ConnectionImpl.closeResultSet(resultSet.get());
             return Optional.of(bill);
-        } catch (ObjectNotFoundException e) {
-            e.printStackTrace();
         }
         return Optional.empty();
     }

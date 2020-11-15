@@ -1,9 +1,8 @@
 package com.tecsus.ddc.bills.energy;
 
 import com.tecsus.ddc.bills.Bill;
-import com.tecsus.ddc.bills.energy.enums.*;
-import com.tecsus.ddc.bills.tributes.Tribute;
-import com.tecsus.ddc.bills.tributes.Tributes;
+import com.tecsus.ddc.bills.energy.enums.Modalities;
+import com.tecsus.ddc.bills.energy.enums.SupplyType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,9 +12,6 @@ import org.joda.time.DateTime;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * @author TOBIASDASILVALINO

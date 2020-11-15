@@ -1,6 +1,5 @@
 package com.tecsus.ddc.bills.energy;
 
-import com.tecsus.ddc.bills.energy.enums.ProductDescription;
 import com.tecsus.ddc.bills.tributes.Tribute;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

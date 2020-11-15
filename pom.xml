@@ -7,7 +7,7 @@
     <groupId>com.tecsus</groupId>
     <artifactId>ddc</artifactId>
     <packaging>pom</packaging>
-    <version>v1.2</version>
+    <version>v1.3</version>
 
     <developers>
         <developer>
@@ -38,6 +38,7 @@
     </properties>
 
     <dependencies>
+        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -66,12 +67,6 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
-        </dependency>
-        <!-- OpenJFX -->
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>16-ea+2</version>
         </dependency>
     </dependencies>
 

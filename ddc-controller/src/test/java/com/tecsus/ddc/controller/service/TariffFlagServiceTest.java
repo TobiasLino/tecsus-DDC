@@ -4,10 +4,8 @@ import com.tecsus.ddc.bills.energy.TariffFlag;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.TariffFlagRepository;
-import com.tecsus.ddc.controller.repository.WaterBillRepository;
 import com.tecsus.ddc.factory.TariffFlagFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
-import com.tecsus.ddc.query.WaterBillQueryFactory;
 import org.junit.Test;
 
 import java.util.List;

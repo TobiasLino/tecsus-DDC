@@ -1,7 +1,6 @@
 package com.tecsus.ddc.view.frames.water;
 
-import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
+import javax.swing.*;
 
 /**
  * @author TOBIASDASILVALINO
