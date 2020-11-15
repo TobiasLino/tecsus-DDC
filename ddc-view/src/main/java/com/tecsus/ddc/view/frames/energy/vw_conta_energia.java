@@ -1,6 +1,19 @@
+<<<<<<< HEAD:ddc-view/src/main/java/com/tecsus/ddc/view/frames/VwContaEnergia.java
+package com.tecsus.ddc.view.frames;
+=======
+package com.tecsus.ddc.view.frames.energy;
+>>>>>>> c805176ee828f70f0ccc2557744ce77cdfb4b0da:ddc-view/src/main/java/com/tecsus/ddc/view/frames/energy/vw_conta_energia.java
+
 import javax.swing.*;
 
+<<<<<<<<< Temporary merge branch 1:ddc-view/src/main/java/com/tecsus/ddc/view/frames/energy/VwContaEnergia.java
 public class VwContaEnergia extends JInternalFrame{
+=========
+/**
+ * @author Ruan Macedo
+ */
+public class vw_conta_energia extends JInternalFrame{
+>>>>>>>>> Temporary merge branch 2:ddc-view/src/main/java/com/tecsus/ddc/view/frames/energy/vw_conta_energia.java
     private JPanel panel1;
     private JTextField txtCnpj;
     private JTextField txtCliente;
