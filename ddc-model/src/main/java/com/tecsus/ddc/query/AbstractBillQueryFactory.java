@@ -62,6 +62,7 @@ public class AbstractBillQueryFactory implements QueryFactory<Bill> {
     }
 
     private String constructUniqueSelect(final String billNum) {
+        return null;
     }
 
     @Override
