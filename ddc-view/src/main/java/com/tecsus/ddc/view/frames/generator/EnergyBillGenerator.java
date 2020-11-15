@@ -1,6 +1,8 @@
 package com.tecsus.ddc.view.frames.generator;
 
+import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.EnergyBill;
+import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.view.frames.energy.EnergyBillFormTextFields;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
@@ -23,10 +25,10 @@ public class EnergyBillGenerator {
         EnergyBill res = null;
         log.info("Generating energy bill");
         try {   // Trying to parse data types
-            res =  EnergyBillBuilder.aEnergyBill()
-                    .bill(new BillBuilder()
+            res =  EnergyBill.builder()
+                    .bill(Bill.builder()
                             .instalation(
-                                    InstalationBuilder.anInstalation()
+                                    Instalation.builder()
                                             .numInst(fields.getTxtRgi().getText())
                                             .build())
                             .numConta(fields.getTxtNConta().getText())
