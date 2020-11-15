@@ -29,7 +29,7 @@ public class EnergyBillGenerator {
                     .bill(Bill.builder()
                             .instalation(
                                     Instalation.builder()
-                                            .numInst(fields.getTxtRgi().getText())
+                                            .numInst(fields.getTxtNumeroInstalacao().getText())
                                             .build())
                             .numConta(fields.getTxtNConta().getText())
                             .valor(new BigDecimal(fields.getTxtTotal().getText()))
