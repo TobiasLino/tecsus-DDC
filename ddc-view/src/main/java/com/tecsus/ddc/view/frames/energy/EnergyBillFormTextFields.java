@@ -1,58 +1,59 @@
 package com.tecsus.ddc.view.frames.energy;
 
-import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
-//import javax.swing.*;
+import lombok.Getter;
 
+import javax.swing.JTextField;
+
+@Getter
 public class EnergyBillFormTextFields {
     
-    private JTextField txtBairroEnd;
-    private JTextField txtBaseCalculoCofins;
-    private JTextField txtBaseCalculoICMS;
-    private JTextField txtBaseCalculoPIS;
-    private JTextField txtCIPMunicipal;
-    private JTextField txtCepEnd;
-    private JTextField txtCidadeEnd;
-    private JTextField txtClasseSubclasse;
-    private JTextField txtCodFiscalOperacao;
-    private JTextField txtCodIdentificacao;
-    private JTextField txtCodigoBarras;
-    private JTextField txtComplementoEnd;
-    private JTextField txtConsumoKwhMes;
-    private JTextField txtContaMes;
-    private JTextField txtCpfCnpj;
-    private JTextField txtDataFinalBandeira;
-    private JTextField txtDataInicioBandeira;
-    private JTextField txtDataLeitAnterior;
-    private JTextField txtDataLeitAtual;
-    private JTextField txtDataLeitProxima;
-    private JTextField txtDataVencimento;
-    private JTextField txtDiasBandeira;
-    private JTextField txtDiasFatura;
-    private JTextField txtEmissaoFatura;
-    private JTextField txtEndereco;
-    private JTextField txtGrupoSubgrupo;
-    private JTextField txtInsEstadual;
-    private JTextField txtLeituraAntKwh;
-    private JTextField txtLeituraAtualKwh;
-    private JTextField txtModalidadeTarifa;
-    private JTextField txtNomeClienteEnd;
-    private JTextField txtNumeroEnd;
-    private JTextField txtNumeroInstalacao;
-    private JTextField txtNumeroMedidor;
-    private JTextField txtRazaoSocial;
-    private JTextField txtRoteiroLeitura;
-    private JTextField txtTensaoNominal;
-    private JTextField txtTipoBandeira;
-    private JTextField txtTipoFornecimento;
-    private JTextField txtValorCofins;
-    private JTextField txtValorFornTE;
-    private JTextField txtValorFornTusd;
-    private JTextField txtValorICMS;
-    private JTextField txtValorPIS;
-    private JTextField txtValorTotalPagar;
-    private JTextField txtValorTotalTE;
-    private JTextField txtValorTotalTusd;
+     private final JTextField txtBairroEnd;
+     private final JTextField txtBaseCalculoCofins;
+     private final JTextField txtBaseCalculoICMS;
+     private final JTextField txtBaseCalculoPIS;
+     private final JTextField txtCIPMunicipal;
+     private final JTextField txtCepEnd;
+     private final JTextField txtCidadeEnd;
+     private final JTextField txtClasseSubclasse;
+     private final JTextField txtCodFiscalOperacao;
+     private final JTextField txtCodIdentificacao;
+     private final JTextField txtCodigoBarras;
+     private final JTextField txtComplementoEnd;
+     private final JTextField txtConsumoKwhMes;
+     private final JTextField txtContaMes;
+     private final JTextField txtCpfCnpj;
+     private final JTextField txtDataFinalBandeira;
+     private final JTextField txtDataInicioBandeira;
+     private final JTextField txtDataLeitAnterior;
+     private final JTextField txtDataLeitAtual;
+     private final JTextField txtDataLeitProxima;
+     private final JTextField txtDataVencimento;
+     private final JTextField txtDiasBandeira;
+     private final JTextField txtDiasFatura;
+     private final JTextField txtEmissaoFatura;
+     private final JTextField txtEndereco;
+     private final JTextField txtGrupoSubgrupo;
+     private final JTextField txtInsEstadual;
+     private final JTextField txtLeituraAntKwh;
+     private final JTextField txtLeituraAtualKwh;
+     private final JTextField txtModalidadeTarifa;
+     private final JTextField txtNomeClienteEnd;
+     private final JTextField txtNumeroEnd;
+     private final JTextField txtNumeroInstalacao;
+     private final JTextField txtNumeroMedidor;
+     private final JTextField txtRazaoSocial;
+     private final JTextField txtRoteiroLeitura;
+     private final JTextField txtTensaoNominal;
+     private final JTextField txtTipoBandeira;
+     private final JTextField txtTipoFornecimento;
+     private final JTextField txtValorCofins;
+     private final JTextField txtValorFornTE;
+     private final JTextField txtValorFornTusd;
+     private final JTextField txtValorICMS;
+     private final JTextField txtValorPIS;
+     private final JTextField txtValorTotalPagar;
+     private final JTextField txtValorTotalTE;
+     private final JTextField txtValorTotalTusd;
 
     public EnergyBillFormTextFields() {
         this.txtBairroEnd = new JTextField();
@@ -103,54 +104,4 @@ public class EnergyBillFormTextFields {
         this.txtValorTotalTE = new JTextField();
         this.txtValorTotalTusd = new JTextField();
     }
-    
-    public JTextField getTxtBairroEnd(){return txtBairroEnd;}
-    public JTextField getTxtBaseCalculoCofins(){return txtBaseCalculoCofins;}
-    public JTextField getTxtBaseCalculoICMS(){return txtBaseCalculoICMS;}
-    public JTextField getTxtBaseCalculoPIS(){return txtBaseCalculoPIS;}
-    public JTextField getTxtCIPMunicipal(){return txtCIPMunicipal;}
-    public JTextField getTxtCepEnd(){return txtCepEnd;}
-    public JTextField getTxtCidadeEnd(){return txtCidadeEnd;}
-    public JTextField getTxtClasseSubclasse(){return txtClasseSubclasse;}
-    public JTextField getTxtCodFiscalOperacao(){return txtCodFiscalOperacao;}
-    public JTextField getTxtCodIdentificacao(){return txtCodIdentificacao;}
-    public JTextField getTxtCodigoBarras(){return txtCodigoBarras;}
-    public JTextField getTxtComplementoEnd(){return txtComplementoEnd;}
-    public JTextField getTxtConsumoKwhMes(){return txtConsumoKwhMes;}
-    public JTextField getTxtContaMes(){return txtContaMes;}
-    public JTextField getTxtCpfCnpj(){return txtCpfCnpj;}
-    public JTextField getTxtDataFinalBandeira(){return txtDataFinalBandeira;}
-    public JTextField getTxtDataInicioBandeira(){return txtDataInicioBandeira;}
-    public JTextField getTxtDataLeitAnterior(){return txtDataLeitAnterior;}
-    public JTextField getTxtDataLeitAtual(){return txtDataLeitAtual;}
-    public JTextField getTxtDataLeitProxima(){return txtDataLeitProxima;}
-    public JTextField getTxtDataVencimento(){return txtDataVencimento;}
-    public JTextField getTxtDiasBandeira(){return txtDiasBandeira;}
-    public JTextField getTxtDiasFatura(){return txtDiasFatura;}
-    public JTextField getTxtEmissaoFatura(){return txtEmissaoFatura;}
-    public JTextField getTxtEndereco(){return txtEndereco;}
-    public JTextField getTxtGrupoSubgrupo(){return txtGrupoSubgrupo;}
-    public JTextField getTxtInsEstadual(){return txtInsEstadual;}
-    public JTextField getTxtLeituraAntKwh(){return txtLeituraAntKwh;}
-    public JTextField getTxtLeituraAtualKwh(){return txtLeituraAtualKwh;}
-    public JTextField getTxtModalidadeTarifa(){return txtModalidadeTarifa;}
-    public JTextField getTxtNomeClienteEnd(){return txtNomeClienteEnd;}
-    public JTextField getTxtNumeroEnd(){return txtNumeroEnd;}
-    public JTextField getTxtNumeroInstalacao(){return txtNumeroInstalacao;}
-    public JTextField getTxtNumeroMedidor(){return txtNumeroMedidor;}
-    public JTextField getTxtRazaoSocial(){return txtRazaoSocial;}
-    public JTextField getTxtRoteiroLeitura(){return txtRoteiroLeitura;}
-    public JTextField getTxtTensaoNominal(){return txtTensaoNominal;}
-    public JTextField getTxtTipoBandeira(){return txtTipoBandeira;}
-    public JTextField getTxtTipoFornecimento(){return txtTipoFornecimento;}
-    public JTextField getTxtValorCofins(){return txtValorCofins;}
-    public JTextField getTxtValorFornTE(){return txtValorFornTE;}
-    public JTextField getTxtValorFornTusd(){return txtValorFornTusd;}
-    public JTextField getTxtValorICMS(){return txtValorICMS;}
-    public JTextField getTxtValorPIS(){return txtValorPIS;}
-    public JTextField getTxtValorTotalPagar(){return txtValorTotalPagar;}
-    public JTextField getTxtValorTotalTE(){return txtValorTotalTE;}
-    public JTextField getTxtValorTotalTusd(){return txtValorTotalTusd;}
-
-
 }

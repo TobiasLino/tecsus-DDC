@@ -15,6 +15,7 @@ import com.tecsus.ddc.query.EnergyBillQueryFactory;
 import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
+import com.tecsus.ddc.utils.AbstractBillQueryFactory;
 import com.tecsus.ddc.view.frames.energy.Energia;
 import com.tecsus.ddc.view.frames.water.Agua;
 
@@ -178,10 +179,12 @@ public class TelaHome extends javax.swing.JFrame {
         final ProductFactory productFactory = new ProductFactory();
         final TariffFlagFactory tariffFlagFactory = new TariffFlagFactory();
 
+        final AbstractBillQueryFactory abstractBillQueryFactory = new AbstractBillQueryFactory();
         final EnergyBillQueryFactory energyBillQueryFactory = new EnergyBillQueryFactory();
         final ProductQueryFactory productQueryFactory = new ProductQueryFactory();
         final TariffFlagQueryFactory tariffFlagQueryFactory = new TariffFlagQueryFactory();
 
+        final BillRepository billRepository = new BillRepository(connection, abstractBillQueryFactory, abstractBillFactory);
         final ProductRepository productRepository = new ProductRepository(connection, productQueryFactory, productFactory);
         final EnergyBillRepository energyBillRepository = new EnergyBillRepository(connection, energyBillQueryFactory, energyBillFactory, abstractBillFactory);
         final TariffFlagRepository tariffFlagRepository = new TariffFlagRepository(connection, tariffFlagQueryFactory, tariffFlagFactory);

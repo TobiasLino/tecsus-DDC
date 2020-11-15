@@ -799,7 +799,7 @@ public class Energia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-//       controller.pushBill(EnergyBillGenerator.generate(fields));
+       energyBillService.insert(EnergyBillGenerator.generate(fields));
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
 

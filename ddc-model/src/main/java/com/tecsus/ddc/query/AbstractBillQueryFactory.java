@@ -1,13 +1,14 @@
 package com.tecsus.ddc.utils;
 
 import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.query.QueryFactory;
 
 import java.text.SimpleDateFormat;
 
 /**
  * @author TOBIASDASILVALINO
  */
-public class AbstractBillQueryFactory {
+public class AbstractBillQueryFactory implements QueryFactory<Bill> {
 
     private Bill bill;
 
@@ -15,7 +16,7 @@ public class AbstractBillQueryFactory {
         this.bill = bill;
     }
 
-    private AbstractBillQueryFactory() {
+    public AbstractBillQueryFactory() {
     }
 
     public static String getInsertQuery(final Bill bill) {
@@ -61,11 +62,35 @@ public class AbstractBillQueryFactory {
     }
 
     private String constructUniqueSelect(final String billNum) {
+    }
+
+    @Override
+    public <S extends Bill> String createInsertQuery(S object) {
+        return null;
+    }
+
+    @Override
+    public <S extends Bill> String createInsertQuery(S object, String id) {
+        return null;
+    }
+
+    @Override
+    public String createSelectQuery() {
+        return null;
+    }
+
+    @Override
+    public String createSelectUniqueQuery(String billNum) {
         return "select * from bill, instalation, instalation_address, client, dealership " +
                 "where bill.bill_num = '" + billNum + "' " +
                 "and bill.id_instalation = instalation.num_inst " +
                 "and instalation.address = instalation_address.zip " +
                 "and instalation.client_cnpj = client.client_cnpj " +
                 "and instalation.id_dealer = dealership.id_dealership";
+    }
+
+    @Override
+    public String createSelectUniqueQuery(String id, String column) {
+        return null;
     }
 }
