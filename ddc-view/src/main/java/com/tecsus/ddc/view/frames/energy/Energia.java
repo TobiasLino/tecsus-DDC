@@ -153,7 +153,7 @@ public class Energia extends javax.swing.JInternalFrame {
 
         setTitle("DDC - Sistema de Digitação de Contas");
         setToolTipText("");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/com/tecsus/ddc/view/frames/energy/logoDDCparaIco.png"))); // NOI18N
+//        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/com/tecsus/ddc/view/frames/energy/logoDDCparaIco.png"))); // NOI18N
         setName(""); // NOI18N
 
         ScrPanelEnergia.setToolTipText("");
