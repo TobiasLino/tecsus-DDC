@@ -66,13 +66,33 @@ public class EnergyBillServiceTest {
             tariffFlags.forEach(energyBill::addTariffFlag);
         });
     }
+    @Test
+    public void insert(){
+        TariffFlagService tariffFlagService = new TariffFlagService(tariffFlagRepository);
+        ProductService productService = new ProductService(productRepository);
+        EnergyBillService energyBillService = new EnergyBillService(energyBillRepository,billRepository ,productRepository, tariffFlagRepository);
+
+
+        EnergyBill energyBill = simpleEnergyBill();
+        energyBillService.insert(energyBill);
+
+        Optional<EnergyBill> energyBillOptional = energyBillService.findById(ID_BILL);
+        List<Product> products = productService.findAllById(ID_BILL);
+        List<TariffFlag> tariffFlags = tariffFlagService.findAll(ID_BILL);
+
+        energyBillOptional.ifPresent(bill -> {
+            products.forEach(bill::addProduct);
+            tariffFlags.forEach(bill::addTariffFlag);
+        });
+        energyBillOptional.ifPresent(System.out::println());
+    }
 
     private EnergyBill simpleEnergyBill() {
         return EnergyBill.builder()
                 .bill(Bill.builder()
                         .instalation(
                                 Instalation.builder()
-                                        .numInst("4687954235")
+                                        .numInst("150822041")
                                         .build())
                         .numConta("468555999889")
                         .valor(new BigDecimal("233.99"))
