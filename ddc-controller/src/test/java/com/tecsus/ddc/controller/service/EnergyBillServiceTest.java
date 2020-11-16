@@ -14,7 +14,7 @@ import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.query.EnergyBillQueryFactory;
 import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
-import com.tecsus.ddc.utils.AbstractBillQueryFactory;
+import com.tecsus.ddc.query.AbstractBillQueryFactory;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.junit.Test;

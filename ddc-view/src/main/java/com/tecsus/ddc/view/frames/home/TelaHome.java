@@ -16,7 +16,7 @@ import com.tecsus.ddc.query.EnergyBillQueryFactory;
 import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
-import com.tecsus.ddc.utils.AbstractBillQueryFactory;
+import com.tecsus.ddc.query.AbstractBillQueryFactory;
 import com.tecsus.ddc.view.frames.energy.Energia;
 import com.tecsus.ddc.view.frames.water.Agua;
 

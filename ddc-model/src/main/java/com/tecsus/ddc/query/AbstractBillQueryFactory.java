@@ -1,4 +1,4 @@
-package com.tecsus.ddc.utils;
+package com.tecsus.ddc.query;
 
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.query.QueryFactory;
@@ -10,28 +10,20 @@ import java.text.SimpleDateFormat;
  */
 public class AbstractBillQueryFactory implements QueryFactory<Bill> {
 
-    private Bill bill;
-
-    private AbstractBillQueryFactory(final Bill bill) {
-        this.bill = bill;
-    }
-
-    public AbstractBillQueryFactory() {
-    }
-
     public static String getInsertQuery(final Bill bill) {
-        return new AbstractBillQueryFactory(bill).constructInsert();
+        return new AbstractBillQueryFactory().createInsertQuery(bill);
     }
 
     public static String getSelectQuery() {
-        return new AbstractBillQueryFactory().constructSelect();
+        return new AbstractBillQueryFactory().createSelectQuery();
     }
 
     public static String getSelectUniqueQuery(final String billNum) {
-        return new AbstractBillQueryFactory().constructUniqueSelect(billNum);
+        return new AbstractBillQueryFactory().createSelectUniqueQuery(billNum);
     }
 
-    private String constructInsert() {
+    @Override
+    public <S extends Bill> String createInsertQuery(S bill) {
         SimpleDateFormat refMonth = new SimpleDateFormat("yyyy/MM");
         SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
         return "INSERT INTO bill" +
@@ -53,23 +45,6 @@ public class AbstractBillQueryFactory implements QueryFactory<Bill> {
             ")";
     }
 
-    private String constructSelect() {
-        return  "SELECT i.num_inst, cl.*, d.initials, d.site, b.bill_num, b.due_date " +
-                "FROM instalation i inner join dealership d on i.id_dealer = d.id_dealership " +
-                "INNER JOIN client cl on i.client_cnpj = cl.client_cnpj " +
-                "INNER JOIN bill b on b.id_instalation = i.num_inst ";
-
-    }
-
-    private String constructUniqueSelect(final String billNum) {
-        return null;
-    }
-
-    @Override
-    public <S extends Bill> String createInsertQuery(S object) {
-        return null;
-    }
-
     @Override
     public <S extends Bill> String createInsertQuery(S object, String id) {
         return null;
@@ -77,7 +52,10 @@ public class AbstractBillQueryFactory implements QueryFactory<Bill> {
 
     @Override
     public String createSelectQuery() {
-        return null;
+        return  "SELECT i.num_inst, cl.*, d.initials, d.site, b.bill_num, b.due_date " +
+                "FROM instalation i inner join dealership d on i.id_dealer = d.id_dealership " +
+                "INNER JOIN client cl on i.client_cnpj = cl.client_cnpj " +
+                "INNER JOIN bill b on b.id_instalation = i.num_inst ";
     }
 
     @Override

@@ -4,10 +4,8 @@ import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.factory.Factory;
 import com.tecsus.ddc.query.QueryFactory;
-import com.tecsus.ddc.utils.AbstractBillQueryFactory;
 import lombok.AllArgsConstructor;
 
-import javax.ejb.ObjectNotFoundException;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
