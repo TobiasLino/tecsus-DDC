@@ -38,7 +38,7 @@ public class EnergyBillGenerator {
                             .valor(new BigDecimal(fields.getTxtValorTotalPagar().getText()))
                             .vencimento(new DateTime(format.parse(fields.getTxtDataVencimento().getText())))
                             .mesReferencia(new DateTime(refMonthFormatter.parse(fields.getTxtContaMes().getText())))
-                            .periodoConsumo(30) // TODO insert this
+                            .periodoConsumo(Integer.parseInt(fields.getTxtDiasFatura().getText()))
                             .leituraAnterior(new DateTime(format.parse(fields.getTxtDataLeitAnterior().getText())))
                             .leituraAtual(new DateTime(format.parse(fields.getTxtDataLeitAtual().getText())))
                             .leituraProxima(new DateTime(format.parse(fields.getTxtDataLeitProxima().getText())))
