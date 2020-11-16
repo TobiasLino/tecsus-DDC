@@ -74,17 +74,18 @@ public class EnergyBillServiceTest {
 
 
         EnergyBill energyBill = simpleEnergyBill();
+        System.out.println(energyBill);
         energyBillService.insert(energyBill);
 
-        Optional<EnergyBill> energyBillOptional = energyBillService.findById(ID_BILL);
-        List<Product> products = productService.findAllById(ID_BILL);
-        List<TariffFlag> tariffFlags = tariffFlagService.findAll(ID_BILL);
-
-        energyBillOptional.ifPresent(bill -> {
-            products.forEach(bill::addProduct);
-            tariffFlags.forEach(bill::addTariffFlag);
-        });
-        energyBillOptional.ifPresent(System.out::println());
+//        Optional<EnergyBill> energyBillOptional = energyBillService.findById(ID_BILL);
+//        List<Product> products = productService.findAllById(ID_BILL);
+//        List<TariffFlag> tariffFlags = tariffFlagService.findAll(ID_BILL);
+//
+//        energyBillOptional.ifPresent(bill -> {
+//            products.forEach(bill::addProduct);
+//            tariffFlags.forEach(bill::addTariffFlag);
+//        });
+//        energyBillOptional.ifPresent(System.out::println());
     }
 
     private EnergyBill simpleEnergyBill() {
@@ -94,7 +95,7 @@ public class EnergyBillServiceTest {
                                 Instalation.builder()
                                         .numInst("150822041")
                                         .build())
-                        .numConta("468555999889")
+                        .numConta("468555999892")
                         .valor(new BigDecimal("233.99"))
                         .vencimento(new DateTime().withDate(2020,11,15))
                         .mesReferencia(new DateTime().withDate(2020,10,01))
@@ -125,3 +126,5 @@ public class EnergyBillServiceTest {
                 .build();
     }
 }
+
+
