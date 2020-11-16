@@ -6,7 +6,7 @@
 package com.tecsus.ddc.view.frames.energy;
 
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.controller.EnergyBillController;
+import com.tecsus.ddc.controller.service.EnergyBillService;
 import com.tecsus.ddc.view.frames.generator.EnergyBillGenerator;
 
 
@@ -15,17 +15,16 @@ import com.tecsus.ddc.view.frames.generator.EnergyBillGenerator;
  * @author William Antoniazzi
  */
 public class Energia extends javax.swing.JInternalFrame {
-    private EnergyBillController controller;
     private EnergyBillFormTextFields fields;
-    private EnergyBillFormLabelsFields labels;
+
+    private final EnergyBillService energyBillService;
 
     /**
      * Creates new form Energia
      */
-    public Energia() {
+    public Energia(final EnergyBillService energyBillService) {
         fields = new EnergyBillFormTextFields();
-        labels = new EnergyBillFormLabelsFields();
-        controller = new EnergyBillController();
+        this.energyBillService = energyBillService;
         initComponents();
     }
 
@@ -799,7 +798,7 @@ public class Energia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       controller.pushBill(EnergyBillGenerator.generate(fields));
+       energyBillService.insert(EnergyBillGenerator.generate(fields));
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
 
