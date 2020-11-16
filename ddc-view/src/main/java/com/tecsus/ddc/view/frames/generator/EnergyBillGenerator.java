@@ -4,10 +4,7 @@ import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.Classe;
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.Group;
-import com.tecsus.ddc.bills.energy.enums.Classes;
-import com.tecsus.ddc.bills.energy.enums.Groups;
-import com.tecsus.ddc.bills.energy.enums.SubClasses;
-import com.tecsus.ddc.bills.energy.enums.Subgroups;
+import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.view.frames.energy.EnergyBillFormTextFields;
 import lombok.extern.slf4j.Slf4j;
@@ -57,15 +54,27 @@ public class EnergyBillGenerator {
                             .group(Groups.valueOf(fields.getTxtGrupoSubgrupo().getText()))
                             .subGroup(Subgroups.valueOf(fields.getTxtGrupoSubgrupo().getText()))
                             .build())
-                    .
+                    .modalitie(Modalities.valueOf(fields.getTxtTipoBandeira().getText()))
+                    .consumption(new BigDecimal((fields.getTxtConsumoKwhMes().getText())))
+                    .tension(Integer.parseInt(fields.getTxtTensaoNominal().getText()))
+                    .emission(new DateTime(format.parse(fields.getTxtEmissaoFatura().getText())))
+                    .icms(new BigDecimal(fields.getTxtValorICMS().getText()))
+                    .financialItems(new BigDecimal(fields.getTxtCIPMunicipal().getText()))
+                    .supplyType(SupplyType.valueOf(fields.getTxtTipoFornecimento().getText()))
+                    .tributes(calculaTributos(fields))
                     .build();
-        log.info("Water bill generated");
+        log.info("Energy bill generated");
         } catch (ParseException e) {
             e.printStackTrace();
-            log.info("Water bill generation failed");
+            log.info("Energy bill generation failed");
         }
         return res;//To change body of generated methods, choose Tools | Templates.
     }
-}
 
+    static private BigDecimal calculaTributos (EnergyBillFormTextFields fields) {
+        BigDecimal pis = new BigDecimal(fields.getTxtValorPIS().getText());
+        BigDecimal cofins = new BigDecimal(fields.getTxtValorCofins().getText());
+        return pis.add(cofins);
+    }
+}
 
