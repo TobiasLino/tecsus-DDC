@@ -449,7 +449,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCodIdentificacao">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cod. Identifica&#xe7;&#xe3;o:"/>
+                    <Property name="text" type="java.lang.String" value="N&#xfa;mero da Conta:"/>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Classe/ Subclasse:"/>

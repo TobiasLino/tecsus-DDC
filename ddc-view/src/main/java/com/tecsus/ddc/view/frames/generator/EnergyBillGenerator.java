@@ -1,7 +1,13 @@
 package com.tecsus.ddc.view.frames.generator;
 
 import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.bills.energy.Classe;
 import com.tecsus.ddc.bills.energy.EnergyBill;
+import com.tecsus.ddc.bills.energy.Group;
+import com.tecsus.ddc.bills.energy.enums.Classes;
+import com.tecsus.ddc.bills.energy.enums.Groups;
+import com.tecsus.ddc.bills.energy.enums.SubClasses;
+import com.tecsus.ddc.bills.energy.enums.Subgroups;
 import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.view.frames.energy.EnergyBillFormTextFields;
 import lombok.extern.slf4j.Slf4j;
@@ -29,27 +35,29 @@ public class EnergyBillGenerator {
                     .bill(Bill.builder()
                             .instalation(
                                     Instalation.builder()
-                                            .numInst(fields.getTxtRgi().getText())
+                                            .numInst(fields.getTxtNumeroInstalacao().getText())
                                             .build())
-                            .numConta(fields.getTxtNConta().getText())
-                            .valor(new BigDecimal(fields.getTxtTotal().getText()))
-                            .vencimento(new DateTime(format.parse(fields.getTxtVenc().getText())))
-                            .mesReferencia(new DateTime(refMonthFormatter.parse(fields.getTxtMesRef().getText())))
+                            .numConta(fields.getTxtCodIdentificacao().getText())
+                            .valor(new BigDecimal(fields.getTxtValorTotalPagar().getText()))
+                            .vencimento(new DateTime(format.parse(fields.getTxtDataVencimento().getText())))
+                            .mesReferencia(new DateTime(refMonthFormatter.parse(fields.getTxtContaMes().getText())))
                             .periodoConsumo(30) // TODO insert this
-                            .leituraAnterior(new DateTime(format.parse(fields.getTxtLAnterior().getText())))
-                            .leituraAtual(new DateTime(format.parse(fields.getTxtLAtual().getText())))
-                            .leituraProxima(new DateTime(format.parse(fields.getTxtLProxima().getText())))
-                            .valorleituraAnterior(new BigDecimal(fields.getTxtAnterior().getText()))
-                            .valorleituraAtual(new BigDecimal(fields.getTxtAtual().getText()))
-                            .numMedidor(fields.getTxtMedidor().getText())
+                            .leituraAnterior(new DateTime(format.parse(fields.getTxtDataLeitAnterior().getText())))
+                            .leituraAtual(new DateTime(format.parse(fields.getTxtDataLeitAtual().getText())))
+                            .leituraProxima(new DateTime(format.parse(fields.getTxtDataLeitProxima().getText())))
+                            .valorLeituraAnterior(new BigDecimal(fields.getTxtLeituraAntKwh().getText()))
+                            .valorLeituraAtual(new BigDecimal(fields.getTxtLeituraAtualKwh().getText()))
+                            .numMedidor(fields.getTxtNumeroMedidor().getText())
                             .build())
-                    .conType(ConnectionType.valueOf(fields.getTxtConexao().getText()))
-                    .billingType(BillingType.valueOf("COMUM"))
-                    .consum(new BigDecimal(fields.getTxtBCalculo().getText())) // TODO fix this funcking shit now
-                    .water(new BigDecimal(fields.getTxtAgua().getText()))
-                    .sewer(new BigDecimal(fields.getTxtEsgoto().getText()))
-                    .trcf(new BigDecimal(fields.getTxtTrcf().getText()))
-                    .tributes(new BigDecimal(fields.getTxtTributo().getText()))
+                    .classe(Classe.builder()
+                            .classe(Classes.valueOf(fields.getTxtClasseSubclasse().getText()))
+                            .subClasses(SubClasses.valueOf(fields.getTxtClasseSubclasse().getText()))
+                            .build())
+                    .group(Group.builder()
+                            .group(Groups.valueOf(fields.getTxtGrupoSubgrupo().getText()))
+                            .subGroup(Subgroups.valueOf(fields.getTxtGrupoSubgrupo().getText()))
+                            .build())
+                    .
                     .build();
         log.info("Water bill generated");
         } catch (ParseException e) {
