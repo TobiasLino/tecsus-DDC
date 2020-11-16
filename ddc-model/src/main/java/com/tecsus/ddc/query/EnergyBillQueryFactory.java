@@ -10,8 +10,25 @@ import java.text.SimpleDateFormat;
 public class EnergyBillQueryFactory implements QueryFactory<EnergyBill> {
 
     @Override
-    public <S extends EnergyBill> String createInsertQuery(S object) {
-        return constructInsert();
+    public <S extends EnergyBill> String createInsertQuery(S energyBill) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return "INSERT INTO energy_bill" +
+                "(abs_bill, consum_kwh, tension, emission, icms, tributes, financ_items, supply, en_group, en_sub_group, en_class, en_sub_class, en_modalitie) " +
+            "VALUES(" +
+                (energyBill.getBill().getNumConta() != null ? "'" + energyBill.getBill().getNumConta() + "'" : "") + ", " +
+                (energyBill.getConsumption() != null ? energyBill.getConsumption().toString() : "") + ", " +
+                energyBill.getTension() + ", " +
+                (energyBill.getEmission() != null ? "TO_DATE('" + formatter.format(energyBill.getEmission().toDate()) + "', 'DD/MM/YYYY')": "" ) + ", " +
+                (energyBill.getIcms() != null ? energyBill.getIcms().toString() : "") + ", " +
+                (energyBill.getTributes() != null ? energyBill.getTributes().toString() : "") + ", " +
+                (energyBill.getFinancialItems() != null ? energyBill.getFinancialItems().toString() : "") + ", " +
+                (energyBill.getSupplyType() != null ? "'" +energyBill.getSupplyType().name() + "'": "") + ", " +
+                ((energyBill.getGroup() != null) && (energyBill.getGroup().getGroup() != null) ? "'" + energyBill.getGroup().getGroup().name() + "'" : "") + ", " +
+                ((energyBill.getGroup() != null) && (energyBill.getGroup().getSubGroup() != null) ? "'" +  energyBill.getGroup().getSubGroup().name() + "'" : "") + ", " +
+                ((energyBill.getClasse() != null) && (energyBill.getClasse().getClasse() != null) ?  "'" +energyBill.getClasse().getClasse().name() + "'" : "") + ", " +
+                ((energyBill.getClasse() != null) && (energyBill.getClasse().getSubClasses() != null) ? "'" + energyBill.getClasse().getSubClasses().name() + "'" : "") + ", " +
+                (energyBill.getModalitie() != null  ? "'" + energyBill.getModalitie().name() + "'" : "") +
+            ")";
     }
 
     @Override
@@ -32,15 +49,6 @@ public class EnergyBillQueryFactory implements QueryFactory<EnergyBill> {
     @Override
     public String createSelectUniqueQuery(String id, String column) {
         return null;
-    }
-
-    private String constructInsert() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-        return "INSERT INTO energy_bill" +
-                "(abs_bill, consum_kwh, tension, emission, icms, tributes, financ_items) " +
-            "VALUES(" + "'" +
-
-            ")";
     }
 
     private String constructSelect() {

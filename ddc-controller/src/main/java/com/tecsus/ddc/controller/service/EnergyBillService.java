@@ -17,13 +17,14 @@ import java.util.Optional;
 public class EnergyBillService {
 
     private final Repository<EnergyBill> energyBillRepository;
+    private final Repository<Bill> billRepository;
     private final Repository<Product> productRepository;
     private final Repository<TariffFlag> tariffFlagRepository;
-    private final Repository<Bill> billRepository;
 
     public void insert(final EnergyBill bill) {
-        energyBillRepository.save(bill);
+
         billRepository.save(bill.getBill());
+        energyBillRepository.save(bill);
         bill.getProducts().forEach(productRepository::save);
         bill.getTariffFlags().forEach(tariffFlagRepository::save);
     }

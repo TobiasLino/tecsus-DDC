@@ -8,6 +8,7 @@ package com.tecsus.ddc.view.frames.home;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.controller.connector.Connector;
 import com.tecsus.ddc.controller.repository.*;
+import com.tecsus.ddc.controller.service.AbstractBillService;
 import com.tecsus.ddc.controller.service.EnergyBillService;
 import com.tecsus.ddc.controller.service.WaterBillService;
 import com.tecsus.ddc.factory.*;
@@ -15,7 +16,7 @@ import com.tecsus.ddc.query.EnergyBillQueryFactory;
 import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
-import com.tecsus.ddc.utils.AbstractBillQueryFactory;
+import com.tecsus.ddc.query.AbstractBillQueryFactory;
 import com.tecsus.ddc.view.frames.energy.Energia;
 import com.tecsus.ddc.view.frames.water.Agua;
 
@@ -189,7 +190,7 @@ public class TelaHome extends javax.swing.JFrame {
         final EnergyBillRepository energyBillRepository = new EnergyBillRepository(connection, energyBillQueryFactory, energyBillFactory, abstractBillFactory);
         final TariffFlagRepository tariffFlagRepository = new TariffFlagRepository(connection, tariffFlagQueryFactory, tariffFlagFactory);
 
-        final EnergyBillService energyBillService = new EnergyBillService(energyBillRepository, productRepository, tariffFlagRepository);
+        final EnergyBillService energyBillService = new EnergyBillService(energyBillRepository, billRepository, productRepository, tariffFlagRepository);
 
         final Energia energyBillFrame = new Energia(energyBillService);
         jDesktop.add(energyBillFrame);
