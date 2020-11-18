@@ -9,8 +9,6 @@ import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.view.frames.energy.EnergyBillFormTextFields;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.text.ParseException;

@@ -16,6 +16,7 @@ import org.joda.time.DateTime;
 @Builder
 public class TariffFlag {
 
+    private long idBill;
     private TariffFlags flag;
     private DateTime start;
     private DateTime finish;
