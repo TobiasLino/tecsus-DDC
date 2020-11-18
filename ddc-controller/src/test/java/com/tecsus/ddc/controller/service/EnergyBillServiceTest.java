@@ -20,14 +20,12 @@ import org.joda.time.Interval;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class EnergyBillServiceTest {
 
-    private final static String ID_BILL = "2";
+    private final static String ID_BILL = "";
+    private final static int BILL_NUM = 17;
 
     private final EnergyBillRepository energyBillRepository;
     private final BillRepository billRepository;
@@ -74,18 +72,20 @@ public class EnergyBillServiceTest {
 
 
         EnergyBill energyBill = simpleEnergyBill();
+        simpleProducts().forEach(energyBill::addProduct);
+        simpleTariffFlags().forEach(energyBill::addTariffFlag);
         System.out.println(energyBill);
         energyBillService.insert(energyBill);
 
-//        Optional<EnergyBill> energyBillOptional = energyBillService.findById(ID_BILL);
-//        List<Product> products = productService.findAllById(ID_BILL);
-//        List<TariffFlag> tariffFlags = tariffFlagService.findAll(ID_BILL);
-//
-//        energyBillOptional.ifPresent(bill -> {
-//            products.forEach(bill::addProduct);
-//            tariffFlags.forEach(bill::addTariffFlag);
-//        });
-//        energyBillOptional.ifPresent(System.out::println());
+        Optional<EnergyBill> energyBillOptional = energyBillService.findById(String.format("%d", BILL_NUM));
+        List<Product> products = productService.findAllById(String.format("%d", BILL_NUM));
+        List<TariffFlag> tariffFlags = tariffFlagService.findAll(String.format("%d", BILL_NUM));
+
+        energyBillOptional.ifPresent(bill -> {
+            products.forEach(bill::addProduct);
+            tariffFlags.forEach(bill::addTariffFlag);
+        });
+        energyBillOptional.ifPresent(System.out::println);
     }
 
     private EnergyBill simpleEnergyBill() {
@@ -95,7 +95,7 @@ public class EnergyBillServiceTest {
                                 Instalation.builder()
                                         .numInst("150822041")
                                         .build())
-                        .numConta("468555999892")
+                        .numConta("468555999897")
                         .valor(new BigDecimal("233.99"))
                         .vencimento(new DateTime().withDate(2020,11,15))
                         .mesReferencia(new DateTime().withDate(2020,10,01))
@@ -124,6 +124,39 @@ public class EnergyBillServiceTest {
                         .build())
                 .modalitie(Modalities.VERDE)
                 .build();
+
+    }
+
+    private List<Product> simpleProducts() {
+        Product p1 = Product.builder()
+                .billNum(13)
+                .kWhQuantity(new BigDecimal("230.0"))
+                .fornecValue(new BigDecimal("7.89998"))
+                .description("TUSD - Consumo")
+                .totalValue(new BigDecimal("230.9"))
+                .build();
+        List<Product> products = new ArrayList<>();
+        products.add(p1);
+        return products;
+    }
+
+    private List<TariffFlag> simpleTariffFlags() {
+        TariffFlag t1 = TariffFlag.builder()
+                .idBill(BILL_NUM)
+                .start(new DateTime().withDate(2020, 10, 9))
+                .finish(new DateTime().withDate(2020, 11, 10))
+                .flag(TariffFlags.VERDE)
+                .build();
+        TariffFlag t2 = TariffFlag.builder()
+                .idBill(BILL_NUM)
+                .start(new DateTime().withDate(2020, 10, 9))
+                .finish(new DateTime().withDate(2020, 11, 10))
+                .flag(TariffFlags.AMARELA)
+                .build();
+        List<TariffFlag> tariffFlags = new ArrayList<>();
+        tariffFlags.add(t1);
+        tariffFlags.add(t2);
+        return tariffFlags;
     }
 }
 

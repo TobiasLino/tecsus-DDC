@@ -7,20 +7,20 @@ import java.text.SimpleDateFormat;
 public class TariffFlagQueryFactory implements QueryFactory<TariffFlag> {
 
     @Override
-    public <S extends TariffFlag> String createInsertQuery(S object) {
-        return null;
-    }
-
-    @Override
-    public <S extends TariffFlag> String createInsertQuery(S tariffFlag, String id) {
+    public <S extends TariffFlag> String createInsertQuery(S tariffFlag) {
         final SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY/MM/dd");
         return "insert into energy_flag_ctrl (id_energy_bill, flag_color, start_date, finish_date)" +
                 "values(" +
-                "get_id_energy_bill('" + id + "')," +
+                "get_id_energy_bill('" + tariffFlag.getIdBill() + "')," +
                 "'" + tariffFlag.getFlag().name() + "'," +
                 "TO_DATE('" + dateFormat.format(tariffFlag.getStart().toDate()) + "','YYYY/MM/dd')," +
                 "TO_DATE('" + dateFormat.format(tariffFlag.getFinish().toDate()) + "','YYYY/MM/dd')" +
                 ");";
+    }
+
+    @Override
+    public <S extends TariffFlag> String createInsertQuery(S tariffFlag, String id) {
+        return null;
     }
 
     @Override

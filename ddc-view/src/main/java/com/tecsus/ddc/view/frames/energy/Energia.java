@@ -799,6 +799,7 @@ public class Energia extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
        energyBillService.insert(EnergyBillGenerator.generate(fields));
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
 
