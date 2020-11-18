@@ -2,6 +2,7 @@ package com.tecsus.ddc.controller.repository;
 
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.controller.connector.ConnectionImpl;
+import com.tecsus.ddc.factory.Factory;
 import com.tecsus.ddc.factory.WaterBillFactory;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ public class WaterBillRepository implements Repository<WaterBill> {
 
     private final ConnectionImpl connection;
     private final QueryFactory<WaterBill> queryFactory;
-    private final WaterBillFactory waterBillFactory;
+    private final Factory<WaterBill> waterBillFactory;
 
     @Override
     public <S extends WaterBill> void saveAll(Iterable<S> var1) {
