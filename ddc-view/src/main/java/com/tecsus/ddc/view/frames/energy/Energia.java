@@ -8,6 +8,7 @@ package com.tecsus.ddc.view.frames.energy;
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.controller.service.EnergyBillService;
 import com.tecsus.ddc.view.frames.generator.EnergyBillGenerator;
+import com.tecsus.ddc.view.frames.home.TelaHome;
 
 
 /**
@@ -805,6 +806,7 @@ public class Energia extends javax.swing.JInternalFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
+        TelaHome.energyFrameisNotOpened = true;
 // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarActionPerformed
 

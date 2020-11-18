@@ -36,6 +36,7 @@ public class TelaHome extends javax.swing.JFrame {
     private final ConnectionImpl connection;
 
     public static boolean waterFrameisNotOpened = true;
+    public static boolean energyFrameisNotOpened = true;
 
     public TelaHome(final Connector connector) {
         connection = connector.getConnection();
@@ -164,9 +165,16 @@ public class TelaHome extends javax.swing.JFrame {
     private void abrirAgua() {
         if (waterFrameisNotOpened) {
             final WaterBillFactory waterBillFactory = new WaterBillFactory();
+            final BillFactory billFactory = new BillFactory();
+
             final WaterBillQueryFactory waterBillQueryFactory = new WaterBillQueryFactory();
+            final AbstractBillQueryFactory billQueryFactory = new AbstractBillQueryFactory();
+
             final WaterBillRepository waterBillRepository = new WaterBillRepository(connection, waterBillQueryFactory, waterBillFactory);
-            final WaterBillService waterBillService = new WaterBillService(waterBillRepository);
+            final BillRepository billRepository = new BillRepository(connection, billQueryFactory, billFactory);
+
+            final WaterBillService waterBillService = new WaterBillService(waterBillRepository, billRepository);
+
             Agua waterScreen = new Agua(waterBillService);
             jDesktop.add(waterScreen);
             waterScreen.setVisible(true);
@@ -195,6 +203,7 @@ public class TelaHome extends javax.swing.JFrame {
         final Energia energyBillFrame = new Energia(energyBillService);
         jDesktop.add(energyBillFrame);
         energyBillFrame.setVisible(true);
+        energyFrameisNotOpened = false;
     }
     
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed

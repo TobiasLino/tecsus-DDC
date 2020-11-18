@@ -1,5 +1,6 @@
 package com.tecsus.ddc.controller.service;
 
+import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.water.WaterBill;
 import com.tecsus.ddc.controller.repository.Repository;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class WaterBillService {
 
     private final Repository<WaterBill> waterBillRepository;
+    private final Repository<Bill> billRepository;
 
     public Optional<WaterBill> findById(final String id) {
         return waterBillRepository.findById(id);
@@ -24,6 +26,7 @@ public class WaterBillService {
     }
 
     public void insert(final WaterBill bill) {
+        billRepository.save(bill.getBill());
         waterBillRepository.save(bill);
     }
 

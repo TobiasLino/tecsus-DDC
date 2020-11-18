@@ -7,6 +7,7 @@ package com.tecsus.ddc.view.frames.water;
 
 import com.tecsus.ddc.controller.service.WaterBillService;
 import com.tecsus.ddc.view.frames.generator.WaterBillGenerator;
+import com.tecsus.ddc.view.frames.home.TelaHome;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -548,6 +549,7 @@ public class Agua extends javax.swing.JInternalFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
+        TelaHome.waterFrameisNotOpened = true;
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void txtRgiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRgiActionPerformed
@@ -570,7 +572,7 @@ public class Agua extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(ActionEvent evt) {
         service.insert(WaterBillGenerator.generate(fields));
-        System.out.println(String.format("[%s] Conta de �?gua salva com sucesso.", Agua.class));
+        System.out.println(String.format("[%s] Conta de Água salva com sucesso.", Agua.class));
     }
 
 
