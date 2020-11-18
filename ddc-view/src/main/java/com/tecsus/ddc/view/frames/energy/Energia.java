@@ -42,112 +42,112 @@ public class Energia extends javax.swing.JInternalFrame {
         PanelEnergia = new javax.swing.JPanel();
         PanelClienteLocal = new javax.swing.JPanel();
         lblCpfCnpj = new javax.swing.JLabel();
-        txtCpfCnpj = new javax.swing.JTextField();
+//        txtCpfCnpj = new javax.swing.JTextField();
         lblInsEstadual = new javax.swing.JLabel();
-        txtInsEstadual = new javax.swing.JTextField();
+//        txtInsEstadual = new javax.swing.JTextField();
         lblRazaoSocial = new javax.swing.JLabel();
-        txtRazaoSocial = new javax.swing.JTextField();
+//        txtRazaoSocial = new javax.swing.JTextField();
         lblNomeCliente = new javax.swing.JLabel();
-        txtNomeClienteEnd = new javax.swing.JTextField();
+//        txtNomeClienteEnd = new javax.swing.JTextField();
         lblVazio01 = new javax.swing.JLabel();
         lblEndereco = new javax.swing.JLabel();
-        txtEndereco = new javax.swing.JTextField();
+//        txtEndereco = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
-        txtNumeroEnd = new javax.swing.JTextField();
+//        txtNumeroEnd = new javax.swing.JTextField();
         lblComplemento = new javax.swing.JLabel();
-        txtComplementoEnd = new javax.swing.JTextField();
+//        txtComplementoEnd = new javax.swing.JTextField();
         lblBairro = new javax.swing.JLabel();
-        txtBairroEnd = new javax.swing.JTextField();
+//        txtBairroEnd = new javax.swing.JTextField();
         lblCidadeEnd = new javax.swing.JLabel();
-        txtCidadeEnd = new javax.swing.JTextField();
+//        txtCidadeEnd = new javax.swing.JTextField();
         lblCepEnd = new javax.swing.JLabel();
-        txtCepEnd = new javax.swing.JTextField();
+//        txtCepEnd = new javax.swing.JTextField();
         lblEstadoEnd = new javax.swing.JLabel();
         cbxEstadoEnd = new javax.swing.JComboBox<>();
         lblVazio02 = new javax.swing.JLabel();
         lblCodIdentificacao = new javax.swing.JLabel();
-        txtCodIdentificacao = new javax.swing.JTextField();
+//        txtCodIdentificacao = new javax.swing.JTextField();
         lblCodFiscalOperacao = new javax.swing.JLabel();
-        txtCodFiscalOperacao = new javax.swing.JTextField();
+//        txtCodFiscalOperacao = new javax.swing.JTextField();
         lblGrupoSubgrupo = new javax.swing.JLabel();
-        txtGrupoSubgrupo = new javax.swing.JTextField();
+ //       txtGrupoSubgrupo = new javax.swing.JTextField();
         lblClasseSubclasse = new javax.swing.JLabel();
-        txtClasseSubclasse = new javax.swing.JTextField();
+ //       txtClasseSubclasse = new javax.swing.JTextField();
         lblTipoFornecimento = new javax.swing.JLabel();
-        txtTipoFornecimento = new javax.swing.JTextField();
+//        txtTipoFornecimento = new javax.swing.JTextField();
         lblModalidadeTarifa = new javax.swing.JLabel();
-        txtModalidadeTarifa = new javax.swing.JTextField();
+ //       txtModalidadeTarifa = new javax.swing.JTextField();
         lblRoteiroLeitura = new javax.swing.JLabel();
-        txtRoteiroLeitura = new javax.swing.JTextField();
+//       txtRoteiroLeitura = new javax.swing.JTextField();
         lblTensaoNominal = new javax.swing.JLabel();
-        txtTensaoNominal = new javax.swing.JTextField();
+ //       txtTensaoNominal = new javax.swing.JTextField();
         lblNumeroMedidor = new javax.swing.JLabel();
-        txtNumeroMedidor = new javax.swing.JTextField();
+//        txtNumeroMedidor = new javax.swing.JTextField();
         lblNumeroInstalacao = new javax.swing.JLabel();
-        txtNumeroInstalacao = new javax.swing.JTextField();
+ //       txtNumeroInstalacao = new javax.swing.JTextField();
         PanelBandDadosPeriodo = new javax.swing.JPanel();
         lblDataVencimento = new javax.swing.JLabel();
-        txtDataVencimento = new javax.swing.JTextField();
+//        txtDataVencimento = new javax.swing.JTextField();
         lblContaMes = new javax.swing.JLabel();
-        txtContaMes = new javax.swing.JTextField();
+//        txtContaMes = new javax.swing.JTextField();
         lblValorTotalPagar = new javax.swing.JLabel();
-        txtValorTotalPagar = new javax.swing.JTextField();
+ //       txtValorTotalPagar = new javax.swing.JTextField();
         lblCodigoBarras = new javax.swing.JLabel();
-        txtCodigoBarras = new javax.swing.JTextField();
+ //       txtCodigoBarras = new javax.swing.JTextField();
         lblConsumoKwhMes = new javax.swing.JLabel();
-        txtConsumoKwhMes = new javax.swing.JTextField();
+ //       txtConsumoKwhMes = new javax.swing.JTextField();
         lblDataInicioBandeira = new javax.swing.JLabel();
-        txtDataInicioBandeira = new javax.swing.JTextField();
+ //       txtDataInicioBandeira = new javax.swing.JTextField();
         lblDataFinalBandeira = new javax.swing.JLabel();
-        txtDataFinalBandeira = new javax.swing.JTextField();
+//        txtDataFinalBandeira = new javax.swing.JTextField();
         lblTipoBandeira = new javax.swing.JLabel();
-        txtTipoBandeira = new javax.swing.JTextField();
+ //       txtTipoBandeira = new javax.swing.JTextField();
         lblDiasBandeira = new javax.swing.JLabel();
-        txtDiasBandeira = new javax.swing.JTextField();
+ //       txtDiasBandeira = new javax.swing.JTextField();
         PanelFaturamento = new javax.swing.JPanel();
         lblEmissaoFatura = new javax.swing.JLabel();
-        txtEmissaoFatura = new javax.swing.JTextField();
+//        txtEmissaoFatura = new javax.swing.JTextField();
         lblDiasFatura = new javax.swing.JLabel();
-        txtDiasFatura = new javax.swing.JTextField();
+ //       txtDiasFatura = new javax.swing.JTextField();
         lblDataLeitAnterior = new javax.swing.JLabel();
-        txtDataLeitAnterior = new javax.swing.JTextField();
+ //       txtDataLeitAnterior = new javax.swing.JTextField();
         lblDataLeitAtual = new javax.swing.JLabel();
-        txtDataLeitAtual = new javax.swing.JTextField();
+ //       txtDataLeitAtual = new javax.swing.JTextField();
         lblDataLeitProxima = new javax.swing.JLabel();
-        txtDataLeitProxima = new javax.swing.JTextField();
+//        txtDataLeitProxima = new javax.swing.JTextField();
         lblLeituraAntKwh = new javax.swing.JLabel();
-        txtLeituraAntKwh = new javax.swing.JTextField();
+//        txtLeituraAntKwh = new javax.swing.JTextField();
         lblLeituraAtualKwh = new javax.swing.JLabel();
-        txtLeituraAtualKwh = new javax.swing.JTextField();
+ //       txtLeituraAtualKwh = new javax.swing.JTextField();
         lblCCITusdConsumo = new javax.swing.JLabel();
         lblValorFornTusd = new javax.swing.JLabel();
-        txtValorFornTusd = new javax.swing.JTextField();
+//        txtValorFornTusd = new javax.swing.JTextField();
         lblValorTotalTusd = new javax.swing.JLabel();
-        txtValorTotalTusd = new javax.swing.JTextField();
+//        txtValorTotalTusd = new javax.swing.JTextField();
         lblCCITEConsumo = new javax.swing.JLabel();
         lblValorFornTE = new javax.swing.JLabel();
-        txtValorFornTE = new javax.swing.JTextField();
+//        txtValorFornTE = new javax.swing.JTextField();
         lblValorTotalTE = new javax.swing.JLabel();
-        txtValorTotalTE = new javax.swing.JTextField();
+//        txtValorTotalTE = new javax.swing.JTextField();
         lblItensFinanceiros = new javax.swing.JLabel();
         lblCIPMunicipal = new javax.swing.JLabel();
-        txtCIPMunicipal = new javax.swing.JTextField();
+//        txtCIPMunicipal = new javax.swing.JTextField();
         lblTributos = new javax.swing.JLabel();
         lblPIS = new javax.swing.JLabel();
         lblBaseCalculoPIS = new javax.swing.JLabel();
-        txtBaseCalculoPIS = new javax.swing.JTextField();
+//        txtBaseCalculoPIS = new javax.swing.JTextField();
         lblValorPIS = new javax.swing.JLabel();
-        txtValorPIS = new javax.swing.JTextField();
+//        txtValorPIS = new javax.swing.JTextField();
         lblCofins = new javax.swing.JLabel();
         lblBaseCalculoCofins = new javax.swing.JLabel();
-        txtBaseCalculoCofins = new javax.swing.JTextField();
+//        txtBaseCalculoCofins = new javax.swing.JTextField();
         lblValorCofins = new javax.swing.JLabel();
-        txtValorCofins = new javax.swing.JTextField();
+ //       txtValorCofins = new javax.swing.JTextField();
         lblICMS = new javax.swing.JLabel();
         lblBaseCalculoICMS = new javax.swing.JLabel();
-        txtBaseCalculoICMS = new javax.swing.JTextField();
+//        txtBaseCalculoICMS = new javax.swing.JTextField();
         lblValorICMS = new javax.swing.JLabel();
-        txtValorICMS = new javax.swing.JTextField();
+//        txtValorICMS = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
@@ -169,16 +169,16 @@ public class Energia extends javax.swing.JInternalFrame {
 
         lblCpfCnpj.setText("CPF/ CNPJ/ CI:");
 
-        txtCpfCnpj.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtCpfCnpj.setToolTipText("");
+        fields.getTxtCpfCnpj().setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        fields.getTxtCpfCnpj().setToolTipText("");
 
         lblInsEstadual.setText("Inscrição Estadual:");
 
         lblRazaoSocial.setText("Razão Social: ");
         lblRazaoSocial.setToolTipText("");
 
-        txtRazaoSocial.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtRazaoSocial.setScrollOffset(1);
+        fields.getTxtRazaoSocial().setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        fields.getTxtRazaoSocial().setScrollOffset(1);
 
         lblNomeCliente.setText("Nome Cliente:");
 
@@ -188,23 +188,23 @@ public class Energia extends javax.swing.JInternalFrame {
 
         lblNumero.setText("Número:");
 
-        txtNumeroEnd.setToolTipText("");
+        fields.getTxtNumeroEnd().setToolTipText("");
 
         lblComplemento.setText("Complemento:");
 
-        txtComplementoEnd.setToolTipText("");
+        fields.getTxtComplementoEnd().setToolTipText("");
 
         lblBairro.setText("Bairro: ");
 
-        txtBairroEnd.setToolTipText("");
+        fields.getTxtBairroEnd().setToolTipText("");
 
         lblCidadeEnd.setText("Cidade:");
 
-        txtCidadeEnd.setToolTipText("");
+        fields.getTxtCidadeEnd().setToolTipText("");
 
         lblCepEnd.setText("CEP:");
 
-        txtCepEnd.setToolTipText("");
+        fields.getTxtCepEnd().setToolTipText("");
 
         lblEstadoEnd.setText("Estado:");
 
@@ -216,12 +216,12 @@ public class Energia extends javax.swing.JInternalFrame {
 
         lblCodFiscalOperacao.setText("Cod. Fiscal Operação:");
 
-        txtCodFiscalOperacao.setToolTipText("");
+        fields.getTxtCodFiscalOperacao().setToolTipText("");
 
         lblGrupoSubgrupo.setText("Grupo/ Subgrupo:");
         lblGrupoSubgrupo.setToolTipText("");
 
-        txtGrupoSubgrupo.setToolTipText("");
+        fields.getTxtGrupoSubgrupo().setToolTipText("");
 
         lblClasseSubclasse.setText("Classe/ Subclasse:");
 
@@ -233,13 +233,13 @@ public class Energia extends javax.swing.JInternalFrame {
 
         lblTensaoNominal.setText("Tensão Nominal:");
 
-        txtTensaoNominal.setToolTipText("");
+        fields.getTxtTensaoNominal().setToolTipText("");
 
         lblNumeroMedidor.setText("Número Medidor:");
 
         lblNumeroInstalacao.setText("Número da Instalação:");
 
-        txtNumeroInstalacao.setToolTipText("");
+        fields.getTxtNumeroInstalacao().setToolTipText("");
 
         javax.swing.GroupLayout PanelClienteLocalLayout = new javax.swing.GroupLayout(PanelClienteLocal);
         PanelClienteLocal.setLayout(PanelClienteLocalLayout);
@@ -248,11 +248,13 @@ public class Energia extends javax.swing.JInternalFrame {
             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
                 .addComponent(lblNumeroMedidor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNumeroMedidor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fields.getTxtNumeroMedidor(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblNumeroInstalacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNumeroInstalacao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fields.getTxtNumeroInstalacao(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,33 +268,39 @@ public class Energia extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addComponent(txtTipoFornecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtTipoFornecimento(), javax.swing.GroupLayout.PREFERRED_SIZE, 85,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblModalidadeTarifa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtModalidadeTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtModalidadeTarifa(), javax.swing.GroupLayout.PREFERRED_SIZE, 90,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblRoteiroLeitura)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtRoteiroLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtRoteiroLeitura(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblTensaoNominal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTensaoNominal, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
+                                .addComponent(fields.getTxtTensaoNominal(), javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addComponent(txtCodIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtCodIdentificacao(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblCodFiscalOperacao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCodFiscalOperacao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtCodFiscalOperacao(), javax.swing.GroupLayout.PREFERRED_SIZE, 60,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblGrupoSubgrupo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtGrupoSubgrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtGrupoSubgrupo(), javax.swing.GroupLayout.PREFERRED_SIZE, 75,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblClasseSubclasse)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtClasseSubclasse))))
+                                .addComponent(fields.getTxtClasseSubclasse()))))
                     .addGroup(PanelClienteLocalLayout.createSequentialGroup()
                         .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCpfCnpj)
@@ -301,21 +309,23 @@ public class Energia extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addComponent(txtInsEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtInsEstadual(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblNomeCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNomeClienteEnd))
+                                .addComponent(fields.getTxtNomeClienteEnd()))
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtCpfCnpj(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblRazaoSocial)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtRazaoSocial))))
+                                .addComponent(fields.getTxtRazaoSocial()))))
                     .addGroup(PanelClienteLocalLayout.createSequentialGroup()
                         .addComponent(lblEndereco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEndereco))
+                        .addComponent(fields.getTxtEndereco()))
                     .addGroup(PanelClienteLocalLayout.createSequentialGroup()
                         .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNumero)
@@ -323,25 +333,29 @@ public class Energia extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addComponent(txtCidadeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtCidadeEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, 370,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblCepEnd)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCepEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtCepEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, 80,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblEstadoEnd)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbxEstadoEnd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addComponent(txtNumeroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtNumeroEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, 80,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblComplemento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtComplementoEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtComplementoEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, 80,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblBairro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBairroEnd)))))
+                                .addComponent(fields.getTxtBairroEnd())))))
                 .addGap(21, 21, 21))
         );
         PanelClienteLocalLayout.setVerticalGroup(
@@ -349,89 +363,109 @@ public class Energia extends javax.swing.JInternalFrame {
             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCpfCnpj)
-                    .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtCpfCnpj(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRazaoSocial)
-                    .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtRazaoSocial(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE
+                            , javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInsEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNomeCliente)
-                        .addComponent(txtNomeClienteEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtInsEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(fields.getTxtNomeClienteEnd(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtInsEstadual(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblVazio01)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEndereco)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtEndereco(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumero)
-                    .addComponent(txtNumeroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtNumeroEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblComplemento)
-                    .addComponent(txtComplementoEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtComplementoEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, 19,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBairro)
-                    .addComponent(txtBairroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtBairroEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCidadeEnd)
                     .addComponent(lblCepEnd)
                     .addComponent(lblEstadoEnd)
-                    .addComponent(txtCidadeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCepEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtCidadeEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtCepEnd(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxEstadoEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblVazio02)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCodIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtCodIdentificacao(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCodIdentificacao)
-                    .addComponent(txtCodFiscalOperacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtCodFiscalOperacao(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCodFiscalOperacao)
                     .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtGrupoSubgrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtGrupoSubgrupo(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblGrupoSubgrupo)
                         .addComponent(lblClasseSubclasse)
-                        .addComponent(txtClasseSubclasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(fields.getTxtClasseSubclasse(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTensaoNominal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtTensaoNominal(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTipoFornecimento)
-                        .addComponent(txtTipoFornecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtTipoFornecimento(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblModalidadeTarifa)
-                        .addComponent(txtModalidadeTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtModalidadeTarifa(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblRoteiroLeitura)
-                        .addComponent(txtRoteiroLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtRoteiroLeitura(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblTensaoNominal)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumeroMedidor)
-                    .addComponent(txtNumeroMedidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtNumeroMedidor(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNumeroInstalacao)
-                    .addComponent(txtNumeroInstalacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtNumeroInstalacao(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txtCpfCnpj.getAccessibleContext().setAccessibleName("txtCpfCnpj");
+        fields.getTxtCpfCnpj().getAccessibleContext().setAccessibleName("txtCpfCnpj");
         lblCodIdentificacao.getAccessibleContext().setAccessibleName("Classe/ Subclasse:");
 
         PanelBandDadosPeriodo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BANDEIRA / DADOS CONTA / PERÍODO E DESCRIÇÃO CONSUMO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         lblDataVencimento.setText("Data Vencimento:");
 
-        txtDataVencimento.setToolTipText("");
+        fields.getTxtDataVencimento().setToolTipText("");
 
         lblContaMes.setText("Conta Mês:");
 
         lblValorTotalPagar.setText("Valor Total Pagar:");
 
-        txtValorTotalPagar.setToolTipText("");
+        fields.getTxtValorTotalPagar().setToolTipText("");
 
         lblCodigoBarras.setText("Código de Barras:");
 
-        txtCodigoBarras.setToolTipText("");
+        fields.getTxtCodigoBarras().setToolTipText("");
 
         lblConsumoKwhMes.setText("Consumo kWh Mês:");
 
@@ -452,40 +486,47 @@ public class Energia extends javax.swing.JInternalFrame {
                     .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
                         .addComponent(lblDataVencimento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtDataVencimento(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblContaMes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtContaMes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtContaMes(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblValorTotalPagar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtValorTotalPagar(), javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblConsumoKwhMes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtConsumoKwhMes))
+                        .addComponent(fields.getTxtConsumoKwhMes()))
                     .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
                         .addComponent(lblCodigoBarras)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCodigoBarras)))
+                        .addComponent(fields.getTxtCodigoBarras())))
                 .addGap(10, 10, 10))
             .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
                 .addComponent(lblDataInicioBandeira)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDataInicioBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fields.getTxtDataInicioBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDataFinalBandeira)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDataFinalBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fields.getTxtDataFinalBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTipoBandeira)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTipoBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fields.getTxtTipoBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDiasBandeira)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDiasBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fields.getTxtDiasBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBandDadosPeriodoLayout.setVerticalGroup(
@@ -493,27 +534,36 @@ public class Energia extends javax.swing.JInternalFrame {
             .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
                 .addGroup(PanelBandDadosPeriodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDataVencimento)
-                    .addComponent(txtDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtDataVencimento(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblContaMes)
-                    .addComponent(txtContaMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtContaMes(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValorTotalPagar)
-                    .addComponent(txtValorTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorTotalPagar(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblConsumoKwhMes)
-                    .addComponent(txtConsumoKwhMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtConsumoKwhMes(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelBandDadosPeriodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoBarras)
-                    .addComponent(txtCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtCodigoBarras(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelBandDadosPeriodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDataInicioBandeira)
-                    .addComponent(txtDataInicioBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtDataInicioBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDataFinalBandeira)
-                    .addComponent(txtDataFinalBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtDataFinalBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTipoBandeira)
-                    .addComponent(txtTipoBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtTipoBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDiasBandeira)
-                    .addComponent(txtDiasBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtDiasBandeira(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -578,57 +628,69 @@ public class Energia extends javax.swing.JInternalFrame {
                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                         .addComponent(lblEmissaoFatura)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEmissaoFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtEmissaoFatura(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblDiasFatura)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDiasFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtDiasFatura(), javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblDataLeitAnterior)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataLeitAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtDataLeitAnterior(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblDataLeitAtual)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataLeitAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fields.getTxtDataLeitAtual(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                         .addComponent(lblDataLeitProxima)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataLeitProxima, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtDataLeitProxima(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblLeituraAntKwh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLeituraAntKwh, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtLeituraAntKwh(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblLeituraAtualKwh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLeituraAtualKwh, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fields.getTxtLeituraAtualKwh(), javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                         .addComponent(lblCCITusdConsumo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblValorFornTusd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorFornTusd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtValorFornTusd(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblValorTotalTusd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorTotalTusd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fields.getTxtValorTotalTusd(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                         .addComponent(lblItensFinanceiros)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblCIPMunicipal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCIPMunicipal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fields.getTxtCIPMunicipal(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                         .addComponent(lblCCITEConsumo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblValorFornTE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorFornTE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtValorFornTE(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblValorTotalTE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorTotalTE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fields.getTxtValorTotalTE(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                         .addComponent(lblTributos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -636,11 +698,13 @@ public class Energia extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblBaseCalculoPIS)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBaseCalculoPIS, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fields.getTxtBaseCalculoPIS(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblValorPIS)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValorPIS, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fields.getTxtValorPIS(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -649,21 +713,25 @@ public class Energia extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblBaseCalculoICMS)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtBaseCalculoICMS, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtBaseCalculoICMS(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblValorICMS)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtValorICMS, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fields.getTxtValorICMS(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                                 .addComponent(lblCofins)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblBaseCalculoCofins)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtBaseCalculoCofins, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fields.getTxtBaseCalculoCofins(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblValorCofins)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtValorCofins, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(fields.getTxtValorCofins(), javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelFaturamentoLayout.setVerticalGroup(
@@ -671,61 +739,79 @@ public class Energia extends javax.swing.JInternalFrame {
             .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmissaoFatura)
-                    .addComponent(txtEmissaoFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtEmissaoFatura(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDiasFatura)
-                    .addComponent(txtDiasFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtDiasFatura(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDataLeitAnterior)
-                    .addComponent(txtDataLeitAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtDataLeitAnterior(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDataLeitAtual)
-                    .addComponent(txtDataLeitAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtDataLeitAtual(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDataLeitProxima)
-                    .addComponent(txtDataLeitProxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtDataLeitProxima(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLeituraAntKwh)
-                    .addComponent(txtLeituraAntKwh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtLeituraAntKwh(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLeituraAtualKwh)
-                    .addComponent(txtLeituraAtualKwh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fields.getTxtLeituraAtualKwh(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValorFornTusd)
-                    .addComponent(txtValorFornTusd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorFornTusd(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValorTotalTusd)
-                    .addComponent(txtValorTotalTusd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorTotalTusd(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCCITusdConsumo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValorFornTE)
-                    .addComponent(txtValorFornTE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorFornTE(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE
+                            , javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValorTotalTE)
-                    .addComponent(txtValorTotalTE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorTotalTE(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCCITEConsumo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCIPMunicipal)
-                    .addComponent(txtCIPMunicipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtCIPMunicipal(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblItensFinanceiros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPIS)
-                    .addComponent(txtBaseCalculoPIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtBaseCalculoPIS(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValorPIS)
-                    .addComponent(txtValorPIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorPIS(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTributos)
                     .addComponent(lblBaseCalculoPIS))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCofins)
-                    .addComponent(txtBaseCalculoCofins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtBaseCalculoCofins(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValorCofins)
-                    .addComponent(txtValorCofins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorCofins(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE
+                            , javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBaseCalculoCofins))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblICMS)
-                    .addComponent(txtBaseCalculoICMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtBaseCalculoICMS(), javax.swing.GroupLayout.PREFERRED_SIZE,
+                            javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValorICMS)
-                    .addComponent(txtValorICMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fields.getTxtValorICMS(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                            javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBaseCalculoICMS))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -878,52 +964,52 @@ public class Energia extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblValorTotalTusd;
     private javax.swing.JLabel lblVazio01;
     private javax.swing.JLabel lblVazio02;
-    private javax.swing.JTextField txtBairroEnd;
-    private javax.swing.JTextField txtBaseCalculoCofins;
-    private javax.swing.JTextField txtBaseCalculoICMS;
-    private javax.swing.JTextField txtBaseCalculoPIS;
-    private javax.swing.JTextField txtCIPMunicipal;
-    private javax.swing.JTextField txtCepEnd;
-    private javax.swing.JTextField txtCidadeEnd;
-    private javax.swing.JTextField txtClasseSubclasse;
-    private javax.swing.JTextField txtCodFiscalOperacao;
-    private javax.swing.JTextField txtCodIdentificacao;
-    private javax.swing.JTextField txtCodigoBarras;
-    private javax.swing.JTextField txtComplementoEnd;
-    private javax.swing.JTextField txtConsumoKwhMes;
-    private javax.swing.JTextField txtContaMes;
-    private javax.swing.JTextField txtCpfCnpj;
-    private javax.swing.JTextField txtDataFinalBandeira;
-    private javax.swing.JTextField txtDataInicioBandeira;
-    private javax.swing.JTextField txtDataLeitAnterior;
-    private javax.swing.JTextField txtDataLeitAtual;
-    private javax.swing.JTextField txtDataLeitProxima;
-    private javax.swing.JTextField txtDataVencimento;
-    private javax.swing.JTextField txtDiasBandeira;
-    private javax.swing.JTextField txtDiasFatura;
-    private javax.swing.JTextField txtEmissaoFatura;
-    private javax.swing.JTextField txtEndereco;
-    private javax.swing.JTextField txtGrupoSubgrupo;
-    private javax.swing.JTextField txtInsEstadual;
-    private javax.swing.JTextField txtLeituraAntKwh;
-    private javax.swing.JTextField txtLeituraAtualKwh;
-    private javax.swing.JTextField txtModalidadeTarifa;
-    private javax.swing.JTextField txtNomeClienteEnd;
-    private javax.swing.JTextField txtNumeroEnd;
-    private javax.swing.JTextField txtNumeroInstalacao;
-    private javax.swing.JTextField txtNumeroMedidor;
-    private javax.swing.JTextField txtRazaoSocial;
-    private javax.swing.JTextField txtRoteiroLeitura;
-    private javax.swing.JTextField txtTensaoNominal;
-    private javax.swing.JTextField txtTipoBandeira;
-    private javax.swing.JTextField txtTipoFornecimento;
-    private javax.swing.JTextField txtValorCofins;
-    private javax.swing.JTextField txtValorFornTE;
-    private javax.swing.JTextField txtValorFornTusd;
-    private javax.swing.JTextField txtValorICMS;
-    private javax.swing.JTextField txtValorPIS;
-    private javax.swing.JTextField txtValorTotalPagar;
-    private javax.swing.JTextField txtValorTotalTE;
-    private javax.swing.JTextField txtValorTotalTusd;
+//    private javax.swing.JTextField txtBairroEnd;
+//    private javax.swing.JTextField txtBaseCalculoCofins;
+//    private javax.swing.JTextField txtBaseCalculoICMS;
+//    private javax.swing.JTextField txtBaseCalculoPIS;
+//    private javax.swing.JTextField txtCIPMunicipal;
+//    private javax.swing.JTextField txtCepEnd;
+//    private javax.swing.JTextField txtCidadeEnd;
+//    private javax.swing.JTextField txtClasseSubclasse;
+//    private javax.swing.JTextField txtCodFiscalOperacao;
+//    private javax.swing.JTextField txtCodIdentificacao;
+//    private javax.swing.JTextField txtCodigoBarras;
+//    private javax.swing.JTextField txtComplementoEnd;
+//    private javax.swing.JTextField txtConsumoKwhMes;
+//    private javax.swing.JTextField txtContaMes;
+//    private javax.swing.JTextField txtCpfCnpj;
+//    private javax.swing.JTextField txtDataFinalBandeira;
+//    private javax.swing.JTextField txtDataInicioBandeira;
+//    private javax.swing.JTextField txtDataLeitAnterior;
+//    private javax.swing.JTextField txtDataLeitAtual;
+//    private javax.swing.JTextField txtDataLeitProxima;
+//    private javax.swing.JTextField txtDataVencimento;
+//    private javax.swing.JTextField txtDiasBandeira;
+//    private javax.swing.JTextField txtDiasFatura;
+//    private javax.swing.JTextField txtEmissaoFatura;
+//    private javax.swing.JTextField txtEndereco;
+//    private javax.swing.JTextField txtGrupoSubgrupo;
+//    private javax.swing.JTextField txtInsEstadual;
+//    private javax.swing.JTextField txtLeituraAntKwh;
+//    private javax.swing.JTextField txtLeituraAtualKwh;
+//    private javax.swing.JTextField txtModalidadeTarifa;
+//    private javax.swing.JTextField txtNomeClienteEnd;
+//    private javax.swing.JTextField txtNumeroEnd;
+//    private javax.swing.JTextField txtNumeroInstalacao;
+//    private javax.swing.JTextField txtNumeroMedidor;
+//    private javax.swing.JTextField txtRazaoSocial;
+//    private javax.swing.JTextField txtRoteiroLeitura;
+//    private javax.swing.JTextField txtTensaoNominal;
+//    private javax.swing.JTextField txtTipoBandeira;
+//    private javax.swing.JTextField txtTipoFornecimento;
+//    private javax.swing.JTextField txtValorCofins;
+//    private javax.swing.JTextField txtValorFornTE;
+//    private javax.swing.JTextField txtValorFornTusd;
+//    private javax.swing.JTextField txtValorICMS;
+//    private javax.swing.JTextField txtValorPIS;
+//    private javax.swing.JTextField txtValorTotalPagar;
+//    private javax.swing.JTextField txtValorTotalTE;
+//    private javax.swing.JTextField txtValorTotalTusd;
     // End of variables declaration//GEN-END:variables
 }
