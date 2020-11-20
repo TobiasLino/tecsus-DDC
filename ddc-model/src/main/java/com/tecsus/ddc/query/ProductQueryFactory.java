@@ -12,7 +12,7 @@ public class ProductQueryFactory implements QueryFactory<Product> {
                 (product.getTotalValue() != null ? product.getTotalValue().toString() + ", " : "") +
                 (product.getFornecValue() != null ? product.getFornecValue().toString() + ", " : "") +
                 (product.getDescription() != null ? "'" + product.getDescription() + "', " : "") +
-                product.getBillNum() +
+                (product.getBillNum() != null ? "'" + product.getBillNum() + "'" : "") +
                 ")";
     }
 
