@@ -20,15 +20,8 @@ public class Product {
     private Integer id;
     private String description;
     private BigDecimal kWhQuantity;
-    private BigDecimal tariff;
     private BigDecimal fornecValue;
-    private BigDecimal tariffWithTributes;
-    private BigDecimal calcBaseICMS;
-    private BigDecimal aliqICMS;    // %
-    private BigDecimal valueICMS;
-    private Tribute PIS;
-    private Tribute COFINS;
     private BigDecimal totalValue;
 
-    private long billNum;
+    private String billNum;
 }
