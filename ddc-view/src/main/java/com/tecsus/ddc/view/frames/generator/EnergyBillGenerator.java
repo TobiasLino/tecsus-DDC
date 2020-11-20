@@ -30,13 +30,14 @@ public class EnergyBillGenerator {
         EnergyBill res = null;
         log.info("Generating energy bill");
         try {   // Trying to parse data types
+            String billNum = fields.getTxtCodIdentificacao().getText();
             res =  EnergyBill.builder()
                     .bill(Bill.builder()
                             .instalation(
                                     Instalation.builder()
                                             .numInst(fields.getTxtNumeroInstalacao().getText())
                                             .build())
-                            .numConta(fields.getTxtCodIdentificacao().getText())
+                            .numConta(billNum)
                             .valor(new BigDecimal(fields.getTxtValorTotalPagar().getText()))
                             .vencimento(new DateTime(format.parse(fields.getTxtDataVencimento().getText())))
                             .mesReferencia(new DateTime(refMonthFormatter.parse(fields.getTxtContaMes().getText())))
@@ -65,10 +66,11 @@ public class EnergyBillGenerator {
                     .supplyType(SupplyType.valueOf(fields.getTxtTipoFornecimento().getText()))
                     .tributes(calculaTributos(fields))
                     .build();
-        for (TariffFlag tariffFlag : constructTariffFlags(tariffFlagsTable))
-            res.addTariffFlag(tariffFlag);
 
-        log.info("Energy bill generated");
+            for (TariffFlag tariffFlag : constructTariffFlags(tariffFlagsTable, billNum))
+                res.addTariffFlag(tariffFlag);
+
+            log.info("Energy bill generated");
         } catch (ParseException e) {
             e.printStackTrace();
             log.info("Energy bill generation failed");
@@ -82,26 +84,23 @@ public class EnergyBillGenerator {
         return pis.add(cofins);
     }
 
-    static private List<TariffFlag> constructTariffFlags(final JTable flagsTable) throws ParseException {
+    static private List<TariffFlag> constructTariffFlags(final JTable flagsTable, final String billNum) throws ParseException {
         List<TariffFlag> tariffFlags = new ArrayList<>();
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
-        String bill = "", flagColor = "", start = "", finish = "";
+        String flagColor = "", start = "", finish = "";
 
         for (int i = 0; i < flagsTable.getRowCount(); ++i) {
-            for (int j = 0; j < flagsTable.getColumnCount(); ++j) {
-                bill = (String) flagsTable.getModel().getValueAt(i, j);
-                flagColor = (String) flagsTable.getModel().getValueAt(i, j);
-                start = (String) flagsTable.getModel().getValueAt(i, j);
-                finish = (String) flagsTable.getModel().getValueAt(i, j);
-            }
+            flagColor = (String) flagsTable.getModel().getValueAt(i, 1);
+            start = (String) flagsTable.getModel().getValueAt(i, 2);
+            finish = (String) flagsTable.getModel().getValueAt(i, 3);
+
             TariffFlag flag = TariffFlag.builder()
-                    .idBill(bill)
+                    .idBill(billNum)
                     .flag(TariffFlags.valueOf(flagColor))
                     .start(new DateTime(format.parse(start)))
                     .finish(new DateTime(format.parse(finish)))
                     .build();
-            bill = ""; flagColor = ""; start = ""; finish = "";
             tariffFlags.add(flag);
         }
 
