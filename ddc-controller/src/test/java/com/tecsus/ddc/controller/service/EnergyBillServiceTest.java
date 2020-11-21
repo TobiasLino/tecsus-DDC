@@ -25,7 +25,7 @@ import java.util.*;
 public class EnergyBillServiceTest {
 
     private final static String ID_BILL = "";
-    private final static int BILL_NUM = 17;
+    private final static String BILL_NUM = "4445553333";
 
     private final EnergyBillRepository energyBillRepository;
     private final BillRepository billRepository;
@@ -129,7 +129,7 @@ public class EnergyBillServiceTest {
 
     private List<Product> simpleProducts() {
         Product p1 = Product.builder()
-                .billNum(13)
+                .billNum("4445553333")
                 .kWhQuantity(new BigDecimal("230.0"))
                 .fornecValue(new BigDecimal("7.89998"))
                 .description("TUSD - Consumo")

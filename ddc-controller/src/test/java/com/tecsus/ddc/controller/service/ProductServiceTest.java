@@ -60,7 +60,7 @@ public class ProductServiceTest {
                 .kWhQuantity(new BigDecimal("300"))
                 .fornecValue(new BigDecimal("7.58"))
                 .description("TUSD - Consumo")
-                .billNum(2)
+                .billNum("444555")
                 .build();
     }
 }

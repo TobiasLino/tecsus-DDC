@@ -1,10 +1,12 @@
 package com.tecsus.ddc.view.frames.generator;
 
+import com.sun.corba.se.impl.ior.ObjectIdImpl;
 import com.tecsus.ddc.bills.Bill;
 import com.tecsus.ddc.bills.energy.Classe;
 import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.Group;
 import com.tecsus.ddc.bills.energy.TariffFlag;
+import com.tecsus.ddc.bills.energy.Product;
 import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.view.frames.energy.EnergyBillFormTextFields;
@@ -23,8 +25,7 @@ public class EnergyBillGenerator {
     
     private EnergyBillGenerator() {}
 
-    public static EnergyBill generate(EnergyBillFormTextFields fields, final JTable tariffFlagsTable) {
-        //throw new UnsupportedOperationException("Not supported yet.");
+    public static EnergyBill generate(EnergyBillFormTextFields fields, final JTable productsTable, final JTable tariffFlagsTable) {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
         SimpleDateFormat refMonthFormatter = new SimpleDateFormat("MM/YYYY");
         EnergyBill res = null;
@@ -70,6 +71,9 @@ public class EnergyBillGenerator {
             for (TariffFlag tariffFlag : constructTariffFlags(tariffFlagsTable, billNum))
                 res.addTariffFlag(tariffFlag);
 
+            for (final Product p : constructProduct(productsTable, billNum))
+                res.addProduct(p);
+
             log.info("Energy bill generated");
         } catch (ParseException e) {
             e.printStackTrace();
@@ -84,23 +88,36 @@ public class EnergyBillGenerator {
         return pis.add(cofins);
     }
 
+    static private List<Product> constructProduct(final JTable productsTable, final String billNum) {
+        List<Product> products = new ArrayList<>();
+
+        for(int i = 0; i < productsTable.getRowCount(); ++i) {
+            Product p = Product.builder()
+                    .description((String) productsTable.getModel().getValueAt(i, 1))
+                    .fornecValue(new BigDecimal((String) productsTable.getModel().getValueAt(i, 2)))
+                    .kWhQuantity(new BigDecimal((String) productsTable.getModel().getValueAt(i, 3)))
+                    .totalValue(new BigDecimal((String) productsTable.getModel().getValueAt(i, 4)))
+                    .billNum(billNum)
+                    .build();
+
+            products.add(p);
+        }
+
+        return products;
+    }
+
     static private List<TariffFlag> constructTariffFlags(final JTable flagsTable, final String billNum) throws ParseException {
         List<TariffFlag> tariffFlags = new ArrayList<>();
-
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
-        String flagColor = "", start = "", finish = "";
 
         for (int i = 0; i < flagsTable.getRowCount(); ++i) {
-            flagColor = (String) flagsTable.getModel().getValueAt(i, 1);
-            start = (String) flagsTable.getModel().getValueAt(i, 2);
-            finish = (String) flagsTable.getModel().getValueAt(i, 3);
-
             TariffFlag flag = TariffFlag.builder()
                     .idBill(billNum)
-                    .flag(TariffFlags.valueOf(flagColor))
-                    .start(new DateTime(format.parse(start)))
-                    .finish(new DateTime(format.parse(finish)))
+                    .flag(TariffFlags.valueOf((String) flagsTable.getModel().getValueAt(i, 1)))
+                    .start(new DateTime(format.parse((String) flagsTable.getModel().getValueAt(i, 2))))
+                    .finish(new DateTime(format.parse((String) flagsTable.getModel().getValueAt(i, 3))))
                     .build();
+
             tariffFlags.add(flag);
         }
 

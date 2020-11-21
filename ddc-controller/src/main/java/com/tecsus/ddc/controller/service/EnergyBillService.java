@@ -22,7 +22,6 @@ public class EnergyBillService {
     private final Repository<TariffFlag> tariffFlagRepository;
 
     public void insert(final EnergyBill bill) {
-
         billRepository.save(bill.getBill());
         energyBillRepository.save(bill);
         bill.getProducts().forEach(productRepository::save);

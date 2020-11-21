@@ -16,7 +16,7 @@ public class ProductFactory implements Factory<Product> {
                     .totalValue(new BigDecimal(resultSet.getString("total_val")))
                     .fornecValue(new BigDecimal(resultSet.getString("supply_val")))
                     .description(resultSet.getString("prod_desc"))
-                    .billNum(resultSet.getLong("bill_num"))
+                    .billNum(resultSet.getString("bill_num"))
                     .build();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

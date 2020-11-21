@@ -10,6 +10,8 @@ import com.tecsus.ddc.controller.service.EnergyBillService;
 import com.tecsus.ddc.view.frames.generator.EnergyBillGenerator;
 import com.tecsus.ddc.view.frames.home.TelaHome;
 
+import javax.swing.*;
+
 
 /**
  *
@@ -798,8 +800,10 @@ public class Energia extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       energyBillService.insert(EnergyBillGenerator.generate(fields));
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformedJTable
+        JTable tariffFlagsTable = new JTable();
+        JTable productsTable = new JTable();
+        energyBillService.insert(EnergyBillGenerator.generate(fields, tariffFlagsTable, productsTable));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
