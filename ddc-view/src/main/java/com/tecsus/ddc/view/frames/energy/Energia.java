@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.tecsus.ddc.view.frames.energy;
 
-import java.awt.*;
-import javax.swing.*;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle;
-import javax.swing.border.*;
-import javax.swing.table.*;
 import com.tecsus.ddc.bills.energy.EnergyBill;
-import com.tecsus.ddc.view.frames.generator.EnergyBillGenerator;
 import com.tecsus.ddc.controller.service.EnergyBillService;
+import com.tecsus.ddc.view.frames.generator.EnergyBillGenerator;
 import com.tecsus.ddc.view.frames.home.TelaHome;
 
 
@@ -22,10 +17,8 @@ import com.tecsus.ddc.view.frames.home.TelaHome;
  * @author William Antoniazzi
  */
 public class Energia extends javax.swing.JInternalFrame {
-//    private EnergyBillController controller;
     private EnergyBillFormTextFields fields;
     private final EnergyBillService energyBillService;
-    //private EnergyBillFormLabelsFields labels;
 
     /**
      * Creates new form Energia
@@ -43,884 +36,744 @@ public class Energia extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - William Antoniazzi
     private void initComponents() {
-        ScrPanelEnergia = new JScrollPane();
-        PanelEnergia = new JPanel();
-        PanelClienteLocal = new JPanel();
-        lblCpfCnpj = new JLabel();
-//        txtCpfCnpj = new JTextField();
-        lblInsEstadual = new JLabel();
-//        txtInsEstadual = new JTextField();
-        lblRazaoSocial = new JLabel();
-//        txtRazaoSocial = new JTextField();
-        lblNomeCliente = new JLabel();
-//        txtNomeClienteEnd = new JTextField();
-        lblVazio01 = new JLabel();
-        lblEndereco = new JLabel();
-//        txtEndereco = new JTextField();
-        lblNumero = new JLabel();
-//        txtNumeroEnd = new JTextField();
-        lblComplemento = new JLabel();
-//        txtComplementoEnd = new JTextField();
-        lblBairro = new JLabel();
-//        txtBairroEnd = new JTextField();
-        lblCidadeEnd = new JLabel();
-//        txtCidadeEnd = new JTextField();
-        lblCepEnd = new JLabel();
-//        txtCepEnd = new JTextField();
-        lblEstadoEnd = new JLabel();
-        cbxEstadoEnd = new JComboBox<>();
-        lblVazio02 = new JLabel();
-        lblCodIdentificacao = new JLabel();
-//        txtCodIdentificacao = new JTextField();
-        lblCodFiscalOperacao = new JLabel();
-//        txtCodFiscalOperacao = new JTextField();
-        lblGrupo = new JLabel();
-//        txtGrupo = new JTextField();
-        lblSubgrupo = new JLabel();
-//        txtSubgrupo = new JTextField();
-        lblClasse = new JLabel();
-//        txtClasse = new JTextField();
-        lblTipoFornecimento = new JLabel();
-//        txtTipoFornecimento = new JTextField();
-        lblModalidadeTarifa = new JLabel();
-//        txtModalidadeTarifa = new JTextField();
-        lblRoteiroLeitura = new JLabel();
-//        txtRoteiroLeitura = new JTextField();
-        lblTensaoNominal = new JLabel();
-//        txtTensaoNominal = new JTextField();
-        lblNumeroMedidor = new JLabel();
-//        txtNumeroMedidor = new JTextField();
-        lblNumeroInstalacao = new JLabel();
-//        txtNumeroInstalacao = new JTextField();
-        lblSubclasse = new JLabel();
-//        txtSubclasse = new JTextField();
-        PanelBandDadosPeriodo = new JPanel();
-        lblDataVencimento = new JLabel();
-//        txtDataVencimento = new JTextField();
-        lblContaMes = new JLabel();
-//        txtContaMes = new JTextField();
-        lblValorTotalPagar = new JLabel();
-//        txtValorTotalPagar = new JTextField();
-        lblConsumoKwhMes = new JLabel();
-//        txtConsumoKwhMes = new JTextField();
-        lblDataInicioBandeira = new JLabel();
-//        txtDataInicioBandeira = new JTextField();
-        lblDataFinalBandeira = new JLabel();
-//        txtDataFinalBandeira = new JTextField();
-        lblTipoBandeira = new JLabel();
-//        txtTipoBandeira = new JTextField();
-        PanelFaturamento = new JPanel();
-        lblEmissaoFatura = new JLabel();
-//        txtEmissaoFatura = new JTextField();
-        lblDiasFatura = new JLabel();
-//        txtDiasFatura = new JTextField();
-        lblDataLeitAnterior = new JLabel();
-//        txtDataLeitAnterior = new JTextField();
-        lblDataLeitAtual = new JLabel();
-//        txtDataLeitAtual = new JTextField();
-        lblDataLeitProxima = new JLabel();
-//        txtDataLeitProxima = new JTextField();
-        lblLeituraAntKwh = new JLabel();
-//        txtLeituraAntKwh = new JTextField();
-        lblLeituraAtualKwh = new JLabel();
-//        txtLeituraAtualKwh = new JTextField();
-        JScrollPane1 = new JScrollPane();
-        tblFaturamento = new JTable();
-        lblDescricaoFatura = new JLabel();
-        cbxDescicaoFatura = new JComboBox<>();
-        lblValorFornecido = new JLabel();
-//        txtValorFornecido = new JTextField();
-        lblValorTotalFatura = new JLabel();
-//        txtValorTotalFatura = new JTextField();
-        bntAdd = new JButton();
-        bntDelete = new JButton();
-        lblItensFinanceiros = new JLabel();
-        lblCIPMunicipal = new JLabel();
-//        txtCIPMunicipal = new JTextField();
-        lblTributos = new JLabel();
-        lblPIS = new JLabel();
-//        txtValorPIS = new JTextField();
-        lblCofins = new JLabel();
-//        txtValorCofins = new JTextField();
-        lblICMS = new JLabel();
-//        txtValorICMS = new JTextField();
-        btnVoltar = new JButton();
-        btnLimpar = new JButton();
-        btnSalvar = new JButton();
 
-        //======== this ========
-        setTitle("DDC - Sistema de Digita\u00e7\u00e3o de Contas");
+        ScrPanelEnergia = new javax.swing.JScrollPane();
+        PanelEnergia = new javax.swing.JPanel();
+        PanelClienteLocal = new javax.swing.JPanel();
+        lblCpfCnpj = new javax.swing.JLabel();
+        txtCpfCnpj = new javax.swing.JTextField();
+        lblInsEstadual = new javax.swing.JLabel();
+        txtInsEstadual = new javax.swing.JTextField();
+        lblRazaoSocial = new javax.swing.JLabel();
+        txtRazaoSocial = new javax.swing.JTextField();
+        lblNomeCliente = new javax.swing.JLabel();
+        txtNomeClienteEnd = new javax.swing.JTextField();
+        lblVazio01 = new javax.swing.JLabel();
+        lblEndereco = new javax.swing.JLabel();
+        txtEndereco = new javax.swing.JTextField();
+        lblNumero = new javax.swing.JLabel();
+        txtNumeroEnd = new javax.swing.JTextField();
+        lblComplemento = new javax.swing.JLabel();
+        txtComplementoEnd = new javax.swing.JTextField();
+        lblBairro = new javax.swing.JLabel();
+        txtBairroEnd = new javax.swing.JTextField();
+        lblCidadeEnd = new javax.swing.JLabel();
+        txtCidadeEnd = new javax.swing.JTextField();
+        lblCepEnd = new javax.swing.JLabel();
+        txtCepEnd = new javax.swing.JTextField();
+        lblEstadoEnd = new javax.swing.JLabel();
+        cbxEstadoEnd = new javax.swing.JComboBox<>();
+        lblVazio02 = new javax.swing.JLabel();
+        lblCodIdentificacao = new javax.swing.JLabel();
+        txtCodIdentificacao = new javax.swing.JTextField();
+        lblCodFiscalOperacao = new javax.swing.JLabel();
+        txtCodFiscalOperacao = new javax.swing.JTextField();
+        lblGrupo = new javax.swing.JLabel();
+        txtGrupo = new javax.swing.JTextField();
+        lblSubgrupo = new javax.swing.JLabel();
+        txtSubgrupo = new javax.swing.JTextField();
+        lblClasse = new javax.swing.JLabel();
+        txtClasse = new javax.swing.JTextField();
+        lblTipoFornecimento = new javax.swing.JLabel();
+        txtTipoFornecimento = new javax.swing.JTextField();
+        lblModalidadeTarifa = new javax.swing.JLabel();
+        txtModalidadeTarifa = new javax.swing.JTextField();
+        lblRoteiroLeitura = new javax.swing.JLabel();
+        txtRoteiroLeitura = new javax.swing.JTextField();
+        lblTensaoNominal = new javax.swing.JLabel();
+        txtTensaoNominal = new javax.swing.JTextField();
+        lblNumeroMedidor = new javax.swing.JLabel();
+        txtNumeroMedidor = new javax.swing.JTextField();
+        lblNumeroInstalacao = new javax.swing.JLabel();
+        txtNumeroInstalacao = new javax.swing.JTextField();
+        lblSubclasse = new javax.swing.JLabel();
+        txtSubclasse = new javax.swing.JTextField();
+        PanelBandDadosPeriodo = new javax.swing.JPanel();
+        lblDataVencimento = new javax.swing.JLabel();
+        txtDataVencimento = new javax.swing.JTextField();
+        lblContaMes = new javax.swing.JLabel();
+        txtContaMes = new javax.swing.JTextField();
+        lblValorTotalPagar = new javax.swing.JLabel();
+        txtValorTotalPagar = new javax.swing.JTextField();
+        lblConsumoKwhMes = new javax.swing.JLabel();
+        txtConsumoKwhMes = new javax.swing.JTextField();
+        lblDataInicioBandeira = new javax.swing.JLabel();
+        txtDataInicioBandeira = new javax.swing.JTextField();
+        lblDataFinalBandeira = new javax.swing.JLabel();
+        txtDataFinalBandeira = new javax.swing.JTextField();
+        lblTipoBandeira = new javax.swing.JLabel();
+        txtTipoBandeira = new javax.swing.JTextField();
+        PanelFaturamento = new javax.swing.JPanel();
+        lblEmissaoFatura = new javax.swing.JLabel();
+        txtEmissaoFatura = new javax.swing.JTextField();
+        lblDiasFatura = new javax.swing.JLabel();
+        txtDiasFatura = new javax.swing.JTextField();
+        lblDataLeitAnterior = new javax.swing.JLabel();
+        txtDataLeitAnterior = new javax.swing.JTextField();
+        lblDataLeitAtual = new javax.swing.JLabel();
+        txtDataLeitAtual = new javax.swing.JTextField();
+        lblDataLeitProxima = new javax.swing.JLabel();
+        txtDataLeitProxima = new javax.swing.JTextField();
+        lblLeituraAntKwh = new javax.swing.JLabel();
+        txtLeituraAntKwh = new javax.swing.JTextField();
+        lblLeituraAtualKwh = new javax.swing.JLabel();
+        txtLeituraAtualKwh = new javax.swing.JTextField();
+        lblDescricaoFatura = new javax.swing.JLabel();
+        cbxDescicaoFatura = new javax.swing.JComboBox<>();
+        lblValorFornecido = new javax.swing.JLabel();
+        txtValorFornecido = new javax.swing.JTextField();
+        lblValorTotalFatura = new javax.swing.JLabel();
+        txtValorTotalFatura = new javax.swing.JTextField();
+        bntAdd = new javax.swing.JButton();
+        bntDelete = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblFaturamento = new javax.swing.JTable();
+        lblItensFinanceiros = new javax.swing.JLabel();
+        lblCIPMunicipal = new javax.swing.JLabel();
+        txtCIPMunicipal = new javax.swing.JTextField();
+        lblTributos = new javax.swing.JLabel();
+        lblPIS = new javax.swing.JLabel();
+        txtValorPIS = new javax.swing.JTextField();
+        lblCofins = new javax.swing.JLabel();
+        txtValorCofins = new javax.swing.JTextField();
+        lblICMS = new javax.swing.JLabel();
+        txtValorICMS = new javax.swing.JTextField();
+        btnVoltar = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("DDC - Sistema de Digitação de Contas");
         setToolTipText("");
-        setName("");
-        Container contentPane = getContentPane();
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(860, 810));
 
-        //======== ScrPanelEnergia ========
-        {
-            ScrPanelEnergia.setToolTipText("");
-            ScrPanelEnergia.setColumnHeaderView(null);
-            ScrPanelEnergia.setRowHeaderView(null);
+        ScrPanelEnergia.setToolTipText("");
+        ScrPanelEnergia.setColumnHeaderView(null);
+        ScrPanelEnergia.setPreferredSize(new java.awt.Dimension(840, 800));
+        ScrPanelEnergia.setRowHeaderView(null);
 
-            //======== PanelEnergia ========
-            {
-                PanelEnergia.setBorder(new TitledBorder("CADASTRO DE CONTA DE ENERGIA"));
-                PanelEnergia.setToolTipText("");
-                PanelEnergia.setName("");
-                PanelEnergia.setOpaque(false);
-                PanelEnergia.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing.
-                border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER
-                ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font
-                . BOLD ,12 ) ,java . awt. Color .red ) ,PanelEnergia. getBorder () ) ); PanelEnergia. addPropertyChangeListener(
-                new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order"
-                .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        PanelEnergia.setBorder(javax.swing.BorderFactory.createTitledBorder("CADASTRO DE CONTA DE ENERGIA"));
+        PanelEnergia.setToolTipText("");
+        PanelEnergia.setName(""); // NOI18N
+        PanelEnergia.setOpaque(false);
 
-                //======== PanelClienteLocal ========
-                {
-                    PanelClienteLocal.setBorder(new TitledBorder(null, "CLIENTE / LOCAL CONSUMO", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
+        PanelClienteLocal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CLIENTE / LOCAL CONSUMO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-                    //---- lblCpfCnpj ----
-                    lblCpfCnpj.setText("CPF/ CNPJ/ CI:");
+        lblCpfCnpj.setText("CPF/ CNPJ/ CI:");
 
-                    //---- txtCpfCnpj ----
-                    fields.getTxtCpfCnpj().setHorizontalAlignment(JTextField.LEFT);
-                    fields.getTxtCpfCnpj().setToolTipText("");
+        txtCpfCnpj.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtCpfCnpj.setToolTipText("");
 
-                    //---- lblInsEstadual ----
-                    lblInsEstadual.setText("Inscri\u00e7\u00e3o Estadual:");
+        lblInsEstadual.setText("Inscrição Estadual:");
 
-                    //---- lblRazaoSocial ----
-                    lblRazaoSocial.setText("Raz\u00e3o Social: ");
-                    lblRazaoSocial.setToolTipText("");
+        lblRazaoSocial.setText("Razão Social: ");
+        lblRazaoSocial.setToolTipText("");
 
-                    //---- txtRazaoSocial ----
-                    fields.getTxtRazaoSocial().setScrollOffset(1);
+        txtRazaoSocial.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtRazaoSocial.setScrollOffset(1);
 
-                    //---- lblNomeCliente ----
-                    lblNomeCliente.setText("Nome Cliente:");
+        lblNomeCliente.setText("Nome Cliente:");
 
-                    //---- lblVazio01 ----
-                    lblVazio01.setText("   ");
+        lblVazio01.setText("   ");
 
-                    //---- lblEndereco ----
-                    lblEndereco.setText("Endere\u00e7o (Rua, Avenida, Estrada...):");
+        lblEndereco.setText("Endereço (Rua, Avenida, Estrada...):");
 
-                    //---- lblNumero ----
-                    lblNumero.setText("N\u00famero:");
+        lblNumero.setText("Número:");
 
-                    //---- txtNumeroEnd ----
-                    fields.getTxtNumeroEnd().setToolTipText("");
+        txtNumeroEnd.setToolTipText("");
 
-                    //---- lblComplemento ----
-                    lblComplemento.setText("Complemento:");
+        lblComplemento.setText("Complemento:");
 
-                    //---- txtComplementoEnd ----
-                    fields.getTxtComplementoEnd().setToolTipText("");
+        txtComplementoEnd.setToolTipText("");
 
-                    //---- lblBairro ----
-                    lblBairro.setText("Bairro: ");
+        lblBairro.setText("Bairro: ");
 
-                    //---- txtBairroEnd ----
-                    fields.getTxtBairroEnd().setToolTipText("");
+        txtBairroEnd.setToolTipText("");
 
-                    //---- lblCidadeEnd ----
-                    lblCidadeEnd.setText("Cidade:");
+        lblCidadeEnd.setText("Cidade:");
 
-                    //---- txtCidadeEnd ----
-                    fields.getTxtCidadeEnd().setToolTipText("");
+        txtCidadeEnd.setToolTipText("");
 
-                    //---- lblCepEnd ----
-                    lblCepEnd.setText("CEP:");
+        lblCepEnd.setText("CEP:");
 
-                    //---- txtCepEnd ----
-                    fields.getTxtCepEnd().setToolTipText("");
+        txtCepEnd.setToolTipText("");
 
-                    //---- lblEstadoEnd ----
-                    lblEstadoEnd.setText("Estado:");
+        lblEstadoEnd.setText("Estado:");
 
-                    //---- cbxEstadoEnd ----
-                    cbxEstadoEnd.setModel(new DefaultComboBoxModel<>(new String[] {
-                        "Item 1",
-                        "Item 2",
-                        "Item 3",
-                        "Item 4"
-                    }));
+        cbxEstadoEnd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-                    //---- lblVazio02 ----
-                    lblVazio02.setText("   ");
+        lblVazio02.setText("   ");
 
-                    //---- lblCodIdentificacao ----
-                    lblCodIdentificacao.setText("N\u00famero da Conta:");
+        lblCodIdentificacao.setText("Número da Conta:");
 
-                    //---- lblCodFiscalOperacao ----
-                    lblCodFiscalOperacao.setText("Cod. Fiscal Opera\u00e7\u00e3o:");
+        lblCodFiscalOperacao.setText("Cod. Fiscal Operação:");
 
-                    //---- txtCodFiscalOperacao ----
-                    fields.getTxtCodFiscalOperacao().setToolTipText("");
+        txtCodFiscalOperacao.setToolTipText("");
 
-                    //---- lblGrupo ----
-                    lblGrupo.setText("Grupo:");
-                    lblGrupo.setToolTipText("");
+        lblGrupo.setText("Grupo:");
+        lblGrupo.setToolTipText("");
 
-                    //---- txtGrupo ----
-                    fields.getTxtGrupo().setToolTipText("");
+        txtGrupo.setToolTipText("");
 
-                    //---- lblSubgrupo ----
-                    lblSubgrupo.setText("Subgrupo:");
-                    lblSubgrupo.setToolTipText("");
+        lblSubgrupo.setText("Subgrupo:");
+        lblSubgrupo.setToolTipText("");
 
-                    //---- txtSubgrupo ----
-                    fields.getTxtSubgrupo().setToolTipText("");
+        txtSubgrupo.setToolTipText("");
 
-                    //---- lblClasse ----
-                    lblClasse.setText("Classe:");
+        lblClasse.setText("Classe:");
 
-                    //---- lblTipoFornecimento ----
-                    lblTipoFornecimento.setText("Tipo Fornecimento:");
+        lblTipoFornecimento.setText("Tipo Fornecimento:");
 
-                    //---- lblModalidadeTarifa ----
-                    lblModalidadeTarifa.setText("Modalidade Tarifa:");
+        lblModalidadeTarifa.setText("Modalidade Tarifa:");
 
-                    //---- lblRoteiroLeitura ----
-                    lblRoteiroLeitura.setText("Roteiro de Leitura:");
+        lblRoteiroLeitura.setText("Roteiro de Leitura:");
 
-                    //---- lblTensaoNominal ----
-                    lblTensaoNominal.setText("Tens\u00e3o Nominal:");
+        lblTensaoNominal.setText("Tensão Nominal:");
 
-                    //---- txtTensaoNominal ----
-                    fields.getTxtTensaoNominal().setToolTipText("");
+        txtTensaoNominal.setToolTipText("");
 
-                    //---- lblNumeroMedidor ----
-                    lblNumeroMedidor.setText("N\u00famero Medidor:");
+        lblNumeroMedidor.setText("Número Medidor:");
 
-                    //---- lblNumeroInstalacao ----
-                    lblNumeroInstalacao.setText("N\u00famero da Instala\u00e7\u00e3o:");
+        lblNumeroInstalacao.setText("Número da Instalação:");
 
-                    //---- txtNumeroInstalacao ----
-                    fields.getTxtNumeroInstalacao().setToolTipText("");
+        txtNumeroInstalacao.setToolTipText("");
 
-                    //---- lblSubclasse ----
-                    lblSubclasse.setText("Subclase:");
+        lblSubclasse.setText("Subclase:");
 
-                    GroupLayout PanelClienteLocalLayout = new GroupLayout(PanelClienteLocal);
-                    PanelClienteLocal.setLayout(PanelClienteLocalLayout);
-                    PanelClienteLocalLayout.setHorizontalGroup(
-                        PanelClienteLocalLayout.createParallelGroup()
+        javax.swing.GroupLayout PanelClienteLocalLayout = new javax.swing.GroupLayout(PanelClienteLocal);
+        PanelClienteLocal.setLayout(PanelClienteLocalLayout);
+        PanelClienteLocalLayout.setHorizontalGroup(
+            PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                        .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCodIdentificacao)
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                        .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                            .addComponent(lblCodIdentificacao)
-                                            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                                .addGap(40, 40, 40)
-                                                .addComponent(lblVazio02)))
-                                        .addGap(14, 14, 14)
-                                        .addComponent(fields.getTxtCodIdentificacao(), GroupLayout.PREFERRED_SIZE, 100,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblCodFiscalOperacao)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtCodFiscalOperacao(), GroupLayout.PREFERRED_SIZE, 60,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblGrupo)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtGrupo(), GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblSubgrupo)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtSubgrupo(), GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblClasse)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtClasse(), GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                        .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                            .addComponent(lblCpfCnpj)
-                                            .addComponent(lblInsEstadual)
-                                            .addComponent(lblVazio01))
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                                .addComponent(fields.getTxtInsEstadual(), GroupLayout.PREFERRED_SIZE, 100,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lblNomeCliente)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(fields.getTxtNomeClienteEnd()))
-                                            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                                .addComponent(fields.getTxtCpfCnpj(), GroupLayout.PREFERRED_SIZE, 100,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lblRazaoSocial)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(fields.getTxtRazaoSocial()))))
-                                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                        .addComponent(lblEndereco)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtEndereco()))
-                                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                        .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                            .addComponent(lblNumero)
-                                            .addComponent(lblCidadeEnd))
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                                .addComponent(fields.getTxtCidadeEnd(), GroupLayout.PREFERRED_SIZE, 370,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lblCepEnd)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(fields.getTxtCepEnd(), GroupLayout.PREFERRED_SIZE, 80,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lblEstadoEnd)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(cbxEstadoEnd))
-                                            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                                .addComponent(fields.getTxtNumeroEnd(), GroupLayout.PREFERRED_SIZE, 80,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lblComplemento)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(fields.getTxtComplementoEnd(), GroupLayout.PREFERRED_SIZE, 80,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(lblBairro)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(fields.getTxtBairroEnd())))))
-                                .addGap(21, 21, 21))
+                                .addGap(40, 40, 40)
+                                .addComponent(lblVazio02)))
+                        .addGap(14, 14, 14)
+                        .addComponent(txtCodIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCodFiscalOperacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCodFiscalOperacao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblGrupo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblSubgrupo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSubgrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblClasse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                        .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCpfCnpj)
+                            .addComponent(lblInsEstadual)
+                            .addComponent(lblVazio01))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                        .addComponent(lblSubclasse)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtSubclasse(), GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblTipoFornecimento)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtTipoFornecimento(), GroupLayout.PREFERRED_SIZE, 85,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblModalidadeTarifa)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtModalidadeTarifa(), GroupLayout.PREFERRED_SIZE, 90,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblRoteiroLeitura)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtRoteiroLeitura(), GroupLayout.PREFERRED_SIZE, 100,
-                                                GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                        .addComponent(lblNumeroMedidor)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtNumeroMedidor(), GroupLayout.PREFERRED_SIZE, 100,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblNumeroInstalacao)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtNumeroInstalacao(), GroupLayout.PREFERRED_SIZE, 100,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblTensaoNominal)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtTensaoNominal(), GroupLayout.PREFERRED_SIZE, 69,
-                                                GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    );
-                    PanelClienteLocalLayout.setVerticalGroup(
-                        PanelClienteLocalLayout.createParallelGroup()
+                                .addComponent(txtInsEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNomeCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNomeClienteEnd))
                             .addGroup(PanelClienteLocalLayout.createSequentialGroup()
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCpfCnpj)
-                                    .addComponent(fields.getTxtCpfCnpj(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblRazaoSocial)
-                                    .addComponent(fields.getTxtRazaoSocial(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                    .addComponent(lblInsEstadual, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(PanelClienteLocalLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblNomeCliente)
-                                        .addComponent(fields.getTxtNomeClienteEnd(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fields.getTxtInsEstadual(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblVazio01)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                    .addComponent(lblEndereco)
-                                    .addComponent(fields.getTxtEndereco(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblNumero)
-                                    .addComponent(fields.getTxtNumeroEnd(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblComplemento)
-                                    .addComponent(fields.getTxtComplementoEnd(), GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblBairro)
-                                    .addComponent(fields.getTxtBairroEnd(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCidadeEnd)
-                                    .addComponent(lblCepEnd)
-                                    .addComponent(lblEstadoEnd)
-                                    .addComponent(fields.getTxtCidadeEnd(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fields.getTxtCepEnd(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbxEstadoEnd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblVazio02)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup()
-                                    .addComponent(fields.getTxtCodIdentificacao(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCodIdentificacao)
-                                    .addComponent(fields.getTxtCodFiscalOperacao(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCodFiscalOperacao)
-                                    .addGroup(PanelClienteLocalLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(fields.getTxtGrupo(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblGrupo)
-                                        .addComponent(fields.getTxtSubgrupo(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblSubgrupo)
-                                        .addComponent(lblClasse)
-                                        .addComponent(fields.getTxtClasse(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblSubclasse)
-                                    .addComponent(fields.getTxtSubclasse(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTipoFornecimento)
-                                    .addComponent(fields.getTxtTipoFornecimento(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblModalidadeTarifa)
-                                    .addComponent(fields.getTxtModalidadeTarifa(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblRoteiroLeitura)
-                                    .addComponent(fields.getTxtRoteiroLeitura(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PanelClienteLocalLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblNumeroMedidor)
-                                    .addComponent(fields.getTxtNumeroMedidor(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNumeroInstalacao)
-                                    .addComponent(fields.getTxtNumeroInstalacao(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTensaoNominal)
-                                    .addComponent(fields.getTxtTensaoNominal(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)))
-                    );
-                }
+                                .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblRazaoSocial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtRazaoSocial))))
+                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                        .addComponent(lblEndereco)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtEndereco))
+                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                        .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNumero)
+                            .addComponent(lblCidadeEnd))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                                .addComponent(txtCidadeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblCepEnd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCepEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblEstadoEnd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbxEstadoEnd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                                .addComponent(txtNumeroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblComplemento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtComplementoEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblBairro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtBairroEnd)))))
+                .addGap(21, 21, 21))
+            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                        .addComponent(lblSubclasse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSubclasse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblTipoFornecimento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTipoFornecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblModalidadeTarifa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtModalidadeTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblRoteiroLeitura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRoteiroLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                        .addComponent(lblNumeroMedidor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNumeroMedidor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblNumeroInstalacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNumeroInstalacao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblTensaoNominal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTensaoNominal, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelClienteLocalLayout.setVerticalGroup(
+            PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelClienteLocalLayout.createSequentialGroup()
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCpfCnpj)
+                    .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRazaoSocial)
+                    .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblInsEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNomeCliente)
+                        .addComponent(txtNomeClienteEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtInsEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVazio01)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEndereco)
+                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumero)
+                    .addComponent(txtNumeroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblComplemento)
+                    .addComponent(txtComplementoEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBairro)
+                    .addComponent(txtBairroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCidadeEnd)
+                    .addComponent(lblCepEnd)
+                    .addComponent(lblEstadoEnd)
+                    .addComponent(txtCidadeEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCepEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxEstadoEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVazio02)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCodIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodIdentificacao)
+                    .addComponent(txtCodFiscalOperacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodFiscalOperacao)
+                    .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblGrupo)
+                        .addComponent(txtSubgrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblSubgrupo)
+                        .addComponent(lblClasse)
+                        .addComponent(txtClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSubclasse)
+                    .addComponent(txtSubclasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTipoFornecimento)
+                    .addComponent(txtTipoFornecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModalidadeTarifa)
+                    .addComponent(txtModalidadeTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRoteiroLeitura)
+                    .addComponent(txtRoteiroLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelClienteLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumeroMedidor)
+                    .addComponent(txtNumeroMedidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNumeroInstalacao)
+                    .addComponent(txtNumeroInstalacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTensaoNominal)
+                    .addComponent(txtTensaoNominal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
-                //======== PanelBandDadosPeriodo ========
-                {
-                    PanelBandDadosPeriodo.setBorder(new TitledBorder(null, "BANDEIRA / DADOS CONTA / PER\u00cdODO E DESCRI\u00c7\u00c3O CONSUMO", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
+        txtCpfCnpj.getAccessibleContext().setAccessibleName("txtCpfCnpj");
+        lblCodIdentificacao.getAccessibleContext().setAccessibleName("Classe/ Subclasse:");
 
-                    //---- lblDataVencimento ----
-                    lblDataVencimento.setText("Data Vencimento:");
+        PanelBandDadosPeriodo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BANDEIRA / DADOS CONTA / PERÍODO E DESCRIÇÃO CONSUMO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-                    //---- txtDataVencimento ----
-                    fields.getTxtDataVencimento().setToolTipText("");
+        lblDataVencimento.setText("Data Vencimento:");
 
-                    //---- lblContaMes ----
-                    lblContaMes.setText("Conta M\u00eas:");
+        txtDataVencimento.setToolTipText("");
 
-                    //---- lblValorTotalPagar ----
-                    lblValorTotalPagar.setText("Valor Total Pagar:");
+        lblContaMes.setText("Conta Mês:");
 
-                    //---- txtValorTotalPagar ----
-                    fields.getTxtValorTotalPagar().setToolTipText("");
+        lblValorTotalPagar.setText("Valor Total Pagar:");
 
-                    //---- lblConsumoKwhMes ----
-                    lblConsumoKwhMes.setText("Consumo kWh M\u00eas:");
+        txtValorTotalPagar.setToolTipText("");
 
-                    //---- lblDataInicioBandeira ----
-                    lblDataInicioBandeira.setText("Data In\u00edcio Bandeira:");
+        lblConsumoKwhMes.setText("Consumo kWh Mês:");
 
-                    //---- lblDataFinalBandeira ----
-                    lblDataFinalBandeira.setText("Data Final Bandeira:");
+        lblDataInicioBandeira.setText("Data Início Bandeira:");
 
-                    //---- lblTipoBandeira ----
-                    lblTipoBandeira.setText("Tipo Bandeira:");
+        lblDataFinalBandeira.setText("Data Final Bandeira:");
 
-                    GroupLayout PanelBandDadosPeriodoLayout = new GroupLayout(PanelBandDadosPeriodo);
-                    PanelBandDadosPeriodo.setLayout(PanelBandDadosPeriodoLayout);
-                    PanelBandDadosPeriodoLayout.setHorizontalGroup(
-                        PanelBandDadosPeriodoLayout.createParallelGroup()
-                            .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
-                                .addComponent(lblDataVencimento)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fields.getTxtDataVencimento(), GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblContaMes)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fields.getTxtContaMes(), GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblValorTotalPagar)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fields.getTxtValorTotalPagar(), GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblConsumoKwhMes)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fields.getTxtConsumoKwhMes())
-                                .addGap(10, 10, 10))
-                            .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
-                                .addComponent(lblDataInicioBandeira)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fields.getTxtDataInicioBandeira(), GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblDataFinalBandeira)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fields.getTxtDataFinalBandeira(), GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblTipoBandeira)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fields.getTxtTipoBandeira(), GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    );
-                    PanelBandDadosPeriodoLayout.setVerticalGroup(
-                        PanelBandDadosPeriodoLayout.createParallelGroup()
-                            .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
-                                .addGroup(PanelBandDadosPeriodoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblDataVencimento)
-                                    .addComponent(fields.getTxtDataVencimento(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblContaMes)
-                                    .addComponent(fields.getTxtContaMes(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblValorTotalPagar)
-                                    .addComponent(fields.getTxtValorTotalPagar(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblConsumoKwhMes)
-                                    .addComponent(fields.getTxtConsumoKwhMes(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelBandDadosPeriodoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblDataInicioBandeira)
-                                    .addComponent(fields.getTxtDataInicioBandeira(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataFinalBandeira)
-                                    .addComponent(fields.getTxtDataFinalBandeira(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTipoBandeira)
-                                    .addComponent(fields.getTxtTipoBandeira(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())
-                    );
-                }
+        lblTipoBandeira.setText("Tipo Bandeira:");
 
-                //======== PanelFaturamento ========
-                {
-                    PanelFaturamento.setBorder(new TitledBorder(null, "DETALHES FATURAMENTO", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
+        javax.swing.GroupLayout PanelBandDadosPeriodoLayout = new javax.swing.GroupLayout(PanelBandDadosPeriodo);
+        PanelBandDadosPeriodo.setLayout(PanelBandDadosPeriodoLayout);
+        PanelBandDadosPeriodoLayout.setHorizontalGroup(
+            PanelBandDadosPeriodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
+                .addComponent(lblDataVencimento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblContaMes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtContaMes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblValorTotalPagar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtValorTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblConsumoKwhMes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtConsumoKwhMes)
+                .addGap(10, 10, 10))
+            .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
+                .addComponent(lblDataInicioBandeira)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDataInicioBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDataFinalBandeira)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDataFinalBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTipoBandeira)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtTipoBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelBandDadosPeriodoLayout.setVerticalGroup(
+            PanelBandDadosPeriodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBandDadosPeriodoLayout.createSequentialGroup()
+                .addGroup(PanelBandDadosPeriodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataVencimento)
+                    .addComponent(txtDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblContaMes)
+                    .addComponent(txtContaMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblValorTotalPagar)
+                    .addComponent(txtValorTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblConsumoKwhMes)
+                    .addComponent(txtConsumoKwhMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelBandDadosPeriodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataInicioBandeira)
+                    .addComponent(txtDataInicioBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataFinalBandeira)
+                    .addComponent(txtDataFinalBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTipoBandeira)
+                    .addComponent(txtTipoBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
-                    //---- lblEmissaoFatura ----
-                    lblEmissaoFatura.setText("Emiss\u00e3o Fatura:");
+        PanelFaturamento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DETALHES FATURAMENTO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-                    //---- lblDiasFatura ----
-                    lblDiasFatura.setText("Dias de Faturamento:");
+        lblEmissaoFatura.setText("Emissão Fatura:");
 
-                    //---- lblDataLeitAnterior ----
-                    lblDataLeitAnterior.setText("Data Leitura Anterior:");
+        lblDiasFatura.setText("Dias de Faturamento:");
 
-                    //---- lblDataLeitAtual ----
-                    lblDataLeitAtual.setText("Data Leitura Atual:");
+        lblDataLeitAnterior.setText("Data Leitura Anterior:");
 
-                    //---- lblDataLeitProxima ----
-                    lblDataLeitProxima.setText("Data Leitura Pr\u00f3xima:");
+        lblDataLeitAtual.setText("Data Leitura Atual:");
 
-                    //---- lblLeituraAntKwh ----
-                    lblLeituraAntKwh.setText("Leitura Anterior kWh:");
+        lblDataLeitProxima.setText("Data Leitura Próxima:");
 
-                    //---- lblLeituraAtualKwh ----
-                    lblLeituraAtualKwh.setText("Leitura Atual kWh:");
+        lblLeituraAntKwh.setText("Leitura Anterior kWh:");
 
-                    //======== jScrollPane1 ========
-                    {
+        lblLeituraAtualKwh.setText("Leitura Atual kWh:");
 
-                        //---- tblFaturamento ----
-                        tblFaturamento.setModel(new DefaultTableModel(
-                            new Object[][] {
-                            },
-                            new String[] {
-                                "Descri\u00e7\u00e3o", "Valor Fornecido", "Valor Total"
-                            }
-                        ));
-                        JScrollPane1.setViewportView(tblFaturamento);
-                    }
+        lblDescricaoFatura.setText("Descrição:");
 
-                    //---- lblDescricaoFatura ----
-                    lblDescricaoFatura.setText("Descri\u00e7\u00e3o:");
+        cbxDescicaoFatura.setMaximumRowCount(27);
+        cbxDescicaoFatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDescicaoFatura.setToolTipText("");
 
-                    //---- cbxDescicaoFatura ----
-                    cbxDescicaoFatura.setModel(new DefaultComboBoxModel<>(new String[] {
-                        "Item 1",
-                        "Item 2",
-                        "Item 3",
-                        "Item 4"
-                    }));
+        lblValorFornecido.setText("Valor Fornecido:");
 
-                    //---- lblValorFornecido ----
-                    lblValorFornecido.setText("Valor Fornecido:");
+        lblValorTotalFatura.setText("Valor Total:");
 
-                    //---- lblValorTotalFatura ----
-                    lblValorTotalFatura.setText("Valor Total:");
-
-                    //---- bntAdd ----
-                    bntAdd.setText("Adicionar");
-                    bntAdd.addActionListener(e -> bntAddActionPerformed(e));
-
-                    //---- bntDelete ----
-                    bntDelete.setText("Remover");
-                    bntDelete.addActionListener(e -> bntDeleteActionPerformed(e));
-
-                    //---- lblItensFinanceiros ----
-                    lblItensFinanceiros.setText("Itens Financeiros:");
-
-                    //---- lblCIPMunicipal ----
-                    lblCIPMunicipal.setText("CIP - Contribui\u00e7\u00e3o Municipal:");
-
-                    //---- lblTributos ----
-                    lblTributos.setText("Tributos:");
-
-                    //---- lblPIS ----
-                    lblPIS.setText("PIS:");
-
-                    //---- lblCofins ----
-                    lblCofins.setText("COFINS:");
-
-                    //---- lblICMS ----
-                    lblICMS.setText("ICMS:");
-
-                    GroupLayout PanelFaturamentoLayout = new GroupLayout(PanelFaturamento);
-                    PanelFaturamento.setLayout(PanelFaturamentoLayout);
-                    PanelFaturamentoLayout.setHorizontalGroup(
-                        PanelFaturamentoLayout.createParallelGroup()
-                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                .addGroup(PanelFaturamentoLayout.createParallelGroup()
-                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                        .addComponent(lblEmissaoFatura)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtEmissaoFatura(), GroupLayout.PREFERRED_SIZE, 70,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblDiasFatura)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtDiasFatura(), GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblDataLeitAnterior)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtDataLeitAnterior(), GroupLayout.PREFERRED_SIZE, 70,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblDataLeitAtual)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtDataLeitAtual(), GroupLayout.PREFERRED_SIZE, 70,
-                                                GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                        .addComponent(lblDataLeitProxima)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtDataLeitProxima(), GroupLayout.PREFERRED_SIZE, 70,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblLeituraAntKwh)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtLeituraAntKwh(), GroupLayout.PREFERRED_SIZE, 100,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblLeituraAtualKwh)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtLeituraAtualKwh(), GroupLayout.PREFERRED_SIZE, 100,
-                                                GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                        .addComponent(lblTributos)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblPIS)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtValorPIS(), GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblCofins)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtValorCofins(), GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblICMS)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtValorICMS(), GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                        .addComponent(lblItensFinanceiros)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblCIPMunicipal)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fields.getTxtCIPMunicipal(), GroupLayout.PREFERRED_SIZE, 70,
-                                                GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                        .addGroup(PanelFaturamentoLayout.createParallelGroup()
-                                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                                .addComponent(lblDescricaoFatura)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(cbxDescicaoFatura, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                                .addComponent(lblValorFornecido)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(fields.getTxtValorFornecido(), GroupLayout.PREFERRED_SIZE, 120,
-                                                        GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                                .addComponent(lblValorTotalFatura)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(PanelFaturamentoLayout.createParallelGroup()
-                                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                                        .addComponent(bntAdd)
-                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(bntDelete))
-                                                    .addComponent(fields.getTxtValorTotalFatura(), GroupLayout.PREFERRED_SIZE, 120,
-                                                            GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(JScrollPane1, GroupLayout.PREFERRED_SIZE, 501, GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    );
-                    PanelFaturamentoLayout.setVerticalGroup(
-                        PanelFaturamentoLayout.createParallelGroup()
-                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblEmissaoFatura)
-                                    .addComponent(fields.getTxtEmissaoFatura(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDiasFatura)
-                                    .addComponent(fields.getTxtDiasFatura(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataLeitAnterior)
-                                    .addComponent(fields.getTxtDataLeitAnterior(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataLeitAtual)
-                                    .addComponent(fields.getTxtDataLeitAtual(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblDataLeitProxima)
-                                    .addComponent(fields.getTxtDataLeitProxima(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLeituraAntKwh)
-                                    .addComponent(fields.getTxtLeituraAntKwh(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLeituraAtualKwh)
-                                    .addComponent(fields.getTxtLeituraAtualKwh(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addGroup(PanelFaturamentoLayout.createParallelGroup()
-                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblDescricaoFatura)
-                                            .addComponent(cbxDescicaoFatura, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblValorFornecido)
-                                            .addComponent(fields.getTxtValorFornecido(), GroupLayout.PREFERRED_SIZE,
-                                                    GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblValorTotalFatura)
-                                            .addComponent(fields.getTxtValorTotalFatura(), GroupLayout.PREFERRED_SIZE,
-                                                    GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                            .addComponent(bntAdd)
-                                            .addComponent(bntDelete)))
-                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JScrollPane1, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCIPMunicipal)
-                                    .addComponent(fields.getTxtCIPMunicipal(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblItensFinanceiros))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPIS)
-                                    .addComponent(fields.getTxtValorPIS(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTributos)
-                                    .addComponent(lblCofins)
-                                    .addComponent(fields.getTxtValorCofins(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblICMS)
-                                    .addComponent(fields.getTxtValorICMS(), GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                                            GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    );
-                }
-
-                //---- btnVoltar ----
-                btnVoltar.setText("Voltar");
-                btnVoltar.addActionListener(e -> btnVoltarActionPerformed(e));
-
-                //---- btnLimpar ----
-                btnLimpar.setText("Limpar");
-
-                //---- btnSalvar ----
-                btnSalvar.setText("Salvar");
-                btnSalvar.addActionListener(e -> btnSalvarActionPerformed(e));
-
-                GroupLayout PanelEnergiaLayout = new GroupLayout(PanelEnergia);
-                PanelEnergia.setLayout(PanelEnergiaLayout);
-                PanelEnergiaLayout.setHorizontalGroup(
-                    PanelEnergiaLayout.createParallelGroup()
-                        .addGroup(PanelEnergiaLayout.createSequentialGroup()
-                            .addGroup(PanelEnergiaLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(PanelBandDadosPeriodo, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(PanelClienteLocal, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(PanelFaturamento, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(GroupLayout.Alignment.TRAILING, PanelEnergiaLayout.createSequentialGroup()
-                            .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSalvar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnLimpar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnVoltar, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-                            .addGap(29, 29, 29))
-                );
-                PanelEnergiaLayout.setVerticalGroup(
-                    PanelEnergiaLayout.createParallelGroup()
-                        .addGroup(PanelEnergiaLayout.createSequentialGroup()
-                            .addComponent(PanelClienteLocal, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(PanelBandDadosPeriodo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(PanelFaturamento, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(PanelEnergiaLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnVoltar)
-                                .addComponent(btnLimpar)
-                                .addComponent(btnSalvar))
-                            .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
+        bntAdd.setText("Adicionar");
+        bntAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntAddActionPerformed(evt);
             }
-            ScrPanelEnergia.setViewportView(PanelEnergia);
-        }
+        });
 
-        GroupLayout contentPaneLayout = new GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
-        contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addComponent(ScrPanelEnergia, GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
+        bntDelete.setText("Remover");
+        bntDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntDeleteActionPerformed(evt);
+            }
+        });
+
+        tblFaturamento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Descrição", "Valor Fornecido", "Valor Total"
+            }
+        ));
+        jScrollPane1.setViewportView(tblFaturamento);
+
+        lblItensFinanceiros.setText("Itens Financeiros:");
+
+        lblCIPMunicipal.setText("CIP - Contribuição Municipal:");
+
+        lblTributos.setText("Tributos:");
+
+        lblPIS.setText("PIS:");
+
+        lblCofins.setText("COFINS:");
+
+        lblICMS.setText("ICMS:");
+
+        javax.swing.GroupLayout PanelFaturamentoLayout = new javax.swing.GroupLayout(PanelFaturamento);
+        PanelFaturamento.setLayout(PanelFaturamentoLayout);
+        PanelFaturamentoLayout.setHorizontalGroup(
+            PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                        .addComponent(lblEmissaoFatura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtEmissaoFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDiasFatura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDiasFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDataLeitAnterior)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDataLeitAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDataLeitAtual)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDataLeitAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                        .addComponent(lblDataLeitProxima)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDataLeitProxima, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblLeituraAntKwh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtLeituraAntKwh, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblLeituraAtualKwh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtLeituraAtualKwh, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                        .addComponent(lblTributos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblPIS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtValorPIS, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCofins)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtValorCofins, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblICMS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtValorICMS, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                        .addComponent(lblItensFinanceiros)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCIPMunicipal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCIPMunicipal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                        .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                                .addComponent(lblDescricaoFatura)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbxDescicaoFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                                .addComponent(lblValorFornecido)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtValorFornecido, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                                .addComponent(lblValorTotalFatura)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                                        .addComponent(bntAdd)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(bntDelete))
+                                    .addComponent(txtValorTotalFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(ScrPanelEnergia, GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
-                    .addGap(0, 0, Short.MAX_VALUE))
+        PanelFaturamentoLayout.setVerticalGroup(
+            PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmissaoFatura)
+                    .addComponent(txtEmissaoFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDiasFatura)
+                    .addComponent(txtDiasFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataLeitAnterior)
+                    .addComponent(txtDataLeitAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataLeitAtual)
+                    .addComponent(txtDataLeitAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataLeitProxima)
+                    .addComponent(txtDataLeitProxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLeituraAntKwh)
+                    .addComponent(txtLeituraAntKwh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLeituraAtualKwh)
+                    .addComponent(txtLeituraAtualKwh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDescricaoFatura)
+                            .addComponent(cbxDescicaoFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblValorFornecido)
+                            .addComponent(txtValorFornecido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblValorTotalFatura)
+                            .addComponent(txtValorTotalFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bntAdd)
+                            .addComponent(bntDelete)))
+                    .addGroup(PanelFaturamentoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCIPMunicipal)
+                    .addComponent(txtCIPMunicipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblItensFinanceiros))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelFaturamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPIS)
+                    .addComponent(txtValorPIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTributos)
+                    .addComponent(lblCofins)
+                    .addComponent(txtValorCofins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblICMS)
+                    .addComponent(txtValorICMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        btnLimpar.setText("Limpar");
+
+        btnSalvar.setBackground(new java.awt.Color(204, 255, 204));
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelEnergiaLayout = new javax.swing.GroupLayout(PanelEnergia);
+        PanelEnergia.setLayout(PanelEnergiaLayout);
+        PanelEnergiaLayout.setHorizontalGroup(
+            PanelEnergiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelEnergiaLayout.createSequentialGroup()
+                .addGroup(PanelEnergiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(PanelBandDadosPeriodo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelClienteLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelFaturamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEnergiaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
+        PanelEnergiaLayout.setVerticalGroup(
+            PanelEnergiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelEnergiaLayout.createSequentialGroup()
+                .addComponent(PanelClienteLocal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelBandDadosPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PanelFaturamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelEnergiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnLimpar)
+                    .addComponent(btnSalvar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        ScrPanelEnergia.setViewportView(PanelEnergia);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ScrPanelEnergia, javax.swing.GroupLayout.DEFAULT_SIZE, 844, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ScrPanelEnergia, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+        );
+
+        getAccessibleContext().setAccessibleParent(this);
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -934,94 +787,156 @@ public class Energia extends javax.swing.JInternalFrame {
         TelaHome.energyFrameisNotOpened = true;
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void bntAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAddActionPerformed
+ /*   private void bntAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAddActionPerformed
         // TODO add your handling code here:
-//      	String descricao = cbxDescicaoFatura.getText().trim(); // jtxxx e o nome do campo fields.getTxt no formulário.
-	    String valorFornecido = fields.getTxtValorTotalFatura().getText().trim();
+        //String descricao = cbxDescicaoFatura.getText().trim(); // jtxxx e o nome do campo txt no formulário.
+        String valorFornecido = fields.getTxtValorTotalFatura().getText().trim();
         String valorTotal = fields.getTxtValorTotalPagar().getText().trim();
-	
-	DefaultTableModel val = (DefaultTableModel) tblFaturamento.getModel();
-		val.addRow(new String[]{ valorFornecido, valorTotal});
-		//cbxDescicaoFatura.setText("");
-		fields.getTxtValorTotalFatura().setText("");
-		fields.getTxtValorTotalPagar().setText("");
-		
-		cbxDescicaoFatura.requestFocus();
+
+        DefaultTableModel val = (DefaultTableModel) tblFaturamento.getModel();
+        val.addRow(new String[]{, valorFornecido, valorTotal});
+        //cbxDescicaoFatura.setText("");
+        fields.getTxtValorTotalFatura().setText("");
+        fields.getTxtValorTotalPagar().setText("");
+
+        cbxDescicaoFatura.requestFocus();
     }//GEN-LAST:event_bntAddActionPerformed
 
     private void bntDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntDeleteActionPerformed
         // TODO add your handling code here:
         ((DefaultTableModel) tblFaturamento.getModel()).removeRow(tblFaturamento.getSelectedRow());
-		cbxDescicaoFatura.requestFocus();
+        cbxDescicaoFatura.requestFocus();
     }//GEN-LAST:event_bntDeleteActionPerformed
 
+*/
+    
+    
+    
+    private void bntAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+        //String descricao = cbxDescicaoFatura.getText().trim(); // jtxxx e o nome do campo txt no formulário.
+//        String valorFornecido = fields.getTxtValorTotalFatura().getText().trim();
+//        String valorTotal = fields.getTxtValorTotalPagar().getText().trim();
+//
+//        DefaultTableModel val = (DefaultTableModel) tblFaturamento.getModel();
+//        val.addRow(new String[]{, valorFornecido, valorTotal});
+//        //cbxDescicaoFatura.setText("");
+//        fields.getTxtValorTotalFatura().setText("");
+//        fields.getTxtValorTotalPagar().setText("");
+//
+//        cbxDescicaoFatura.requestFocus();
+   }                                      
 
+    private void bntDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+//        ((DefaultTableModel) tblFaturamento.getModel()).removeRow(tblFaturamento.getSelectedRow());
+//        cbxDescicaoFatura.requestFocus();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane ScrPanelEnergia;
-    private javax.swing.JPanel PanelEnergia;
-    private javax.swing.JPanel PanelClienteLocal;
     private javax.swing.JPanel PanelBandDadosPeriodo;
+    private javax.swing.JPanel PanelClienteLocal;
+    private javax.swing.JPanel PanelEnergia;
     private javax.swing.JPanel PanelFaturamento;
-
-    private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton btnSalvar;
+    private javax.swing.JScrollPane ScrPanelEnergia;
     private javax.swing.JButton bntAdd;
     private javax.swing.JButton bntDelete;
-
-    private javax.swing.JComboBox<String> cbxEstadoEnd;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cbxDescicaoFatura;
-
-    private javax.swing.JScrollPane JScrollPane1;
-    private javax.swing.JTable tblFaturamento;
-
-    private javax.swing.JLabel lblCpfCnpj;
-    private javax.swing.JLabel lblInsEstadual;
-    private javax.swing.JLabel lblRazaoSocial;
-    private javax.swing.JLabel lblNomeCliente;
-    private javax.swing.JLabel lblVazio01;
-    private javax.swing.JLabel lblEndereco;
-    private javax.swing.JLabel lblNumero;
-    private javax.swing.JLabel lblComplemento;
+    private javax.swing.JComboBox<String> cbxEstadoEnd;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBairro;
-    private javax.swing.JLabel lblCidadeEnd;
+    private javax.swing.JLabel lblCIPMunicipal;
     private javax.swing.JLabel lblCepEnd;
-    private javax.swing.JLabel lblEstadoEnd;
-    private javax.swing.JLabel lblVazio02;
-    private javax.swing.JLabel lblCodIdentificacao;
-    private javax.swing.JLabel lblCodFiscalOperacao;
-    private javax.swing.JLabel lblGrupo;
-    private javax.swing.JLabel lblSubgrupo;
+    private javax.swing.JLabel lblCidadeEnd;
     private javax.swing.JLabel lblClasse;
-    private javax.swing.JLabel lblTipoFornecimento;
-    private javax.swing.JLabel lblModalidadeTarifa;
-    private javax.swing.JLabel lblRoteiroLeitura;
-    private javax.swing.JLabel lblTensaoNominal;
-    private javax.swing.JLabel lblNumeroMedidor;
-    private javax.swing.JLabel lblNumeroInstalacao;
-    private javax.swing.JLabel lblSubclasse;
-    private javax.swing.JLabel lblDataVencimento;
-    private javax.swing.JLabel lblContaMes;
-    private javax.swing.JLabel lblValorTotalPagar;
+    private javax.swing.JLabel lblCodFiscalOperacao;
+    private javax.swing.JLabel lblCodIdentificacao;
+    private javax.swing.JLabel lblCofins;
+    private javax.swing.JLabel lblComplemento;
     private javax.swing.JLabel lblConsumoKwhMes;
-    private javax.swing.JLabel lblDataInicioBandeira;
+    private javax.swing.JLabel lblContaMes;
+    private javax.swing.JLabel lblCpfCnpj;
     private javax.swing.JLabel lblDataFinalBandeira;
-    private javax.swing.JLabel lblTipoBandeira;
-    private javax.swing.JLabel lblEmissaoFatura;
-    private javax.swing.JLabel lblDiasFatura;
+    private javax.swing.JLabel lblDataInicioBandeira;
     private javax.swing.JLabel lblDataLeitAnterior;
     private javax.swing.JLabel lblDataLeitAtual;
     private javax.swing.JLabel lblDataLeitProxima;
+    private javax.swing.JLabel lblDataVencimento;
+    private javax.swing.JLabel lblDescricaoFatura;
+    private javax.swing.JLabel lblDiasFatura;
+    private javax.swing.JLabel lblEmissaoFatura;
+    private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblEstadoEnd;
+    private javax.swing.JLabel lblGrupo;
+    private javax.swing.JLabel lblICMS;
+    private javax.swing.JLabel lblInsEstadual;
+    private javax.swing.JLabel lblItensFinanceiros;
     private javax.swing.JLabel lblLeituraAntKwh;
     private javax.swing.JLabel lblLeituraAtualKwh;
-    private javax.swing.JLabel lblDescricaoFatura;
+    private javax.swing.JLabel lblModalidadeTarifa;
+    private javax.swing.JLabel lblNomeCliente;
+    private javax.swing.JLabel lblNumero;
+    private javax.swing.JLabel lblNumeroInstalacao;
+    private javax.swing.JLabel lblNumeroMedidor;
+    private javax.swing.JLabel lblPIS;
+    private javax.swing.JLabel lblRazaoSocial;
+    private javax.swing.JLabel lblRoteiroLeitura;
+    private javax.swing.JLabel lblSubclasse;
+    private javax.swing.JLabel lblSubgrupo;
+    private javax.swing.JLabel lblTensaoNominal;
+    private javax.swing.JLabel lblTipoBandeira;
+    private javax.swing.JLabel lblTipoFornecimento;
+    private javax.swing.JLabel lblTributos;
     private javax.swing.JLabel lblValorFornecido;
     private javax.swing.JLabel lblValorTotalFatura;
-    private javax.swing.JLabel lblItensFinanceiros;
-    private javax.swing.JLabel lblCIPMunicipal;
-    private javax.swing.JLabel lblTributos;
-    private javax.swing.JLabel lblPIS;
-    private javax.swing.JLabel lblCofins;
-    private javax.swing.JLabel lblICMS;
+    private javax.swing.JLabel lblValorTotalPagar;
+    private javax.swing.JLabel lblVazio01;
+    private javax.swing.JLabel lblVazio02;
+    private javax.swing.JTable tblFaturamento;
+    private javax.swing.JTextField txtBairroEnd;
+    private javax.swing.JTextField txtCIPMunicipal;
+    private javax.swing.JTextField txtCepEnd;
+    private javax.swing.JTextField txtCidadeEnd;
+    private javax.swing.JTextField txtClasse;
+    private javax.swing.JTextField txtCodFiscalOperacao;
+    private javax.swing.JTextField txtCodIdentificacao;
+    private javax.swing.JTextField txtComplementoEnd;
+    private javax.swing.JTextField txtConsumoKwhMes;
+    private javax.swing.JTextField txtContaMes;
+    private javax.swing.JTextField txtCpfCnpj;
+    private javax.swing.JTextField txtDataFinalBandeira;
+    private javax.swing.JTextField txtDataInicioBandeira;
+    private javax.swing.JTextField txtDataLeitAnterior;
+    private javax.swing.JTextField txtDataLeitAtual;
+    private javax.swing.JTextField txtDataLeitProxima;
+    private javax.swing.JTextField txtDataVencimento;
+    private javax.swing.JTextField txtDiasFatura;
+    private javax.swing.JTextField txtEmissaoFatura;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtGrupo;
+    private javax.swing.JTextField txtInsEstadual;
+    private javax.swing.JTextField txtLeituraAntKwh;
+    private javax.swing.JTextField txtLeituraAtualKwh;
+    private javax.swing.JTextField txtModalidadeTarifa;
+    private javax.swing.JTextField txtNomeClienteEnd;
+    private javax.swing.JTextField txtNumeroEnd;
+    private javax.swing.JTextField txtNumeroInstalacao;
+    private javax.swing.JTextField txtNumeroMedidor;
+    private javax.swing.JTextField txtRazaoSocial;
+    private javax.swing.JTextField txtRoteiroLeitura;
+    private javax.swing.JTextField txtSubclasse;
+    private javax.swing.JTextField txtSubgrupo;
+    private javax.swing.JTextField txtTensaoNominal;
+    private javax.swing.JTextField txtTipoBandeira;
+    private javax.swing.JTextField txtTipoFornecimento;
+    private javax.swing.JTextField txtValorCofins;
+    private javax.swing.JTextField txtValorFornecido;
+    private javax.swing.JTextField txtValorICMS;
+    private javax.swing.JTextField txtValorPIS;
+    private javax.swing.JTextField txtValorTotalFatura;
+    private javax.swing.JTextField txtValorTotalPagar;
     // End of variables declaration//GEN-END:variables
 }
