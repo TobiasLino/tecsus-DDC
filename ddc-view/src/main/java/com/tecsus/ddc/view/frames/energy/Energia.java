@@ -126,7 +126,7 @@ public class Energia extends javax.swing.JInternalFrame {
 //        txtLeituraAntKwh = new JTextField();
         lblLeituraAtualKwh = new JLabel();
 //        txtLeituraAtualKwh = new JTextField();
-        jScrollPane1 = new JScrollPane();
+        JScrollPane1 = new JScrollPane();
         tblFaturamento = new JTable();
         lblDescricaoFatura = new JLabel();
         cbxDescicaoFatura = new JComboBox<>();
@@ -656,7 +656,7 @@ public class Energia extends javax.swing.JInternalFrame {
                                 "Descri\u00e7\u00e3o", "Valor Fornecido", "Valor Total"
                             }
                         ));
-                        jScrollPane1.setViewportView(tblFaturamento);
+                        JScrollPane1.setViewportView(tblFaturamento);
                     }
 
                     //---- lblDescricaoFatura ----
@@ -782,10 +782,10 @@ public class Energia extends javax.swing.JInternalFrame {
                                                         .addComponent(bntAdd)
                                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                                         .addComponent(bntDelete))
-                                                    .addComponent(fields.getTxtValorTotalFatur(a, GroupLayout.PREFERRED_SIZE, 120,
+                                                    .addComponent(fields.getTxtValorTotalFatura(), GroupLayout.PREFERRED_SIZE, 120,
                                                             GroupLayout.PREFERRED_SIZE))))
                                         .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 501, GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(JScrollPane1, GroupLayout.PREFERRED_SIZE, 501, GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
                     PanelFaturamentoLayout.setVerticalGroup(
@@ -837,7 +837,7 @@ public class Energia extends javax.swing.JInternalFrame {
                                             .addComponent(bntDelete)))
                                     .addGroup(PanelFaturamentoLayout.createSequentialGroup()
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(JScrollPane1, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(PanelFaturamentoLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblCIPMunicipal)
@@ -924,23 +924,24 @@ public class Energia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       controller.pushBill(EnergyBillGenerator.generate(fields));
         // TODO add your handling code here:
+        energyBillService.insert(EnergyBillGenerator.generate(fields));
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
         this.dispose();
-// TODO add your handling code here:
+        TelaHome.energyFrameisNotOpened = true;
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void bntAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAddActionPerformed
         // TODO add your handling code here:
-      	//String descricao = cbxDescicaoFatura.getText().trim(); // jtxxx e o nome do campo fields.getTxt no formulário.
-	String valorFornecido = fields.getTxtValorTotalFatura().getText().trim();
+//      	String descricao = cbxDescicaoFatura.getText().trim(); // jtxxx e o nome do campo fields.getTxt no formulário.
+	    String valorFornecido = fields.getTxtValorTotalFatura().getText().trim();
         String valorTotal = fields.getTxtValorTotalPagar().getText().trim();
 	
 	DefaultTableModel val = (DefaultTableModel) tblFaturamento.getModel();
-		val.addRow(new String[]{valorFornecido, valorTotal});
+		val.addRow(new String[]{ valorFornecido, valorTotal});
 		//cbxDescicaoFatura.setText("");
 		fields.getTxtValorTotalFatura().setText("");
 		fields.getTxtValorTotalPagar().setText("");
@@ -956,110 +957,71 @@ public class Energia extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - William Antoniazzi
-    private JScrollPane ScrPanelEnergia;
-    private JPanel PanelEnergia;
-    private JPanel PanelClienteLocal;
-    private JLabel lblCpfCnpj;
-    private JTextField txtCpfCnpj;
-    private JLabel lblInsEstadual;
-    private JTextField txtInsEstadual;
-    private JLabel lblRazaoSocial;
-    private JTextField txtRazaoSocial;
-    private JLabel lblNomeCliente;
-    private JTextField txtNomeClienteEnd;
-    private JLabel lblVazio01;
-    private JLabel lblEndereco;
-    private JTextField txtEndereco;
-    private JLabel lblNumero;
-    private JTextField txtNumeroEnd;
-    private JLabel lblComplemento;
-    private JTextField txtComplementoEnd;
-    private JLabel lblBairro;
-    private JTextField txtBairroEnd;
-    private JLabel lblCidadeEnd;
-    private JTextField txtCidadeEnd;
-    private JLabel lblCepEnd;
-    private JTextField txtCepEnd;
-    private JLabel lblEstadoEnd;
-    private JComboBox<String> cbxEstadoEnd;
-    private JLabel lblVazio02;
-    private JLabel lblCodIdentificacao;
-    private JTextField txtCodIdentificacao;
-    private JLabel lblCodFiscalOperacao;
-    private JTextField txtCodFiscalOperacao;
-    private JLabel lblGrupo;
-    private JTextField txtGrupo;
-    private JLabel lblSubgrupo;
-    private JTextField txtSubgrupo;
-    private JLabel lblClasse;
-    private JTextField txtClasse;
-    private JLabel lblTipoFornecimento;
-    private JTextField txtTipoFornecimento;
-    private JLabel lblModalidadeTarifa;
-    private JTextField txtModalidadeTarifa;
-    private JLabel lblRoteiroLeitura;
-    private JTextField txtRoteiroLeitura;
-    private JLabel lblTensaoNominal;
-    private JTextField txtTensaoNominal;
-    private JLabel lblNumeroMedidor;
-    private JTextField txtNumeroMedidor;
-    private JLabel lblNumeroInstalacao;
-    private JTextField txtNumeroInstalacao;
-    private JLabel lblSubclasse;
-    private JTextField txtSubclasse;
-    private JPanel PanelBandDadosPeriodo;
-    private JLabel lblDataVencimento;
-    private JTextField txtDataVencimento;
-    private JLabel lblContaMes;
-    private JTextField txtContaMes;
-    private JLabel lblValorTotalPagar;
-    private JTextField txtValorTotalPagar;
-    private JLabel lblConsumoKwhMes;
-    private JTextField txtConsumoKwhMes;
-    private JLabel lblDataInicioBandeira;
-    private JTextField txtDataInicioBandeira;
-    private JLabel lblDataFinalBandeira;
-    private JTextField txtDataFinalBandeira;
-    private JLabel lblTipoBandeira;
-    private JTextField txtTipoBandeira;
-    private JPanel PanelFaturamento;
-    private JLabel lblEmissaoFatura;
-    private JTextField txtEmissaoFatura;
-    private JLabel lblDiasFatura;
-    private JTextField txtDiasFatura;
-    private JLabel lblDataLeitAnterior;
-    private JTextField txtDataLeitAnterior;
-    private JLabel lblDataLeitAtual;
-    private JTextField txtDataLeitAtual;
-    private JLabel lblDataLeitProxima;
-    private JTextField txtDataLeitProxima;
-    private JLabel lblLeituraAntKwh;
-    private JTextField txtLeituraAntKwh;
-    private JLabel lblLeituraAtualKwh;
-    private JTextField txtLeituraAtualKwh;
-    private JScrollPane jScrollPane1;
-    private JTable tblFaturamento;
-    private JLabel lblDescricaoFatura;
-    private JComboBox<String> cbxDescicaoFatura;
-    private JLabel lblValorFornecido;
-    private JTextField txtValorFornecido;
-    private JLabel lblValorTotalFatura;
-    private JTextField txtValorTotalFatura;
-    private JButton bntAdd;
-    private JButton bntDelete;
-    private JLabel lblItensFinanceiros;
-    private JLabel lblCIPMunicipal;
-    private JTextField txtCIPMunicipal;
-    private JLabel lblTributos;
-    private JLabel lblPIS;
-    private JTextField txtValorPIS;
-    private JLabel lblCofins;
-    private JTextField txtValorCofins;
-    private JLabel lblICMS;
-    private JTextField txtValorICMS;
-    private JButton btnVoltar;
-    private JButton btnLimpar;
-    private JButton btnSalvar;
+    private javax.swing.JScrollPane ScrPanelEnergia;
+    private javax.swing.JPanel PanelEnergia;
+    private javax.swing.JPanel PanelClienteLocal;
+    private javax.swing.JPanel PanelBandDadosPeriodo;
+    private javax.swing.JPanel PanelFaturamento;
+
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton bntAdd;
+    private javax.swing.JButton bntDelete;
+
+    private javax.swing.JComboBox<String> cbxEstadoEnd;
+    private javax.swing.JComboBox<String> cbxDescicaoFatura;
+
+    private javax.swing.JScrollPane JScrollPane1;
+    private javax.swing.JTable tblFaturamento;
+
+    private javax.swing.JLabel lblCpfCnpj;
+    private javax.swing.JLabel lblInsEstadual;
+    private javax.swing.JLabel lblRazaoSocial;
+    private javax.swing.JLabel lblNomeCliente;
+    private javax.swing.JLabel lblVazio01;
+    private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblNumero;
+    private javax.swing.JLabel lblComplemento;
+    private javax.swing.JLabel lblBairro;
+    private javax.swing.JLabel lblCidadeEnd;
+    private javax.swing.JLabel lblCepEnd;
+    private javax.swing.JLabel lblEstadoEnd;
+    private javax.swing.JLabel lblVazio02;
+    private javax.swing.JLabel lblCodIdentificacao;
+    private javax.swing.JLabel lblCodFiscalOperacao;
+    private javax.swing.JLabel lblGrupo;
+    private javax.swing.JLabel lblSubgrupo;
+    private javax.swing.JLabel lblClasse;
+    private javax.swing.JLabel lblTipoFornecimento;
+    private javax.swing.JLabel lblModalidadeTarifa;
+    private javax.swing.JLabel lblRoteiroLeitura;
+    private javax.swing.JLabel lblTensaoNominal;
+    private javax.swing.JLabel lblNumeroMedidor;
+    private javax.swing.JLabel lblNumeroInstalacao;
+    private javax.swing.JLabel lblSubclasse;
+    private javax.swing.JLabel lblDataVencimento;
+    private javax.swing.JLabel lblContaMes;
+    private javax.swing.JLabel lblValorTotalPagar;
+    private javax.swing.JLabel lblConsumoKwhMes;
+    private javax.swing.JLabel lblDataInicioBandeira;
+    private javax.swing.JLabel lblDataFinalBandeira;
+    private javax.swing.JLabel lblTipoBandeira;
+    private javax.swing.JLabel lblEmissaoFatura;
+    private javax.swing.JLabel lblDiasFatura;
+    private javax.swing.JLabel lblDataLeitAnterior;
+    private javax.swing.JLabel lblDataLeitAtual;
+    private javax.swing.JLabel lblDataLeitProxima;
+    private javax.swing.JLabel lblLeituraAntKwh;
+    private javax.swing.JLabel lblLeituraAtualKwh;
+    private javax.swing.JLabel lblDescricaoFatura;
+    private javax.swing.JLabel lblValorFornecido;
+    private javax.swing.JLabel lblValorTotalFatura;
+    private javax.swing.JLabel lblItensFinanceiros;
+    private javax.swing.JLabel lblCIPMunicipal;
+    private javax.swing.JLabel lblTributos;
+    private javax.swing.JLabel lblPIS;
+    private javax.swing.JLabel lblCofins;
+    private javax.swing.JLabel lblICMS;
     // End of variables declaration//GEN-END:variables
 }
