@@ -11,6 +11,8 @@ import com.tecsus.ddc.controller.service.EnergyBillService;
 import com.tecsus.ddc.view.frames.generator.EnergyBillGenerator;
 import com.tecsus.ddc.view.frames.home.TelaHome;
 
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -556,7 +558,15 @@ public class Energia extends javax.swing.JInternalFrame {
             new String [] {
                 "Descrição", "Valor Fornecido", "Valor Total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblFaturamento);
 
         lblItensFinanceiros.setText("Itens Financeiros:");
@@ -786,51 +796,26 @@ public class Energia extends javax.swing.JInternalFrame {
         this.dispose();
         TelaHome.energyFrameisNotOpened = true;
     }//GEN-LAST:event_btnVoltarActionPerformed
-
- /*   private void bntAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAddActionPerformed
-        // TODO add your handling code here:
-        //String descricao = cbxDescicaoFatura.getText().trim(); // jtxxx e o nome do campo txt no formulário.
-        String valorFornecido = fields.getTxtValorTotalFatura().getText().trim();
-        String valorTotal = fields.getTxtValorTotalPagar().getText().trim();
-
-        DefaultTableModel val = (DefaultTableModel) tblFaturamento.getModel();
-        val.addRow(new String[]{, valorFornecido, valorTotal});
-        //cbxDescicaoFatura.setText("");
-        fields.getTxtValorTotalFatura().setText("");
-        fields.getTxtValorTotalPagar().setText("");
-
-        cbxDescicaoFatura.requestFocus();
-    }//GEN-LAST:event_bntAddActionPerformed
-
-    private void bntDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntDeleteActionPerformed
-        // TODO add your handling code here:
-        ((DefaultTableModel) tblFaturamento.getModel()).removeRow(tblFaturamento.getSelectedRow());
-        cbxDescicaoFatura.requestFocus();
-    }//GEN-LAST:event_bntDeleteActionPerformed
-
-*/
-    
-    
     
     private void bntAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
-        //String descricao = cbxDescicaoFatura.getText().trim(); // jtxxx e o nome do campo txt no formulário.
-//        String valorFornecido = fields.getTxtValorTotalFatura().getText().trim();
-//        String valorTotal = fields.getTxtValorTotalPagar().getText().trim();
-//
-//        DefaultTableModel val = (DefaultTableModel) tblFaturamento.getModel();
-//        val.addRow(new String[]{, valorFornecido, valorTotal});
-//        //cbxDescicaoFatura.setText("");
-//        fields.getTxtValorTotalFatura().setText("");
-//        fields.getTxtValorTotalPagar().setText("");
-//
-//        cbxDescicaoFatura.requestFocus();
+        String descricao = (String) cbxDescicaoFatura.getSelectedItem();
+        String valorFornecido = fields.getTxtValorTotalFatura().getText();
+        String valorTotal = fields.getTxtValorTotalPagar().getText();
+
+        DefaultTableModel val = (DefaultTableModel) tblFaturamento.getModel();
+            val.addRow(new String[]{descricao, valorFornecido, valorTotal});
+            cbxDescicaoFatura.setSelectedItem("");
+            fields.getTxtValorTotalFatura().setText("");
+            fields.getTxtValorTotalPagar().setText("");
+
+            cbxDescicaoFatura.requestFocus();
    }                                      
 
     private void bntDeleteActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
-//        ((DefaultTableModel) tblFaturamento.getModel()).removeRow(tblFaturamento.getSelectedRow());
-//        cbxDescicaoFatura.requestFocus();
+        //TODO add your handling code here:
+        ((DefaultTableModel) tblFaturamento.getModel()).removeRow(tblFaturamento.getSelectedRow());
+        cbxDescicaoFatura.requestFocus();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
