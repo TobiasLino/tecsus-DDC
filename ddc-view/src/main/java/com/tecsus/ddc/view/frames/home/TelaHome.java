@@ -17,7 +17,6 @@ import com.tecsus.ddc.query.ProductQueryFactory;
 import com.tecsus.ddc.query.TariffFlagQueryFactory;
 import com.tecsus.ddc.query.WaterBillQueryFactory;
 import com.tecsus.ddc.query.AbstractBillQueryFactory;
-import com.tecsus.ddc.view.frames.energy.Energia;
 import com.tecsus.ddc.view.frames.water.Agua;
 
 import javax.swing.*;
@@ -161,49 +160,11 @@ public class TelaHome extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void abrirAgua() {
-        if (waterFrameisNotOpened) {
-            final WaterBillFactory waterBillFactory = new WaterBillFactory();
-            final BillFactory billFactory = new BillFactory();
-
-            final WaterBillQueryFactory waterBillQueryFactory = new WaterBillQueryFactory();
-            final AbstractBillQueryFactory billQueryFactory = new AbstractBillQueryFactory();
-
-            final WaterBillRepository waterBillRepository = new WaterBillRepository(connection, waterBillQueryFactory, waterBillFactory);
-            final BillRepository billRepository = new BillRepository(connection, billQueryFactory, billFactory);
-
-            final WaterBillService waterBillService = new WaterBillService(waterBillRepository, billRepository);
-
-            Agua waterScreen = new Agua(waterBillService);
-            jDesktop.add(waterScreen);
-            waterScreen.setVisible(true);
-            waterFrameisNotOpened = false;
-        }
     }
 
     private void openEnergyBillRegistryForm() {
-        final BillFactory abstractBillFactory = new BillFactory();
-        final EnergyBillFactory energyBillFactory = new EnergyBillFactory();
-        final ProductFactory productFactory = new ProductFactory();
-        final TariffFlagFactory tariffFlagFactory = new TariffFlagFactory();
-
-        final AbstractBillQueryFactory abstractBillQueryFactory = new AbstractBillQueryFactory();
-        final EnergyBillQueryFactory energyBillQueryFactory = new EnergyBillQueryFactory();
-        final ProductQueryFactory productQueryFactory = new ProductQueryFactory();
-        final TariffFlagQueryFactory tariffFlagQueryFactory = new TariffFlagQueryFactory();
-
-        final BillRepository billRepository = new BillRepository(connection, abstractBillQueryFactory, abstractBillFactory);
-        final ProductRepository productRepository = new ProductRepository(connection, productQueryFactory, productFactory);
-        final EnergyBillRepository energyBillRepository = new EnergyBillRepository(connection, energyBillQueryFactory, energyBillFactory, abstractBillFactory);
-        final TariffFlagRepository tariffFlagRepository = new TariffFlagRepository(connection, tariffFlagQueryFactory, tariffFlagFactory);
-
-        final EnergyBillService energyBillService = new EnergyBillService(energyBillRepository, billRepository, productRepository, tariffFlagRepository);
-
-        final Energia energyBillFrame = new Energia(energyBillService);
-        jDesktop.add(energyBillFrame);
-        energyBillFrame.setVisible(true);
-        energyFrameisNotOpened = false;
     }
     
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
@@ -220,9 +181,9 @@ public class TelaHome extends javax.swing.JFrame {
         abrirAgua();
     }//GEN-LAST:event_editMenuActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         abrirAgua();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }                                          
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         openEnergyBillRegistryForm();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -238,11 +199,11 @@ public class TelaHome extends javax.swing.JFrame {
         openEnergyBillRegistryForm();
     }
 
-    public static void main(String[] args) {
-        Connector connector = new Connector();
-
-        java.awt.EventQueue.invokeLater(() -> new TelaHome(connector.connect()).setVisible(true));
-    }
+//    public static void main(String[] args) {
+//        Connector connector = new Connector();
+//
+//        java.awt.EventQueue.invokeLater(() -> new TelaHome(connector.connect()).setVisible(true));
+//    }
 
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentsMenuItem;

@@ -5,12 +5,17 @@ import com.tecsus.ddc.controller.connector.ConnectionImpl;
 import com.tecsus.ddc.factory.Factory;
 import com.tecsus.ddc.query.QueryFactory;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
+@Slf4j
 public class BillRepository implements Repository<Bill> {
 
     private final ConnectionImpl connection;
@@ -25,7 +30,9 @@ public class BillRepository implements Repository<Bill> {
 
     @Override
     public List<Bill> findAll() {
-        return null;
+        Optional<ResultSet> resultSet = connection.executeSelect(queryFactory.createSelectQuery());
+        log.debug(resultSet.toString());
+        return resultSet.map(this::responseToList).orElse(Collections.emptyList());
     }
 
     @Override
@@ -47,5 +54,22 @@ public class BillRepository implements Repository<Bill> {
     @Override
     public <S extends Bill> void update(S var1) {
 
+    }
+
+
+    private List<Bill> responseToList(final ResultSet resultSet) {
+        List<Bill> bills = new ArrayList<>();
+        try {
+            do {
+                Bill bill = billFactory.constructFrom(resultSet);
+
+                bills.add(bill);
+            } while (resultSet.next());
+
+            log.debug(bills.toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return bills;
     }
 }

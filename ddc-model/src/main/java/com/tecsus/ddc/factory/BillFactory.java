@@ -1,6 +1,7 @@
 package com.tecsus.ddc.factory;
 
 import com.tecsus.ddc.bills.Bill;
+import com.tecsus.ddc.instalation.Instalation;
 import org.joda.time.DateTime;
 
 import java.sql.ResultSet;

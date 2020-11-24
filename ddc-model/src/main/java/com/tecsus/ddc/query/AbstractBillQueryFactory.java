@@ -52,10 +52,11 @@ public class AbstractBillQueryFactory implements QueryFactory<Bill> {
 
     @Override
     public String createSelectQuery() {
-        return  "SELECT i.num_inst, cl.*, d.initials, d.site, b.bill_num, b.due_date " +
-                "FROM instalation i inner join dealership d on i.id_dealer = d.id_dealership " +
-                "INNER JOIN client cl on i.client_cnpj = cl.client_cnpj " +
-                "INNER JOIN bill b on b.id_instalation = i.num_inst ";
+        return "SELECT * FROM bill GROUP BY bill_num, due_date, id_instalation";
+//        return  "SELECT i.num_inst, cl.*, d.initials, d.site, b.bill_num, b.due_date " +
+//                "FROM instalation i inner join dealership d on i.id_dealer = d.id_dealership " +
+//                "INNER JOIN client cl on i.client_cnpj = cl.client_cnpj " +
+//                "INNER JOIN bill b on b.id_instalation = i.num_inst ";
     }
 
     @Override
