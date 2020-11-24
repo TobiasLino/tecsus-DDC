@@ -46,7 +46,7 @@ public class BillsDashboard extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Número", "Tipo de conta", "Instalação", "Cliente", "Concessionária", "Data de vencimento", "Valor", "Data de cadastro", "Ações"
+                "Número", "Tipo de conta", "Instalação", "Cliente", "Concessionária", "Data de vencimento", "Valor", "Data de cadastro", "Consumo"
             }
         ) {
             Class[] types = new Class [] {
