@@ -2,7 +2,7 @@ package com.tecsus.ddc.view.frames.energy;
 
 import lombok.Getter;
 
-import javax.swing.JTextField;
+import javax.swing.*;
 
 @Getter
 public class EnergyBillFormTextFields {
@@ -49,6 +49,7 @@ public class EnergyBillFormTextFields {
     private final JTextField txtValorPIS;
     private final JTextField txtValorTotalFatura;
     private final JTextField txtValorTotalPagar;
+    public final JTable tblFaturamento;
 
 //    private final JComboBox cbxEstadoEnd;
 //    private final JComboBox cbxDescicaoFatura;
@@ -96,6 +97,7 @@ public class EnergyBillFormTextFields {
         this.txtValorPIS = new JTextField();
         this.txtValorTotalFatura = new JTextField();
         this.txtValorTotalPagar = new JTextField();
+        this.tblFaturamento = new JTable();
 
 //        this.cbxEstadoEnd = new JComboBox();
 //        this.cbxDescicaoFatura = new JComboBox();

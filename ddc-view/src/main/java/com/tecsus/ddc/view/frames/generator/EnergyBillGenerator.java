@@ -6,13 +6,15 @@ import com.tecsus.ddc.bills.energy.EnergyBill;
 import com.tecsus.ddc.bills.energy.Group;
 import com.tecsus.ddc.bills.energy.enums.*;
 import com.tecsus.ddc.instalation.Instalation;
-import com.tecsus.ddc.view.frames.energy.EnergyBillFormTextFields;
+import com.tecsus.ddc.view.frames.energy.*;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Slf4j
 public class EnergyBillGenerator {
@@ -60,6 +62,7 @@ public class EnergyBillGenerator {
                     .financialItems(new BigDecimal(fields.getTxtCIPMunicipal().getText()))
                     .supplyType(SupplyType.valueOf(fields.getTxtTipoFornecimento().getText()))
                     .tributes(calculaTributos(fields))
+                    .billing(constructProduct(fields))
                     .build();
         log.info("Energy bill generated");
         } catch (ParseException e) {
@@ -74,5 +77,28 @@ public class EnergyBillGenerator {
         BigDecimal cofins = new BigDecimal(fields.getTxtValorCofins().getText());
         return pis.add(cofins);
     }
+
+    static private List<product> constructProduct(EnergyBillFormTextFields fields)
+    {
+
+        List<product> products = new ArrayList();
+
+        for(int i = 0; i < fields.tblFaturamento.getRowCount(); i++)
+        {
+
+            Product p = Product.builder()
+                    .desc((String) fields.tblFaturamento.getModel().getValueAt(i, 1))
+                    .valForn(new BigDecimal ((String) fields.tblFaturamento.getModel().getValueAt(i, 2)))
+                    .valTot(new BigDecimal ((String) fields.tblFaturamento.getModel().getValueAt(i, 3)))
+                    .build();
+
+            products.add(p);
+
+        }
+
+        return products;
+
+    }
+
 }
 
