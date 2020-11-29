@@ -6,51 +6,23 @@
 
     <groupId>com.tecsus</groupId>
     <artifactId>ddc</artifactId>
-    <packaging>pom</packaging>
-    <version>v1.3</version>
-
-    <developers>
-        <developer>
-            <name>Tobias da Silva Lino</name>
-            <organization>DDC</organization>
-            <email>tobias.lino@fatec.sp.gov.br</email>
-            <roles>
-                <role>Java Developer</role>
-                <role>Software Engineer</role>
-            </roles>
-        </developer>
-    </developers>
-
-    <modules>
-        <module>ddc-model</module>
-        <module>ddc-controller</module>
-        <module>ddc-view</module>
-    </modules>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
-        <junit.version>4.13</junit.version>
+        <lombok.version>1.18.12</lombok.version>
         <slf4j.version>1.7.30</slf4j.version>
-        <slf4j.log4j.version>1.7.12</slf4j.log4j.version>
-        <!-- plugin -->
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <slf4j-log4j12.version>1.7.12</slf4j-log4j12.version>
     </properties>
 
     <dependencies>
-        <!-- Lombok -->
+        <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>${lombok.version}</version>
         </dependency>
-        <!-- JavaDoc -->
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${maven-javadoc-plugin.version}</version>
-        </dependency>
-        <!-- Logger SLF4J -->
+        <!-- SLF4J -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -59,42 +31,79 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.log4j.version}</version>
+            <version>${slf4j-log4j12.version}</version>
         </dependency>
-        <!-- JUnit -->
+        <!-- Postgres -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.2</version>
+        </dependency>
+        <!-- JavaFx -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>16-ea+2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>16-ea+2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>11.0.1</version>
+        </dependency>
+        <!-- Gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.4</version>
+        </dependency>
+        <!-- Json Test -->
+        <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>json-smart</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>1.5.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <version>4.13</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}-${project.version}</finalName>
+        <finalName>${artifactId}_${version}</finalName>
         <directory>${basedir}/target</directory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <release>11</release>
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.4.3</version>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.3</version>
                 <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <executable>C:\Program Files\Java\jdk-11.0.9\bin\java</executable>
+                    <mainClass>com.tecsus.ddc.app.ApplicationMain</mainClass>
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
-
-
 </project>
