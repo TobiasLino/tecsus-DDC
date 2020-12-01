@@ -1,8 +1,6 @@
 package com.tecsus.ddc.app;
 
 import com.tecsus.ddc.connection.Connector;
-import com.tecsus.ddc.language.LanguageKeyValue;
-import com.tecsus.ddc.user.LoggedUser;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +16,7 @@ public class ApplicationMain extends Application {
 
     public static Connector connector = new Connector();
 
-    private static Stage stage;
+    public static Stage stage;
     // Scenes
     public static Scene login;
     public static Scene dashboard;
@@ -35,15 +33,6 @@ public class ApplicationMain extends Application {
         try {
             Parent login = FXMLLoader.load(getClass().getResource("/app/login.fxml"));
             ApplicationMain.login = new Scene(login);
-
-            Parent dashboard = FXMLLoader.load(getClass().getResource("/app/dashbooard.fxml"));
-            ApplicationMain.dashboard = new Scene(dashboard);
-
-            Parent energy = FXMLLoader.load(getClass().getResource("/app/energy.fxml"));
-            ApplicationMain.energy = new Scene(energy);
-
-            Parent water = FXMLLoader.load(getClass().getResource("/app/water.fxml"));
-            ApplicationMain.water = new Scene(water);
 
             stage.setScene(ApplicationMain.login);
             stage.setTitle("Login");
@@ -65,7 +54,7 @@ public class ApplicationMain extends Application {
         void onScreenChange(Screen screen, Object userData);
     }
 
-    private static ArrayList<OnChangeScreen> listeners = new ArrayList<>();
+    public static ArrayList<OnChangeScreen> listeners = new ArrayList<>();
 
     public static void addOnChangeScreenListener(OnChangeScreen listener) {
         listeners.add(listener);

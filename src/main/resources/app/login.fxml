@@ -30,8 +30,7 @@
                      </font>
                   </Label>
                   <Button layoutX="170.0" layoutY="363.0" mnemonicParsing="false" style="-fx-background-color: #e4f9f5;" text="Esqueci minha senha" textFill="#147966" />
-                  <Button layoutX="195.0" layoutY="513.0" mnemonicParsing="false" style="-fx-background-color: #a6e3e9;" text="Criar Conta" textFill="#147966" />
-                  <Button id="btnSignin" layoutX="190.0" layoutY="312.0" mnemonicParsing="false" onAction="#signIn" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: #11999e; -fx-border-radius: 10;" text="Entrar" textFill="WHITE" />
+                  <Button fx:id="btnSignin" layoutX="190.0" layoutY="312.0" mnemonicParsing="false" onAction="#signIn" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: #11999e; -fx-border-radius: 10;" text="Entrar" textFill="WHITE" />
                   <Label layoutX="176.0" layoutY="484.0" text="Não tem uma conta ?" />
                   <TextField fx:id="usernameField" layoutX="88.0" layoutY="207.0" prefHeight="25.0" prefWidth="284.0" />
                   <PasswordField fx:id="passwordField" layoutX="92.0" layoutY="266.0" prefHeight="25.0" prefWidth="284.0" />

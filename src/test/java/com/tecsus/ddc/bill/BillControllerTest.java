@@ -13,6 +13,7 @@ import com.tecsus.ddc.security.WithUser;
 import com.tecsus.ddc.user.LoggedUser;
 import com.tecsus.ddc.user.Role;
 import com.tecsus.ddc.user.User;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class BillControllerTest {
+
+    SecurityContextFactory factory = new SecurityContextFactory();
 
     @Before
     public void initialize() {
@@ -31,40 +34,51 @@ public class BillControllerTest {
     }
 
     @Test
-    @WithUser
+    @WithUser(login = "tslino", username = "Tobias Lino", password = "123", authorities = {"ADMIN"})
     public void saveTest() {
+        SecurityContext securityContext = factory.createSecurityContext(this);
+
         Connector connector = new Connector();
         BillController controller = new BillController(connector.getConnection());
         RegisterController registerController = new RegisterController(new RegisterRepository(connector.getConnection()));
 
-        System.out.println(SecurityContext.loggedUser.getUser());
 
-        final Bill bill = simpleBill();
-        final Register register = Register.builder()
-                .user(SecurityContext.loggedUser.getUser())
-                .bill(bill)
-                .instalation(bill.getInstalation())
-                .build();
+        int billNum = 101015, consum = 122;
+        double valor = 212.4;
+        for (int i = 1; i <= 12; ++i) {
+            final Bill bill = simpleBill(i, String.valueOf(billNum), consum, String.valueOf(valor));
+            final Register register = Register.builder()
+                    .user(SecurityContext.loggedUser.getUser())
+                    .bill(bill)
+                    .instalation(bill.getInstalation())
+                    .build();
 
-        controller.save(bill);
-        registerController.save(register);
+            controller.save(bill);
+            registerController.save(register);
+
+            billNum++;
+            if (consum == 122) consum = 134;
+            else consum = 122;
+            if (valor ==  212.4) valor = 250.9;
+            else valor = 212.4;
+        }
     }
 
-    private Bill simpleBill() {
+    private Bill simpleBill(int month, String billNum, int consum, String value) {
         return Bill.builder()
                 .billType(BillType.ENERGY)
                 .instalation(Instalation.builder().instalationNumber("2599675-4").build())
-                .billNum("12345")
-                .meter(Meter.builder().meterNumber("A18LM0552278").build())
-                .refMonth(new Date())
-                .value(new BigDecimal("200"))
-                .actualRead(new Date())
+                .billNum(billNum)
+                .meter(Meter.builder().meterNumber("12345").build())
+                .refMonth(new DateTime().withDate(2019,month,1).toDate())
+                .value(new BigDecimal(value))
+                .actualRead(new DateTime().withDate(2019,1,1).toDate())
                 .actualReadValue(new BigDecimal("200"))
-                .previousRead(new Date())
+                .previousRead(new DateTime().withDate(2019,12,1).toDate())
                 .previousReadValue(new BigDecimal("150.0"))
-                .nextRead(new Date())
-                .dueDate(new Date())
-                .consum(150)
+                .nextRead(new DateTime().withDate(2019,9,1).toDate())
+                .dueDate(new DateTime().withDate(2019,1,31).toDate())
+                .consum(consum)
                 .consumPeriod(30)
                 .build();
     }
@@ -78,5 +92,14 @@ public class BillControllerTest {
                 .password("123")
                 .roles(roles)
                 .build();
+    }
+
+    @Test
+    public void find() {
+        Connector connector = new Connector();
+        BillController controller = new BillController(connector.getConnection());
+
+        Bill bill = controller.find("12345");
+        System.out.println(bill);
     }
 }

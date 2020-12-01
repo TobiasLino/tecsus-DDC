@@ -15,14 +15,13 @@ public class RegisterController {
 
     @WithRole(roles = {"ADMIN", "KEY_USER", "TYPIST"})
     public void save(final Register register) {
-        registerRepository.save(register);
-//        try {
-//            if (!SecurityContext.loggedUser.hasRole())
-//                throw new AccessDeniedException(String.format("User %s not have permission", SecurityContext.loggedUser.getUser().getUsername()));
-//            registerRepository.save(register);
-//        } catch (AccessDeniedException e) {
-//            log.error("User cannot do this operation");
-//            e.printStackTrace();
-//        }
+        try {
+            if (!SecurityContext.loggedUser.hasRole(this))
+                throw new AccessDeniedException(String.format("User %s not have permission", SecurityContext.loggedUser.getUser().getUsername()));
+            registerRepository.save(register);
+        } catch (AccessDeniedException e) {
+            log.error("User cannot do this operation");
+            e.printStackTrace();
+        }
     }
 }

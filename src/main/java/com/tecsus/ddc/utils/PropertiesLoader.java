@@ -33,9 +33,7 @@ public class PropertiesLoader {
             }
             properties.load(in);
             in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
+        } catch (IOException | NullPointerException e) {
             e.printStackTrace();
         }
     }

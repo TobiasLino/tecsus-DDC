@@ -1,27 +1,27 @@
 package com.tecsus.ddc.bill;
 
+import com.tecsus.ddc.repository.InnerRepository;
 import com.tecsus.ddc.repository.Repository;
 import com.tecsus.ddc.bill.type.BillTypeRepository;
 import com.tecsus.ddc.connection.ConnectionImpl;
 import com.tecsus.ddc.repository.RepositoryStatement;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-public class BillRepository implements RepositoryStatement<Bill>, Repository<Bill> {
+public class BillRepository implements RepositoryStatement<Bill>, Repository<Bill>, InnerRepository<Bill> {
 
     private final ConnectionImpl<Bill> connection;
+    private final ConnectionImpl<Bill> innerConnection;
     private final BillTypeRepository billTypeRepository;
 
     public BillRepository(final Connection connection) {
-        this.connection = new ConnectionImpl<Bill>(connection, this::prepareStatement);
+        this.connection = new ConnectionImpl<Bill>(connection, (RepositoryStatement<Bill>) this);
+        this.innerConnection = new ConnectionImpl<Bill>(connection,(InnerRepository<Bill>) this);
         this.billTypeRepository = new BillTypeRepository(connection);
     }
 
@@ -38,6 +38,13 @@ public class BillRepository implements RepositoryStatement<Bill>, Repository<Bil
 
     @Override
     public Optional<Bill> find(Object id) {
+        String billNum = (String) id;
+        Optional<ResultSet> resultSet = innerConnection.find(BillQueryFactory.select(), new Bill(), billNum);
+        if (resultSet.isPresent()) {
+            Bill bill = Bill.constructFrom(resultSet.get());
+            ConnectionImpl.closeResultSet(resultSet.get());
+            return Optional.of(bill);
+        }
         return Optional.empty();
     }
 
@@ -46,9 +53,11 @@ public class BillRepository implements RepositoryStatement<Bill>, Repository<Bil
         return null;
     }
 
+
+
     @Override
     public void prepareStatement(final PreparedStatement preparedStatement, final Bill bill) throws SQLException {
-        SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         preparedStatement.setString(1, bill.getBillNum());
         preparedStatement.setString(2, bill.getInstalation().getInstalationNumber());
         preparedStatement.setBigDecimal(3, bill.getValue());
@@ -62,5 +71,30 @@ public class BillRepository implements RepositoryStatement<Bill>, Repository<Bil
         preparedStatement.setInt(11, bill.getConsum());
         preparedStatement.setInt(12, bill.getConsumPeriod());
         preparedStatement.setString(13, bill.getMeter().getMeterNumber());
+    }
+
+    @Override
+    public void prepareStatement(PreparedStatement preparedStatement, Bill object, String key) throws SQLException {
+        preparedStatement.setString(1, key);
+    }
+
+    @Override
+    public void saveAll(List<Bill> list, String key) {
+
+    }
+
+    @Override
+    public void save(Bill object, String key) {
+
+    }
+
+    @Override
+    public Optional<Bill> find(Bill object, String key) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Bill> findAll(Bill object, String key) {
+        return null;
     }
 }
