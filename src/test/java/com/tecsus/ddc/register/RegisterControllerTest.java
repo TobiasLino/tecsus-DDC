@@ -14,7 +14,7 @@ import java.util.Date;
 public class RegisterControllerTest extends IntegrationTest {
 
     @Test
-    @WithUser // Default
+    @WithUser(login = "tslino", username = "Tobias Lino", password = "123", authorities = {"ADMIN"})
     public void saveTest() throws JSONException {
         Connector connector = new Connector();
         Connection connection = connector.getConnection();

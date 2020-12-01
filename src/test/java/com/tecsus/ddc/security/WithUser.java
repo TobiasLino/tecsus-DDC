@@ -10,11 +10,11 @@ import java.lang.annotation.Target;
 @WithSecurityContext(factory = SecurityContextFactory.class)
 public @interface WithUser {
 
-    String[] authorities() default "ADMIN";
+    String[] authorities();
 
-    String login() default "tslino";
+    String login();
 
-    String username() default "Tobias Lino";
+    String username();
 
-    String password() default "123";
+    String password();
 }

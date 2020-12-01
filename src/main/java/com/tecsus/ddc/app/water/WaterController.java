@@ -2,16 +2,23 @@ package com.tecsus.ddc.app.water;
 
 import com.tecsus.ddc.app.ApplicationMain;
 import com.tecsus.ddc.app.Screen;
+import com.tecsus.ddc.app.TextFieldFormatter;
+import com.tecsus.ddc.app.dashboard.DashboardController;
 import com.tecsus.ddc.bill.Bill;
 import com.tecsus.ddc.bill.BillController;
 import com.tecsus.ddc.bill.type.BillType;
 import com.tecsus.ddc.instalation.Instalation;
 import com.tecsus.ddc.instalation.InstalationController;
 import com.tecsus.ddc.meter.Meter;
+import com.tecsus.ddc.register.Register;
+import com.tecsus.ddc.register.RegisterController;
+import com.tecsus.ddc.register.RegisterRepository;
+import com.tecsus.ddc.security.SecurityContext;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -29,7 +36,7 @@ public class WaterController {
     private Label lblCliente, lblFornecedor, lblEndereco;
 
 
-    public void voltarHome(ActionEvent event) {
+    public void freeText() {
         txtLeituraAnterior.setText("");
         txtLeituraAtual.setText("");
         txtProximaLeitura.setText("");
@@ -49,7 +56,9 @@ public class WaterController {
 
     @FXML
     protected void back() {
+        freeText();
         ApplicationMain.changeScene(Screen.DASHBOARD);
+        DashboardController.editable = false;
     }
 
     @FXML
@@ -72,6 +81,8 @@ public class WaterController {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         BillController controller = new BillController(ApplicationMain.connector.getConnection());
 
+        RegisterController registerController = new RegisterController(new RegisterRepository(ApplicationMain.connector.getConnection()));
+
         try {
             final Bill bill = Bill.builder()
                     .billType(BillType.WATER)
@@ -90,9 +101,20 @@ public class WaterController {
                     .consumPeriod(Integer.parseInt(consumPeriod))
                     .build();
             controller.save(bill);
+
+
+            Register register = Register.builder()
+                    .user(SecurityContext.loggedUser.getUser())
+                    .instalation(bill.getInstalation())
+                    .bill(bill)
+                    .build();
+
+            registerController.save(register);
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        freeText();
+        DashboardController.editable = false;
     }
 
     @FXML
@@ -105,5 +127,29 @@ public class WaterController {
         lblCliente.setText(String.format("%s, %s", response.getClient().getName(), response.getClient().getIdentification().getDocument()));
         lblFornecedor.setText(String.format("%s, %s", response.getSupplier().getName(), response.getSupplier().getCnpj().getDocument()));
         lblEndereco.setText(response.getAddress().toString());
+    }
+
+
+    @FXML
+    public void mascData(KeyEvent keyEvent) {
+        TextFieldFormatter dataMasc = new TextFieldFormatter();
+        dataMasc.setMask("##/##/####");
+        dataMasc.setCaracteresValidos("0123456789");
+        dataMasc.setTf(txtLeituraAtual);
+        dataMasc.formatter();
+        dataMasc.setTf(txtLeituraAnterior);
+        dataMasc.formatter();
+        dataMasc.setTf(txtProximaLeitura);
+        dataMasc.formatter();
+        dataMasc.setTf(txtVencimento);
+        dataMasc.formatter();
+    }
+    @FXML
+    public void mascRef(KeyEvent keyEvent) {
+        TextFieldFormatter refMasc = new TextFieldFormatter();
+        refMasc.setMask("##/####");
+        refMasc.setCaracteresValidos("0123456789");
+        refMasc.setTf(txtMesRef);
+        refMasc.formatter();
     }
 }

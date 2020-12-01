@@ -6,7 +6,6 @@ public enum Role {
     TYPIST,
     BUSINESS_ANALYST;
 
-
     @Override
     public String toString() {
         return this.name();

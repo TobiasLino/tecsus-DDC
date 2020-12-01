@@ -1,11 +1,13 @@
 package com.tecsus.ddc.connection;
 
+import com.tecsus.ddc.instalation.TransformTo;
 import com.tecsus.ddc.repository.InnerRepository;
+import com.tecsus.ddc.repository.MidRepository;
 import com.tecsus.ddc.repository.RepositoryStatement;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
-import java.util.Optional;
+import java.util.*;
 
 @Slf4j
 public class ConnectionImpl<T> {
@@ -93,5 +95,42 @@ public class ConnectionImpl<T> {
             e.printStackTrace();
             log.info("ResultSet close failed");
         }
+    }
+
+    public List<T> findAll(final String query, final TransformTo<T> transformTo, Class<T> objectType) {
+        ArrayList<T> list = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            log.debug(statement.toString());
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    list.add(transformTo.object(resultSet, objectType));
+                }
+            }
+            return list;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+
+    public List<T> findAll(final String query, final TransformTo<T> transformTo, Class<T> objectType, MidRepository midRepository, Object object, String key) {
+        ArrayList<T> list = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            midRepository.prepareStatement(statement, object);
+            log.debug(statement.toString());
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    list.add(transformTo.object(resultSet, objectType));
+                }
+            }
+            return list;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return Collections.emptyList();
     }
 }

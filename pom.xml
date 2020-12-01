@@ -55,6 +55,11 @@
             <artifactId>javafx-fxml</artifactId>
             <version>11.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>16-ea+2</version>
+        </dependency>
         <!-- Gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -73,7 +78,38 @@
             <version>1.5.0</version>
             <scope>test</scope>
         </dependency>
-
+        <!-- File converter -->
+        <dependency>
+            <groupId>jtidy</groupId>
+            <artifactId>jtidy</artifactId>
+            <version>4aug2000r7-dev</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xhtmlrenderer</groupId>
+            <artifactId>flying-saucer-pdf</artifactId>
+            <version>9.1.20</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.13.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>1.8.1</version>
+        </dependency>
+        <!-- JFreeChart -->
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.10.6</version>
+        </dependency>
         <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -92,7 +128,23 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>11</release>
+                    <source>1.8</source>
+                    <release>1.8</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <outputDirectory>/out</outputDirectory>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.tecsus.ddc.app.ApplicationMain</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
             <plugin>
@@ -100,7 +152,6 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.3</version>
                 <configuration>
-                    <executable>C:\Program Files\Java\jdk-11.0.9\bin\java</executable>
                     <mainClass>com.tecsus.ddc.app.ApplicationMain</mainClass>
                 </configuration>
             </plugin>

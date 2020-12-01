@@ -17,7 +17,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecsus.ddc.app.dashboard.DashboardController">
+<VBox prefHeight="769.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecsus.ddc.app.dashboard.DashboardController">
   <children>
     <MenuBar style="-fx-background-color: #40514e;" VBox.vgrow="NEVER">
       <menus>
@@ -60,34 +60,38 @@
     </MenuBar>
     <SplitPane focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <items>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="720.0" prefWidth="1087.0">
                <children>
                   <AnchorPane prefHeight="720.0" prefWidth="116.0" style="-fx-background-color: #e4f9f5;">
                      <children>
-                        <Button fx:id="btnAddEnergy" onAction="#addEnergy" layoutX="25.0" layoutY="174.0" mnemonicParsing="false" style="-fx-background-color: #11999e;" text="Energia" textFill="WHITE" />
-                        <Button fx:id="btnAddWater" onAction="#addWater" layoutX="24.0" layoutY="215.0" mnemonicParsing="false" style="-fx-background-color: #11999e;" text="Água" textFill="WHITE" />
-                        <Button fx:id="btnLogOff" onAction="#logoff" layoutX="25.0" layoutY="256.0" mnemonicParsing="false" style="-fx-background-color: #11999e;" text="Sair" textFill="WHITE" />
+                        <Button fx:id="btnAddEnergy" layoutX="25.0" layoutY="174.0" mnemonicParsing="false" onAction="#addEnergy" style="-fx-background-color: #11999e;" text="Energia" textFill="WHITE" />
+                        <Button fx:id="btnAddWater" layoutX="31.0" layoutY="217.0" mnemonicParsing="false" onAction="#addWater" style="-fx-background-color: #11999e;" text="Água" textFill="WHITE" />
                      </children>
                   </AnchorPane>
-                  <TableView layoutX="119.0" layoutY="137.0" prefHeight="583.0" prefWidth="901.0" style="-fx-border-radius: 10;">
+                  <TableView fx:id="billTable" layoutX="116.0" layoutY="137.0" prefHeight="583.0" prefWidth="943.0" style="-fx-border-radius: 10;">
                     <columns>
-                      <TableColumn prefWidth="100.0" text="Nº" />
-                        <TableColumn prefWidth="100.0" text="CNPJ Cliente" />
-                        <TableColumn prefWidth="175.0" text="Cliente" />
-                        <TableColumn prefWidth="100.0" text="Fornecedor" />
-                        <TableColumn prefWidth="100.0" text="Tipo" />
-                        <TableColumn prefWidth="100.0" text="Instalação" />
-                        <TableColumn prefWidth="100.0" text="Hidrômetro" />
-                      <TableColumn prefWidth="100.0" text="Cadastro" />
+                      <TableColumn fx:id="number" prefWidth="100.0" text="Nº" />
+                        <TableColumn fx:id="clientCNPJ" prefWidth="100.0" text="CNPJ Cliente" />
+                        <TableColumn fx:id="clientName" prefWidth="175.0" text="Cliente" />
+                        <TableColumn fx:id="supplier" prefWidth="100.0" text="Fornecedor" />
+                        <TableColumn fx:id="type" prefWidth="100.0" text="Tipo" />
+                        <TableColumn fx:id="instalation" prefWidth="100.0" text="Instalação" />
+                        <TableColumn fx:id="hidrometer" prefWidth="100.0" text="Hidrômetro" />
+                      <TableColumn fx:id="register" prefWidth="100.0" text="Cadastro" />
                     </columns>
                   </TableView>
-                  <AnchorPane layoutX="108.0" layoutY="-2.0" prefHeight="139.0" prefWidth="915.0" style="-fx-background-color: #e4f9f5;">
+                  <AnchorPane layoutX="108.0" layoutY="-2.0" prefHeight="139.0" prefWidth="978.0" style="-fx-background-color: #e4f9f5;">
                      <children>
                         <Label layoutX="-83.0" layoutY="21.0" prefHeight="61.0" prefWidth="464.0" text="DDC - Sistema de Digitação de Contas" textAlignment="JUSTIFY">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
+                        <Button fx:id="btnUserReport" layoutX="437.0" layoutY="82.0" mnemonicParsing="false" onAction="#userReport" style="-fx-background-color: #11999e;" text="Relatório de usuário" textFill="WHITE" />
+                        <Button fx:id="btnClientReport" layoutX="592.0" layoutY="82.0" mnemonicParsing="false" onAction="#clientReport" style="-fx-background-color: #11999e;" text="Relatório de clientes" textFill="WHITE" />
+                        <Button fx:id="btnLogOff" layoutX="921.0" layoutY="25.0" mnemonicParsing="false" onAction="#logoff" style="-fx-background-color: #11999e;" text="Sair" textFill="WHITE" />
+                        <Button fx:id="edit" layoutX="743.0" layoutY="82.0" mnemonicParsing="false" onAction="#edit" style="-fx-background-color: #11999e;" text="Editar" textFill="WHITE" />
+                        <Button fx:id="delete" layoutX="816.0" layoutY="82.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #11999e;" text="Deletar ($)" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </children>

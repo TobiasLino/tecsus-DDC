@@ -1,7 +1,6 @@
 package com.tecsus.ddc.user;
 
 import com.tecsus.ddc.security.WithRole;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.lang.reflect.Method;
@@ -13,8 +12,8 @@ public class LoggedUser {
 
     private User user;
 
-    public boolean hasRole() {
-        Class<User> clazz = (Class<User>) user.getClass();
+    public boolean hasRole(Object obj) {
+        Class<Object> clazz = (Class<Object>) obj.getClass();
         for (Method method : clazz.getDeclaredMethods()) {
             if (method.isAnnotationPresent(WithRole.class)) {
                 WithRole withRole = method.getAnnotation(WithRole.class);

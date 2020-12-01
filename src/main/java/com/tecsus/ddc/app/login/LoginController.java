@@ -5,24 +5,45 @@ import com.tecsus.ddc.app.Screen;
 import com.tecsus.ddc.language.LanguageKeyValue;
 import com.tecsus.ddc.security.SecurityContext;
 import com.tecsus.ddc.user.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 
-public class LoginController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class LoginController implements Initializable {
 
     @Getter @Setter
     private UserController userController;
     @Getter @Setter
     private Stage primaryStage;
+    @FXML
+    private Button btnSignin;
 
     public LoginController() {
         UserRepository userRepository = new UserRepository(ApplicationMain.connector.getConnection());
         RoleRepository roleRepository = new RoleRepository(ApplicationMain.connector.getConnection());
         userController = new UserController(userRepository, roleRepository);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        btnSignin.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER)
+                signIn(new ActionEvent());
+        });
     }
 
     @FXML
@@ -65,11 +86,21 @@ public class LoginController {
 
         SecurityContext.loggedUser = new LoggedUser();
         SecurityContext.loggedUser.setUser(user);
+
+        Parent dashboard = null;
+        try {
+            dashboard = FXMLLoader.load(getClass().getResource("/app/dashbooard.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert dashboard != null;
+        ApplicationMain.dashboard = new Scene(dashboard);
+
         ApplicationMain.changeScene(Screen.DASHBOARD, "");
     }
 
     @FXML
     public void initialize() {
-        ApplicationMain.addOnChangeScreenListener((screen, userData) -> System.out.println("NOVA TELA"));
+        ApplicationMain.addOnChangeScreenListener((screen, userData) -> System.out.println("Screen Energy"));
     }
 }
